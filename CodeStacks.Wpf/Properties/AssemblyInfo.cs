@@ -1,8 +1,10 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Markup;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -11,7 +13,7 @@ using System.Windows;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("P R C")]
-[assembly: AssemblyProduct("CodeStacks.Wpf")]
+[assembly: AssemblyProduct("CodeStacks")]
 [assembly: AssemblyCopyright("Copyright © P R C 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -28,11 +30,12 @@ using System.Windows;
 //the NeutralResourceLanguage attribute below.  Update the "en-US" in
 //the line below to match the UICulture setting in the project file.
 
+[assembly: CLSCompliant(true)]
+[assembly: NeutralResourcesLanguage("en")]
+
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-[assembly: System.Windows.Markup.XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.wpf")]
-[assembly: System.Windows.Markup.XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.uielements")]
-[assembly: System.Windows.Markup.XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.popwindow")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.wpf")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
@@ -56,3 +59,4 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyInformationalVersion("1.0.0.0")]

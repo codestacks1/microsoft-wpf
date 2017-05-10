@@ -3,8 +3,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace CodeStacks.UIElements
+namespace xiaowen.codestacks.uielements
 {
+#if NETFX_CORE
+using Windows.UI.Xaml;
+#endif
     public class ListBoxWithCommand : ListBox, ICommandSource
     {
         /// <summary>

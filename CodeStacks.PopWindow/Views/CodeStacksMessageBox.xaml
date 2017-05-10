@@ -1,0 +1,67 @@
+﻿<Window x:Class="xiaowen.codestacks.popwindow.Views.CodeStacksMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:viewmodels="clr-namespace:xiaowen.codestacks.popwindow.ViewModels"
+        d:DataContext="{d:DesignInstance viewmodels:CodeStacksMessageBoxViewModel,IsDesignTimeCreatable=True}"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"        
+        WindowStartupLocation="CenterOwner"
+        Background="{x:Null}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Topmost="True"
+        Margin="0"
+        Title="CodeStacksMessageBox" Height="120" Width="260" MouseLeftButtonUp="Window_MouseLeftButtonUp">
+
+    <Window.Resources>
+        <ImageBrush x:Key="gridblackbg" ImageSource="..\Gallery\page.background\page.bg.black.jpg" />
+
+        <Storyboard x:Key="ClosedStoryboard" Storyboard.TargetName="gradient">
+            <DoubleAnimation From="1" To="0" Duration="0:0:2" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[1].Offset" />
+            <DoubleAnimation From="1" To="0" Duration="0:0:1.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Offset" />
+            <ColorAnimation To="#00000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Color" />
+        </Storyboard>
+        <LinearGradientBrush x:Key="ClosedBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#FF000000" Offset="0" />
+            <GradientStop Color="#FF000000" Offset="1" />
+            <GradientStop Color="#FF000000" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Grid>
+        <!--Not Gradient-->
+        <Grid x:Name="notgradient" Visibility="Collapsed" Background="{StaticResource ResourceKey=gridblackbg}" Opacity="0.8">
+            <TextBlock Margin="5" Text="welcome to codestacks.wpf" FontSize="16" Foreground="White" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   TextWrapping="Wrap"/>
+        </Grid>
+
+        <!--Gradient Storyboard-->
+        <Grid x:Name="gradient" Background="{StaticResource ResourceKey=gridblackbg}">
+            <Grid.OpacityMask>
+                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                    <GradientStop Color="#00000000" Offset="0" />
+                    <GradientStop Color="#00000000" Offset="1" />
+                    <GradientStop Color="#00000000" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="1" To="0" Duration="0:0:1.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[1].Offset" />
+                                <DoubleAnimation From="1" To="0" Duration="0:0:1.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Offset" />
+                                <ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Color" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Grid.Triggers>
+        </Grid>
+    </Grid>
+</Window>
