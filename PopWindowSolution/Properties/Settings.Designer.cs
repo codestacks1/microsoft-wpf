@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace xiaowen.codestacks.dependencyproperties.Properties {
+namespace xiaowen.codestacks.popwindow.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
