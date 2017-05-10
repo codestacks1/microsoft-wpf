@@ -22,6 +22,7 @@ using System.Windows.Markup;
 [assembly: System.Windows.Markup.XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.dependencyproperties")]
 [assembly: System.Windows.Markup.XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.popwindow")]
 
+
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
