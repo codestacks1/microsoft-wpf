@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace xiaowen.codestacks.dependencyproperties
+namespace CodeStacks.UIElements
 {
     public class ListBoxWithCommand : ListBox, ICommandSource
     {
@@ -28,17 +28,44 @@ namespace xiaowen.codestacks.dependencyproperties
 
         public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
             "CommandTarget",
+            typeof(IInputElement),
+            typeof(ListBoxWithCommand),
+            new PropertyMetadata((IInputElement)null)
+            );
+
+        public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
+            "CommandParameter",
             typeof(object),
             typeof(ListBoxWithCommand),
             new PropertyMetadata((object)null)
             );
 
-        public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
-            "CommandParameter",
-            typeof(IInputElement),
-            typeof(ListBoxWithCommand),
-            new PropertyMetadata((IInputElement)null)
-            );
+        /// <summary>
+        /// from ICommandSource
+        /// </summary>
+        public ICommand Command
+        {
+            get { return (ICommand)GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); }
+        }
+
+        /// <summary>
+        /// from ICommandSource
+        /// </summary>
+        public IInputElement CommandTarget
+        {
+            get { return (IInputElement)GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
+        }
+
+        /// <summary>
+        /// from ICommandSource
+        /// </summary>
+        public object CommandParameter
+        {
+            get { return (object)GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
+        }
 
         /// <summary>
         /// 
@@ -122,34 +149,19 @@ namespace xiaowen.codestacks.dependencyproperties
             oldCommand.CanExecuteChanged -= handler;
         }
 
-        /// <summary>
-        /// from ICommandSource
-        /// </summary>
-        public ICommand Command
-        {
-            get { return (ICommand)GetValue(CommandProperty); }
-            set { SetValue(CommandProperty, value); }
-        }
 
-        /// <summary>
-        /// from ICommandSource
-        /// </summary>
-        public object CommandParameter
+        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
-            get { return (object)GetValue(CommandParameterProperty); }
-            set { SetValue(CommandParameterProperty, value); }
-        }
+            base.OnSelectionChanged(e);
 
-        /// <summary>
-        /// from ICommandSource
-        /// </summary>
-        public IInputElement CommandTarget
-        {
-            get
+            if (this.Command != null)
             {
-                throw new NotImplementedException();
+                RoutedCommand command = this.Command as RoutedCommand;
+                if (command != null)
+                    command.Execute(this.CommandParameter, this.CommandTarget);
+                else
+                    ((ICommand)Command).Execute(CommandParameter);
             }
         }
-
     }
 }
