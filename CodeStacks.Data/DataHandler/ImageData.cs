@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Resources;
 
-namespace CodeStacks.Data.DataHandler
+namespace xiaowen.codestacks.data.DataHandler
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImageData
     {
         internal ImageData()
@@ -20,9 +18,76 @@ namespace CodeStacks.Data.DataHandler
 
         }
 
-        public Func<string, byte[]> ConvertToBuffer { get; private set; }
-        public Func<string, ImageSource> ConvertToImageSource { get; private set; }
-        public Func<byte[], BitmapImage> ConvertToBitmapImage { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <param name="isVertify"></param>
+        /// <param name="isCompress"></param>
+        /// <param name="isBreak"></param>
+        /// <returns></returns>
+        public delegate BitmapImage CodeStacksDelegate(byte[] buffer, bool? isVertify, bool isCompress, ref bool? isBreak);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
+        public delegate BitmapImage CodeStacksDelegate1(byte[] buffer);
+
+        /// <summary>
+        /// photo 转换成 buffer
+        /// </summary>
+        /// <param name="path">绝对路径 pack://application:,,,/Images/unkonw.png</param>
+        /// <returns></returns>
+        public Func<string, byte[]> ConvertToBufferDelegate
+        {
+            get { return this.ConvertToBufferFunc; }
+        }
+
+        /// <summary>
+        /// photo 转换成 buffer
+        /// </summary>
+        /// <param name="path">绝对路径 pack://application:,,,/Images/unkonw.png</param>
+        /// <returns></returns>
+        public Func<string, byte[]> ConvertToBuffer1Delegate
+        {
+            get { return this.ConvertToBuffer1Func; }
+        }
+
+        /// <summary>
+        /// photo 转换成 ImageSource
+        /// </summary>
+        /// <param name="path">绝对路径 pack://application:,,,/Images/unkonw.png</param>
+        /// <returns></returns>
+        public Func<string, ImageSource> ConvertToImageSourceDelegate
+        {
+            get { return this.ConvertToImageSourceFunc; }
+        }
+
+        /// <summary>
+        /// image buffer 转换成 BitmapImage
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <param name="isVertify"></param>
+        /// <param name="isCompress"></param>
+        /// <param name="isBreak"></param>
+        /// <returns></returns>
+        public CodeStacksDelegate ConvertToBitmapImageDelegate
+        {
+            get { return this.ConvertToBitmapImageFunc; }
+        }
+
+        /// <summary>
+        /// image buffer 转换成 BitmapImage
+        /// 默认使用验证，压缩
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
+        public CodeStacksDelegate1 ConvertToBitmapImageDelegate1
+        {
+            get { return this.ConvertToBitmapImageFunc; }
+        }
 
         /// <summary>
         /// 
@@ -34,7 +99,12 @@ namespace CodeStacks.Data.DataHandler
             return File.ReadAllBytes(path);
         }
 
-        public byte[] CoonvertToBuffer1Func(string path)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private byte[] ConvertToBuffer1Func(string path)
         {
             byte[] result = { };
             if (!string.IsNullOrEmpty(path))
@@ -86,7 +156,7 @@ namespace CodeStacks.Data.DataHandler
         /// <param name="isCompress"></param>
         /// <param name="isBreak"></param>
         /// <returns></returns>
-        private BitmapImage ConvertToBitmapImageFunc(byte[] buffer, bool isVertify, bool isCompress, ref bool isBreak)
+        private BitmapImage ConvertToBitmapImageFunc(byte[] buffer, bool? isVertify, bool isCompress, ref bool? isBreak)
         {
             BitmapImage result = new BitmapImage();
             BitmapImage compressResult = new BitmapImage();
@@ -100,7 +170,7 @@ namespace CodeStacks.Data.DataHandler
 
                     try
                     {
-                        if (isVertify)
+                        if (isVertify != null && isVertify == true)
                         {
                             try
                             {
@@ -141,6 +211,48 @@ namespace CodeStacks.Data.DataHandler
             catch (Exception)
             {
 
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
+        private BitmapImage ConvertToBitmapImageFunc(byte[] buffer)
+        {
+            BitmapImage result = new BitmapImage();
+            BitmapImage compressResult = new BitmapImage();
+            byte[] compressBuffer = { };
+            long capacity = this.GetBufferLength(buffer);
+            try
+            {
+                if (capacity > 0 && capacity > 100)// compress to 0 - 100 KByte
+                {
+                    Stream stream = new MemoryStream(buffer);
+                    try
+                    {
+                        using (Image img = Image.FromStream(stream))
+                        {
+                            compressBuffer = ImageCompress(stream);
+                            result.BeginInit();
+                            result.StreamSource = new MemoryStream(compressBuffer);
+                            result.EndInit();
+                            result.Freeze();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                else
+                {
+                    //null
+                }
+            }
+            catch (Exception)
+            {
             }
             return result;
         }
@@ -194,7 +306,7 @@ namespace CodeStacks.Data.DataHandler
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public byte[] ImageCompress(Stream stream)
+        private byte[] ImageCompress(Stream stream)
         {
             byte[] result = { };
             try

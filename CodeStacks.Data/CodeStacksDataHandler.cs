@@ -1,14 +1,14 @@
-﻿using CodeStacks.Data.DataHandler;
-using CodeStacks.Data.UIHelper;
-using GalaSoft.MvvmLight.Threading;
+﻿using GalaSoft.MvvmLight.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
+using xiaowen.codestacks.data.DataHandler;
+using xiaowen.codestacks.data.UIHelper;
 
-namespace CodeStacks.Data
+namespace xiaowen.codestacks.data
 {
     public class CodeStacksDataHandler
     {
@@ -58,8 +58,8 @@ namespace CodeStacks.Data
 
         public void CodeStacksFunc()
         {
-            Func<byte[], BitmapImage> f = CodeStacksDataHandler.ImageData.ConvertToBitmapImage;
-            var s = f.Invoke(null);
+            bool? is3 = false;
+            CodeStacksDataHandler.ImageData.ConvertToBitmapImageDelegate.Invoke(null, false, false, ref is3);
         }
     }
 }
