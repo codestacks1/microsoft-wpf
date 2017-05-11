@@ -34,6 +34,31 @@ namespace CodeStacks.Data.DataHandler
             return File.ReadAllBytes(path);
         }
 
+        public byte[] CoonvertToBuffer1Func(string path)
+        {
+            byte[] result = { };
+            if (!string.IsNullOrEmpty(path))
+            {
+                try
+                {
+                    CodeStacksDataHandler.UIThread.Invoke(() =>
+                    {
+                        using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                        {
+                            byte[] buffer = new byte[fs.Length];
+                            fs.Read(buffer, 0, buffer.Length);
+                            result = buffer;
+                        }
+                    });
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// 
         /// </summary>
