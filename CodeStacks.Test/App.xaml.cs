@@ -16,9 +16,11 @@ namespace CodeStacks.Test
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            CodeStacksMessageBox mb = new CodeStacksMessageBox(true);
+            //CodeStacksMessageBox mb = new CodeStacksMessageBox(true);
+            //mb.Show();
 
-            mb.Show();
+            var screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height.ToString();
+            var screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width.ToString();
         }
     }
 }
