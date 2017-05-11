@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Test", "CodeStac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Data", "CodeStacks.Data\CodeStacks.Data.csproj", "{463854B2-9EBA-4229-B701-3F08F559080E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Log", "CodeStacks.Log\CodeStacks.Log.csproj", "{DB29F652-1094-47A8-ABE0-F11E38B9628E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.UserControl", "CodeStacks.UserControl\CodeStacks.UserControl.csproj", "{337E0541-1066-4327-AB64-2F47907F5E60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{463854B2-9EBA-4229-B701-3F08F559080E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{463854B2-9EBA-4229-B701-3F08F559080E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{463854B2-9EBA-4229-B701-3F08F559080E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB29F652-1094-47A8-ABE0-F11E38B9628E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB29F652-1094-47A8-ABE0-F11E38B9628E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB29F652-1094-47A8-ABE0-F11E38B9628E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB29F652-1094-47A8-ABE0-F11E38B9628E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337E0541-1066-4327-AB64-2F47907F5E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337E0541-1066-4327-AB64-2F47907F5E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337E0541-1066-4327-AB64-2F47907F5E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337E0541-1066-4327-AB64-2F47907F5E60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

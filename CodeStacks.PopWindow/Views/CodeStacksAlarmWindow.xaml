@@ -1,0 +1,111 @@
+﻿<Window x:Class="xiaowen.codestacks.popwindow.Views.CodeStacksAlarmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        mc:Ignorable="d"
+        WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        Title="CodeStacksAlarmWindow" Height="800" Width="900">
+
+    <!--<Application>
+        <Application.Resources>
+            <ResourceDictionary Source="../Resource/Style/GlobaleStyleDictionary.xaml" />
+        </Application.Resources>
+    </Application>-->
+    <Window.Resources>
+        <!--<ResourceDictionary x:Key="rdstyle">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resource/Style/GlobaleStyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+        <ImageBrush x:Key="bgwindow" ImageSource="..\Gallery\bg.window.png" />
+        <ImageBrush x:Key="bgphoto" ImageSource="..\Gallery\bg.photo.png" />
+
+        <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="..\Gallery\btn.close.mouseup.png"></ImageBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="..\Gallery\btn.close.mousedown.png"></ImageBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid x:Name="BodyGrid" Background="{StaticResource ResourceKey=bgwindow}" >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Foreground="Red" Text="发现可疑人员" FontSize="35" />
+        <Button Name="btnClose" Grid.ColumnSpan="3" Width="24" Height="24"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,20,0"
+                BorderThickness="0" Style="{DynamicResource btnCloseStyle}"
+                Command="{Binding CloseWindow.CmdClos}" CommandParameter="{Binding CloseWindow.WillCloseWindow,Mode=TwoWay}" />
+
+        <TextBlock VerticalAlignment="Top" Margin="0,60,0,0" Foreground="White" FontSize="25" 
+                   Text="抓拍人像" />
+        <Grid Margin="0,100,0,0" Background="{StaticResource ResourceKey=bgphoto}">
+            <Image Margin="5,10,5,10" Stretch="Fill" Source="{Binding DataObject.Snap.SnapPhoto}"></Image>
+        </Grid>
+        <TextBlock Grid.Column="2" VerticalAlignment="Top" Margin="0,60,0,0" 
+                   Foreground="White" FontSize="25" Text="数据库人像" />
+        <Grid Grid.Column="2" Margin="0,100,0,0" Background="{StaticResource ResourceKey=bgphoto}">
+            <Image Margin="5,10,5,10" Stretch="Fill" Source="{Binding DataObject.Template.PersonInfo.Photo}"></Image>
+        </Grid>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1"  Margin="10,60,10,10">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="FontSize" Value="20"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding DataObject.Score}" FontSize="35" Foreground="Red" />
+                <TextBlock Text=" %" FontSize="35" Foreground="Red" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="姓名："/>
+                <TextBlock Text="{Binding DataObject.Template.PersonInfo.Name}" TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="来源库：" />
+                <TextBlock Text="{Binding DataObject.Source}" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="发现时间：" />
+                <TextBlock Text="{Binding DataObject.Snap.SanpDateTime}" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="发现地点：" />
+                <TextBlock Text="{Binding DataObject.Camera.Location}" />
+            </StackPanel>
+        </StackPanel>
+        <GroupBox BorderBrush="#16E8FA" Header="扩展信息栏" FontSize="20" Foreground="White" Grid.ColumnSpan="3" Grid.Row="1" Margin="0,0,0,60"></GroupBox>
+        <!--<Button x:Name="buttonSend" Click="publish_Click" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="1" Width="100" Height="40">推送</Button>-->
+    </Grid>
+</Window>

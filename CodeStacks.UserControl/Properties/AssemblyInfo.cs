@@ -8,11 +8,11 @@ using System.Windows.Markup;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CodeStacks.PopWindow")]
+[assembly: AssemblyTitle("CodeStacks.UserControl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("P R C")]
-[assembly: AssemblyProduct("CodeStacks.PopWindow")]
+[assembly: AssemblyProduct("CodeStacks.UserControl")]
 [assembly: AssemblyCopyright("Copyright © P R C 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Windows.Markup;
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(true)]
+[assembly: ComVisible(false)]
 
 //In order to begin building localizable applications, set 
 //<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
@@ -31,7 +31,7 @@ using System.Windows.Markup;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.popwindow")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.usercontrol")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using xiaowen.codestacks.popwindow.Utilities;
 
 namespace xiaowen.codestacks.popwindow.Views
@@ -24,31 +13,46 @@ namespace xiaowen.codestacks.popwindow.Views
         public CodeStacksMessageBox()
         {
             InitializeComponent();
+            btnClose.CommandParameter = this;
         }
 
         public CodeStacksMessageBox(int delay) : this()
         {
+            SetWindowSize();
             AutoCloseWindow.CloseWindow(this, 3);
         }
 
         public CodeStacksMessageBox(Window owner, int delay) : this(delay)
         {
-
+            SetWindowSize();
         }
 
-        public CodeStacksMessageBox(bool isAnimation) : this()
+        public CodeStacksMessageBox(bool isAnimation, int delay) : this()
+        {
+            SetWindowSize();
+            AutoCloseWindow.CloseWindow(this, gradient, "ClosedBrush", "ClosedStoryboard", delay);
+        }
+
+        private void SetWindowSize()
+        {
+            this.Height = 120;
+            this.Width = 320;
+        }
+
+        public CodeStacksMessageBox(bool isCommon, string err) : this()
         {
 
         }
 
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.IsEnabled = false;
-            gradient.OpacityMask = this.Resources["ClosedBrush"] as LinearGradientBrush;
-            Storyboard stb = this.Resources["ClosedStoryboard"] as Storyboard;
-            stb.Completed += delegate { this.Close(); };
-
-            stb.Begin();
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

@@ -69,12 +69,19 @@
     <Compile Include="CodeStacksDataHandler.cs" />
     <Compile Include="DataHandler\DateTimeData.cs" />
     <Compile Include="DataHandler\ImageData.cs" />
+    <Compile Include="Models\CloseWindowModel.cs" />
+    <Compile Include="Models\SenSingModels\Camera.cs" />
+    <Compile Include="Models\SenSingModels\Compare.cs" />
+    <Compile Include="Models\SenSingModels\Person.cs" />
+    <Compile Include="Models\SenSingModels\Snap.cs" />
+    <Compile Include="Models\SenSingModels\Template.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIHelper\PixelData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.Data" mkdir "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.Data" 

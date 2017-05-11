@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="xiaowen.codestacks.usercontrol.Views.LoadRadar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:xiaowen.codestacks.usercontrol.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ImageBrush x:Key="bgradar" ImageSource="..\Images\bg.radar.png" />
+        <ImageBrush x:Key="animateradarround" ImageSource="..\Images\animate.radarround.png" />
+        <ImageBrush x:Key="fontloading" ImageSource="..\Images\font.loading.png" />
+    </UserControl.Resources>
+
+    <Grid Width="100" Height="114" 
+          Background="{StaticResource ResourceKey=bgradar}"
+          Visibility="{Binding LoadingVisiblity,Mode=TwoWay}">
+        <Image Height="40" HorizontalAlignment="Left"  Margin="11,9,0,0" Name="image3" 
+               Stretch="Fill" VerticalAlignment="Top" Width="39" Source="..\Images\animate.radarround.png">
+            <Image.RenderTransform>
+                <RotateTransform x:Name="imageLargeRotateTransformCmp"  Angle="0" CenterX="39" CenterY="40"/>
+            </Image.RenderTransform>
+        </Image>
+        <Label Margin="-20,83,0,0" Foreground="#26A5DC" Height="20" Width="60" Background="{StaticResource ResourceKey=fontloading}">
+        </Label>
+        <Label Margin="62,63,0,0" Name="labPoint311" FontSize="35" Height="55" Width="35" Foreground="#26A5DC"
+               VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Opacity="0">
+        </Label>
+        <Label Margin="71,63,0,0" Name="labPoint32" FontSize="35" Height="55" Width="35" Foreground="#26A5DC" 
+               VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Opacity="0">
+        </Label>
+        <Label Margin="80,63,0,0" Name="labPoint33" FontSize="35" Height="55" Width="35" Foreground="#26A5DC" 
+               VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Opacity="0">
+        </Label>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Grid.Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever" >
+                        <DoubleAnimation Storyboard.TargetName="imageLargeRotateTransformCmp" Storyboard.TargetProperty="Angle" By="360" Duration="0:0:2"    />
+                        <DoubleAnimation Storyboard.TargetName="image3" Storyboard.TargetProperty="Opacity" From="0.0"  To="1.0" Duration="0:0:0.01"    />
+                    </Storyboard>
+                </BeginStoryboard>
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="labPoint311" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.5" BeginTime="0:0:0.1" To="1"/>
+                        <DoubleAnimation Storyboard.TargetName="labPoint32" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.3" BeginTime="0:0:0.2" From="0" To="1"/>
+                        <DoubleAnimation Storyboard.TargetName="labPoint33" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.1" BeginTime="0:0:0.5" From="0" To="1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+    </Grid>
+</UserControl>

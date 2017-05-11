@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace xiaowen.codestacks.popwindow.Utilities
 {
@@ -9,18 +12,44 @@ namespace xiaowen.codestacks.popwindow.Utilities
         /// <summary>
         /// Close Current Window
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="window"></param>
         /// <param name="delay"></param>
-        internal static async void CloseWindow(Window obj, double delay)
+        internal static async void CloseWindow(Window window, double delay)
         {
             await Task.Delay(TimeSpan.FromSeconds(delay));
             try
             {
-                obj.Close();
+                window.Close();
             }
             catch (Exception ex)
             {
                 string err = ex.Message;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="window"></param>
+        /// <param name="grid"></param>
+        /// <param name="linearGradientBrush"></param>
+        /// <param name="storyboard"></param>
+        /// <param name="delay"></param>
+        internal static async void CloseWindow(Window window, Grid grid, string linearGradientBrush, string storyboard, double delay)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(delay));
+            try
+            {
+                window.IsEnabled = false;
+                grid.OpacityMask = window.Resources[linearGradientBrush] as LinearGradientBrush;
+                Storyboard stb = window.Resources[storyboard] as Storyboard;
+                stb.Completed += delegate { window.Close(); };
+
+                stb.Begin();
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

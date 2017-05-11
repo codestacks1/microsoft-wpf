@@ -8,6 +8,6 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-
+        <Button Click="Button_Click" Width="180" Height="30" Content="message show button"></Button>
     </Grid>
 </Window>
