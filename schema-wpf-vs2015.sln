@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Log", "CodeStack
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.UserControl", "CodeStacks.UserControl\CodeStacks.UserControl.csproj", "{337E0541-1066-4327-AB64-2F47907F5E60}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XIAOWEN.GMAP.DEMO", "XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.shproj", "{E2895138-57DE-449A-B375-6CCFB1D7D78B}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CodeStacks.GMap.Demo", "XIAOWEN.GMAP.DEMO\CodeStacks.GMap.Demo.shproj", "{E2895138-57DE-449A-B375-6CCFB1D7D78B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMAP.WPF", "GMAP.WPF\GMAP.WPF.csproj", "{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Gmap.Wpf", "CodeStacks.Gmap.Wpf\CodeStacks.Gmap.Wpf.csproj", "{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

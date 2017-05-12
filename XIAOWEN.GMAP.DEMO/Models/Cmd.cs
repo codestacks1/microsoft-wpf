@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace XIAOWEN.GMAP.DEMO.Models
+namespace xiaowen.codestacks.gmap.demo.Models
 {
     public class Cmd
     {

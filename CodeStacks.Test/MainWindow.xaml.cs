@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using log4net;
+using System.Windows;
 using xiaowen.codestacks.data;
 using xiaowen.codestacks.popwindow;
 using xiaowen.codestacks.popwindow.Views;
@@ -10,6 +11,8 @@ namespace CodeStacks.Test
     /// </summary>
     public partial class MainWindow : Window
     {
+        static readonly ILog log = LogManager.GetLogger(typeof(MainWindow).FullName);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +39,11 @@ namespace CodeStacks.Test
 
             //    var sh1 = sh;
             //});
+
+            log.Info("Entering application");
+            log.Error("ddddd");
+            log.Debug("debug");
+
         }
     }
 }

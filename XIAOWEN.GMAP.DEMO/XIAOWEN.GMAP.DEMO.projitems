@@ -6,7 +6,7 @@
     <SharedGUID>e2895138-57de-449a-b375-6ccfb1d7d78b</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>XIAOWEN.GMAP.DEMO</Import_RootNamespace>
+    <Import_RootNamespace>xiaowen.codestacks.gmap.demo</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DemoStuff.cs" />

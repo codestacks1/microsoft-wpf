@@ -26,7 +26,7 @@ using System.Data.SQLite;
    using SQLiteParameter=Mono.Data.SqliteClient.SqliteParameter;
 #endif
 
-namespace XIAOWEN.GMAP.DEMO
+namespace xiaowen.codestacks.gmap.demo
 {
    public struct VehicleData
    {

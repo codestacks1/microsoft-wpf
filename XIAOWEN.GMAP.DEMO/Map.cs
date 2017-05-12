@@ -1,5 +1,5 @@
 ﻿
-namespace XIAOWEN.GMAP.DEMO
+namespace xiaowen.codestacks.gmap.demo
 {
     using System.Windows.Media;
     using GMap.NET.WindowsPresentation;
