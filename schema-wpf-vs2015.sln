@@ -19,7 +19,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Log", "CodeStack
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.UserControl", "CodeStacks.UserControl\CodeStacks.UserControl.csproj", "{337E0541-1066-4327-AB64-2F47907F5E60}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XIAOWEN.GMAP.DEMO", "XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.shproj", "{E2895138-57DE-449A-B375-6CCFB1D7D78B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMAP.WPF", "GMAP.WPF\GMAP.WPF.csproj", "{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}*SharedItemsImports = 4
+		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{e2895138-57de-449a-b375-6ccfb1d7d78b}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -53,6 +61,10 @@ Global
 		{337E0541-1066-4327-AB64-2F47907F5E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{337E0541-1066-4327-AB64-2F47907F5E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{337E0541-1066-4327-AB64-2F47907F5E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

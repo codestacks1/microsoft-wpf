@@ -19,6 +19,11 @@ namespace xiaowen.codestacks.data.DataHandler
             get { return this.ConvertToLong; }
         }
 
+        public Func<long, string> ConvertToStringDelegate
+        {
+            get { return this.ConvertToString; }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -151,5 +156,20 @@ namespace xiaowen.codestacks.data.DataHandler
 
             return Convert.ToInt64(tsStart.TotalSeconds - tsBasic.TotalSeconds);
         }
+
+        public string ConvertToString(long datetime)
+        {
+            DateTime time = DateTime.Now;
+            if (datetime > 0)
+            {
+                long longTime = datetime;
+                time = new DateTime(1970, 1, 1);
+                time = time.AddSeconds(longTime);
+                return time.ToString("yyyy/MM/dd HH:mm:ss");
+            }
+            else
+                return string.Empty;
+        }
+
     }
 }

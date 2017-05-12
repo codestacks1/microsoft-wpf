@@ -17,9 +17,9 @@ namespace CodeStacks.Test
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var s = CodeStacksWindow.MessageBox.Invoke(true, false, 2, "Welcome to codestacks!");
+            //var s = CodeStacksWindow.MessageBox.Invoke(true, false, 2, "Welcome to codestacks!");
 
-            CodeStacksWindow.MessageBox.Invoke(false, false, 2, s.ToString());
+            CodeStacksWindow.MessageBoxSta.Invoke(false, false, 2, "9090".ToString());
 
             string s1 = string.Empty;
 

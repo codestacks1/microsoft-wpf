@@ -63,10 +63,16 @@ namespace xiaowen.codestacks.popwindow.Views
         internal static bool ShowMessageBox(bool isConfirm, bool isAnimation, int delay, string err)
         {
             bool result = false;
-            if (isConfirm)
-                result = new CodeStacksMessageBox(isConfirm, err).ShowWindow();
-            else
-                new CodeStacksMessageBox(isAnimation, delay, err).Show();
+            try
+            {
+                if (isConfirm)
+                    result = new CodeStacksMessageBox(isConfirm, err).ShowWindow();
+                else
+                    new CodeStacksMessageBox(isAnimation, delay, err).Show();
+            }
+            catch (Exception)
+            {
+            }
             return result;
         }
 
