@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,8 +50,21 @@ namespace xiaowen.codestacks.popwindow.Utilities
             }
             catch (Exception ex)
             {
-
+                string err = ex.Message;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="errMsg"></param>
+        public static void ExceptionMsgFromSTAThread(string errMsg)
+        {
+            Thread msgThread = new Thread(() => {/* MyMessage.ShowAndAutoClose(errMsg);*/ });
+            msgThread.SetApartmentState(ApartmentState.STA);
+            msgThread.Start();
+        }
+
+
     }
 }

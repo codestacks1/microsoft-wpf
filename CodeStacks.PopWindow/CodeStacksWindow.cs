@@ -11,6 +11,14 @@ namespace xiaowen.codestacks.popwindow
     public class CodeStacksWindow
     {
         static Func<bool, bool, int, string, bool> _messageBox;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isConfirm">弹出可操作窗口</param>
+        /// <param name="isAnimation">是否启用动画窗口</param>
+        /// <param name="delay"></param>
+        /// <param name="err"></param>
+        /// <returns></returns>
         public static Func<bool, bool, int, string, bool> MessageBox
         {
             get

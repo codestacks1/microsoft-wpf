@@ -55,6 +55,7 @@ namespace xiaowen.codestacks.popwindow.Views
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="isConfirm"></param>
         /// <param name="isAnimation"></param>
         /// <param name="delay"></param>
         /// <param name="err"></param>

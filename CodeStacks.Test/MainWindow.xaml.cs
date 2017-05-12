@@ -17,23 +17,25 @@ namespace CodeStacks.Test
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var s = CodeStacksWindow.MessageBox.Invoke(false, false, 2, "Welcome to codestacks!");
+            var s = CodeStacksWindow.MessageBox.Invoke(true, false, 2, "Welcome to codestacks!");
+
+            CodeStacksWindow.MessageBox.Invoke(false, false, 2, s.ToString());
 
             string s1 = string.Empty;
 
-            CodeStacksDataHandler.UIThread.Invoke(() =>
-            {
-                var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
+            //CodeStacksDataHandler.UIThread.Invoke(() =>
+            //{
+            //    var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
 
-                var sh1 = sh;
-            });
+            //    var sh1 = sh;
+            //});
 
-            CodeStacksDataHandler.UIThread.Invoke(() =>
-            {
-                var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
+            //CodeStacksDataHandler.UIThread.Invoke(() =>
+            //{
+            //    var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
 
-                var sh1 = sh;
-            });
+            //    var sh1 = sh;
+            //});
         }
     }
 }
