@@ -1,4 +1,4 @@
-﻿namespace DATA.MODELS.SensingModels
+﻿namespace xiaowen.codestacks.data.SenSingModels
 {
     /// <summary>
     /// 比对结果

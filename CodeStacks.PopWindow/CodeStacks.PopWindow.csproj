@@ -69,6 +69,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeStacksWindow.cs" />
     <Compile Include="Utilities\AutoCloseWindow.cs" />
     <Compile Include="ViewModels\CodeStacksAlarmWindowViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksMessageBoxViewModel.cs" />

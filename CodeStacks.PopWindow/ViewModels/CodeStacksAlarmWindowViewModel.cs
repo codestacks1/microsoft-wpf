@@ -1,8 +1,8 @@
-﻿using DATA.MODELS.SensingModels;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows;
 using xiaowen.codestacks.data.Models;
+using xiaowen.codestacks.data.SenSingModels;
 using xiaowen.codestacks.popwindow.Views;
 
 namespace xiaowen.codestacks.popwindow.ViewModels

@@ -12,14 +12,14 @@ namespace xiaowen.codestacks.data
 {
     public class CodeStacksDataHandler
     {
+        static long i = 0;
         static PixelData _pixelData;
         /// <summary>
         /// current screen handler
         /// </summary>
         public static PixelData PixelData
         {
-            get { return _pixelData; }
-            private set { _pixelData = new PixelData(); }
+            get { return _pixelData = new PixelData(); }
         }
 
         static ImageData _imageData;
@@ -28,8 +28,7 @@ namespace xiaowen.codestacks.data
         /// </summary>
         public static ImageData ImageData
         {
-            get { return _imageData; }
-            private set { _imageData = new ImageData(); }
+            get { return _imageData = new ImageData(); }
         }
 
         static DateTimeData _dateTimeData;
@@ -38,8 +37,7 @@ namespace xiaowen.codestacks.data
         /// </summary>
         public static DateTimeData DateTimeData
         {
-            get { return _dateTimeData; }
-            private set { _dateTimeData = new DateTimeData(); }
+            get { return _dateTimeData = new DateTimeData(); }
         }
 
         static Action<Action> _uiThread;
@@ -48,12 +46,20 @@ namespace xiaowen.codestacks.data
         /// </summary>
         public static Action<Action> UIThread
         {
-            get { return _uiThread; }
-            set
+            get
             {
-                DispatcherHelper.Initialize();
-                _uiThread = DispatcherHelper.CheckBeginInvokeOnUI;
+                if (i == 0)
+                {
+                    DispatcherHelper.Initialize();
+                    i = 1;
+                }
+                return _uiThread = DispatcherHelper.CheckBeginInvokeOnUI;
             }
+        }
+
+        public static void InitUIThread()
+        {
+            DispatcherHelper.Initialize();
         }
 
         public void CodeStacksFunc()

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace DATA.MODELS.SensingModels
+namespace xiaowen.codestacks.data.SenSingModels
 {
     public class Snap
     {

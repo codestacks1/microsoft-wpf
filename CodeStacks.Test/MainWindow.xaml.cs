@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using xiaowen.codestacks.data;
+using xiaowen.codestacks.popwindow;
 using xiaowen.codestacks.popwindow.Views;
 
 namespace CodeStacks.Test
@@ -15,7 +17,23 @@ namespace CodeStacks.Test
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new CodeStacksMessageBox(isCommon: true, err: "Welcome to codestacks!").Show();
+            var s = CodeStacksWindow.MessageBox.Invoke(false, false, 2, "Welcome to codestacks!");
+
+            string s1 = string.Empty;
+
+            CodeStacksDataHandler.UIThread.Invoke(() =>
+            {
+                var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
+
+                var sh1 = sh;
+            });
+
+            CodeStacksDataHandler.UIThread.Invoke(() =>
+            {
+                var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
+
+                var sh1 = sh;
+            });
         }
     }
 }
