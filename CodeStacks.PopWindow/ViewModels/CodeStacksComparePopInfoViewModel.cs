@@ -9,6 +9,9 @@ namespace xiaowen.codestacks.popwindow.ViewModels
 {
     public class CodeStacksComparePopInfoViewModel : BindableBase
     {
+        public CodeStacksComparePopInfoViewModel()
+        {
 
+        }
     }
 }

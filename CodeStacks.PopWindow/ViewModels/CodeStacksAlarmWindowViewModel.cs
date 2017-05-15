@@ -19,7 +19,6 @@ namespace xiaowen.codestacks.popwindow.ViewModels
         {
             if (obj != null)
             {
-                MessageBox.Show(obj.Template.PersonInfo.Name);
                 DataObject = obj;
             }
             else

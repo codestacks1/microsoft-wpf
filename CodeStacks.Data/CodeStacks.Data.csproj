@@ -73,6 +73,7 @@
     <Compile Include="Models\CloseWindowModel.cs" />
     <Compile Include="Models\SenSingModels\Camera.cs" />
     <Compile Include="Models\SenSingModels\Compare.cs" />
+    <Compile Include="Models\SenSingModels\DatabaseSettings.cs" />
     <Compile Include="Models\SenSingModels\Person.cs" />
     <Compile Include="Models\SenSingModels\Snap.cs" />
     <Compile Include="Models\SenSingModels\Template.cs" />
