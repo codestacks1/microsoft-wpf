@@ -1,0 +1,108 @@
+﻿<Window x:Class="xiaowen.codestacks.popwindow.Views.CodeStacksComparePopInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent" 
+        Height="600" Width="1000" ResizeMode="NoResize" Title="比对详细信息">
+
+    <Window.Resources>
+        <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="..\Gallery\btn.close.mouseup.png"></ImageBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="..\Gallery\btn.close.mousedown.png"></ImageBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid >
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.Background>
+            <ImageBrush ImageSource="..\Gallery\bg.window.png"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" >场 景 留 存</Label>
+        <Button Name="btnClose" Grid.Column="1" Width="24" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10"
+               BorderThickness="0" Style="{DynamicResource btnCloseStyle}" Click="btnClose_Click_1"></Button>
+        <!--抓拍帧-->
+        <Label Grid.Column="1"  Margin="0,50,5,50">抓拍帧:</Label>
+        <Grid Grid.Column="1" Margin="0,80,5,50">
+            <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_SenceImg"></Image>
+            <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+        </Grid>
+        <!--比对照片和相关信息-->
+        <Grid  Margin="0,50,0,50" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="0*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <!--抓拍照片-->
+            <Label  Grid.Column="0" Grid.ColumnSpan="2">抓拍照片:</Label>
+            <Grid Margin="0,30,0,0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_capImage"></Image>
+                <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+            </Grid>
+            <!--模版照片-->
+            <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">模版照片:</Label>
+            <Grid Margin="0,30,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_cmpImage"></Image>
+                <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+            </Grid>
+            <!--模版信息-->
+            <Label Grid.Column="2" Grid.ColumnSpan="2">模版信息:</Label>
+            <Grid Grid.Column="2" Margin="0,30,0,0" Grid.RowSpan="2">
+                <StackPanel VerticalAlignment="Top" Grid.Column="1"  Margin="10,30,10,10">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="FontSize" Value="20"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock x:Name="label_Socre"  HorizontalAlignment="Center" FontSize="35" Foreground="Red">相似度:Socre%</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" ></TextBlock>
+                    <!--姓名:-->
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_TemplateName">TemplateName</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" >来源库:</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_TemplateType">TemplateType</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" >发现时间:</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_CapTime">CapTime</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" >发现地点:</TextBlock>
+                    <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" x:Name="label_CapChannel">CapChannel</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

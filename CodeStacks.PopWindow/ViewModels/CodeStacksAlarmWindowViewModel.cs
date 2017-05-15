@@ -11,13 +11,15 @@ namespace xiaowen.codestacks.popwindow.ViewModels
     {
         public CodeStacksAlarmWindowViewModel()
         {
+            CloseWindow = new CloseWindowModel();
             CloseWindow.CmdClose = new DelegateCommand<object>(CloseWindowFunc);
         }
 
-        public CodeStacksAlarmWindowViewModel(Compare obj)
+        public CodeStacksAlarmWindowViewModel(Compare obj) : this()
         {
             if (obj != null)
             {
+                MessageBox.Show(obj.Template.PersonInfo.Name);
                 DataObject = obj;
             }
             else

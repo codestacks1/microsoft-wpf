@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using xiaowen.codestacks.data.SenSingModels;
 using xiaowen.codestacks.popwindow.ViewModels;
 
 namespace xiaowen.codestacks.popwindow.Views
@@ -11,7 +12,12 @@ namespace xiaowen.codestacks.popwindow.Views
         public CodeStacksAlarmWindow()
         {
             InitializeComponent();
-            this.DataContext = new CodeStacksAlarmWindowViewModel();
+        }
+
+
+        public CodeStacksAlarmWindow(Compare obj) : this()
+        {
+            this.DataContext = new CodeStacksAlarmWindowViewModel(obj);
             btnClose.CommandParameter = this;
         }
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
         mc:Ignorable="d"
         WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Title="CodeStacksAlarmWindow" Height="800" Width="900">
+        Title="CodeStacksAlarmWindow" Height="800" Width="1000">
 
     <!--<Application>
         <Application.Resources>
@@ -70,10 +70,10 @@
         <TextBlock VerticalAlignment="Top" Margin="0,60,0,0" Foreground="White" FontSize="25" 
                    Text="抓拍人像" />
         <Grid Margin="0,100,0,0" Background="{StaticResource ResourceKey=bgphoto}">
-            <Image Margin="5,10,5,10" Stretch="Fill" Source="{Binding DataObject.Snap.SnapPhoto}"></Image>
+            <Image Margin="5,10,5,10" Stretch="Fill" Source="{Binding DataObject.Snap.Photo}"></Image>
         </Grid>
         <TextBlock Grid.Column="2" VerticalAlignment="Top" Margin="0,60,0,0" 
-                   Foreground="White" FontSize="25" Text="数据库人像" />
+                   Foreground="White" FontSize="25" Text="模板库人像" />
         <Grid Grid.Column="2" Margin="0,100,0,0" Background="{StaticResource ResourceKey=bgphoto}">
             <Image Margin="5,10,5,10" Stretch="Fill" Source="{Binding DataObject.Template.PersonInfo.Photo}"></Image>
         </Grid>
@@ -94,11 +94,11 @@
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="来源库：" />
-                <TextBlock Text="{Binding DataObject.Source}" />
+                <TextBlock Text="{Binding DataObject.Template.TypeValue}" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="发现时间：" />
-                <TextBlock Text="{Binding DataObject.Snap.SanpDateTime}" />
+                <TextBlock Text="{Binding DataObject.Snap.DateTime}" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="发现地点：" />

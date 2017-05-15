@@ -44,6 +44,16 @@ namespace CodeStacks.Test
             log.Error("ddddd");
             log.Debug("debug");
 
+            try
+            {
+
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

@@ -1,10 +1,13 @@
-﻿namespace xiaowen.codestacks.data.SenSingModels
+﻿using System;
+
+namespace xiaowen.codestacks.data.SenSingModels
 {
     /// <summary>
     /// 比对结果
     /// </summary>
     public class Compare
     {
+        public long Row { get; set; }
         public int Id { get; set; }
         public long Id64 { get; set; }
         public string Guid { get; set; }

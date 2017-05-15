@@ -72,9 +72,13 @@
     <Compile Include="CodeStacksWindow.cs" />
     <Compile Include="Utilities\AutoCloseWindow.cs" />
     <Compile Include="ViewModels\CodeStacksAlarmWindowViewModel.cs" />
+    <Compile Include="ViewModels\CodeStacksComparePopInfoViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksMessageBoxViewModel.cs" />
     <Compile Include="Views\CodeStacksAlarmWindow.xaml.cs">
       <DependentUpon>CodeStacksAlarmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeStacksComparePopInfo.xaml.cs">
+      <DependentUpon>CodeStacksComparePopInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CodeStacksMessageBox.xaml.cs">
       <DependentUpon>CodeStacksMessageBox.xaml</DependentUpon>
@@ -85,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodeStacksAlarmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksComparePopInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +156,9 @@
   <ItemGroup>
     <Resource Include="Gallery\btn.mouseup.png" />
     <Resource Include="Gallery\btn.mousedown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\bg.photo.sense.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
