@@ -34,7 +34,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <Grid >
         <Grid.Resources>
             <Style TargetType="{x:Type Label}">
@@ -91,16 +91,19 @@
                             <Setter Property="FontSize" Value="20"></Setter>
                         </Style>
                     </StackPanel.Resources>
-                    <TextBlock x:Name="label_Socre"  HorizontalAlignment="Center" FontSize="35" Foreground="Red">相似度:Socre%</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" ></TextBlock>
-                    <!--姓名:-->
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_TemplateName">TemplateName</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" >来源库:</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_TemplateType">TemplateType</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" >发现时间:</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="label_CapTime">CapTime</TextBlock>
-                    <TextBlock HorizontalAlignment="Left" >发现地点:</TextBlock>
-                    <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" x:Name="label_CapChannel">CapChannel</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="相似度:" FontSize="35" Foreground="Red" />
+                        <TextBlock x:Name="label_Socre"  HorizontalAlignment="Center" FontSize="35" Foreground="Red" Text="" />
+                        <TextBlock Text="%" FontSize="35" Foreground="Red" />
+                    </StackPanel>
+                    <TextBlock Text="姓名："/>
+                    <TextBlock TextWrapping="Wrap" x:Name="label_TemplateName" Text=""></TextBlock>
+                    <TextBlock Text="来源库：" />
+                    <TextBlock TextWrapping="Wrap" x:Name="label_TemplateType" Text=""></TextBlock>
+                    <TextBlock Text="发现时间：" />
+                    <TextBlock TextWrapping="Wrap" x:Name="label_CapTime" Text=""></TextBlock>
+                    <TextBlock Text="发现地点：" />
+                    <TextBlock TextWrapping="Wrap" x:Name="label_CapChannel" Text=""></TextBlock>
                 </StackPanel>
             </Grid>
         </Grid>

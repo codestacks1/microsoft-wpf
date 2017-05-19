@@ -8,7 +8,7 @@ namespace xiaowen.codestacks.popwindow
 {
     public class CodeStacksWindow
     {
-        static Func<bool, bool, int, string, bool> _messageBox;
+        static Func<bool, bool, double, string, bool> _messageBox;
         /// <summary>
         /// 
         /// </summary>
@@ -17,13 +17,13 @@ namespace xiaowen.codestacks.popwindow
         /// <param name="delay"></param>
         /// <param name="err"></param>
         /// <returns></returns>
-        public static Func<bool, bool, int, string, bool> MessageBox
+        public static Func<bool, bool, double, string, bool> MessageBox
         {
             get
             {
                 CodeStacksDataHandler.UIThread.Invoke(() =>
                 {
-                    _messageBox = new Func<bool, bool, int, string, bool>(CodeStacksMessageBox.ShowMessageBox);
+                    _messageBox = new Func<bool, bool, double, string, bool>(CodeStacksMessageBox.ShowMessageBox);
                 });
 
                 return _messageBox;
@@ -31,7 +31,7 @@ namespace xiaowen.codestacks.popwindow
         }
 
 
-        static Func<bool, bool, int, string, bool> _messageBoxSta;
+        static Func<bool, bool, double, string, bool> _messageBoxSta;
         /// <summary>
         /// 
         /// </summary>
@@ -40,7 +40,7 @@ namespace xiaowen.codestacks.popwindow
         /// <param name="delay"></param>
         /// <param name="err"></param>
         /// <returns></returns>
-        public static Func<bool, bool, int, string, bool> MessageBoxSta
+        public static Func<bool, bool, double, string, bool> MessageBoxSta
         {
             get
             {
@@ -50,7 +50,7 @@ namespace xiaowen.codestacks.popwindow
                  {
                      CodeStacksDataHandler.UIThread.Invoke(() =>
                      {
-                         _messageBoxSta = new Func<bool, bool, int, string, bool>(CodeStacksMessageBox.ShowMessageBox);
+                         _messageBoxSta = new Func<bool, bool, double, string, bool>(CodeStacksMessageBox.ShowMessageBox);
                      });
                  }, null);
 
@@ -65,14 +65,14 @@ namespace xiaowen.codestacks.popwindow
         /// 
         /// </summary>
         /// <returns></returns>
-        static async Task<Func<bool, bool, int, string, bool>> AwaitComplete()
+        static async Task<Func<bool, bool, double, string, bool>> AwaitComplete()
         {
-            Func<bool, bool, int, string, bool> result = null;
-            return await Task<Func<bool, bool, int, string, bool>>.Run(() =>
+            Func<bool, bool, double, string, bool> result = null;
+            return await Task<Func<bool, bool, double, string, bool>>.Run(() =>
             {
                 CodeStacksDataHandler.UIThread.Invoke(() =>
                 {
-                    result = new Func<bool, bool, int, string, bool>(CodeStacksMessageBox.ShowMessageBox);
+                    result = new Func<bool, bool, double, string, bool>(CodeStacksMessageBox.ShowMessageBox);
                 });
                 return result;
             });

@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:viewmodels="clr-namespace:xiaowen.codestacks.popwindow.ViewModels"
         mc:Ignorable="d"
         WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Title="CodeStacksAlarmWindow" Height="800" Width="1000">
+        Title="发现可疑人员" Height="800" Width="1000"
+        d:DataContext="{d:DesignInstance viewmodels:CodeStacksAlarmWindowViewModel,IsDesignTimeCreatable=True}"
+        prism:ViewModelLocator.AutoWireViewModel="True">
 
     <!--<Application>
         <Application.Resources>
@@ -65,7 +69,7 @@
         <Button Name="btnClose" Grid.ColumnSpan="3" Width="24" Height="24"
                 VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,20,0"
                 BorderThickness="0" Style="{DynamicResource btnCloseStyle}"
-                Command="{Binding CloseWindow.CmdClos}" CommandParameter="{Binding CloseWindow.WillCloseWindow,Mode=TwoWay}" />
+                Command="{Binding CloseWindow.CmdClose}" CommandParameter="{Binding CloseWindow.WillCloseWindow,Mode=TwoWay}" />
 
         <TextBlock VerticalAlignment="Top" Margin="0,60,0,0" Foreground="White" FontSize="25" 
                    Text="抓拍人像" />

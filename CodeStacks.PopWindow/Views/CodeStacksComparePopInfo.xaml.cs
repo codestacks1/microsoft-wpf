@@ -42,11 +42,11 @@ namespace xiaowen.codestacks.popwindow.Views
             {
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
-                label_Socre.Text = label_Socre.Text.Replace("Socre", compare.Score.ToString());
-                label_TemplateName.Text = label_TemplateName.Text.Replace("TemplateName", compare.Template.PersonInfo.Name);
-                label_TemplateType.Text = label_TemplateType.Text.Replace("TemplateType", compare.Template.TypeValue);
+                label_Socre.Text = compare.Score.ToString();
+                label_TemplateName.Text = compare.Template.PersonInfo.Name;
+                label_TemplateType.Text = compare.Template.TypeValue;
                 label_CapTime.Text = compare.Snap.DateTime;
-                label_CapChannel.Text = label_CapChannel.Text.Replace("CapChannel", compare.Camera.Location);
+                label_CapChannel.Text = compare.Camera.Location;
                 image_SenceImg.Source = compare.Snap.EnvironmentPhoto;
             }
             catch (Exception ex)

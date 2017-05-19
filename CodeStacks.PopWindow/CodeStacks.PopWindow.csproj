@@ -176,6 +176,11 @@
   <ItemGroup>
     <Resource Include="Gallery\bg.photo.sense.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\orange.png" />
+    <Resource Include="Gallery\red.png" />
+    <Resource Include="Gallery\yellow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.PopWindow" mkdir "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.PopWindow" 

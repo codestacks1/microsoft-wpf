@@ -20,14 +20,14 @@ namespace xiaowen.codestacks.popwindow.Views
             btncancel.CommandParameter = this;
         }
 
-        public CodeStacksMessageBox(int delay, string err) : this()
+        public CodeStacksMessageBox(double delay, string err) : this()
         {
             SetWindowSize();
             SetkWindowApear(false, err);
             AutoCloseWindow.CloseWindow(this, delay);
         }
 
-        public CodeStacksMessageBox(Window owner, int delay, string err) : this(delay, err)
+        public CodeStacksMessageBox(Window owner, double delay, string err) : this(delay, err)
         {
         }
 
@@ -38,7 +38,7 @@ namespace xiaowen.codestacks.popwindow.Views
         /// <param name="isAnimation"></param>
         /// <param name="delay"></param>
         /// <param name="err"></param>
-        public CodeStacksMessageBox(bool isAnimation, int delay, string err) : this()
+        public CodeStacksMessageBox(bool isAnimation, double delay, string err) : this()
         {
             SetWindowSize();
             SetkWindowApear(false, err);
@@ -60,7 +60,7 @@ namespace xiaowen.codestacks.popwindow.Views
         /// <param name="delay"></param>
         /// <param name="err"></param>
         /// <returns></returns>
-        internal static bool ShowMessageBox(bool isConfirm, bool isAnimation, int delay, string err)
+        internal static bool ShowMessageBox(bool isConfirm, bool isAnimation, double delay, string err)
         {
             bool result = false;
             try

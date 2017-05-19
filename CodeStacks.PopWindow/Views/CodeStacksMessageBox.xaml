@@ -16,7 +16,7 @@
         Topmost="True"
         Margin="0"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Title="CodeStacksMessageBox" Height="260" Width="360" MaxHeight="260" MaxWidth="360" MinHeight="120" MinWidth="320">
+        Title="提示消息" Height="260" Width="360" MaxHeight="260" MaxWidth="360" MinHeight="120" MinWidth="320">
 
     <Window.Resources>
         <ImageBrush x:Key="gridblackbg" ImageSource="..\Gallery\page.background\page.bg.black.jpg" />
