@@ -25,5 +25,16 @@ namespace xiaowen.codestacks.popwindow.Views
         {
             this.Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch (System.Exception)
+            {
+            }
+        }
     }
 }

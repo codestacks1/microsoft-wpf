@@ -1,6 +1,8 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows;
+using System.Windows.Media;
+using xiaowen.codestacks.data;
 using xiaowen.codestacks.data.Models;
 using xiaowen.codestacks.data.SenSingModels;
 using xiaowen.codestacks.popwindow.Views;
@@ -19,6 +21,7 @@ namespace xiaowen.codestacks.popwindow.ViewModels
         {
             if (obj != null)
             {
+                RootBackground = CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1(obj.Template.TypePhotoPath);
                 DataObject = obj;
             }
             else
@@ -49,6 +52,14 @@ namespace xiaowen.codestacks.popwindow.ViewModels
             get { return _dataObject; }
             set { SetProperty(ref _dataObject, value); }
         }
+
+        public ImageSource _rootBackground;
+        public ImageSource RootBackground
+        {
+            get { return _rootBackground; }
+            set { SetProperty(ref _rootBackground, value); }
+        }
+
 
     }
 }

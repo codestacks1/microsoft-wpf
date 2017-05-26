@@ -7,7 +7,10 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:viewmodels="clr-namespace:xiaowen.codestacks.popwindow.ViewModels"
         mc:Ignorable="d"
-        WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Background="Transparent" 
+        AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="发现可疑人员" Height="800" Width="1000"
         d:DataContext="{d:DesignInstance viewmodels:CodeStacksAlarmWindowViewModel,IsDesignTimeCreatable=True}"
         prism:ViewModelLocator.AutoWireViewModel="True">
@@ -23,8 +26,8 @@
                 <ResourceDictionary Source="../Resource/Style/GlobaleStyleDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>-->
-        <ImageBrush x:Key="bgwindow" ImageSource="..\Gallery\bg.window.png" />
-        <ImageBrush x:Key="bgphoto" ImageSource="..\Gallery\bg.photo.png" />
+        <ImageBrush x:Key="bgwindow" ImageSource="{Binding RootBackground,Mode=TwoWay}" Stretch="Fill" />
+        <ImageBrush x:Key="bgphoto" ImageSource="..\Gallery\bg.photo.png" Stretch="Fill" />
 
         <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
             <Setter Property="Template">

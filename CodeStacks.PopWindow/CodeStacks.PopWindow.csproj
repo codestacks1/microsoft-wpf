@@ -81,6 +81,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CodeStacksWindow.cs" />
     <Compile Include="Utilities\AutoCloseWindow.cs" />
     <Compile Include="ViewModels\CodeStacksAlarmWindowViewModel.cs" />
@@ -96,6 +99,10 @@
       <DependentUpon>CodeStacksMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="xiaowen{popwindow}.cs" />
+    <Page Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Style\GlobaleStyleDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

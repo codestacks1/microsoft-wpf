@@ -66,6 +66,16 @@ namespace xiaowen.codestacks.data.DataHandler
         }
 
         /// <summary>
+        /// photo 转换成 BitmapImage
+        /// </summary>
+        /// <param name="path">绝对路径 pack://application:,,,/Images/unkonw.png</param>
+        /// <returns></returns>
+        public Func<string, BitmapImage> ConvertToImageSourceDelegate1
+        {
+            get { return this.ConvertToBitmapImageFunc; }
+        }
+
+        /// <summary>
         /// image buffer 转换成 BitmapImage
         /// </summary>
         /// <param name="buffer"></param>
@@ -144,6 +154,25 @@ namespace xiaowen.codestacks.data.DataHandler
             }
             catch (Exception)
             {
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private BitmapImage ConvertToBitmapImageFunc(string path)
+        {
+            BitmapImage result = null;
+            try
+            {
+                result = new BitmapImage(new Uri(path));
+            }
+            catch (Exception)
+            {
+
             }
             return result;
         }
