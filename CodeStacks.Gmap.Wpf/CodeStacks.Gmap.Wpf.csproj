@@ -7,7 +7,7 @@
     <ProjectGuid>{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xiaowen.codestacks.wpf</RootNamespace>
+    <RootNamespace>xiaowen.codestacks.gmap.wpf</RootNamespace>
     <AssemblyName>CodeStacks.Gam.Wpf</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

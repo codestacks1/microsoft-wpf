@@ -3,16 +3,15 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Markup;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GMAP.WPF")]
+[assembly: AssemblyTitle("CodeStacks.Mef.Wpf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("P R C")]
-[assembly: AssemblyProduct("GMAP.WPF")]
+[assembly: AssemblyProduct("CodeStacks.Mef.Wpf")]
 [assembly: AssemblyCopyright("Copyright © P R C 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,7 +30,6 @@ using System.Windows.Markup;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.gmap.wpf")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

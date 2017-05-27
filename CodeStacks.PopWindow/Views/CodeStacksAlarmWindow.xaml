@@ -11,7 +11,7 @@
         AllowsTransparency="True" 
         WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Title="发现可疑人员" Height="800" Width="1000"
+        Title="发现可疑人员" Height="1000px" Width="1200px"
         d:DataContext="{d:DesignInstance viewmodels:CodeStacksAlarmWindowViewModel,IsDesignTimeCreatable=True}"
         prism:ViewModelLocator.AutoWireViewModel="True">
 
@@ -92,6 +92,7 @@
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
+                <TextBlock Text="相似度："/>
                 <TextBlock Text="{Binding DataObject.Score}" FontSize="35" Foreground="Red" />
                 <TextBlock Text=" %" FontSize="35" Foreground="Red" />
             </StackPanel>

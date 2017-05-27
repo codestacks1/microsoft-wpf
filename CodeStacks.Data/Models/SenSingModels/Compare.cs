@@ -16,8 +16,6 @@ namespace xiaowen.codestacks.data.SenSingModels
         /// </summary>
         public int Score { get; set; }
         public int Threshold { get; set; }
-        public int SourceKey { get; set; }
-        public string Source { get; set; }
         public Camera Camera { get; set; }
         /// <summary>
         /// 抓拍对象

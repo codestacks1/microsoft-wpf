@@ -69,6 +69,7 @@
     <Compile Include="CodeStacksDataHandler.cs" />
     <Compile Include="DataHandler\DateTimeData.cs" />
     <Compile Include="DataHandler\ImageData.cs" />
+    <Compile Include="Interfaces\IMainFormContract.cs" />
     <Compile Include="Models\ButtonCmdModel.cs" />
     <Compile Include="Models\CloseWindowModel.cs" />
     <Compile Include="Models\SenSingModels\Camera.cs" />
