@@ -16,7 +16,7 @@ namespace CodeStacks.MainFrom
     public partial class MainWindow : Form
     {
         [ImportMany]
-        public Lazy<IMainFormContract, IDictionary<string, object>>[] ImportedMainFormContracts { get; set; }
+        public Lazy<IMainWindowContract, IDictionary<string, object>>[] ImportedMainFormContracts { get; set; }
 
         private CompositionContainer _container;
         string _extensionDir = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\";
@@ -65,7 +65,7 @@ namespace CodeStacks.MainFrom
                     return;
                 }
 
-                ToolStripItem menuItem = toolStripMenuItem1.DropDownItems.Add(exportedMenuText);
+                ToolStripItem menuItem = toolStripMenuItem2.DropDownItems.Add(exportedMenuText);
                 menuItem.Click += new System.EventHandler(this.LaunchModule_Click);
             }
         }

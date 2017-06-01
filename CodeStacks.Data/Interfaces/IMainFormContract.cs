@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace xiaowen.codestacks.data.Interfaces
 {
-    public interface IMainFormContract
+    public interface IMainWindowContract
     {
+        /// <summary>
+        /// Menu item name
+        /// </summary>
         string MenuItemText { get; }
 
-        string SubFormTitle { get; }
+        /// <summary>
+        /// Form title name
+        /// </summary>
+        string SubWindowTitle { get; }
     }
 }

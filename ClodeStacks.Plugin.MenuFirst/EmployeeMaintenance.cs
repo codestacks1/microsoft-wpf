@@ -12,17 +12,17 @@ using xiaowen.codestacks.data.Interfaces;
 
 namespace ClodeStacks.Plugin.MenuFirst
 {
-    [Export(typeof(IMainFormContract))]
+    [Export(typeof(IMainWindowContract))]
     [ExportMetadata("Name", "Employee Pane")]
     [ExportMetadata("MenuText", "&Employees")]
-    public partial class EmployeeMaintenance : Form, IMainFormContract
+    public partial class EmployeeMaintenance : Form, IMainWindowContract
     {
         public string MenuItemText
         {
             get { return "&Employees"; }
         }
 
-        public string SubFormTitle
+        public string SubWindowTitle
         {
             get { return "Employee Pane"; }
         }

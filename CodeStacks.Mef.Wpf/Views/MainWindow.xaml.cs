@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using xiaowen.codestacks.data.Interfaces;
 
 namespace codestacks.mef.wpf.Views
 {
@@ -25,17 +26,16 @@ namespace codestacks.mef.wpf.Views
     public partial class MainWindow : Window
     {
         [ImportMany]
-        public Lazy<IMainFormContract, IDictionary<string, object>>[] ImportedMainFormContracts { get; set; }
+        public Lazy<IMainWindowContract, IDictionary<string, object>>[] ImportedMainFormContracts { get; set; }
 
         private CompositionContainer _container;
-        string _extensionDir = string.Empty;
+        string _extensionDir = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\";
 
         private CompositionContainer GetContainerFromDirectory()
         {
             var catalog = new AggregateCatalog();
             var thisAssembly = new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly());
             catalog.Catalogs.Add(thisAssembly);
-
             catalog.Catalogs.Add(new DirectoryCatalog(_extensionDir));
             var container = new CompositionContainer(catalog);
             return container;
@@ -63,6 +63,48 @@ namespace codestacks.mef.wpf.Views
             bool successfulCompose = Compose();
             if (!successfulCompose)
                 this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (var export in this.ImportedMainFormContracts)
+            {
+                var exportedMenuText = export.Metadata["MenuText"] as string;
+
+                if (string.IsNullOrEmpty(exportedMenuText))
+                {
+                    return;
+                }
+
+                HomeComboBox0.Items.Add(exportedMenuText);
+                HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
+            }
+
+            HomeComboBox0.ItemsSource = HomeComboBox0.Items;
+        }
+
+        private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cbox = sender as ComboBox;
+            if (cbox == null) return;
+            var item = cbox.SelectedItem as string;
+
+            foreach (var export in this.ImportedMainFormContracts)
+            {
+                string menuItem = export.Metadata["MenuText"] as string;
+                string title = export.Metadata["Title"] as string;
+                if (string.IsNullOrEmpty(menuItem)) return;
+
+                if (menuItem == item)
+                {
+                    //(export.Value as Window).Show();
+
+                    Window window = export.Value as Window;
+                    if (window == null) return;
+                    window.Title = title;
+                    window.Show();
+                }
+            }
         }
     }
 }

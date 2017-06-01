@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeStacks.Plugins", "CodeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClodeStacks.Plugin.MenuFirst", "ClodeStacks.Plugin.MenuFirst\ClodeStacks.Plugin.MenuFirst.csproj", "{C2CD7536-2390-44D3-8E14-621F2465C2D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Plugin.MenuSecond", "CodeStacks.Plugin.MenuSecond\CodeStacks.Plugin.MenuSecond.csproj", "{787C0514-E3DB-47FD-A230-580CE1ABBD31}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}*SharedItemsImports = 4
@@ -97,6 +99,10 @@ Global
 		{C2CD7536-2390-44D3-8E14-621F2465C2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2CD7536-2390-44D3-8E14-621F2465C2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2CD7536-2390-44D3-8E14-621F2465C2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787C0514-E3DB-47FD-A230-580CE1ABBD31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787C0514-E3DB-47FD-A230-580CE1ABBD31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787C0514-E3DB-47FD-A230-580CE1ABBD31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787C0514-E3DB-47FD-A230-580CE1ABBD31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,5 +115,6 @@ Global
 		{76FB3A48-2982-437F-88BF-0DE2B7B756AE} = {CF992416-46DB-476D-A783-B78C6B4E5DE3}
 		{434E25BE-8282-4D8E-9A30-9DF3BB5261BC} = {CF992416-46DB-476D-A783-B78C6B4E5DE3}
 		{C2CD7536-2390-44D3-8E14-621F2465C2D5} = {434E25BE-8282-4D8E-9A30-9DF3BB5261BC}
+		{787C0514-E3DB-47FD-A230-580CE1ABBD31} = {0A8441F4-E140-4100-BE57-A1137C48660D}
 	EndGlobalSection
 EndGlobal

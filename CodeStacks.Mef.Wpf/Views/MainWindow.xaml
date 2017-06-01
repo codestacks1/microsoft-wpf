@@ -4,9 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:codestacks.mef.wpf.Views"
+        xmlns:viewmodel="clr-namespace:codestacks.mef.wpf.ViewModels"
+        xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="768" Width="1366"
+        d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
+        prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Name="HomeComboBox0" FontSize="16" Background="Black" Foreground="White" HorizontalContentAlignment="Center"></ComboBox>
+        </Grid>
+        <Grid x:Name="Docker" Grid.Row="1" Margin="1,5">
+
+
+        </Grid>
     </Grid>
 </Window>

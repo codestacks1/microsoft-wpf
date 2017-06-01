@@ -1,21 +1,17 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace codestacks.mef.wpf.ViewModels
+namespace codectacks.plugin.menufirst.ViewModels
 {
-    public partial class MainWindowViewModel
+    public partial class MainWindowViewModel:BindableBase
     {
         public MainWindowViewModel()
         {
 
         }
-    }
-
-    public partial class MainWindowViewModel
-    {
-
     }
 }

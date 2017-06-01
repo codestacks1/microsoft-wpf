@@ -1,0 +1,35 @@
+﻿<Window x:Class="codectacks.plugin.menusecond.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:codectacks.plugin.menusecond.Views"
+         xmlns:viewmodel="clr-namespace:codectacks.plugin.menusecond.ViewModels"
+        xmlns:prism="http://www.codeplex.com/prism"
+        mc:Ignorable="d"
+        Height="768" Width="1366">
+    <Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Expander x:Name="expander" Header="Expander" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid Background="#FFE5E5E5">
+
+                            <Expander x:Name="expander1" Header="Expander" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Grid Background="#FFE5E5E5">
+
+                                    <TextBlock Text="123456789" />
+
+                                </Grid>
+                            </Expander>
+
+                        </Grid>
+                    </Expander>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
