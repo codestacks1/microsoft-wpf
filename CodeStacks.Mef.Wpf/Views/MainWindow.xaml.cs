@@ -67,9 +67,10 @@ namespace codestacks.mef.wpf.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var _default = string.Empty;
             foreach (var export in this.ImportedMainFormContracts)
             {
-                var exportedMenuText = export.Metadata["MenuText"] as string;
+                var exportedMenuText = _default = export.Metadata["MenuText"] as string;
 
                 if (string.IsNullOrEmpty(exportedMenuText))
                 {
@@ -80,9 +81,10 @@ namespace codestacks.mef.wpf.Views
                 HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
             }
 
-            
+            if (!string.IsNullOrEmpty(_default))
+                HomeComboBox0.SelectedItem = _default;
 
-           // HomeComboBox0.ItemsSource = HomeComboBox0.Items;
+            // HomeComboBox0.ItemsSource = HomeComboBox0.Items;
         }
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)

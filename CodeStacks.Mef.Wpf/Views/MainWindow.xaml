@@ -10,7 +10,7 @@
         Loaded="Window_Loaded"
         Title="MainWindow" Height="768" Width="1366"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
-        prism:ViewModelLocator.AutoWireViewModel="True">
+        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Mef.Wpf;component/Untitled-1.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
