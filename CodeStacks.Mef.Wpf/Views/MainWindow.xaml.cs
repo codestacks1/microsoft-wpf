@@ -80,7 +80,9 @@ namespace codestacks.mef.wpf.Views
                 HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
             }
 
-            HomeComboBox0.ItemsSource = HomeComboBox0.Items;
+            
+
+           // HomeComboBox0.ItemsSource = HomeComboBox0.Items;
         }
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
