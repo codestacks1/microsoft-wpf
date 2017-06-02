@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Height="768" Width="1366"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
-        prism:ViewModelLocator.AutoWireViewModel="True">
+        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Plugin.MenuFirst;component/logo.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

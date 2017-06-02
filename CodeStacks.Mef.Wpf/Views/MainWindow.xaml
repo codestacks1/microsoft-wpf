@@ -8,9 +8,9 @@
         xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="768" Width="1366"
+        Title="CodeStacks.Mef" Height="768" Width="1366"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
-        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Mef.Wpf;component/Untitled-1.ico">
+        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Mef.Wpf;component/logo.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

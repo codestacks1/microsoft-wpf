@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace xiaowen.codestacks.wpf
 {
-    class xiaowen_wpf_
+    public class xiaowen_wpf_
     {
+
     }
 }

@@ -2,24 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using xiaowen.codestacks.data.Interfaces;
 
 namespace codestacks.mef.wpf.Views
 {
-
-
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -72,10 +60,7 @@ namespace codestacks.mef.wpf.Views
             {
                 var exportedMenuText = _default = export.Metadata["MenuText"] as string;
 
-                if (string.IsNullOrEmpty(exportedMenuText))
-                {
-                    return;
-                }
+                if (string.IsNullOrEmpty(exportedMenuText)) return;
 
                 HomeComboBox0.Items.Add(exportedMenuText);
                 HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
@@ -83,8 +68,6 @@ namespace codestacks.mef.wpf.Views
 
             if (!string.IsNullOrEmpty(_default))
                 HomeComboBox0.SelectedItem = _default;
-
-            // HomeComboBox0.ItemsSource = HomeComboBox0.Items;
         }
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -101,12 +84,18 @@ namespace codestacks.mef.wpf.Views
 
                 if (menuItem == item)
                 {
-                    //(export.Value as Window).Show();
-
-                    Window window = export.Value as Window;
-                    if (window == null) return;
-                    window.Title = title;
-                    window.Show();
+                    try
+                    {
+                        Window window = export.Value as Window;
+                        if (window == null) return;
+                        window.Title = title;
+                        window.Show();
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        string err = ex.Message;
+                    }
                 }
             }
         }

@@ -66,6 +66,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Utilities\ConcurrencyHandler.cs" />
+    <Compile Include="Utilities\ReflactionView.cs" />
+    <Compile Include="Utilities\ValidateArgument.cs" />
     <Compile Include="xiaowen{wpf}.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,12 +79,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="readme.codestacks" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeStacks.UIElements\CodeStacks.UIElements.csproj">
       <Project>{d3bc4af0-d33c-4fd3-a50b-c555df6c014f}</Project>
       <Name>CodeStacks.UIElements</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

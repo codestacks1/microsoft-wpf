@@ -7,7 +7,7 @@
          xmlns:viewmodel="clr-namespace:codectacks.plugin.menusecond.ViewModels"
         xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
-        Height="768" Width="1366">
+        Height="768" Width="1366" Icon="/CodeStacks.Plugin.MenuSecond;component/logo.ico">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TabItem Header="TabItem">
