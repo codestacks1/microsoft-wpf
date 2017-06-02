@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Untitled-1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GMap.NET.Core, Version=1.7.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.Windows.1.7.7\lib\net40\GMap.NET.Core.dll</HintPath>
@@ -204,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\MyMarker\bigMarkerGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Untitled-1.ico" />
   </ItemGroup>
   <Import Project="..\XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

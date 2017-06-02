@@ -10,7 +10,7 @@
         d:DataContext="{d:DesignInstance xwwiewmodels:MainWindowViewModel,IsDesignTimeCreatable=True}"
         xwprism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="775" Width="888" MinHeight="775" MinWidth="600">
+        Title="{Binding Title}" Height="775" Width="888" MinHeight="775" MinWidth="600" Icon="/CodeStacks.Gam.Wpf;component/Untitled-1.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

@@ -27,11 +27,12 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //pingtest.com
             if (!Stuff.PingNetwork("pingtest.com"))
             {
-                MainMap.Manager.Mode = AccessMode.CacheOnly;
+                MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             //// config map
+            GMapProviders.BingHybridMap.RefererUrl = "https://cn.bing.com/ditu/";
             MainMap.MapProvider = GMapProviders.BingHybridMap;//OpenStreetMap
             MainMap.Position = new PointLatLng(32.064, 118.704);
             MainMap.ScaleMode = ScaleModes.Dynamic;
