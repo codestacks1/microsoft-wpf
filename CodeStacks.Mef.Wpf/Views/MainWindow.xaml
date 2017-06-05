@@ -10,7 +10,7 @@
         Loaded="Window_Loaded"
         Title="CodeStacks.Mef" Height="768" Width="1366"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
-        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Mef.Wpf;component/logo.ico">
+        prism:ViewModelLocator.AutoWireViewModel="True" Icon="/Startup;component/logo.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

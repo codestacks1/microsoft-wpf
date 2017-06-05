@@ -11,7 +11,6 @@ namespace xiaowen.codestacks.wpf.MyMarker
         public MyMarkerRedAnchorDepict()
         {
             InitializeComponent();
-            this.DataContext = MainWindowViewModel.SMainwindowViewModel.GeoTitle;
         }
     }
 }

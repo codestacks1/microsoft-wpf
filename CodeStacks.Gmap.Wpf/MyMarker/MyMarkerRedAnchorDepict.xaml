@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.MyMarker"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300" Background="White">
+             d:DesignHeight="300" d:DesignWidth="300" Background="Black">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
@@ -13,22 +13,22 @@
         </Style>
     </UserControl.Resources>
 
-    <GroupBox Header="Anchor Info" Margin="3">
+    <GroupBox Header="Anchor Info" Margin="3" Foreground="White" BorderBrush="White" BorderThickness="1">
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="{Binding UserName}" Width="100" />
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content1Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content1}" Width="100" />
                 <TextBlock Text="Xiaowen" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="{Binding Source}" Width="100" />
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content2Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content2}" Width="100" />
                 <TextBlock Text="Xiaowen" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="{Binding DateTime}" Width="100" />
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content3Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content3}" Width="100" />
                 <TextBlock Text="Xiaowen" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="{Binding Location}" Width="100" />
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content4Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content4}" Width="100" />
                 <TextBlock Text="Xiaowen" />
             </StackPanel>
         </StackPanel>

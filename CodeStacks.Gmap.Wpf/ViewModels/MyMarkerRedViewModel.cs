@@ -3,7 +3,6 @@ using Prism.Mvvm;
 using System;
 using System.Windows;
 using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.gmap.demo.Models;
 
 namespace xiaowen.codestacks.wpf.ViewModels
 {
@@ -26,12 +25,12 @@ namespace xiaowen.codestacks.wpf.ViewModels
         #region Refres Properties
         public void RefreshGeoData()
         {
-            OnPropertyChanged("GeoData");
+            RaisePropertyChanged("GeoData");
         }
 
         public void RefreshGeoTitle()
         {
-            OnPropertyChanged("GeoTitle");
+            RaisePropertyChanged("GeoTitle");
         }
         #endregion
 

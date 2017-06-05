@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using xiaowen.codestacks.gmap.demo;
-using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.wpf.MyMarker;
 using xiaowen.codestacks.wpf.ViewModels;
 
@@ -22,19 +21,20 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         {
             InitializeComponent();
 
+            this.DataContext = new MainWindowViewModel();
             // set cache mode only if no internet avaible
             //www.amap.com
             //pingtest.com
-            if (!Stuff.PingNetwork("pingtest.com"))
+            if (!Stuff.PingNetwork("ditu.amap.com"))
             {
                 MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
+            MainMap.Manager.Mode = AccessMode.ServerAndCache;
             //// config map
-            GMapProviders.BingHybridMap.RefererUrl = "https://cn.bing.com/ditu/";
-            MainMap.MapProvider = GMapProviders.BingHybridMap;//OpenStreetMap
-            MainMap.Position = new PointLatLng(32.064, 118.704);
+            MainMap.MapProvider = GMapProviders.AMapHybridMap;//OpenStreetMap
+            MainMap.Position = new PointLatLng(39.9719321233495, 116.337801218033);
             MainMap.ScaleMode = ScaleModes.Dynamic;
             currentMarker = new GMapMarker(MainMap.Position);
             {
@@ -45,8 +45,8 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             }
 
             #region InitialGeographic
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = 118.704;
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = 32.064;
+            MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = 116.337801218033;
+            MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = 39.9719321233495;
             #endregion
 
             //// map events
@@ -63,6 +63,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
 
+            MainMap.Zoom = 13;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
         }
 

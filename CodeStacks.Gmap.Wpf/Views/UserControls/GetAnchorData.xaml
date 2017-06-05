@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="60" d:DesignWidth="1366">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
@@ -14,18 +14,15 @@
     </UserControl.Resources>
 
     <Grid Background="Black">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Stretch" >
+        <StackPanel Orientation="Horizontal" Height="30">
             <TextBlock Text="经度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
             <TextBlock Text="{Binding GeoData.Langitude}" Width="100" Margin="3" VerticalAlignment="Center" />
             <TextBlock Text="纬度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
             <TextBlock Text="{Binding GeoData.Latitude}" Width="100" Margin="3" VerticalAlignment="Center" />
             <TextBlock Text="" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-            <TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
+            <!--<TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />-->
+
         </StackPanel>
 
     </Grid>

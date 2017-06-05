@@ -6,7 +6,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
 {
     public partial class MainWindowViewModel : BindableBase
     {
-        public static MainWindowViewModel SMainwindowViewModel { get; private set; }
+        public static MainWindowViewModel SMainwindowViewModel { get; set; }
 
         private string _title = "Prism Unity Application";
         public string Title
@@ -26,10 +26,16 @@ namespace xiaowen.codestacks.wpf.ViewModels
 
         public MainWindowViewModel()
         {
-            GeoData = new Geo();
-            GeoTitle = new GeoTitle();
+            this.InitGeoTitle();
             this.InitCommand<Cmd>();
             SMainwindowViewModel = this;
+        }
+
+        public void InitGeoTitle()
+        {
+            GeoData = new Geo();
+            GeoTitle = new GeoTitle();
+
         }
     }
 }

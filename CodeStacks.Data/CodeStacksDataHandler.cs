@@ -1,10 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Threading;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 using xiaowen.codestacks.data.DataHandler;
 using xiaowen.codestacks.data.UIHelper;
 

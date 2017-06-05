@@ -3,10 +3,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 using xiaowen.codestacks.wpf.Views.UserControls;
 using xiaowen.codestacks.wpf.ViewModels;
-using System;
 
 namespace xiaowen.codestacks.wpf.MyMarker
 {

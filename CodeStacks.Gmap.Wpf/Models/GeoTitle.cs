@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace xiaowen.codestacks.wpf.Models
 {
@@ -27,5 +28,7 @@ namespace xiaowen.codestacks.wpf.Models
         public string Location { get { return "位 置："; } }
 
 
+        
+       
     }
 }
