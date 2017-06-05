@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Markup;
@@ -8,11 +6,11 @@ using System.Windows.Markup;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GMAP.WPF")]
+[assembly: AssemblyTitle("xiaowen.codestacks.gmap.wpf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("P R C")]
-[assembly: AssemblyProduct("GMAP.WPF")]
+[assembly: AssemblyProduct("xiaowen.codestacks.gmap.wpf")]
 [assembly: AssemblyCopyright("Copyright © P R C 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -55,5 +53,7 @@ using System.Windows.Markup;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.17.06.05")]
+[assembly: AssemblyFileVersion("1.17.06.05")]
+[assembly: Guid("E1F160E7-DF40-43CF-AA8C-3950999B6219")]
+

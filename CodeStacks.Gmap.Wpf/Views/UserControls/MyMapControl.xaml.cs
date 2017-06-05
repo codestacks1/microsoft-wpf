@@ -22,6 +22,11 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             InitializeComponent();
 
             this.DataContext = new MainWindowViewModel();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainMap.Markers.Clear();
             // set cache mode only if no internet avaible
             //www.amap.com
             //pingtest.com
@@ -32,6 +37,8 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             }
 
             MainMap.Manager.Mode = AccessMode.ServerAndCache;
+            MainMap.DragButton = MouseButton.Left;
+
             //// config map
             MainMap.MapProvider = GMapProviders.AMapHybridMap;//OpenStreetMap
             MainMap.Position = new PointLatLng(39.9719321233495, 116.337801218033);
@@ -41,7 +48,6 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
                 currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, "Xiaowen");
                 currentMarker.Offset = new System.Windows.Point(-15, -15);
                 currentMarker.ZIndex = int.MaxValue;
-                MainMap.Markers.Add(currentMarker);
             }
 
             #region InitialGeographic
@@ -63,8 +69,16 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
 
+            MainMap.Markers.Add(currentMarker);
             MainMap.Zoom = 13;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
+        }
+
+
+        public void ReSet()
+        {
+            currentMarker = null;
+            UserControl_Loaded(null, null);
         }
 
         private void MainMap_MouseEnter(object sender, MouseEventArgs e)
@@ -94,5 +108,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         private void MainMap_OnCurrentPositionChanged(PointLatLng point)
         {
         }
+
+
     }
 }

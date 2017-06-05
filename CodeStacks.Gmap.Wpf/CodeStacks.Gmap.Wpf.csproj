@@ -124,6 +124,15 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Geo.cs" />
     <Compile Include="Models\GeoTitle.cs" />
+    <Compile Include="MyMarker\CameraBlueAnchor.xaml.cs">
+      <DependentUpon>CameraBlueAnchor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyMarker\CameraGrayAnchor.xaml.cs">
+      <DependentUpon>CameraGrayAnchor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyMarker\CameraRedAnchor.xaml.cs">
+      <DependentUpon>CameraRedAnchor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyMarker\MyMarkerRedAnchor.xaml.cs">
       <DependentUpon>MyMarkerRedAnchor.xaml</DependentUpon>
     </Compile>
@@ -183,6 +192,18 @@
     <Folder Include="Source\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MyMarker\CameraBlueAnchor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyMarker\CameraGrayAnchor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyMarker\CameraRedAnchor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyMarker\MyMarkerRedAnchor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +251,21 @@
       <Project>{644fe7d4-0184-400f-b2d7-99cb41360658}</Project>
       <Name>GMap.NET.WindowsPresentation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera-blue.png" />
+    <Resource Include="Images\camera-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera-gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\photo-frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\首页-icon-在线.png" />
+    <Resource Include="Images\首页-icon-报警.png" />
+    <Resource Include="Images\首页-icon-离线.png" />
   </ItemGroup>
   <Import Project="..\XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

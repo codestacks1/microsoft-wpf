@@ -15,6 +15,11 @@
 
     <Grid Background="Black">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
         <StackPanel Orientation="Horizontal" Height="30">
             <TextBlock Text="经度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
             <TextBlock Text="{Binding GeoData.Langitude}" Width="100" Margin="3" VerticalAlignment="Center" />
@@ -23,6 +28,9 @@
             <TextBlock Text="" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
             <!--<TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />-->
 
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+            <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"></TextBlock>
         </StackPanel>
 
     </Grid>

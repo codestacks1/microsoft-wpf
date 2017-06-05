@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using xiaowen.codestacks.wpf;
+﻿using System.Windows;
 
-namespace XIAOWENGMAP.WPF
+namespace xiaowen.codestacks.wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml

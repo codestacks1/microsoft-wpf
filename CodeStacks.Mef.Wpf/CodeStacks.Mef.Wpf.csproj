@@ -154,6 +154,10 @@
       <Project>{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}</Project>
       <Name>CodeStacks.Gmap.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.PopWindow\CodeStacks.PopWindow.csproj">
+      <Project>{91A0B815-475A-4608-BBE4-796970CEB93C}</Project>
+      <Name>CodeStacks.PopWindow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
       <Name>GMap.NET.Core</Name>

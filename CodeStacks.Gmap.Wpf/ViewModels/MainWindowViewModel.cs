@@ -35,7 +35,6 @@ namespace xiaowen.codestacks.wpf.ViewModels
         {
             GeoData = new Geo();
             GeoTitle = new GeoTitle();
-
         }
     }
 }

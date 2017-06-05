@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views.UserControls"
              xmlns:gmap="clr-namespace:xiaowen.codestacks.gmap.demo"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
              d:DesignHeight="768" d:DesignWidth="1366">
 
     <Grid>

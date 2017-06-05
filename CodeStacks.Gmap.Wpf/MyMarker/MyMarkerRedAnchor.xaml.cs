@@ -44,7 +44,7 @@ namespace xiaowen.codestacks.wpf.MyMarker
             //    Label.Content = title;
             //}
             Popup.Child = new MyMarkerRedAnchorDepict();// Label;
-            
+
         }
 
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
@@ -76,6 +76,7 @@ namespace xiaowen.codestacks.wpf.MyMarker
             if (!IsMouseCaptured)
             {
                 Mouse.Capture(this);
+                MainWindow.MainMap.CanDragMap = false;
             }
         }
 
@@ -84,6 +85,7 @@ namespace xiaowen.codestacks.wpf.MyMarker
             if (IsMouseCaptured)
             {
                 Mouse.Capture(null);
+                MainWindow.MainMap.CanDragMap = true;
             }
         }
     }

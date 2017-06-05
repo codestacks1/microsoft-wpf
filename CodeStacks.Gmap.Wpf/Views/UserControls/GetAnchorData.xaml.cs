@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using GMap.NET;
+using GMap.NET.WindowsPresentation;
+using System.Windows.Controls;
+using xiaowen.codestacks.wpf.ViewModels;
 
 namespace xiaowen.codestacks.wpf.Views.UserControls
 {
@@ -10,6 +13,11 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         public GetAnchorData()
         {
             InitializeComponent();
+        }
+
+        private void TextBlock_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MainWindowViewModel.SMainwindowViewModel.MyMapControl.ReSet();
         }
     }
 }
