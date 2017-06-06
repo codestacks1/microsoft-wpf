@@ -155,6 +155,36 @@
       <Name>GMap.NET.WindowsPresentation</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera-gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MyMarker\bigMarkerGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MyMarker\red-dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\photo-frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\test1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\首页-icon-报警.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\首页-icon-离线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\首页-icon-在线.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)CodeStacks.Mef.Wpf\bin\Debug\Plugins" mkdir "$(SolutionDir)CodeStacks.Mef.Wpf\bin\Debug\Plugins"

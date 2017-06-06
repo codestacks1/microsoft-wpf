@@ -1,10 +1,13 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using xiaowen.codestacks.gmap.demo;
+using xiaowen.codestacks.gmap.demo.Models;
+using xiaowen.codestacks.gmap.wpf.MyMarker;
 using xiaowen.codestacks.wpf.MyMarker;
 using xiaowen.codestacks.wpf.ViewModels;
 
@@ -15,12 +18,16 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
     /// </summary>
     public partial class MyMapControl : UserControl
     {
-        GMapMarker currentMarker;
+        public ObservableCollection<PointLatLng> Points;
+        /// <summary>
+        /// Camera == "Camera" is CameraAnchor
+        /// Photo == "Photo" is PhotoAnchor
+        /// </summary>
+        public string CameraOrPhoto;
 
         public MyMapControl()
         {
             InitializeComponent();
-
             this.DataContext = new MainWindowViewModel();
         }
 
@@ -28,31 +35,47 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         {
             MainMap.Markers.Clear();
             // set cache mode only if no internet avaible
-            //www.amap.com
-            //pingtest.com
             if (!Stuff.PingNetwork("ditu.amap.com"))
             {
                 MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.gamp.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             MainMap.Manager.Mode = AccessMode.ServerAndCache;
             MainMap.DragButton = MouseButton.Left;
-
             //// config map
             MainMap.MapProvider = GMapProviders.AMapHybridMap;//OpenStreetMap
-            MainMap.Position = new PointLatLng(39.9719321233495, 116.337801218033);
             MainMap.ScaleMode = ScaleModes.Dynamic;
-            currentMarker = new GMapMarker(MainMap.Position);
+            try
             {
-                currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, "Xiaowen");
-                currentMarker.Offset = new System.Windows.Point(-15, -15);
-                currentMarker.ZIndex = int.MaxValue;
+                //"pack://application:,,,/Images/test1.png"
+                //"pack://application:,,,/Images/test1.png"
+                foreach (var point in Points)
+                {
+                    MainMap.Position = point;
+                    GMapMarker currentMarker = new GMapMarker(point);
+                    if (string.IsNullOrEmpty(point.CameraOrPhoto))
+                        currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    else if ("Camera".Equals(point.CameraOrPhoto))
+                        currentMarker.Shape =
+                            new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    else if ("Photo".Equals(point.CameraOrPhoto))
+                        currentMarker.Shape =
+                            new PhotoAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    currentMarker.Offset = new System.Windows.Point(-15, -15);
+                    currentMarker.ZIndex = int.MaxValue;
+
+                    MainMap.Markers.Add(currentMarker);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                string err = ex.Message;
             }
 
             #region InitialGeographic
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = 116.337801218033;
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = 39.9719321233495;
+            //MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = 116.337801218033;
+            //MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = 39.9719321233495;
             #endregion
 
             //// map events
@@ -69,7 +92,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
 
-            MainMap.Markers.Add(currentMarker);
+            // MainMap.Position = currentMarker1.Position;
             MainMap.Zoom = 13;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
         }
@@ -77,7 +100,6 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
 
         public void ReSet()
         {
-            currentMarker = null;
             UserControl_Loaded(null, null);
         }
 

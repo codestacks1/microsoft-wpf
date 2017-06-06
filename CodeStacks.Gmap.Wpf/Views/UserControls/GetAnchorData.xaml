@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="1366">
+             mc:Ignorable="d" Background="Transparent"
+             d:DesignHeight="140" d:DesignWidth="1366">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
@@ -13,25 +13,70 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <local:MyMapOptControl />
 
-        <StackPanel Orientation="Horizontal" Height="30">
-            <TextBlock Text="经度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-            <TextBlock Text="{Binding GeoData.Langitude}" Width="100" Margin="3" VerticalAlignment="Center" />
-            <TextBlock Text="纬度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-            <TextBlock Text="{Binding GeoData.Latitude}" Width="100" Margin="3" VerticalAlignment="Center" />
-            <TextBlock Text="" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-            <!--<TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />-->
+        <Grid Grid.Row="1" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
-            <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"></TextBlock>
-        </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border CornerRadius="50" BorderBrush="Black" BorderThickness="15" Width="60">
+                    <TextBlock Text="播放" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                </Border>
+                <Border CornerRadius="50" Grid.Column="1" BorderBrush="Black" BorderThickness="15" Width="60">
+                    <TextBlock Text="暂停" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                </Border>
+                <Border CornerRadius="50" Grid.Column="2" BorderBrush="Black" BorderThickness="15" Width="60">
+                    <TextBlock Text="清理" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                </Border>
 
+                <!--<Grid Grid.Column="1" Margin="5,0" Background="Black">
+                    <TextBlock Text="暂停" VerticalAlignment="Center" TextAlignment="Center" />
+                </Grid>
+                <Grid Grid.Column="2" Margin="5,0" Background="Black">
+                    <TextBlock Text="清理" VerticalAlignment="Center" TextAlignment="Center" />
+                </Grid>-->
+            </Grid>
+
+        </Grid>
+
+        <Grid Background="Black" Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Height="30">
+                <TextBlock Text="经度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding GeoData.Langitude}" Width="100" Margin="3" VerticalAlignment="Center" />
+                <TextBlock Text="纬度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding GeoData.Latitude}" Width="100" Margin="3" VerticalAlignment="Center" />
+                <TextBlock Text="" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
+                <!--<TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />-->
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"></TextBlock>
+            </StackPanel>
+
+        </Grid>
     </Grid>
+
+
 </UserControl>

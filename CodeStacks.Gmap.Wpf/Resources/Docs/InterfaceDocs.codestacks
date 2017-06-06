@@ -1,0 +1,14 @@
+﻿接口使用文档
+
+参数：
+MyMap.CameraOrPhoto 表示在地图上画摄像头 or 人脸照片
+MyMap.Points 表示在地图上的坐标点 包含如下参数：double lat, double lng, BitmapImage photo, object geoTitle
+new GeoTitle() { Content[index|1,2,3...] = "内容名称，如：‘姓名：’", Content[index|1,2,3...]Visible = Visibility.Visible,Conten[index]Value = "内容，如：‘张孝文’" })
+
+接口调用方式：
+MyMap.CameraOrPhoto = "Photo";//在地图上画人脸照片  非摄像头图片
+//需要一个 GMap.NET.PointLatLng 该对象中包含 '坐标'、'图片'、'锚点显示数据内容'
+MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495 + i, 116.337801218033 + i, CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1("pack://application:,,,/Images/test1.png"), new GeoTitle() { Content1 = "姓名：",Content1Value = "张孝文", Content1Visible = Visibility.Visible }));
+
+
+//"pack://application:,,,/Images/test1.png"

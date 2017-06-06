@@ -13,23 +13,47 @@
         </Style>
     </UserControl.Resources>
 
-    <GroupBox Header="Anchor Info" Margin="3" Foreground="White" BorderBrush="White" BorderThickness="1">
+    <GroupBox Header="{Binding Header,Mode=TwoWay}" Margin="3" Foreground="White" BorderBrush="White" BorderThickness="1" Visibility="{Binding IsVisible,Mode=TwoWay}">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content1Visible,Mode=TwoWay}">
-                <TextBlock Text="{Binding Content1}" Width="100" />
-                <TextBlock Text="Xiaowen" />
+                <TextBlock Text="{Binding Content1}" Width="80" />
+                <TextBlock Text="{Binding Content1Value}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content2Visible,Mode=TwoWay}">
-                <TextBlock Text="{Binding Content2}" Width="100" />
-                <TextBlock Text="Xiaowen" />
+                <TextBlock Text="{Binding Content2}" Width="80" />
+                <TextBlock Text="{Binding Content2Value}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content3Visible,Mode=TwoWay}">
-                <TextBlock Text="{Binding Content3}" Width="100" />
-                <TextBlock Text="Xiaowen" />
+                <TextBlock Text="{Binding Content3}" Width="80" />
+                <TextBlock Text="{Binding Content3Value}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content4Visible,Mode=TwoWay}">
-                <TextBlock Text="{Binding Content4}" Width="100" />
-                <TextBlock Text="Xiaowen" />
+                <TextBlock Text="{Binding Content4}" Width="80" />
+                <TextBlock Text="{Binding Content4Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content5Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content5}" Width="80" />
+                <TextBlock Text="{Binding Content5Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content6Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content6}" Width="80" />
+                <TextBlock Text="{Binding Content6Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content7Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content7}" Width="80" />
+                <TextBlock Text="{Binding Content7Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content8Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content8}" Width="80" />
+                <TextBlock Text="{Binding Content8Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content9Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content9}" Width="80" />
+                <TextBlock Text="{Binding Content9Value}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Visibility="{Binding Content10Visible,Mode=TwoWay}">
+                <TextBlock Text="{Binding Content10}" Width="80" />
+                <TextBlock Text="{Binding Content10Value}" />
             </StackPanel>
         </StackPanel>
     </GroupBox>

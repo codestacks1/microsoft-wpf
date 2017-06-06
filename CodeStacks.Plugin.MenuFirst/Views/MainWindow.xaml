@@ -12,6 +12,6 @@
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
         prism:ViewModelLocator.AutoWireViewModel="True" Icon="/CodeStacks.Plugin.MenuFirst;component/logo.ico">
     <Grid>
-        <gmap:MyMapControl />
+        <gmap:MyMapControl x:Name="MyMap" />
     </Grid>
 </Window>

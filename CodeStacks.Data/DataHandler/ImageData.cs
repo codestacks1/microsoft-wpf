@@ -170,9 +170,9 @@ namespace xiaowen.codestacks.data.DataHandler
             {
                 result = new BitmapImage(new Uri(path));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                throw new Exception(ex.Message, ex);
             }
             return result;
         }

@@ -1,20 +1,15 @@
 ﻿
 namespace GMap.NET.WindowsPresentation
 {
-   using System.Collections.Generic;
-   using System.ComponentModel;
-   using System.Windows;
-   using System.Windows.Controls;
-   using GMap.NET;
-   using System.Windows.Media;
-   using System.Diagnostics;
-   using System.Windows.Shapes;
-   using System;
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Media;
+    using System;
 
-   /// <summary>
-   /// GMap.NET marker
-   /// </summary>
-   public class GMapMarker : INotifyPropertyChanged
+    /// <summary>
+    /// GMap.NET marker
+    /// </summary>
+    public class GMapMarker : INotifyPropertyChanged
    {
       public event PropertyChangedEventHandler PropertyChanged;
       protected void OnPropertyChanged(string name)

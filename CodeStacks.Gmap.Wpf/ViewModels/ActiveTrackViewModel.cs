@@ -75,7 +75,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
                 await this.DelayTime(_start, PointCollection[i]);
             }
         }
-        
+
         async Task DelayTime(PointLatLng _start, PointLatLng _end)
         {
             await Task.Delay(TimeSpan.FromSeconds(5));
@@ -83,8 +83,10 @@ namespace xiaowen.codestacks.wpf.ViewModels
             RoutingProvider rp = MyMapControl.MainMap.MapProvider as RoutingProvider;
             if (rp == null)
             {
-                rp = GMapProviders.BingHybridMap; // use OpenStreetMap if provider does not implement routing
+                rp = GMapProviders.AMapHybridMap; // use OpenStreetMap if provider does not implement routing
             }
+
+            rp = GMapProviders.OpenStreetMap;
 
             MapRoute route = rp.GetRoute(_start, _end, false, false, (int)MyMapControl.MainMap.Zoom);
             if (route != null)
@@ -103,6 +105,6 @@ namespace xiaowen.codestacks.wpf.ViewModels
                 MyMapControl.MainMap.ZoomAndCenterMarkers(null);
             }
         }
-        
+
     }
 }

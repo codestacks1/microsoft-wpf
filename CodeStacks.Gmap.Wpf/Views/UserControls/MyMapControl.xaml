@@ -14,13 +14,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="0,10,15,0" Orientation="Horizontal" 
-                    HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1">
-            <TextBox Width="200" Height="30"></TextBox>
-            <Button Content="查 询" Height="30"></Button>
+        <StackPanel Grid.Row="0" Margin="0,10,15,0" Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1" Opacity="0.7">
+            <TextBox Width="200" Height="30" Opacity="0.6" VerticalAlignment="Center" FontSize="15" Text="12"></TextBox>
+            <Button Content="查 询" Height="30" FontSize="15" FontWeight="Bold"></Button>
         </StackPanel>
 
-        <gmap:Map Grid.Row="0" x:Name="MainMap" MaxZoom="17" MinZoom="6" Panel.ZIndex="0" />
+        <gmap:Map Grid.Row="0" Grid.RowSpan="2" x:Name="MainMap" MaxZoom="17" MinZoom="6" Panel.ZIndex="0" />
 
         <local:GetAnchorData Grid.Row="1" x:Name="_MyMapAnchorData" Panel.ZIndex="1" />
     </Grid>

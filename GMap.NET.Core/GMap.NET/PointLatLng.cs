@@ -1,124 +1,171 @@
 ﻿
 namespace GMap.NET
 {
-   using System;
-   using System.Globalization;
+    using System;
+    using System.Globalization;
+    using System.Windows.Media.Imaging;
 
-   /// <summary>
-   /// the point of coordinates
-   /// </summary>
-   [Serializable]
-   public struct PointLatLng
-   {
-      public static readonly PointLatLng Empty = new PointLatLng();
-      private double lat;
-      private double lng;
+    /// <summary>
+    /// the point of coordinates
+    /// </summary>
+    [Serializable]
+    public struct PointLatLng
+    {
+        public static readonly PointLatLng Empty = new PointLatLng();
+        private double lat;
+        private double lng;
+        private BitmapImage photo;
+        private object geoTitle;
+        private string cameraOrPhoto;
 
-      bool NotEmpty;
+        bool NotEmpty;
 
-      public PointLatLng(double lat, double lng)
-      {
-         this.lat = lat;
-         this.lng = lng;
-         NotEmpty = true;
-      }
-
-      /// <summary>
-      /// returns true if coordinates wasn't assigned
-      /// </summary>
-      public bool IsEmpty
-      {
-         get
-         {
-            return !NotEmpty;
-         }
-      }
-
-      public double Lat
-      {
-         get
-         {
-            return this.lat;
-         }
-         set
-         {
-            this.lat = value;
+        public PointLatLng(double lat, double lng)
+        {
+            this.lat = lat;
+            this.lng = lng;
+            this.photo = null;
+            this.geoTitle = null;
+            this.cameraOrPhoto = null;
             NotEmpty = true;
-         }
-      }
+        }
 
-      public double Lng
-      {
-         get
-         {
-            return this.lng;
-         }
-         set
-         {
-            this.lng = value;
+        public PointLatLng(double lat, double lng, string cameraOrPhoto, BitmapImage photo, object geoTitle)
+        {
+            this.lat = lat;
+            this.lng = lng;
+            this.photo = photo;
+            this.geoTitle = geoTitle;
+            this.cameraOrPhoto = cameraOrPhoto;
             NotEmpty = true;
-         }
-      }
+        }
 
-      public static PointLatLng operator +(PointLatLng pt, SizeLatLng sz)
-      {
-         return Add(pt, sz);
-      }
+        /// <summary>
+        /// returns true if coordinates wasn't assigned
+        /// </summary>
+        public bool IsEmpty
+        {
+            get
+            {
+                return !NotEmpty;
+            }
+        }
 
-      public static PointLatLng operator -(PointLatLng pt, SizeLatLng sz)
-      {
-         return Subtract(pt, sz);
-      }
+        public double Lat
+        {
+            get
+            {
+                return this.lat;
+            }
+            set
+            {
+                this.lat = value;
+                NotEmpty = true;
+            }
+        }
 
-      public static bool operator ==(PointLatLng left, PointLatLng right)
-      {
-         return ((left.Lng == right.Lng) && (left.Lat == right.Lat));
-      }
+        public double Lng
+        {
+            get
+            {
+                return this.lng;
+            }
+            set
+            {
+                this.lng = value;
+                NotEmpty = true;
+            }
+        }
 
-      public static bool operator !=(PointLatLng left, PointLatLng right)
-      {
-         return !(left == right);
-      }
+        public BitmapImage Photo
+        {
+            get { return this.photo; }
+            set
+            {
+                this.photo = value;
+                NotEmpty = true;
+            }
+        }
 
-      public static PointLatLng Add(PointLatLng pt, SizeLatLng sz)
-      {
-         return new PointLatLng(pt.Lat - sz.HeightLat, pt.Lng + sz.WidthLng);
-      }
+        public object GeoTitle
+        {
+            get { return this.geoTitle; }
+            set
+            {
+                this.geoTitle = value;
+                NotEmpty = true;
+            }
+        }
 
-      public static PointLatLng Subtract(PointLatLng pt, SizeLatLng sz)
-      {
-         return new PointLatLng(pt.Lat + sz.HeightLat, pt.Lng - sz.WidthLng);
-      }
+        public string CameraOrPhoto
+        {
+            get { return this.cameraOrPhoto; }
+            set
+            {
+                this.cameraOrPhoto = value;
+                NotEmpty = true;
+            }
+        }
 
-      public override bool Equals(object obj)
-      {
-         if(!(obj is PointLatLng))
-         {
-            return false;
-         }
-         PointLatLng tf = (PointLatLng)obj;
-         return (((tf.Lng == this.Lng) && (tf.Lat == this.Lat)) && tf.GetType().Equals(base.GetType()));
-      }
+        public static PointLatLng operator +(PointLatLng pt, SizeLatLng sz)
+        {
+            return Add(pt, sz);
+        }
 
-      public void Offset(PointLatLng pos)
-      {
-         this.Offset(pos.Lat, pos.Lng);
-      }
+        public static PointLatLng operator -(PointLatLng pt, SizeLatLng sz)
+        {
+            return Subtract(pt, sz);
+        }
 
-      public void Offset(double lat, double lng)
-      {
-         this.Lng += lng;
-         this.Lat -= lat;
-      }
+        public static bool operator ==(PointLatLng left, PointLatLng right)
+        {
+            return ((left.Lng == right.Lng) && (left.Lat == right.Lat));
+        }
 
-      public override int GetHashCode()
-      {
-         return (this.Lng.GetHashCode() ^ this.Lat.GetHashCode());
-      }
+        public static bool operator !=(PointLatLng left, PointLatLng right)
+        {
+            return !(left == right);
+        }
 
-      public override string ToString()
-      {
-         return string.Format(CultureInfo.CurrentCulture, "{{Lat={0}, Lng={1}}}", this.Lat, this.Lng);
-      }
-   }
+        public static PointLatLng Add(PointLatLng pt, SizeLatLng sz)
+        {
+            return new PointLatLng(pt.Lat - sz.HeightLat, pt.Lng + sz.WidthLng);
+        }
+
+        public static PointLatLng Subtract(PointLatLng pt, SizeLatLng sz)
+        {
+            return new PointLatLng(pt.Lat + sz.HeightLat, pt.Lng - sz.WidthLng);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is PointLatLng))
+            {
+                return false;
+            }
+            PointLatLng tf = (PointLatLng)obj;
+            return (((tf.Lng == this.Lng) && (tf.Lat == this.Lat)) && tf.GetType().Equals(base.GetType()));
+        }
+
+        public void Offset(PointLatLng pos)
+        {
+            this.Offset(pos.Lat, pos.Lng);
+        }
+
+        public void Offset(double lat, double lng)
+        {
+            this.Lng += lng;
+            this.Lat -= lat;
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.Lng.GetHashCode() ^ this.Lat.GetHashCode());
+        }
+
+        public override string ToString()
+        {
+            return string.Format(CultureInfo.CurrentCulture, "{{Lat={0}, Lng={1}}}", this.Lat, this.Lng);
+        }
+    }
 }

@@ -124,14 +124,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Geo.cs" />
     <Compile Include="Models\GeoTitle.cs" />
-    <Compile Include="MyMarker\CameraBlueAnchor.xaml.cs">
-      <DependentUpon>CameraBlueAnchor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyMarker\CameraGrayAnchor.xaml.cs">
-      <DependentUpon>CameraGrayAnchor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyMarker\CameraRedAnchor.xaml.cs">
-      <DependentUpon>CameraRedAnchor.xaml</DependentUpon>
+    <Compile Include="MyMarker\CameraAnchor.xaml.cs">
+      <DependentUpon>CameraAnchor.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyMarker\MyMarkerRedAnchor.xaml.cs">
       <DependentUpon>MyMarkerRedAnchor.xaml</DependentUpon>
@@ -141,6 +135,9 @@
     </Compile>
     <Compile Include="MyMarker\MyMarkerRouteAnchor.xaml.cs">
       <DependentUpon>MyMarkerRouteAnchor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyMarker\PhotoAnchor.xaml.cs">
+      <DependentUpon>PhotoAnchor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ActiveTrackViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -183,24 +180,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Docs\InterfaceDocs.codestacks" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Source\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MyMarker\CameraBlueAnchor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyMarker\CameraGrayAnchor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyMarker\CameraRedAnchor.xaml">
+    <Page Include="MyMarker\CameraAnchor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyMarker\MyMarkerRouteAnchor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyMarker\PhotoAnchor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,6 +236,10 @@
     <Resource Include="Untitled-1.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeStacks.Data\CodeStacks.Data.csproj">
+      <Project>{463854B2-9EBA-4229-B701-3F08F559080E}</Project>
+      <Name>CodeStacks.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
       <Name>GMap.NET.Core</Name>
@@ -266,6 +263,9 @@
     <Resource Include="Images\首页-icon-在线.png" />
     <Resource Include="Images\首页-icon-报警.png" />
     <Resource Include="Images\首页-icon-离线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\test1.png" />
   </ItemGroup>
   <Import Project="..\XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

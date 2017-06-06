@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMap.NET.Core", "GMap.NET.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMap.NET.WindowsPresentation", "GMap.NET.WindowsPresentation\GMap.NET.WindowsPresentation.csproj", "{644FE7D4-0184-400F-B2D7-99CB41360658}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Book", "CodeStacks.Book\CodeStacks.Book.csproj", "{FAB53A3C-346C-437F-8BCA-33542BB782EE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{138142c8-1a7c-4025-b29a-b5dfc9e670db}*SharedItemsImports = 4
@@ -178,6 +180,14 @@ Global
 		{644FE7D4-0184-400F-B2D7-99CB41360658}.Release|Any CPU.Build.0 = Release|Any CPU
 		{644FE7D4-0184-400F-B2D7-99CB41360658}.Release|x64.ActiveCfg = Release|x64
 		{644FE7D4-0184-400F-B2D7-99CB41360658}.Release|x64.Build.0 = Release|x64
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
