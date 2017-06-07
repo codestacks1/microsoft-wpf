@@ -1,7 +1,9 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -34,6 +36,8 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             MainMap.Markers.Clear();
+            MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
+
             // set cache mode only if no internet avaible
             if (!Stuff.PingNetwork("ditu.amap.com"))
             {
@@ -48,8 +52,8 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             MainMap.ScaleMode = ScaleModes.Dynamic;
             try
             {
-                //"pack://application:,,,/Images/test1.png"
-                //"pack://application:,,,/Images/test1.png"
+                //"pack://application:,,,/Images/test1.png" resource path
+                //"pack://siteoforigin:,,,/Images/test1.png" site path
                 foreach (var point in Points)
                 {
                     MainMap.Position = point;

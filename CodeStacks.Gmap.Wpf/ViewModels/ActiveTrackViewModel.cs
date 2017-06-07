@@ -78,7 +78,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
 
         async Task DelayTime(PointLatLng _start, PointLatLng _end)
         {
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            await Task.Delay(TimeSpan.FromSeconds(1));
 
             RoutingProvider rp = MyMapControl.MainMap.MapProvider as RoutingProvider;
             if (rp == null)
@@ -86,13 +86,11 @@ namespace xiaowen.codestacks.wpf.ViewModels
                 rp = GMapProviders.AMapHybridMap; // use OpenStreetMap if provider does not implement routing
             }
 
-            rp = GMapProviders.OpenStreetMap;
-
             MapRoute route = rp.GetRoute(_start, _end, false, false, (int)MyMapControl.MainMap.Zoom);
             if (route != null)
             {
                 GMapMarker m2 = new GMapMarker(_end);
-                m2.Shape = new MyMarkerRouteAnchor(MyMapControl, m2, "End: " + start.ToString());
+                m2.Shape = new MyMarkerRouteAnchor(MyMapControl, m2, "坐标: " + _start.ToString());
 
                 GMapRoute mRoute = new GMapRoute(route.Points);
                 {

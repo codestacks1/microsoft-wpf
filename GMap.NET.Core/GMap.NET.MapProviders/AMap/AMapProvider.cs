@@ -2,14 +2,19 @@
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Xml;
 
 namespace GMap.NET.GMap.NET.MapProviders.AMap
 {
+    /// <summary>
+    /// author:zhangxiaowen
+    /// date: 20170605
+    /// </summary>
     public class AMapProviderBase : GMapProvider, RoutingProvider
     {
         public string Version = "170605";
@@ -99,7 +104,7 @@ namespace GMap.NET.GMap.NET.MapProviders.AMap
             return ret;
         }
 
-        static readonly string RouteUrlFormatPointLatLng1 = "http://ditu.amap.com/service/autoNavigat?usepoiquery=true&coor_need=true&rendertemplate=1&invoker=plan&engine_version=3&start_types=1&end_types=1&viapoint_types=1&policy2=1&fromX=116.33757&fromY=39.97177&start_poiid=dirmyloc&toX=118.797085&toY=31.970677&end_poiid=B00190YPLY&end_poitype=150200&key=bfe31f4e0fb231d29e1d3ce951e2c780&callback=jsonp_323619_&csid=4D99EB70-B119-486C-89CC-33816C58EB22";
+        //static readonly string RouteUrlFormatPointLatLng1 = "http://ditu.amap.com/service/autoNavigat?usepoiquery=true&coor_need=true&rendertemplate=1&invoker=plan&engine_version=3&start_types=1&end_types=1&viapoint_types=1&policy2=1&fromX=116.33757&fromY=39.97177&start_poiid=dirmyloc&toX=118.797085&toY=31.970677&end_poiid=B00190YPLY&end_poitype=150200&key=bfe31f4e0fb231d29e1d3ce951e2c780&callback=jsonp_323619_&csid=4D99EB70-B119-486C-89CC-33816C58EB22";
 
         static readonly string RouteUrlFormatPointLatLng = "http://ditu.amap.com/service/autoNavigat?usepoiquery=true&coor_need=true&rendertemplate=1&invoker=plan&engine_version=3&start_types=1&end_types=1&viapoint_types=1&policy2=1&fromX={0}&fromY={1}&start_poiid=dirmyloc&toX={2}&toY={3}&end_poiid=B00190YPLY&end_poitype=150200&key=bfe31f4e0fb231d29e1d3ce951e2c780&callback=jsonp_323619_&csid=4D99EB70-B119-486C-89CC-33816C58EB22";
 
@@ -150,50 +155,57 @@ namespace GMap.NET.GMap.NET.MapProviders.AMap
 
                     #region -- points --
 
-                    object routeJson = JsonConvert.DeserializeObject(route.Replace("/**/ typeof jsonp_323619_ === 'function' && jsonp_323619_(", "").Replace(");", ""));
-                    IEnumerator<object> s = routeJson as IEnumerator<object>;
-                    var data = s;
-
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(route);
-                    XmlNode xn = doc["Response"];
-                    string statuscode = xn["StatusCode"].InnerText;
-                    switch (statuscode)
+                    try
                     {
-                        case "200":
+                        points = new List<PointLatLng>();
+                        IEnumerable root = JsonConvert.DeserializeObject(route.Replace("/**/ typeof jsonp_323619_ === 'function' && jsonp_323619_(", "").Replace(");", "")) as IEnumerable;
+                        foreach (JProperty item in root)
+                        {
+                            if (item.Name.Equals("data"))
                             {
-                                xn = xn["ResourceSets"]["ResourceSet"]["Resources"]["Route"]["RoutePath"]["Line"];
-                                XmlNodeList xnl = xn.ChildNodes;
-                                if (xnl.Count > 0)
+                                var paths = item.Value["path_list"];
+                                JToken path = paths.Value<JToken>()[0];
+                                foreach (JProperty _path in path)
                                 {
-                                    points = new List<PointLatLng>();
-                                    foreach (XmlNode xno in xnl)
+                                    if (_path.Name.Equals("path"))
                                     {
-                                        XmlNode latitude = xno["Latitude"];
-                                        XmlNode longitude = xno["Longitude"];
-                                        points.Add(new PointLatLng(double.Parse(latitude.InnerText, CultureInfo.InvariantCulture),
-                                                                   double.Parse(longitude.InnerText, CultureInfo.InvariantCulture)));
+                                        IEnumerable<JToken> path1 = _path.Value<JToken>().Children<JToken>();
+                                        foreach (var _path1 in path1)
+                                        {
+                                            foreach (JToken segment in _path1)
+                                            {
+                                                JToken segments = segment["segments"];
+                                                foreach (JToken _segment in segments)
+                                                {
+                                                    JToken coors = _segment["coor"];
+                                                    string[] coorStr = coors.Value<string>().Replace("[", "").Replace("]", "").Split(',');
+
+                                                    for (int i = 0; i < coorStr.Length; i += 2)
+                                                    {
+                                                        points.Add(new PointLatLng(lng: Convert.ToDouble(coorStr[i]), lat: Convert.ToDouble(coorStr[i + 1])));
+
+                                                    }
+
+                                                }
+
+                                                //points.Add(new PointLatLng);
+                                            }
+                                            break;
+                                        }
+
+                                        break;//found segements
                                     }
                                 }
-                                break;
+
+                                break;//found data
                             }
-                        // no status implementation on routes yet although when introduced these are the codes. Exception will be catched.
-                        case "400":
-                            throw new Exception("Bad Request, The request contained an error.");
-                        case "401":
-                            throw new Exception("Unauthorized, Access was denied. You may have entered your credentials incorrectly, or you might not have access to the requested resource or operation.");
-                        case "403":
-                            throw new Exception("Forbidden, The request is for something forbidden. Authorization will not help.");
-                        case "404":
-                            throw new Exception("Not Found, The requested resource was not found.");
-                        case "500":
-                            throw new Exception("Internal Server Error, Your request could not be completed because there was a problem with the service.");
-                        case "501":
-                            throw new Exception("Service Unavailable, There's a problem with the service right now. Please try again later.");
-                        default:
-                            points = null;
-                            break; // unknown, for possible future error codes
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message, ex);
+                    }
+
                     #endregion
                 }
             }

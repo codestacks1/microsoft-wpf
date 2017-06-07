@@ -36,13 +36,16 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Border CornerRadius="50" BorderBrush="Black" BorderThickness="15" Width="60">
-                    <TextBlock Text="播放" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                    <TextBlock Text="播放" VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand" />
                 </Border>
                 <Border CornerRadius="50" Grid.Column="1" BorderBrush="Black" BorderThickness="15" Width="60">
-                    <TextBlock Text="暂停" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                    <TextBlock Text="加速" VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand"/>
                 </Border>
                 <Border CornerRadius="50" Grid.Column="2" BorderBrush="Black" BorderThickness="15" Width="60">
-                    <TextBlock Text="清理" VerticalAlignment="Center" TextAlignment="Center" Background="Black" />
+                    <TextBlock Text="清理" VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand"/>
                 </Border>
 
                 <!--<Grid Grid.Column="1" Margin="5,0" Background="Black">
