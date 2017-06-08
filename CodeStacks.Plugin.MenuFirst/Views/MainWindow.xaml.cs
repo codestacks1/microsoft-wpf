@@ -20,14 +20,14 @@ namespace codectacks.plugin.menufirst.Views
         {
             InitializeComponent();
 
-            MyMap.Points = new System.Collections.ObjectModel.ObservableCollection<GMap.NET.PointLatLng>();
+            //MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, string.Empty, null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }));
 
-            MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, string.Empty, null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }));
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033 + i, "Camera", CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1("pack://application:,,,/Images/camera-blue.png"), new GeoTitle() { Content1 = "content1", Content1Visible = Visibility.Visible }));
-            //}
+            MyMap.Points = new ObservableCollection<GMap.NET.PointLatLng>();
+            
+            for (int i = 0; i < 10; i++)
+            {
+                MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033 + i, "Camera", CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1("pack://application:,,,/Images/camera-blue.png"), new GeoTitle() { Content1 = "content1", Content1Visible = Visibility.Visible }));
+            }
 
             //for (int i = 0; i < 10; i++)
             //{

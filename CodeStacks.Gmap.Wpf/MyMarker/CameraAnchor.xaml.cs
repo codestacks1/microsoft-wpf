@@ -19,7 +19,6 @@ namespace xiaowen.codestacks.gmap.wpf.MyMarker
         public ImageSource Photo { get; set; }
 
         Popup Popup;
-        //Label Label;
         GMapMarker Marker;
         MyMapControl MainWindow;
         public CameraAnchor()
@@ -31,28 +30,15 @@ namespace xiaowen.codestacks.gmap.wpf.MyMarker
         public CameraAnchor(MyMapControl window, GMapMarker marker, ImageSource photo, GeoTitle geoTitle, string title, params object[] viewModels) : this()
         {
             this.Photo = photo;
-
             this.MainWindow = window;
             this.Marker = marker;
-
             Popup = new Popup();
-            //Label = new Label();
 
             this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);
-            this.MouseLeftButtonDown += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonDown);
             this.MouseLeave += new MouseEventHandler(MarkerControl_MouseLeave);
             this.MouseEnter += new MouseEventHandler(MarkerControl_MouseEnter);
 
             Popup.Placement = PlacementMode.Mouse;
-            //{
-            //    Label.Background = Brushes.Blue;
-            //    Label.Foreground = Brushes.White;
-            //    Label.BorderBrush = Brushes.WhiteSmoke;
-            //    Label.BorderThickness = new Thickness(2);
-            //    Label.Padding = new Thickness(5);
-            //    Label.FontSize = 16;
-            //    Label.Content = title;
-            //}
             Popup.Child = new MyMarkerRedAnchorDepict(geoTitle);// Label;
         }
 
@@ -74,14 +60,9 @@ namespace xiaowen.codestacks.gmap.wpf.MyMarker
             Popup.IsOpen = false;
         }
 
-        private void CustomMarkerDemo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
         private void CustomMarkerDemo_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //throw new NotImplementedException();
+           
         }
     }
 }

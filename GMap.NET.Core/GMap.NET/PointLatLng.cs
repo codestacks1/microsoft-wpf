@@ -16,7 +16,7 @@ namespace GMap.NET
         private double lng;
         private BitmapImage photo;
         private object geoTitle;
-        private string cameraOrPhoto;
+        private string anchorType;
 
         bool NotEmpty;
 
@@ -26,7 +26,7 @@ namespace GMap.NET
             this.lng = lng;
             this.photo = null;
             this.geoTitle = null;
-            this.cameraOrPhoto = null;
+            this.anchorType = null;
             NotEmpty = true;
         }
 
@@ -36,7 +36,7 @@ namespace GMap.NET
             this.lng = lng;
             this.photo = photo;
             this.geoTitle = geoTitle;
-            this.cameraOrPhoto = cameraOrPhoto;
+            this.anchorType = cameraOrPhoto;
             NotEmpty = true;
         }
 
@@ -97,12 +97,12 @@ namespace GMap.NET
             }
         }
 
-        public string CameraOrPhoto
+        public string AnchorType
         {
-            get { return this.cameraOrPhoto; }
+            get { return this.anchorType; }
             set
             {
-                this.cameraOrPhoto = value;
+                this.anchorType = value;
                 NotEmpty = true;
             }
         }

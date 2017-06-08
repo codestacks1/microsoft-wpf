@@ -108,15 +108,9 @@ using Windows.UI.Xaml;
                 if (command != null)
                 {
                     if (command.CanExecute(this.CommandParameter, this.CommandTarget))
-                    {
-                        if (command != null)
-                        {
-                            if (command.CanExecute(this.CommandParameter, this.CommandTarget))
-                                this.IsEnabled = true;
-                            else
-                                this.IsEnabled = false;
-                        }
-                    }
+                        this.IsEnabled = true;
+                    else
+                        this.IsEnabled = false;
                 }
                 else
                 {

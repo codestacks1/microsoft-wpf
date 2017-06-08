@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.gmap.wpf.MyMarker"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="60" Height="70" Width="60" Opacity="10">
+             d:DesignHeight="60" d:DesignWidth="50" Height="60" Width="50">
 
     <Grid>
         <Grid.Background>

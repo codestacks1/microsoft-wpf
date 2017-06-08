@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ListBoxWithCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextBlockWithCommand.cs" />
     <Compile Include="xiaowen{uielement}.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

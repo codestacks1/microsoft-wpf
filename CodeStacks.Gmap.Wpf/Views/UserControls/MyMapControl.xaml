@@ -20,7 +20,9 @@
             <Button Content="查 询" Height="30" FontSize="15" FontWeight="Bold"></Button>
         </StackPanel>
 
-        <gmap:Map Grid.Row="0" Grid.RowSpan="2" x:Name="MainMap" MaxZoom="17" MinZoom="6" Panel.ZIndex="0" />
+        <gmap:Map Grid.Row="0" Grid.RowSpan="2" x:Name="MainMap" MaxZoom="17" MinZoom="9" Panel.ZIndex="0" />
+
+        <local:MyMapOptControl />
 
         <local:GetAnchorData Grid.Row="1" x:Name="_MyMapAnchorData" Panel.ZIndex="1" />
     </Grid>

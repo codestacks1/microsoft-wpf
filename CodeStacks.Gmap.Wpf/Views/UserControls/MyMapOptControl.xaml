@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="1366">
+             d:DesignHeight="768" d:DesignWidth="1366">
 
-    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+    <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center">
         <Button Content="动态轨迹" 
                 Margin="10,0"
                 Command="{Binding Cmd.ActiveTrackCommand}"

@@ -346,6 +346,10 @@ namespace GMap.NET.MapProviders
             {
                 return languageStr;
             }
+            set
+            {
+                languageStr = value;
+            }
         }
         static LanguageType language = LanguageType.English;
 

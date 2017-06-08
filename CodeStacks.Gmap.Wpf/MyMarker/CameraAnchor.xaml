@@ -6,5 +6,6 @@
              xmlns:local="clr-namespace:xiaowen.codestacks.gmap.wpf.MyMarker"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="50" Height="60" Width="50" Opacity="10">
-    <Image Name="icon" Source="{Binding Photo,Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    <Image Name="icon" Source="{Binding Photo,Mode=TwoWay}" 
+           VerticalAlignment="Center" HorizontalAlignment="Center" />
 </UserControl>

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using xiaowen.codestacks.gmap.demo;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.gmap.wpf.MyMarker;
+using xiaowen.codestacks.popwindow;
 using xiaowen.codestacks.wpf.MyMarker;
 using xiaowen.codestacks.wpf.ViewModels;
 
@@ -20,17 +21,61 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
     /// </summary>
     public partial class MyMapControl : UserControl
     {
-        public ObservableCollection<PointLatLng> Points;
+        #region Map Public Property
+        /// <summary>
+        /// 标记锚点的坐标集合
+        /// </summary>
+        public ObservableCollection<PointLatLng> Points { get; set; }
+
+        /// <summary>
+        /// 刷新地图，并加载锚点
+        /// </summary>
+        public Action<object, RoutedEventArgs> MapRefresh
+        {
+            get { return UserControl_Loaded; }
+        }
+
+        /// <summary>
+        /// 定位锚点到地图可是范围中心
+        /// </summary>
+        public Action<PointLatLng> Position
+        {
+            get
+            {
+                return (point) =>
+                {
+                    MainMap.Position = point;
+                };
+            }
+        }
+
+        /// <summary>
+        /// 设置锚点点击事件
+        /// </summary>
+        public Action<object, MouseButtonEventArgs> MouseLeftBtnUp { private get; set; }
+
+        public MouseButtonEventArgs MouseLeftBtnUp_Args { private get; set; }
+
         /// <summary>
         /// Camera == "Camera" is CameraAnchor
         /// Photo == "Photo" is PhotoAnchor
         /// </summary>
-        public string CameraOrPhoto;
+        public string CameraOrPhoto { private get; set; }
+
+        string _languageStr = "zh_CN";
+        public string LanguageStr
+        {
+            get { return _languageStr; }
+            set { _languageStr = value; }
+        }
+
+        #endregion
 
         public MyMapControl()
         {
             InitializeComponent();
             this.DataContext = new MainWindowViewModel();
+            GMapProvider.LanguageStr = LanguageStr;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -42,13 +87,15 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             if (!Stuff.PingNetwork("ditu.amap.com"))
             {
                 MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.gamp.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CodeStacksWindow.MessageBox.Invoke(true, false, -1, "没有可用的网络连接，将切换至缓存模式");
+                //MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.gamp.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             MainMap.Manager.Mode = AccessMode.ServerAndCache;
             MainMap.DragButton = MouseButton.Left;
             //// config map
             MainMap.MapProvider = GMapProviders.AMapHybridMap;//OpenStreetMap
+
             MainMap.ScaleMode = ScaleModes.Dynamic;
             try
             {
@@ -58,23 +105,29 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
                 {
                     MainMap.Position = point;
                     GMapMarker currentMarker = new GMapMarker(point);
-                    if (string.IsNullOrEmpty(point.CameraOrPhoto))
-                        currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
-                    else if ("Camera".Equals(point.CameraOrPhoto))
+                    if (string.IsNullOrEmpty(point.AnchorType))
+                        currentMarker.Shape = null;
+                    else if ("Camera".Equals(point.AnchorType))
+                    {
                         currentMarker.Shape =
                             new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
-                    else if ("Photo".Equals(point.CameraOrPhoto))
+                        currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
+                    }
+                    else if ("Photo".Equals(point.AnchorType))
                         currentMarker.Shape =
                             new PhotoAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    else if ("Red".Equals(point.AnchorType))
+                        currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
+
                     currentMarker.Offset = new System.Windows.Point(-15, -15);
                     currentMarker.ZIndex = int.MaxValue;
-
                     MainMap.Markers.Add(currentMarker);
                 }
             }
             catch (System.Exception ex)
             {
-                string err = ex.Message;
+                CodeStacksWindow.MessageBox.Invoke(false, false, 2, string.Format("<codestacks.wpf.gmap>.internal error\r\n{0}", ex.Message));
+                throw new Exception(ex.Message, ex);
             }
 
             #region InitialGeographic
@@ -96,11 +149,33 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
 
-            // MainMap.Position = currentMarker1.Position;
-            MainMap.Zoom = 13;
+            MainMap.LayoutUpdated += MainMap_LayoutUpdated;
+            MainMap.Zoom = 12;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
         }
 
+        private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            e = MouseLeftBtnUp_Args;
+            MouseLeftBtnUp.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainMap_LayoutUpdated(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+            }
+        }
 
         public void ReSet()
         {

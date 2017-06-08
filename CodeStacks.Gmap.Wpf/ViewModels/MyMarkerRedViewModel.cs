@@ -44,6 +44,22 @@ namespace xiaowen.codestacks.wpf.ViewModels
             Cmd.AddMarkerCommand = new DelegateCommand<object>(AddMarkerCommandFunc);
             Cmd.ClearAllCommand = new DelegateCommand<object>(ClearAllCommandFunc);
             Cmd.ActiveTrackCommand = new DelegateCommand<object>(ActiveTrackCommandFunc);
+            Cmd.PlayActiveRouteCommand = new DelegateCommand<object>(PlayActiveRouteFunc);
+            Cmd.SpeedUpCommand = new DelegateCommand<object>(SpeedUpCommandFunc);
+        }
+
+        private void SpeedUpCommandFunc(object obj)
+        {
+
+        }
+
+        /// <summary>
+        /// 播放活动线路
+        /// </summary>
+        /// <param name="obj"></param>
+        private void PlayActiveRouteFunc(object obj)
+        {
+
         }
 
         private void ClearAllCommandFunc(object obj)
@@ -52,6 +68,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
             {
                 try
                 {
+                    MyMapControl.MainMap.Markers.Clear();
                     int i = MyMapControl.MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);
                     MessageBox.Show("不作就不会 啊哈哈... 白白");
                 }
