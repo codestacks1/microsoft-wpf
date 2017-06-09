@@ -19,9 +19,10 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
 {
     public class Route
     {
-        public bool IsRoute { get; set; }
-        public int delay { get; set; }
-        public Task RouteTask { get; set; }
+        bool _isRoute = false;
+        public bool IsRoute { get { return _isRoute; } set { _isRoute = value; } }
+                
+        public int Delay { get; set; }
     }
 
     /// <summary>
@@ -81,7 +82,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         /// <summary>
         /// 是否显示线路
         /// </summary>
-        public Route Route { private get { return _route; } set { _route = value; } }
+        public Route Route { get { return _route; } }
         #endregion
 
         private MainWindowViewModel viewModel = null;
@@ -103,7 +104,6 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             {
                 MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 CodeStacksWindow.MessageBox.Invoke(true, false, -1, "没有可用的网络连接，将切换至缓存模式");
-                //MessageBox.Show("No internet connection available, going to CacheOnly mode.", "xiaowen.codestacks.gamp.wpf", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             MainMap.Manager.Mode = AccessMode.ServerAndCache;
@@ -136,7 +136,6 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             }
             catch (System.Exception ex)
             {
-                CodeStacksWindow.MessageBox.Invoke(false, false, 2, string.Format("<codestacks.wpf.gmap>.internal error\r\n{0}", ex.Message));
                 throw new Exception(ex.Message, ex);
             }
 
@@ -182,7 +181,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             }
             catch (Exception ex)
             {
-                string err = ex.Message;
+                throw new Exception(ex.Message, ex);
             }
         }
 

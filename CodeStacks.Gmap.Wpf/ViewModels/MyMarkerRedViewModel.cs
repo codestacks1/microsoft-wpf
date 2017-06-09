@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.gmap.wpf.MyMarker;
+using xiaowen.codestacks.popwindow;
 using xiaowen.codestacks.wpf.Views.UserControls;
 
 namespace xiaowen.codestacks.wpf.ViewModels
@@ -55,14 +56,13 @@ namespace xiaowen.codestacks.wpf.ViewModels
 
             Cmd.AddMarkerCommand = new DelegateCommand<object>(AddMarkerCommandFunc);
             Cmd.ClearAllCommand = new DelegateCommand<object>(ClearAllCommandFunc);
-            Cmd.ActiveTrackCommand = new DelegateCommand<object>(ActiveTrackCommandFunc);
             Cmd.PlayActiveRouteCommand = new DelegateCommand<object>(PlayActiveRouteFunc);
             Cmd.SpeedUpCommand = new DelegateCommand<object>(SpeedUpCommandFunc);
         }
 
         private void SpeedUpCommandFunc(object obj)
         {
-            Route.delay = Route.delay == 0 ? 0 : Route.delay - 1;
+            Route.Delay = Route.Delay == 0 ? 0 : Route.Delay - 1;
         }
 
         public async void RouteAsync()
@@ -79,7 +79,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
             for (int i = 1; i < Points.Count; i++)
             {
                 _start = Points[i - 1];
-                await this.SpeedUpRouteAsync(_start, Points[i], Route.delay);
+                await this.SpeedUpRouteAsync(_start, Points[i], Route.Delay);
             }
         }
 
@@ -120,24 +120,16 @@ namespace xiaowen.codestacks.wpf.ViewModels
         {
             MyMapControl.MainMap.Markers.Clear();
 
-            Route.delay = 2;
+            Route.Delay = 2;
             RouteAsync();
         }
 
         private void ClearAllCommandFunc(object obj)
         {
-            if (MessageBox.Show("小伙子，你确定，别后悔 ~_~？", "Clear GMap graphiclayer?", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            if (CodeStacksWindow.MessageBox.Invoke(true, false, -1, "您确定要清理地图图层？"))
             {
-                try
-                {
-                    MyMapControl.MainMap.Markers.Clear();
-                    int i = MyMapControl.MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);
-                    MessageBox.Show("不作就不会 啊哈哈... 白白");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MyMapControl.MainMap.Markers.Clear();
+                MyMapControl.MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);
             }
         }
 

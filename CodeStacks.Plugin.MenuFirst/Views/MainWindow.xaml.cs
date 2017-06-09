@@ -23,7 +23,6 @@ namespace codectacks.plugin.menufirst.Views
             //MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, string.Empty, null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }));
 
             MyMap.Points = new ObservableCollection<GMap.NET.PointLatLng>();
-            MyMap.Route = new xiaowen.codestacks.wpf.Views.UserControls.Route() { IsRoute = true, delay = 3 };
 
             //for (int i = 0; i < 10; i++)
             //{

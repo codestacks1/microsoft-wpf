@@ -9,8 +9,6 @@ namespace xiaowen.codestacks.gmap.demo.Models
     {
         public ICommand AddMarkerCommand { get; set; }
         public ICommand ClearAllCommand { get; set; }
-        public ICommand ActiveTrackCommand { get; set; }
-
         public ICommand PlayActiveRouteCommand { get; set; }
         public ICommand SpeedUpCommand { get; set; }
 

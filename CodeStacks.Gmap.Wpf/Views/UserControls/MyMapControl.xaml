@@ -27,7 +27,4 @@
         <local:GetAnchorData Grid.Row="1" x:Name="_MyMapAnchorData" Panel.ZIndex="1" />
     </Grid>
 
-
-
-
 </UserControl>

@@ -15,21 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ContentControl xwprism:RegionManager.RegionName="ContentRegion" />
 
-        <GroupBox Header="Operator">
-            <ctrl:MyMapOptControl />
-        </GroupBox>
-
         <GroupBox Grid.Row="1" Name="mapgroup" Header="xiaowen.codestacks.wpf.Demo" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ctrl:MyMapControl />
-        </GroupBox>
-
-        <GroupBox Grid.Row="2" Header="Geo Infomation" Margin="0,0,0,10">
-            <ctrl:GetAnchorData x:Name="_MyMapAnchorData" />
         </GroupBox>
 
     </Grid>

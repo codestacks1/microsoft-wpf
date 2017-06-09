@@ -152,9 +152,6 @@
     <Compile Include="Views\UserControls\MyMapControl.xaml.cs">
       <DependentUpon>MyMapControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\MyMapOptControl.xaml.cs">
-      <DependentUpon>MyMapOptControl.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -218,10 +215,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\MyMapControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControls\MyMapOptControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
