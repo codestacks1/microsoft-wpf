@@ -47,8 +47,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMap.NET.WindowsPresentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Book", "CodeStacks.Book\CodeStacks.Book.csproj", "{FAB53A3C-346C-437F-8BCA-33542BB782EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMap.NET.WindowsForms", "GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj", "{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{138142c8-1a7c-4025-b29a-b5dfc9e670db}*SharedItemsImports = 4
@@ -322,22 +320,6 @@ Global
 		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.v4.0-Release|Any CPU.Build.0 = Release|Any CPU
 		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.v4.0-Release|x64.ActiveCfg = Release|Any CPU
 		{FAB53A3C-346C-437F-8BCA-33542BB782EE}.v4.0-Release|x64.Build.0 = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Debug|x64.Build.0 = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|x64.ActiveCfg = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|x64.Build.0 = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Debug|x64.ActiveCfg = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Debug|x64.Build.0 = Debug|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Release|Any CPU.Build.0 = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Release|x64.ActiveCfg = Release|Any CPU
-		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.v4.0-Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

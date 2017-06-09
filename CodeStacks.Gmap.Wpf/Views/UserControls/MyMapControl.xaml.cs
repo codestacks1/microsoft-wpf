@@ -4,6 +4,7 @@ using GMap.NET.WindowsPresentation;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,6 +17,13 @@ using xiaowen.codestacks.wpf.ViewModels;
 
 namespace xiaowen.codestacks.wpf.Views.UserControls
 {
+    public class Route
+    {
+        public bool IsRoute { get; set; }
+        public int delay { get; set; }
+        public Task RouteTask { get; set; }
+    }
+
     /// <summary>
     /// Interaction logic for MyMapControl.xaml
     /// </summary>
@@ -69,12 +77,19 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             set { _languageStr = value; }
         }
 
+        Route _route = new Route();
+        /// <summary>
+        /// 是否显示线路
+        /// </summary>
+        public Route Route { private get { return _route; } set { _route = value; } }
         #endregion
 
+        private MainWindowViewModel viewModel = null;
         public MyMapControl()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel();
+            this.DataContext = viewModel = new MainWindowViewModel();
+            viewModel.MyMapControl = this;
             GMapProvider.LanguageStr = LanguageStr;
         }
 
@@ -93,35 +108,30 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
 
             MainMap.Manager.Mode = AccessMode.ServerAndCache;
             MainMap.DragButton = MouseButton.Left;
-            //// config map
-            MainMap.MapProvider = GMapProviders.AMapHybridMap;//OpenStreetMap
-
+            MainMap.MapProvider = GMapProviders.AMapHybridMap;
+            MainMap.Zoom = 12;
             MainMap.ScaleMode = ScaleModes.Dynamic;
             try
             {
-                //"pack://application:,,,/Images/test1.png" resource path
-                //"pack://siteoforigin:,,,/Images/test1.png" site path
-                foreach (var point in Points)
+                if (Route.IsRoute)
                 {
-                    MainMap.Position = point;
-                    GMapMarker currentMarker = new GMapMarker(point);
-                    if (string.IsNullOrEmpty(point.AnchorType))
-                        currentMarker.Shape = null;
-                    else if ("Camera".Equals(point.AnchorType))
+                    viewModel.Points = Points;
+                    viewModel.Route = Route;
+                    viewModel.RouteAsync();
+                }
+                else
+                {
+                    //"pack://application:,,,/Images/test1.png" resource path
+                    //"pack://siteoforigin:,,,/Images/test1.png" site path
+                    foreach (var point in Points)
                     {
-                        currentMarker.Shape =
-                            new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
-                        currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
+                        MainMap.Position = point;
+                        GMapMarker currentMarker = new GMapMarker(point);
+                        GMapMarkerShape(currentMarker, point);
+                        currentMarker.Offset = new System.Windows.Point(-15, -15);
+                        currentMarker.ZIndex = int.MaxValue;
+                        MainMap.Markers.Add(currentMarker);
                     }
-                    else if ("Photo".Equals(point.AnchorType))
-                        currentMarker.Shape =
-                            new PhotoAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
-                    else if ("Red".Equals(point.AnchorType))
-                        currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
-
-                    currentMarker.Offset = new System.Windows.Point(-15, -15);
-                    currentMarker.ZIndex = int.MaxValue;
-                    MainMap.Markers.Add(currentMarker);
                 }
             }
             catch (System.Exception ex)
@@ -150,7 +160,6 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //}
 
             MainMap.LayoutUpdated += MainMap_LayoutUpdated;
-            MainMap.Zoom = 12;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
         }
 
@@ -211,5 +220,21 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         }
 
 
+        public void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
+        {
+            if (string.IsNullOrEmpty(point.AnchorType))
+                currentMarker.Shape = null;
+            else if ("Camera".Equals(point.AnchorType))
+            {
+                currentMarker.Shape =
+                    new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
+            }
+            else if ("Photo".Equals(point.AnchorType))
+                currentMarker.Shape =
+                    new PhotoAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+            else if ("Red".Equals(point.AnchorType))
+                currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
+        }
     }
 }

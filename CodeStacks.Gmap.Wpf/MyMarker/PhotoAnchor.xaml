@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.gmap.wpf.MyMarker"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="50" Height="60" Width="50">
+             d:DesignHeight="60" d:DesignWidth="50" Height="60" Width="50" Margin="-23,-60,0,0">
 
     <Grid>
         <Grid.Background>
@@ -25,6 +25,7 @@
                 </RadialGradientBrush>
             </Ellipse.Fill>
         </Ellipse>-->
+
         <Border CornerRadius="30" BorderThickness="2" BorderBrush="Transparent" Margin="2,2,2,11">
             <Border.Background>
                 <ImageBrush ImageSource="{Binding Photo,Mode=TwoWay}" Stretch="Fill" />
