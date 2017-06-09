@@ -113,8 +113,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.Wpf" mkdir "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.Wpf" 
-copy "$(TargetPath)" "$(SolutionDir)CodeStacks.Wpf\bin\xiaowen.codestacks.wpf\CodeStacks.Wpf"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf" 
+copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
