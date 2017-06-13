@@ -4,7 +4,6 @@ using GMap.NET.WindowsPresentation;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -21,7 +20,7 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
     {
         bool _isRoute = false;
         public bool IsRoute { get { return _isRoute; } set { _isRoute = value; } }
-                
+
         public int Delay { get; set; }
     }
 
@@ -83,6 +82,12 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         /// 是否显示线路
         /// </summary>
         public Route Route { get { return _route; } }
+
+        public Visibility IsMapCtrlVisibale { private get; set; }
+
+        public double Latitude { get; internal set; }
+        public double Longtitude { get; internal set; }
+
         #endregion
 
         private MainWindowViewModel viewModel = null;
@@ -91,11 +96,13 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             InitializeComponent();
             this.DataContext = viewModel = new MainWindowViewModel();
             viewModel.MyMapControl = this;
+            viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
             GMapProvider.LanguageStr = LanguageStr;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
             MainMap.Markers.Clear();
             MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
 
@@ -123,15 +130,16 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
                 {
                     //"pack://application:,,,/Images/test1.png" resource path
                     //"pack://siteoforigin:,,,/Images/test1.png" site path
-                    foreach (var point in Points)
-                    {
-                        MainMap.Position = point;
-                        GMapMarker currentMarker = new GMapMarker(point);
-                        GMapMarkerShape(currentMarker, point);
-                        currentMarker.Offset = new System.Windows.Point(-15, -15);
-                        currentMarker.ZIndex = int.MaxValue;
-                        MainMap.Markers.Add(currentMarker);
-                    }
+                    if (Points != null)
+                        foreach (var point in Points)
+                        {
+                            MainMap.Position = point;
+                            GMapMarker currentMarker = new GMapMarker(point);
+                            GMapMarkerShape(currentMarker, point);
+                            currentMarker.Offset = new System.Windows.Point(-15, -15);
+                            currentMarker.ZIndex = int.MaxValue;
+                            MainMap.Markers.Add(currentMarker);
+                        }
                 }
             }
             catch (System.Exception ex)
@@ -149,9 +157,10 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            //MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
+            MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
             //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
+            MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
 
             //if (MainMap.Markers.Count > 1)
             //{
@@ -160,6 +169,17 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
 
             MainMap.LayoutUpdated += MainMap_LayoutUpdated;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
+        }
+
+        private void MainMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            PointLatLng point = new PointLatLng(
+                MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude, MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude);
+            GMapMarker redMarker = new GMapMarker(point);
+            redMarker.Shape = new MyMarkerRedAnchor(this, redMarker, new GeoTitle(), "Xiaowen");
+            redMarker.Offset = new System.Windows.Point(-15, -15);
+            redMarker.ZIndex = int.MaxValue;
+            this.MainMap.Markers.Add(redMarker);
         }
 
         private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -200,6 +220,10 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
 
         private void MainMap_MouseMove(object sender, MouseEventArgs e)
         {
+            Point p = e.GetPosition(this.MainMap);
+            PointLatLng point = this.MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
+            MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = point.Lat;
+            MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = point.Lng;
         }
 
         private void MainMap_OnMapTypeChanged(GMapProvider type)

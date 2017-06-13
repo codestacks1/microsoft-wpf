@@ -18,7 +18,7 @@ namespace xiaowen.codestacks.wpf.ViewModels
             RoutingProvider rp = MyMapControl.MainMap.MapProvider as RoutingProvider;
             if (rp == null)
             {
-                rp = GMapProviders.BingHybridMap; // use OpenStreetMap if provider does not implement routing
+                rp = GMapProviders.AMapHybridMap; // use OpenStreetMap if provider does not implement routing
             }
 
             MapRoute route = rp.GetRoute(start, end, false, false, (int)MyMapControl.MainMap.Zoom);

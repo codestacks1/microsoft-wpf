@@ -139,7 +139,7 @@
     <Compile Include="MyMarker\PhotoAnchor.xaml.cs">
       <DependentUpon>PhotoAnchor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ActiveTrackViewModel.cs" />
+    <Compile Include="ViewModels\RouteTestViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MyMarkerRedViewModel.cs" />
     <Compile Include="ViewsCmd\MainWindowCmd.cs" />

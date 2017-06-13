@@ -66,8 +66,8 @@ namespace xiaowen.codestacks.wpf.MyMarker
             {
                 Point p = e.GetPosition(MainWindow.MainMap);
                 Marker.Position = MainWindow.MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
-                MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = Marker.Position.Lat;
-                MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = Marker.Position.Lng;
+                MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = MainWindow.Latitude = Marker.Position.Lat;
+                MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = MainWindow.Longtitude = Marker.Position.Lng;
                 MainWindowViewModel.SMainwindowViewModel.RefreshGeoData();
             }
         }

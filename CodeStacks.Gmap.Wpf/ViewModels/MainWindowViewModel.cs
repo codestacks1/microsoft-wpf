@@ -1,4 +1,5 @@
 ﻿using Prism.Mvvm;
+using System.Windows;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.wpf.Views.UserControls;
 
@@ -23,6 +24,12 @@ namespace xiaowen.codestacks.wpf.ViewModels
             set { SetProperty(ref _myMapControl, value); }
         }
 
+        Visibility _isMapCtrlVisible;
+        public Visibility IsMapCtrlVisible
+        {
+            get { return _isMapCtrlVisible; }
+            set { SetProperty(ref _isMapCtrlVisible, value); }
+        }
 
         public MainWindowViewModel()
         {

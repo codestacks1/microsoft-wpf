@@ -118,10 +118,12 @@ namespace xiaowen.codestacks.wpf.ViewModels
         /// <param name="obj"></param>
         private void PlayActiveRouteFunc(object obj)
         {
-            MyMapControl.MainMap.Markers.Clear();
-
-            Route.Delay = 2;
-            RouteAsync();
+            if (Route != null)
+            {
+                MyMapControl.MainMap.Markers.Clear();
+                Route.Delay = 2;
+                RouteAsync();
+            }
         }
 
         private void ClearAllCommandFunc(object obj)
