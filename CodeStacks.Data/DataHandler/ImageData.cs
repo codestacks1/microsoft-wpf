@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -131,9 +130,9 @@ namespace xiaowen.codestacks.data.DataHandler
                         }
                     });
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    throw new Exception(ex.Message, ex);
                 }
             }
             return result;
@@ -157,8 +156,9 @@ namespace xiaowen.codestacks.data.DataHandler
                 myBitmapImage.EndInit();
                 result = myBitmapImage;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw new Exception(ex.Message, ex);
             }
             return result;
         }
@@ -207,42 +207,36 @@ namespace xiaowen.codestacks.data.DataHandler
                 {
                     Stream stream = new MemoryStream(buffer);
 
-                    try
+                    if (isVertify != null && isVertify == true)
                     {
-                        if (isVertify != null && isVertify == true)
+                        try
                         {
-                            try
-                            {
-                                using (Image img = Image.FromStream(stream)) { }
-                            }
-                            catch (Exception)
-                            {
-                                isBreak = true;
-                            }
+                            using (Image img = Image.FromStream(stream)) { }
                         }
-
-                        if (isCompress)//compress image
+                        catch (Exception)
                         {
-                            compressBuffer = ImageCompress(stream);
-                            result.BeginInit();
-                            result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
-                            result.StreamSource = new MemoryStream(compressBuffer);
+                            isBreak = true;
                         }
-                        else
-                        {
-                            result.BeginInit();
-                            result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
-                            result.StreamSource = new MemoryStream(buffer);
-                        }
-
-                        result.EndInit();
-                        result.Freeze();
-
-                        isBreak = false;
                     }
-                    catch (Exception)
+
+                    if (isCompress)//compress image
                     {
+                        compressBuffer = ImageCompress(stream);
+                        result.BeginInit();
+                        result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                        result.StreamSource = new MemoryStream(compressBuffer);
                     }
+                    else
+                    {
+                        result.BeginInit();
+                        result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                        result.StreamSource = new MemoryStream(buffer);
+                    }
+
+                    result.EndInit();
+                    result.Freeze();
+
+                    isBreak = false;
                 }
                 else
                 {
