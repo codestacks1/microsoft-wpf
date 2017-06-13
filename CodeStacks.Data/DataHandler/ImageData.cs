@@ -150,7 +150,12 @@ namespace xiaowen.codestacks.data.DataHandler
             try
             {
                 ImageSourceConverter imgConvert = new ImageSourceConverter();
-                result = (ImageSource)imgConvert.ConvertFrom(Application.GetResourceStream(new Uri(path)));
+                BitmapImage myBitmapImage = new BitmapImage();
+                myBitmapImage.BeginInit();
+                myBitmapImage.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                myBitmapImage.UriSource = new Uri(path);
+                myBitmapImage.EndInit();
+                result = myBitmapImage;
             }
             catch (Exception)
             {
@@ -168,11 +173,16 @@ namespace xiaowen.codestacks.data.DataHandler
             BitmapImage result = null;
             try
             {
-                result = new BitmapImage(new Uri(path));
+                BitmapImage myBitmapImage = new BitmapImage();
+                myBitmapImage.BeginInit();
+                myBitmapImage.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                myBitmapImage.UriSource = new Uri(path);
+                myBitmapImage.EndInit();
+                result = myBitmapImage;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message, ex);
+
             }
             return result;
         }
@@ -215,11 +225,13 @@ namespace xiaowen.codestacks.data.DataHandler
                         {
                             compressBuffer = ImageCompress(stream);
                             result.BeginInit();
+                            result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
                             result.StreamSource = new MemoryStream(compressBuffer);
                         }
                         else
                         {
                             result.BeginInit();
+                            result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
                             result.StreamSource = new MemoryStream(buffer);
                         }
 
@@ -260,19 +272,14 @@ namespace xiaowen.codestacks.data.DataHandler
                 if (capacity > 0 && capacity > 100)// compress to 0 - 100 KByte
                 {
                     Stream stream = new MemoryStream(buffer);
-                    try
+                    using (Image img = Image.FromStream(stream))
                     {
-                        using (Image img = Image.FromStream(stream))
-                        {
-                            compressBuffer = ImageCompress(stream);
-                            result.BeginInit();
-                            result.StreamSource = new MemoryStream(compressBuffer);
-                            result.EndInit();
-                            result.Freeze();
-                        }
-                    }
-                    catch (Exception)
-                    {
+                        compressBuffer = ImageCompress(stream);
+                        result.BeginInit();
+                        result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                        result.StreamSource = new MemoryStream(compressBuffer);
+                        result.EndInit();
+                        result.Freeze();
                     }
                 }
                 else
@@ -280,8 +287,9 @@ namespace xiaowen.codestacks.data.DataHandler
                     //null
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw new Exception(ex.Message, ex);
             }
             return result;
         }
@@ -364,9 +372,9 @@ namespace xiaowen.codestacks.data.DataHandler
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                throw new Exception(ex.Message, ex);
             }
             return result;
         }

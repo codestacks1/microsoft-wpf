@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using xiaowen.codestacks.data;
 using xiaowen.codestacks.data.SenSingModels;
 
 namespace xiaowen.codestacks.popwindow.Views
@@ -40,6 +43,14 @@ namespace xiaowen.codestacks.popwindow.Views
         {
             try
             {
+                GridAll.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    GridAll.Background = new ImageBrush
+                    {
+                        ImageSource = new BitmapImage(new Uri(compare.Template.TypePhotoPath))
+                    };
+                }));
+                Captype.Content = compare.Captype;
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
                 label_Socre.Text = compare.Score.ToString();

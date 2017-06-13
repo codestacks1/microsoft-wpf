@@ -18,6 +18,10 @@ namespace xiaowen.codestacks.data.SenSingModels
         public int Threshold { get; set; }
         public Camera Camera { get; set; }
         /// <summary>
+        /// 20170608新增字段 判断是比对 还是 告警
+        /// </summary>
+        public string Captype { get; set; }
+        /// <summary>
         /// 抓拍对象
         /// </summary>
         public Snap Snap { get; set; }
