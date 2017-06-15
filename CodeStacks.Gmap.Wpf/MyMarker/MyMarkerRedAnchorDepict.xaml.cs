@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.wpf.ViewModels;
 
 namespace xiaowen.codestacks.wpf.MyMarker
 {

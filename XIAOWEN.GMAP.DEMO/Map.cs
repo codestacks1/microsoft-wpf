@@ -1,13 +1,11 @@
 ﻿
 namespace xiaowen.codestacks.gmap.demo
 {
-    using System.Windows.Media;
     using GMap.NET.WindowsPresentation;
+    using System;
     using System.Globalization;
     using System.Windows;
-    using System;
-    using System.Collections.ObjectModel;
-    using GMap.NET;
+    using System.Windows.Media;
 
     /// <summary>
     /// the custom map f GMapControl 
@@ -30,9 +28,7 @@ namespace xiaowen.codestacks.gmap.demo
         protected override void OnRender(DrawingContext drawingContext)
         {
             start = DateTime.Now;
-
             base.OnRender(drawingContext);
-
             end = DateTime.Now;
             delta = (int)(end - start).TotalMilliseconds;
 

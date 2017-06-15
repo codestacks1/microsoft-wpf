@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Data", "CodeStacks.Data\CodeStacks.Data.csproj", "{463854B2-9EBA-4229-B701-3F08F559080E}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeStacks.Plugins", "CodeStacks.Plugins", "{A6E9E320-01D8-4856-9166-E64E63BB44D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeStacks.Plugins", "CodeStacks.Plugins", "{91541863-F5BE-4EF0-875C-FC0ECBCFAD31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Plugin.Map", "CodeStacks.Plugin.Map\CodeStacks.Plugin.Map.csproj", "{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -188,6 +190,14 @@ Global
 		{487B9F3E-59C5-4697-A097-E57A2FB40990}.Release|Any CPU.Build.0 = Release|Any CPU
 		{487B9F3E-59C5-4697-A097-E57A2FB40990}.Release|x64.ActiveCfg = Release|x64
 		{487B9F3E-59C5-4697-A097-E57A2FB40990}.Release|x64.Build.0 = Release|x64
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Debug|x64.Build.0 = Debug|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|x64.ActiveCfg = Release|Any CPU
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -201,5 +211,6 @@ Global
 		{487B9F3E-59C5-4697-A097-E57A2FB40990} = {43CEACFA-2367-4883-B941-EFE7442DF242}
 		{A6E9E320-01D8-4856-9166-E64E63BB44D6} = {5B7D20D6-65E2-471F-A151-FF20150F620D}
 		{91541863-F5BE-4EF0-875C-FC0ECBCFAD31} = {7AE64CAB-BE9C-4C4D-81A7-8538DDBCF4CA}
+		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589} = {A6E9E320-01D8-4856-9166-E64E63BB44D6}
 	EndGlobalSection
 EndGlobal

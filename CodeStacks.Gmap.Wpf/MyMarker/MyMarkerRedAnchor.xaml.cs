@@ -3,9 +3,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using xiaowen.codestacks.wpf.Views.UserControls;
 using xiaowen.codestacks.wpf.ViewModels;
 using xiaowen.codestacks.gmap.demo.Models;
+using xiaowen.codestacks.wpf.Views;
 
 namespace xiaowen.codestacks.wpf.MyMarker
 {

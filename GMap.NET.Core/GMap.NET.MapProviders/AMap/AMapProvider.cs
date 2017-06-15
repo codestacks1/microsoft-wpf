@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Xml;
 
 namespace GMap.NET.GMap.NET.MapProviders.AMap
 {
@@ -253,11 +254,75 @@ namespace GMap.NET.GMap.NET.MapProviders.AMap
 
         public string TileXYToQuadKey { get; private set; }
 
+        public bool ForceSessionIdOnTileAccess = false;
+
         public override PureImage GetTileImage(GPoint pos, int zoom)
         {
-
             string url = MakeTileImageUrl(pos, zoom, LanguageStr);
             return GetTileImageUsingHttp(url);
+
+            //string ret = "CodeStacks";
+            //string url = MakeTileImageUrl(pos, zoom, LanguageStr);
+            //string imageryType = string.Empty;
+            //try
+            //{
+            //    string r = GMaps.Instance.UseUrlCache ? Cache.Instance.GetContent("GetTileUrl" + imageryType, CacheType.UrlCache, TimeSpan.FromDays(7)) : string.Empty;
+            //    bool cache = false;
+
+            //    if (string.IsNullOrEmpty(r))
+            //    {
+            //        r = GetContentUsingHttp(url);                    
+            //        cache = true;
+            //    }
+
+            //    if (!string.IsNullOrEmpty(r))
+            //    {
+            //        XmlDocument doc = new XmlDocument();
+            //        doc.LoadXml(r);
+
+            //        XmlNode xn = doc["Response"];
+            //        string statuscode = xn["StatusCode"].InnerText;
+            //        if (string.Compare(statuscode, "200", true) == 0)
+            //        {
+            //            xn = xn["ResourceSets"]["ResourceSet"]["Resources"];
+            //            XmlNodeList xnl = xn.ChildNodes;
+            //            foreach (XmlNode xno in xnl)
+            //            {
+            //                XmlNode imageUrl = xno["ImageUrl"];
+
+            //                if (imageUrl != null && !string.IsNullOrEmpty(imageUrl.InnerText))
+            //                {
+            //                    if (cache && GMaps.Instance.UseUrlCache)
+            //                    {
+            //                        Cache.Instance.SaveContent("GetTileUrl" + imageryType, CacheType.UrlCache, r);
+            //                    }
+
+            //                    var baseTileUrl = imageUrl.InnerText;
+
+            //                    if (baseTileUrl.Contains("{key}") || baseTileUrl.Contains("{token}"))
+            //                    {
+            //                        baseTileUrl.Replace("{key}", SessionId).Replace("{token}", SessionId);
+            //                    }
+            //                    else if (ForceSessionIdOnTileAccess)
+            //                    {
+            //                        // haven't seen anyone doing that, yet? ;/                            
+            //                        baseTileUrl += "&key=" + SessionId;
+            //                    }
+
+            //                    Debug.WriteLine("GetTileUrl, UrlFormat[" + imageryType + "]: " + baseTileUrl);
+
+            //                    ret = baseTileUrl;
+            //                    break;
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine("GetTileUrl: Error getting Bing Maps tile URL - " + ex);
+            //}
+            //return GetTileImageUsingHttp(ret);
         }
 
 

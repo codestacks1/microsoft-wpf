@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using xiaowen.codestacks.wpf.Views.UserControls;
 using System.Windows.Media;
 using System.Windows.Input;
+using xiaowen.codestacks.wpf.Views;
 
 namespace xiaowen.codestacks.wpf.MyMarker
 {

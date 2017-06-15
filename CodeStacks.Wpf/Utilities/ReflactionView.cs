@@ -70,7 +70,7 @@ namespace xiaowen.codestacks.wpf.Utilities
         /// <param name="index"></param>
         /// <param name="viewName"></param>
         /// <param name="methodName"></param>
-        static void GoTo2(object obj, int index, string viewName, string methodName)
+        public static void GoTo2(object obj, int index, string viewName, string methodName)
         {
 
         }

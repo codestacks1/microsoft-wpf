@@ -7,7 +7,7 @@ using System.Windows.Media;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.wpf.MyMarker;
 using xiaowen.codestacks.wpf.ViewModels;
-using xiaowen.codestacks.wpf.Views.UserControls;
+using xiaowen.codestacks.wpf.Views;
 
 namespace xiaowen.codestacks.gmap.wpf.MyMarker
 {

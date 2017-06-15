@@ -1,22 +1,14 @@
 ﻿using Prism.Mvvm;
 using System.Windows;
 using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.wpf.Views.UserControls;
+using xiaowen.codestacks.wpf.Views;
 
 namespace xiaowen.codestacks.wpf.ViewModels
 {
     public partial class MainWindowViewModel : BindableBase
     {
         public static MainWindowViewModel SMainwindowViewModel { get; set; }
-
-        private string _title = "Prism Unity Application";
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
-
+        
         MyMapControl _myMapControl;
         public MyMapControl MyMapControl
         {

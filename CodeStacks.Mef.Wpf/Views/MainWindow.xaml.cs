@@ -44,7 +44,7 @@ namespace codestacks.mef.wpf.Views
             return true;
         }
 
-
+        bool init = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -66,12 +66,15 @@ namespace codestacks.mef.wpf.Views
                 HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
             }
 
-            if (!string.IsNullOrEmpty(_default))
-                HomeComboBox0.SelectedItem = _default;
+            //if (!string.IsNullOrEmpty(_default))
+            //    HomeComboBox0.SelectedItem = _default;
         }
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            HomeComboBox0.SelectionChanged -= HomeComboBox0_SelectionChanged;
+            HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
+
             ComboBox cbox = sender as ComboBox;
             if (cbox == null) return;
             var item = cbox.SelectedItem as string;
@@ -86,10 +89,23 @@ namespace codestacks.mef.wpf.Views
                 {
                     try
                     {
-                        Window window = export.Value as Window;
-                        if (window == null) return;
-                        window.Title = title;
-                        window.Show();
+                        if (export.Value is UserControl)
+                        {
+                            UserControl control = export.Value as UserControl;
+                            
+                            Docker.Children.Add(control);
+
+                        }
+                        //TextBox tb = new TextBox();
+                        //tb.Text = "12345";
+                        //tb.FontSize = 50;
+                        //Docker.Children.Add(tb);
+                        //Window window = export.Value as Window;
+                        //if (window == null) return;
+                        //window.Title = title;
+                        //window.Show();
+
+
                         break;
                     }
                     catch (Exception ex)

@@ -44,5 +44,10 @@ namespace codectacks.plugin.menusecond.Views
                 return "Plugin.MenuSecond";
             }
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

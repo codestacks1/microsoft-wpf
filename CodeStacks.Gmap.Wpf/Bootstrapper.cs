@@ -12,7 +12,7 @@ namespace xiaowen.codestacks.wpf
             //MainWindow mainWindow = new MainWindow();
             //Type t = mainWindow.GetType();
             //return Container.Resolve(t, "", null);
-            return new MainWindow();
+            return null; //MainWindow();
 
         }
 

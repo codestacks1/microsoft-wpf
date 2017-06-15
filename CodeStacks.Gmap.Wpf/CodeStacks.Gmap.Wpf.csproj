@@ -7,7 +7,7 @@
     <ProjectGuid>{77C29B1E-14AA-4D42-A44C-ED2F1ED74DAF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xiaowen.codestacks.gmap.wpf</RootNamespace>
+    <RootNamespace>xiaowen.codestacks.wpf</RootNamespace>
     <AssemblyName>CodeStacks.Gmap.Wpf</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -122,8 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Models\Geo.cs" />
-    <Compile Include="Models\GeoTitle.cs" />
     <Compile Include="MyMarker\CameraAnchor.xaml.cs">
       <DependentUpon>CameraAnchor.xaml</DependentUpon>
     </Compile>
@@ -139,17 +137,13 @@
     <Compile Include="MyMarker\PhotoAnchor.xaml.cs">
       <DependentUpon>PhotoAnchor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\RouteTestViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MyMarkerRedViewModel.cs" />
     <Compile Include="ViewsCmd\MainWindowCmd.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\GetAnchorData.xaml.cs">
+    <Compile Include="Views\GetAnchorData.xaml.cs">
       <DependentUpon>GetAnchorData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\MyMapControl.xaml.cs">
+    <Compile Include="Views\MyMapControl.xaml.cs">
       <DependentUpon>MyMapControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -206,15 +200,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Views\GetAnchorData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\GetAnchorData.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControls\MyMapControl.xaml">
+    <Page Include="Views\MyMapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

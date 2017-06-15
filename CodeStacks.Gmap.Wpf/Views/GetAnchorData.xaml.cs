@@ -3,7 +3,7 @@ using GMap.NET.WindowsPresentation;
 using System.Windows.Controls;
 using xiaowen.codestacks.wpf.ViewModels;
 
-namespace xiaowen.codestacks.wpf.Views.UserControls
+namespace xiaowen.codestacks.wpf.Views
 {
     /// <summary>
     /// Interaction logic for GetAnchorData.xaml

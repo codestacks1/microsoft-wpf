@@ -10,11 +10,10 @@ using System.Windows.Input;
 using xiaowen.codestacks.gmap.demo;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.gmap.wpf.MyMarker;
-using xiaowen.codestacks.popwindow;
 using xiaowen.codestacks.wpf.MyMarker;
 using xiaowen.codestacks.wpf.ViewModels;
 
-namespace xiaowen.codestacks.wpf.Views.UserControls
+namespace xiaowen.codestacks.wpf.Views
 {
     public class Route
     {
@@ -101,25 +100,31 @@ namespace xiaowen.codestacks.wpf.Views.UserControls
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
-            MainMap.Markers.Clear();
-            MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
-
-            // set cache mode only if no internet avaible
-            if (!Stuff.PingNetwork("ditu.amap.com"))
-            {
-                MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                CodeStacksWindow.MessageBox.Invoke(true, false, -1, "没有可用的网络连接，将切换至缓存模式");
-            }
-
-            MainMap.Manager.Mode = AccessMode.ServerAndCache;
-            MainMap.DragButton = MouseButton.Left;
-            MainMap.MapProvider = GMapProviders.AMapHybridMap;
-            MainMap.Zoom = 12;
-            MainMap.ScaleMode = ScaleModes.Dynamic;
+        {           
             try
             {
+                viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
+                MainMap.Markers.Clear();
+                MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
+
+#if DEBUG
+                MainMap.Manager.Mode = AccessMode.ServerAndCache;
+                // set cache mode only if no internet avaible
+                if (!Stuff.PingNetwork("ditu.amap.com"))
+                {
+                    MainMap.Manager.Mode = AccessMode.CacheOnly;
+                }
+#else
+
+            MainMap.Manager.Mode = AccessMode.CacheOnly;
+
+#endif
+
+                MainMap.DragButton = MouseButton.Left;
+                MainMap.MapProvider = GMapProviders.AMapHybridMap;
+                MainMap.Zoom = 12;
+                MainMap.ScaleMode = ScaleModes.Dynamic;
+
                 if (Route.IsRoute)
                 {
                     viewModel.Points = Points;

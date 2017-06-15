@@ -7,8 +7,8 @@ using xiaowen.codestacks.gmap.demo.Models;
 namespace codectacks.plugin.menufirst.Views
 {
     [Export(typeof(IMainWindowContract))]
-    [ExportMetadata("Title", "Plugin.First")]
-    [ExportMetadata("MenuText", "FirstMenu")]
+    [ExportMetadata("Title", "Plugin.GMap")]
+    [ExportMetadata("MenuText", "地图")]
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -38,13 +38,17 @@ namespace codectacks.plugin.menufirst.Views
 
         public string MenuItemText
         {
-            get { return "FirstMenu"; }
+            get { return "地图"; }
         }
 
         public string SubWindowTitle
         {
-            get { return "Plugin.First"; }
+            get { return "Plugin.GMap"; }
         }
 
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

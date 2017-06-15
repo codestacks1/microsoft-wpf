@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Utilities\ConcurrencyHandler.cs" />
     <Compile Include="Utilities\DataStorage.cs" />
+    <Compile Include="Utilities\FileHandler.cs" />
     <Compile Include="Utilities\ReflactionView.cs" />
     <Compile Include="Utilities\ValidateArgument.cs" />
     <Compile Include="xiaowen{wpf}.cs" />

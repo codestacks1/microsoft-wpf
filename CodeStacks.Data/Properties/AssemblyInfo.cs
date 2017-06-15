@@ -23,7 +23,7 @@ using System.Windows.Markup;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("463854b2-9eba-4229-b701-3f08f559080e")]
 
-[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.data")]
+//[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.data")]
 
 // Version information for an assembly consists of the following four values:
 //

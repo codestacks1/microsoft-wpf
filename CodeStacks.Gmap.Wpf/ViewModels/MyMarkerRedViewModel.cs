@@ -10,7 +10,8 @@ using System.Windows;
 using xiaowen.codestacks.gmap.demo.Models;
 using xiaowen.codestacks.gmap.wpf.MyMarker;
 using xiaowen.codestacks.popwindow;
-using xiaowen.codestacks.wpf.Views.UserControls;
+using xiaowen.codestacks.wpf.MyMarker;
+using xiaowen.codestacks.wpf.Views;
 
 namespace xiaowen.codestacks.wpf.ViewModels
 {
@@ -60,9 +61,52 @@ namespace xiaowen.codestacks.wpf.ViewModels
             Cmd.SpeedUpCommand = new DelegateCommand<object>(SpeedUpCommandFunc);
         }
 
+        private void AddMarkerCommandFunc(object obj)
+        {
+            PointLatLng start = new PointLatLng(36.7564903295052, 119.20166015625);
+            PointLatLng end = new PointLatLng(35.6332079113796, 116.873046875);
+
+            RoutingProvider rp = MyMapControl.MainMap.MapProvider as RoutingProvider;
+            if (rp == null)
+            {
+                rp = GMapProviders.AMapHybridMap; // use OpenStreetMap if provider does not implement routing
+            }
+
+            MapRoute route = rp.GetRoute(start, end, false, false, (int)MyMapControl.MainMap.Zoom);
+            if (route != null)
+            {
+                GMapMarker m1 = new GMapMarker(start);
+                m1.Shape = new MyMarkerRouteAnchor(MyMapControl, m1, "起点: " + start.ToString());
+
+                GMapMarker m2 = new GMapMarker(end);
+                m2.Shape = new MyMarkerRouteAnchor(MyMapControl, m2, "终点: " + end.ToString());
+
+                GMapRoute mRoute = new GMapRoute(route.Points);
+                {
+                    mRoute.ZIndex = -1;
+                }
+
+                MyMapControl.MainMap.Markers.Add(m1);
+                MyMapControl.MainMap.Markers.Add(m2);
+                MyMapControl.MainMap.Markers.Add(mRoute);
+
+                MyMapControl.MainMap.Zoom = 8;
+                MyMapControl.MainMap.ZoomAndCenterMarkers(null);
+
+                MyMapControl.MainMap.Position = end;
+            }
+        }
+
         private void SpeedUpCommandFunc(object obj)
         {
-            Route.Delay = Route.Delay == 0 ? 0 : Route.Delay - 1;
+            try
+            {
+                Route.Delay = Route.Delay == 0 ? 0 : Route.Delay - 1;
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
         public async void RouteAsync()

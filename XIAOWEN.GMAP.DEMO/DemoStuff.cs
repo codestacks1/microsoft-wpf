@@ -67,11 +67,11 @@ namespace xiaowen.codestacks.gmap.demo
 
          using(Ping p = new Ping())
          {
-            byte[] buffer = Encoding.ASCII.GetBytes("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            int timeout = 4444; // 4s
+            byte[] buffer = Encoding.ASCII.GetBytes("");
+            int timeout = 100; 
 
             try
-            {
+            {                   
                PingReply reply = p.Send(hostNameOrAddress, timeout, buffer);
                pingStatus = (reply.Status == IPStatus.Success);
             }

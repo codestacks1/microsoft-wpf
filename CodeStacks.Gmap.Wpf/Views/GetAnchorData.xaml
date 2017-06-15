@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="xiaowen.codestacks.wpf.Views.UserControls.GetAnchorData"
+﻿<UserControl x:Class="xiaowen.codestacks.wpf.Views.GetAnchorData"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views.UserControls"
+             xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views"
              xmlns:codestacks="http://xiaowen.codestacks.wpf"
              mc:Ignorable="d" Background="Transparent"
              d:DesignHeight="100" d:DesignWidth="1366">
@@ -92,9 +92,10 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                 <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
-                <TextBlock Text="轨迹测试" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand" Margin="10">
+                <TextBlock Text="轨迹测试" TextAlignment="Center" VerticalAlignment="Center" 
+                           Cursor="Hand" Margin="10">
                     <TextBlock.InputBindings>
-                        <MouseBinding Command="{Binding Cmd.AddMarkerCommand}" />
+                        <MouseBinding Command="{Binding Cmd.AddMarkerCommand}" MouseAction="LeftClick" />
                     </TextBlock.InputBindings>
                 </TextBlock>
             </StackPanel>
