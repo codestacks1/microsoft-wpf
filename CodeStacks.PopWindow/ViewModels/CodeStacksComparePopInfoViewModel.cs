@@ -12,6 +12,7 @@ namespace xiaowen.codestacks.popwindow.ViewModels
         public CodeStacksComparePopInfoViewModel()
         {
 
+
         }
     }
 }
