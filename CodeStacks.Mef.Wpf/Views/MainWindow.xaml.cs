@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using xiaowen.codestacks.data.Interfaces;
@@ -63,8 +64,9 @@ namespace codestacks.mef.wpf.Views
                 if (string.IsNullOrEmpty(exportedMenuText)) return;
 
                 HomeComboBox0.Items.Add(exportedMenuText);
-                HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
             }
+
+            HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
 
             //if (!string.IsNullOrEmpty(_default))
             //    HomeComboBox0.SelectedItem = _default;
@@ -72,9 +74,6 @@ namespace codestacks.mef.wpf.Views
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HomeComboBox0.SelectionChanged -= HomeComboBox0_SelectionChanged;
-            HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
-
             ComboBox cbox = sender as ComboBox;
             if (cbox == null) return;
             var item = cbox.SelectedItem as string;
@@ -87,31 +86,20 @@ namespace codestacks.mef.wpf.Views
 
                 if (menuItem == item)
                 {
-                    try
+                    if (export.Value is UserControl)
                     {
-                        if (export.Value is UserControl)
-                        {
-                            UserControl control = export.Value as UserControl;
-                            
-                            Docker.Children.Add(control);
+                        //TypeInfo objectType = export.Value.GetType() as TypeInfo;
+                        //ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
+                        //var main = obj.Invoke(null) as UserControl;
 
-                        }
-                        //TextBox tb = new TextBox();
-                        //tb.Text = "12345";
-                        //tb.FontSize = 50;
-                        //Docker.Children.Add(tb);
-                        //Window window = export.Value as Window;
-                        //if (window == null) return;
-                        //window.Title = title;
-                        //window.Show();
-
-
+                        UserControl ctrl = export.Value as UserControl;
+                        Docker.Children.Add(ctrl);
                         break;
                     }
-                    catch (Exception ex)
-                    {
-                        string err = ex.Message;
-                    }
+                    //Window window = export.Value as Window;
+                    //if (window == null) return;
+                    //window.Title = title;
+                    //window.Show();
                 }
             }
         }

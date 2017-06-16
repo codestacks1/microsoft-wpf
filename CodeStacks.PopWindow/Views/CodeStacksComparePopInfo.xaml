@@ -47,67 +47,82 @@
         <!--<Grid.Background>
             <ImageBrush ImageSource="{StaticResource ResourceKey=bgwindow}"></ImageBrush>
         </Grid.Background>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.ColumnSpan="2" x:Name="Captype" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20" FontSize="26" Content="场 景 留 存" ></Label>
-        <Button Name="btnClose" Grid.Column="1" Width="24" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10"
-               BorderThickness="0" Style="{DynamicResource btnCloseStyle}" Click="btnClose_Click_1"></Button>
-        <!--抓拍帧-->
-        <Label Grid.Column="1"  Margin="0,70,5,80">场景:</Label>
-        <Grid Grid.Column="1" Margin="0,110,5,100">
-            <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_SenceImg"></Image>
-            <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
-        </Grid>
+        
+            <Label x:Name="Captype" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20" FontSize="26" Content="场 景 留 存" ></Label>
+            <Button Name="btnClose" Grid.Column="1" Width="24" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" BorderThickness="0" Style="{DynamicResource btnCloseStyle}" Click="btnClose_Click_1"></Button>
+     
         <!--比对照片和相关信息-->
-        <Grid  Margin="0,70,0,100" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
-                <ColumnDefinition Width="0*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <!--抓拍照片-->
-            <Label  Grid.Column="0" Grid.ColumnSpan="2">抓拍照片:</Label>
-            <Grid Margin="0,40,0,0" Grid.Column="0" Grid.ColumnSpan="2">
-                <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_capImage"></Image>
-                <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
-            </Grid>
-            <!--模版照片-->
-            <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">模版照片:</Label>
-            <Grid Margin="0,40,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                <Image Margin="5,10,5,10" Stretch="Fill" x:Name="image_cmpImage"></Image>
-                <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
-            </Grid>
-            <!--模版信息-->
-            <Label Grid.Column="2" Grid.ColumnSpan="2">模版信息:</Label>
-            <Grid Grid.Column="2" Margin="0,30,0,0" Grid.RowSpan="2">
-                <StackPanel VerticalAlignment="Top" Grid.Column="1"  Margin="10,30,10,10">
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="FontSize" Value="20"></Setter>
-                        </Style>
-                    </StackPanel.Resources>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="相似度:" FontSize="35" Foreground="Red" />
-                        <TextBlock x:Name="label_Socre"  HorizontalAlignment="Center" FontSize="35" Foreground="Red" Text="" />
-                        <TextBlock Text="%" FontSize="35" Foreground="Red" />
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+                <!--模版照片-->
+                <Label>模版照片:</Label>
+                <Grid>
+                    <Image Stretch="Fill" x:Name="image_cmpImage"></Image>
+                    <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <!--模版信息-->
+                <Label>模版信息:</Label>
+                <Grid  Margin="0,0,0,0" >
+                    <StackPanel VerticalAlignment="Top">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="FontSize" Value="20"></Setter>
+                            </Style>
+                        </StackPanel.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="相似度:" FontSize="35" Foreground="Red" />
+                            <TextBlock x:Name="label_Socre"  HorizontalAlignment="Center" FontSize="35" Foreground="Red" Text="" />
+                            <TextBlock Text="%" FontSize="35" Foreground="Red" />
+                        </StackPanel>
+                        <TextBlock Text="姓名："/>
+                        <TextBlock TextWrapping="Wrap" x:Name="label_TemplateName" Text=""></TextBlock>
+                        <TextBlock Text="来源库：" />
+                        <TextBlock TextWrapping="Wrap" x:Name="label_TemplateType" Text=""></TextBlock>
+                        <TextBlock Text="发现时间：" />
+                        <TextBlock TextWrapping="Wrap" x:Name="label_CapTime" Text=""></TextBlock>
+                        <TextBlock Text="发现地点：" />
+                        <TextBlock TextWrapping="Wrap" x:Name="label_CapChannel" Text=""></TextBlock>
                     </StackPanel>
-                    <TextBlock Text="姓名："/>
-                    <TextBlock TextWrapping="Wrap" x:Name="label_TemplateName" Text=""></TextBlock>
-                    <TextBlock Text="来源库：" />
-                    <TextBlock TextWrapping="Wrap" x:Name="label_TemplateType" Text=""></TextBlock>
-                    <TextBlock Text="发现时间：" />
-                    <TextBlock TextWrapping="Wrap" x:Name="label_CapTime" Text=""></TextBlock>
-                    <TextBlock Text="发现地点：" />
-                    <TextBlock TextWrapping="Wrap" x:Name="label_CapChannel" Text=""></TextBlock>
-                </StackPanel>
-            </Grid>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <!--抓拍帧-->
+                <Label>场景:</Label>
+                <Grid>
+                    <Image Margin="5,0,5,0" Stretch="Fill" x:Name="image_SenceImg"></Image>
+                    <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <!--抓拍照片-->
+                <Label>抓拍照片:</Label>
+                <Grid Margin="0,0,0,0" >
+                    <Image Stretch="Fill" x:Name="image_capImage"></Image>
+                    <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png"></Image>
+                </Grid>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
