@@ -66,7 +66,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="0.3*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -78,8 +78,8 @@
                     <!--模版照片-->
                     <Label>模版照片:</Label>
                     <Grid>
-                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"></Image>
-                        <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
+                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" Margin="10"></Image>
+                        <Image Source="..\Gallery\bg.photo.png"></Image>
                     </Grid>
                 </StackPanel>
 
@@ -116,7 +116,7 @@
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
                     <Grid>
-                        <Image Stretch="Fill" x:Name="image_capImage"></Image>
+                        <Image Stretch="Fill" x:Name="image_capImage" Margin="10"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
@@ -134,7 +134,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Stretch="Fill" x:Name="image_SenceImg" Grid.ColumnSpan="2" Margin="5" Panel.ZIndex="0"></Image>
-                            <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png" Grid.ColumnSpan="2" Margin="5" Panel.ZIndex="1"/>
+                            <Image Stretch="Fill" Source="..\Gallery\bg.photo.sense.png" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
                         </Grid>
                     </GroupBox>
 
