@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeStacks.Plugins", "CodeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Plugin.Map", "CodeStacks.Plugin.Map\CodeStacks.Plugin.Map.csproj", "{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Thrift", "CodeStacks.Thrift\CodeStacks.Thrift.csproj", "{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XIAOWEN.GMAP.DEMO\XIAOWEN.GMAP.DEMO.projitems*{138142c8-1a7c-4025-b29a-b5dfc9e670db}*SharedItemsImports = 4
@@ -198,6 +200,14 @@ Global
 		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|Any CPU.Build.0 = Release|Any CPU
 		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|x64.ActiveCfg = Release|Any CPU
 		{63AE3AF3-0104-49BC-87EA-4AD34B3DD589}.Release|x64.Build.0 = Release|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Debug|x64.Build.0 = Debug|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Release|x64.ActiveCfg = Release|Any CPU
+		{5E4BBFFD-010D-4C6B-AFAC-A9B81A0C4E8A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

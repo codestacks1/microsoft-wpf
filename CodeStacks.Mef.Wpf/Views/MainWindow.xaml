@@ -1,16 +1,18 @@
-﻿<Window x:Class="codestacks.mef.wpf.Views.MainWindow"
+﻿<Window x:Class="CodeStacks.Mef.Wpf.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:codestacks.mef.wpf.Views"
-        xmlns:viewmodel="clr-namespace:codestacks.mef.wpf.ViewModels"
+        xmlns:local="clr-namespace:CodeStacks.Mef.Wpf.Views"
+        xmlns:viewmodel="clr-namespace:CodeStacks.Mef.Wpf.ViewModels"
         xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="CodeStacks.Mef" Height="768" Width="1366"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
         prism:ViewModelLocator.AutoWireViewModel="True" Icon="/Startup;component/logo.ico">
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -26,7 +28,16 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ComboBox Name="HomeComboBox0" FontSize="16" HorizontalContentAlignment="Center"></ComboBox>
+            <Border CornerRadius="0">
+                <ComboBox Name="HomeComboBox0"
+                          Style="{DynamicResource BlackComboBox}"
+                          ItemContainerStyle="{StaticResource BlackComboBoxItem}"
+                          FontSize="16" HorizontalContentAlignment="Center" >
+
+                </ComboBox>
+            </Border>
+            <Button Grid.Column="1" Content="copy" Click="Button_Click" />
+
         </Grid>
         <Grid x:Name="Docker" Grid.Row="1" Margin="1,5">
 

@@ -5,9 +5,12 @@ using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using xiaowen.codestacks.data;
 using xiaowen.codestacks.data.Interfaces;
+using xiaowen.codestacks.popwindow.ViewModels;
+using xiaowen.codestacks.popwindow.Views;
 
-namespace codestacks.mef.wpf.Views
+namespace CodeStacks.Mef.Wpf.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -30,7 +33,6 @@ namespace codestacks.mef.wpf.Views
             return container;
         }
 
-
         private bool Compose()
         {
             _container = GetContainerFromDirectory();
@@ -45,10 +47,12 @@ namespace codestacks.mef.wpf.Views
             return true;
         }
 
-        bool init = false;
         public MainWindow()
         {
             InitializeComponent();
+
+            this.WindowState = WindowState.Maximized;
+
             bool successfulCompose = Compose();
             if (!successfulCompose)
                 this.Close();
@@ -65,11 +69,7 @@ namespace codestacks.mef.wpf.Views
 
                 HomeComboBox0.Items.Add(exportedMenuText);
             }
-
             HomeComboBox0.SelectionChanged += HomeComboBox0_SelectionChanged;
-
-            //if (!string.IsNullOrEmpty(_default))
-            //    HomeComboBox0.SelectedItem = _default;
         }
 
         private void HomeComboBox0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -91,17 +91,27 @@ namespace codestacks.mef.wpf.Views
                         //TypeInfo objectType = export.Value.GetType() as TypeInfo;
                         //ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
                         //var main = obj.Invoke(null) as UserControl;
-
                         UserControl ctrl = export.Value as UserControl;
+                        Docker.Children.Clear();
                         Docker.Children.Add(ctrl);
-                        break;
                     }
-                    //Window window = export.Value as Window;
-                    //if (window == null) return;
-                    //window.Title = title;
-                    //window.Show();
+                    else
+                    {
+                        TypeInfo objectType = export.Value.GetType() as TypeInfo;
+                        ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
+                        Window window = obj.Invoke(null) as Window;
+                        window.Show();
+                    }
+                    break;
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CodeStacksComparePopInfo modle = new CodeStacksComparePopInfo();
+            modle.ShowDialog();
+          
         }
     }
 }

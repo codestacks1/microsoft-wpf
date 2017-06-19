@@ -9,7 +9,7 @@ namespace CodeStacks.Plugin.Map.Views
 {
     [Export(typeof(IMainWindowContract))]
     [ExportMetadata("Title", "Plugin.Map")]
-    [ExportMetadata("MenuText", "AMap")]
+    [ExportMetadata("MenuText", "高德地图")]
     /// <summary>
     /// Interaction logic for MainView.xaml
     /// </summary>

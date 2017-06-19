@@ -3,8 +3,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using xiaowen.codestacks.data;
 using xiaowen.codestacks.data.SenSingModels;
+using xiaowen.codestacks.popwindow.ViewModels;
 
 namespace xiaowen.codestacks.popwindow.Views
 {
@@ -13,21 +13,20 @@ namespace xiaowen.codestacks.popwindow.Views
     /// </summary>
     public partial class CodeStacksComparePopInfo : Window
     {
+        public CodeStacksComparePopInfoViewModel vModel;
+
         public CodeStacksComparePopInfo()
         {
             InitializeComponent();
             this.MouseLeftButtonDown += CompInfo_MouseLeftButtonDown;
+            vModel = new CodeStacksComparePopInfoViewModel();
+            vModel.Person = new Person();
+            this.DataContext = vModel;
         }
 
         private void CompInfo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
-                this.DragMove();
-            }
-            catch (Exception)
-            {
-            }
+            this.DragMove();
         }
 
         private void btnClose_Click_1(object sender, RoutedEventArgs e)
@@ -39,7 +38,7 @@ namespace xiaowen.codestacks.popwindow.Views
         /// 
         /// </summary>
         /// <param name="compare"></param>
-        public void SetResultValue(Compare compare)
+        public void SetResultValue(Compare compare, params object[] param)
         {
             try
             {
@@ -54,7 +53,7 @@ namespace xiaowen.codestacks.popwindow.Views
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
                 label_Socre.Text = compare.Score.ToString();
-                label_TemplateName.Text = compare.Template.PersonInfo.Name;
+                label_TemplateName.Text = vModel.Person.Name = compare.Template.PersonInfo.Name;
                 label_TemplateType.Text = compare.Template.TypeValue;
                 label_CapTime.Text = compare.Snap.DateTime;
                 label_CapChannel.Text = compare.Camera.Location;
@@ -62,7 +61,7 @@ namespace xiaowen.codestacks.popwindow.Views
             }
             catch (Exception ex)
             {
-                CodeStacksWindow.MessageBox.Invoke(true, false, 2, ex.Message);
+                throw new Exception(ex.Message, ex);
             }
 
         }

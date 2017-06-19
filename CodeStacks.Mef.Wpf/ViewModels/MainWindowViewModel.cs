@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace codestacks.mef.wpf.ViewModels
+namespace CodeStacks.Mef.Wpf.ViewModels
 {
     public partial class MainWindowViewModel
     {

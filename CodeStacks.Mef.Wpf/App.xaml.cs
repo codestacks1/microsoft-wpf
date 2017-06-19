@@ -3,13 +3,23 @@ using System.Diagnostics;
 using System.Windows;
 using xiaowen.codestacks.popwindow;
 
-namespace codestacks.mef.wpf
+namespace CodeStacks.Mef.Wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// app startup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +41,6 @@ namespace codestacks.mef.wpf
         /// <param name="e"></param>
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            CodeStacksWindow.MessageBox.Invoke(false, false, 2, "存在未处理的数据异常...");
             //Prevent deault unhandled exception processing
             //remain app contiune running
             e.Handled = true;
@@ -39,15 +48,8 @@ namespace codestacks.mef.wpf
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            try
-            {
-                Process.GetCurrentProcess().Kill();
-                Environment.Exit(-1);
-            }
-            catch (Exception)
-            {
-            }
+            //Process.GetCurrentProcess().Kill();
+            Environment.Exit(0);
         }
-
     }
 }

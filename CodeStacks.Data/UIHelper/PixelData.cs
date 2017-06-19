@@ -31,8 +31,7 @@ namespace xiaowen.codestacks.data.UIHelper
         /// </summary>
         public int ScreenWidth { get; private set; }
 
-
-
+        
 
     }
 }
