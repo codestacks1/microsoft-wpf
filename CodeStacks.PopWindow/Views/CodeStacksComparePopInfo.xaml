@@ -13,7 +13,7 @@
     <Window.Resources>
         <ImageBrush x:Key="bgwindow" ImageSource="{Binding RootBackground,Mode=TwoWay}" Stretch="UniformToFill" />
         <ContextMenu x:Key="mouserightmenu">
-            <MenuItem Header="赋值" Command="{Binding CopyCommand}" CommandParameter="{Binding Person.Name,Mode=TwoWay}" />
+            <MenuItem Header="复制" Command="{Binding CopyCommand}" CommandParameter="{Binding Person.Name,Mode=TwoWay}" />
         </ContextMenu>
 
         <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
@@ -51,14 +51,14 @@
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="66"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="Captype" HorizontalAlignment="Center" FontSize="26" Content="场 景 留 存" ></Label>
+        <Label x:Name="Captype" HorizontalAlignment="Center" FontSize="26" Content="场 景 留 存" Margin="0,10" ></Label>
         <Button Name="btnClose" Grid.Column="1" Width="26" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" BorderThickness="0" Style="{DynamicResource btnCloseStyle}" Click="btnClose_Click_1"></Button>
 
         <!--比对照片和相关信息-->
