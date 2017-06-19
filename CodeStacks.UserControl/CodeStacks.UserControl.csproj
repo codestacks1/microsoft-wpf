@@ -84,6 +84,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Views\CodeStacksButton.xaml.cs">
+      <DependentUpon>CodeStacksButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoadRadar.xaml.cs">
       <DependentUpon>LoadRadar.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
     <Resource Include="Images\bg.radar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CodeStacksButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoadRadar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

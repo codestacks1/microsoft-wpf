@@ -7,6 +7,13 @@
              Exit="Application_Exit">
     <Application.Resources>
         <!--<ResourceDictionary Source="pack://siteoforign:,,,/Resources/ComboBoxDictionary.xaml" />-->
-        <ResourceDictionary Source="/Resources/ComboBoxDictionary.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ComboBoxDictionary.xaml" />
+                <ResourceDictionary Source="/Resources/ButtonDictionary.xaml" />
+                <ResourceDictionary Source="/Resources/TextBlockDictionary.xaml" />
+                <ResourceDictionary Source="/Resources/BorderDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>       
     </Application.Resources>
 </Application>

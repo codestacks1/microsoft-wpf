@@ -38,7 +38,7 @@ namespace xiaowen.codestacks.wpf.Utilities
         /// create file
         /// </summary>
         /// <param name="path">file absolute path</param>
-        /// <param name="fileName">file name</param>
+        /// <param name="fileName">file name,必须包含扩展名</param>
         /// <param name="content">file content</param>
         private static void CreateFile(string path, string fileName, string content)
         {

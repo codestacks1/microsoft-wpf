@@ -78,7 +78,7 @@
                     <!--模版照片-->
                     <Label>模版照片:</Label>
                     <Grid>
-                        <Image Stretch="Uniform" x:Name="image_cmpImage"></Image>
+                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
@@ -116,7 +116,7 @@
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
                     <Grid>
-                        <Image Stretch="UniformToFill" x:Name="image_capImage"></Image>
+                        <Image Stretch="Fill" x:Name="image_capImage"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
