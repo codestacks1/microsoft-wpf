@@ -113,6 +113,9 @@
     <Compile Include="Views\CodeStacksComparePopInfo.xaml.cs">
       <DependentUpon>CodeStacksComparePopInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksHintControlView.xaml.cs">
+      <DependentUpon>CodeStacksHintControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CodeStacksMessageBox.xaml.cs">
       <DependentUpon>CodeStacksMessageBox.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodeStacksComparePopInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksHintControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

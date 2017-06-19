@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -64,6 +66,18 @@ namespace xiaowen.codestacks.popwindow.Views
                 throw new Exception(ex.Message, ex);
             }
 
+        }
+
+        //Popup popup = new Popup();
+        private void label_TemplateName_MouseEnter(object sender, MouseEventArgs e)
+        {
+            //popup.Child = new CodeStacksHintControlView(popup, vModel.Person.Name);
+            //popup.IsOpen = true;
+        }
+
+        private void label_TemplateName_MouseLeave(object sender, MouseEventArgs e)
+        {
+            //popup.IsOpen = false;
         }
     }
 }
