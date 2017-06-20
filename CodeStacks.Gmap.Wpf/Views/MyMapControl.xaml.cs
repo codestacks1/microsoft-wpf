@@ -100,25 +100,25 @@ namespace xiaowen.codestacks.wpf.Views
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {           
+        {
             try
             {
                 viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
                 MainMap.Markers.Clear();
                 MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
-
-#if DEBUG
                 MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                // set cache mode only if no internet avaible
-                if (!Stuff.PingNetwork("ditu.amap.com"))
-                {
-                    MainMap.Manager.Mode = AccessMode.CacheOnly;
-                }
-#else
+                //#if DEBUG
+                //                MainMap.Manager.Mode = AccessMode.ServerAndCache;
+                //                // set cache mode only if no internet avaible
+                //                if (!Stuff.PingNetwork("ditu.amap.com"))
+                //                {
+                //                    MainMap.Manager.Mode = AccessMode.CacheOnly;
+                //                }
+                //#else
 
-            MainMap.Manager.Mode = AccessMode.CacheOnly;
+                //            MainMap.Manager.Mode = AccessMode.CacheOnly;
 
-#endif
+                //#endif
 
                 MainMap.DragButton = MouseButton.Left;
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;

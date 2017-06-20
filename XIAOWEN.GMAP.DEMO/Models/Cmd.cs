@@ -11,6 +11,10 @@ namespace xiaowen.codestacks.gmap.demo.Models
         public ICommand ClearAllCommand { get; set; }
         public ICommand PlayActiveRouteCommand { get; set; }
         public ICommand SpeedUpCommand { get; set; }
+        public ICommand TakeAnchorCommand { get; set; }
+
+        public ICommand CopyLngCmd { get; set; }
+        public ICommand CopyLatCmd { get; set; }
 
     }
 }

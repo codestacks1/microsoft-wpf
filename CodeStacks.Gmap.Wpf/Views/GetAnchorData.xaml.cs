@@ -19,5 +19,10 @@ namespace xiaowen.codestacks.wpf.Views
         {
             MainWindowViewModel.SMainwindowViewModel.MyMapControl.ReSet();
         }
+
+        private void MenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

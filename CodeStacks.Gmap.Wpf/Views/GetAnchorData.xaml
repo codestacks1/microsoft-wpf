@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:xiaowen.codestacks.wpf.Views"
-             xmlns:codestacks="http://xiaowen.codestacks.wpf"
              mc:Ignorable="d" Background="Transparent"
              d:DesignHeight="100" d:DesignWidth="1366">
 
@@ -12,6 +11,13 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White" />
         </Style>
+        <ContextMenu x:Key="MouseRightMenuLng">
+            <MenuItem Header="复制" Command="{Binding Cmd.CopyLngCmd}" CommandParameter="{Binding GeoData.Langitude}" />
+        </ContextMenu>
+
+        <ContextMenu x:Key="MouseRightMenuLat">
+            <MenuItem Header="复制" Command="{Binding Cmd.CopyLatCmd}" CommandParameter="{Binding GeoData.Latitude}" />
+        </ContextMenu>
     </UserControl.Resources>
 
     <Grid>
@@ -67,7 +73,7 @@
                                VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
                                Cursor="Hand">
                         <TextBlock.InputBindings>
-                            <MouseBinding Command="{Binding Cmd.ClearAllCommand}" CommandParameter="{Binding}" MouseAction="LeftClick" />
+                            <MouseBinding Command="{Binding Cmd.TakeAnchorCommand}" CommandParameter="{Binding}" MouseAction="LeftClick" />
                         </TextBlock.InputBindings>
                     </TextBlock>
                 </Border>
@@ -83,9 +89,11 @@
 
             <StackPanel Orientation="Horizontal" Height="30">
                 <TextBlock Text="经度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-                <TextBlock Text="{Binding GeoData.Langitude}" Width="100" Margin="3" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding GeoData.Langitude,Mode=TwoWay}" Width="100" Margin="3" VerticalAlignment="Center"
+                           ContextMenu="{StaticResource MouseRightMenuLng}" Cursor="Hand"/>
                 <TextBlock Text="纬度：" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
-                <TextBlock Text="{Binding GeoData.Latitude}" Width="100" Margin="3" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding GeoData.Latitude,Mode=TwoWay}" Width="100" Margin="3" VerticalAlignment="Center"
+                           ContextMenu="{StaticResource MouseRightMenuLat}" Cursor="Hand" />
                 <TextBlock Text="" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />
                 <!--<TextBlock Text="{Binding}" Margin="3" TextAlignment="Center" VerticalAlignment="Center" />-->
 

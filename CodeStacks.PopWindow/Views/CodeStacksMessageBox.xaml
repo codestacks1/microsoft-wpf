@@ -158,6 +158,9 @@
                 <RowDefinition Height="0.2*"></RowDefinition>
             </Grid.RowDefinitions>
 
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="提示" Foreground="#16E8FA" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
             <Button Name="btnClose" Style="{DynamicResource btnCloseStyle}" 
                     Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Right" 
                     Margin="0,10,10,0" BorderThickness="0"

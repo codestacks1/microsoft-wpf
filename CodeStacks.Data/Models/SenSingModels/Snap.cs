@@ -13,5 +13,14 @@ namespace xiaowen.codestacks.data.SenSingModels
         public ImageSource EnvironmentPhoto { get; set; }
         public byte[] EnvironmentBuffer { get; set; }
         public Camera SnapCamera { get; set; }
+
+        /// <summary>
+        /// 冗余字段1
+        /// </summary>
+        public object Content1 { get; set; }
+        /// <summary>
+        /// 冗余字段2
+        /// </summary>
+        public object Content2 { get; set; }
     }
 }

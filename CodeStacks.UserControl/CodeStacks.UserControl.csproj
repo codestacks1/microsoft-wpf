@@ -87,6 +87,9 @@
     <Compile Include="Views\CodeStacksButton.xaml.cs">
       <DependentUpon>CodeStacksButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksSignin.xaml.cs">
+      <DependentUpon>CodeStacksSignin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoadRadar.xaml.cs">
       <DependentUpon>LoadRadar.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\CodeStacksButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksSignin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

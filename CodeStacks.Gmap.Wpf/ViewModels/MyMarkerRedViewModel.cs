@@ -59,11 +59,30 @@ namespace xiaowen.codestacks.wpf.ViewModels
             Cmd.ClearAllCommand = new DelegateCommand<object>(ClearAllCommandFunc);
             Cmd.PlayActiveRouteCommand = new DelegateCommand<object>(PlayActiveRouteFunc);
             Cmd.SpeedUpCommand = new DelegateCommand<object>(SpeedUpCommandFunc);
+            Cmd.CopyLngCmd = new DelegateCommand<object>(CopyLngCmdFunc);
+            Cmd.CopyLatCmd = new DelegateCommand<object>(CopyLatCmdFunc);
+            Cmd.TakeAnchorCommand = new DelegateCommand<object>(TakeAnchorCommandFunc);
+        }
+
+        private void TakeAnchorCommandFunc(object obj)
+        {
+            CodeStacksWindow.MessageBox(false, false, 1, "该版本暂不支持该功能");
+        }
+
+        private void CopyLatCmdFunc(object obj)
+        {
+            Clipboard.SetDataObject(obj);
+        }
+
+        private void CopyLngCmdFunc(object obj)
+        {
+            Clipboard.SetDataObject(obj);
         }
 
         private void AddMarkerCommandFunc(object obj)
         {
             PointLatLng start = new PointLatLng(36.7564903295052, 119.20166015625);
+            PointLatLng start1 = new PointLatLng(36.6564903295052, 118.90166015625);
             PointLatLng end = new PointLatLng(35.6332079113796, 116.873046875);
 
             RoutingProvider rp = MyMapControl.MainMap.MapProvider as RoutingProvider;
@@ -72,11 +91,15 @@ namespace xiaowen.codestacks.wpf.ViewModels
                 rp = GMapProviders.AMapHybridMap; // use OpenStreetMap if provider does not implement routing
             }
 
-            MapRoute route = rp.GetRoute(start, end, false, false, (int)MyMapControl.MainMap.Zoom);
+            MapRoute route = rp.GetRoute(start, start1, false, false, (int)MyMapControl.MainMap.Zoom);
+            MapRoute route1 = rp.GetRoute(start1, end, false, false, (int)MyMapControl.MainMap.Zoom);
             if (route != null)
             {
                 GMapMarker m1 = new GMapMarker(start);
                 m1.Shape = new MyMarkerRouteAnchor(MyMapControl, m1, "起点: " + start.ToString());
+
+                GMapMarker m11 = new GMapMarker(start1);
+                m11.Shape = new MyMarkerRouteAnchor(MyMapControl, m11, "中心: " + start.ToString());
 
                 GMapMarker m2 = new GMapMarker(end);
                 m2.Shape = new MyMarkerRouteAnchor(MyMapControl, m2, "终点: " + end.ToString());
@@ -86,9 +109,16 @@ namespace xiaowen.codestacks.wpf.ViewModels
                     mRoute.ZIndex = -1;
                 }
 
+                GMapRoute mRoute1 = new GMapRoute(route1.Points);
+                {
+                    mRoute.ZIndex = -1;
+                }
+
                 MyMapControl.MainMap.Markers.Add(m1);
+                MyMapControl.MainMap.Markers.Add(m11);
                 MyMapControl.MainMap.Markers.Add(m2);
                 MyMapControl.MainMap.Markers.Add(mRoute);
+                MyMapControl.MainMap.Markers.Add(mRoute1);
 
                 MyMapControl.MainMap.Zoom = 8;
                 MyMapControl.MainMap.ZoomAndCenterMarkers(null);

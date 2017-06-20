@@ -90,7 +90,7 @@
     <Compile Include="Utilities\FileHandler.cs" />
     <Compile Include="Utilities\ReflactionView.cs" />
     <Compile Include="Utilities\ResoueceHandler.cs" />
-    <Compile Include="Utilities\ThriftService.cs" />
+    <Compile Include="Utilities\ThriftServices.cs" />
     <Compile Include="Utilities\ValidateArgument.cs" />
     <Compile Include="xiaowen{wpf}.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

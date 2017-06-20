@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace xiaowen.codestacks.wpf.Utilities
 {
-    public class ThriftService
+    public partial class ThriftServices
     {
 
     }

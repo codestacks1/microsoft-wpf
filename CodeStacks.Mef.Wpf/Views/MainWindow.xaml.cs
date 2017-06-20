@@ -109,9 +109,12 @@ namespace CodeStacks.Mef.Wpf.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CodeStacksComparePopInfo modle = new CodeStacksComparePopInfo();
-            modle.ShowDialog();
-          
+            //CodeStacksComparePopInfo modle = new CodeStacksComparePopInfo();
+            //modle.ShowDialog();
+
+            CodeStacksSigninWindow signin = new CodeStacksSigninWindow();
+            signin.ShowDialog();
+
         }
     }
 }

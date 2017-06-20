@@ -39,7 +39,7 @@ namespace xiaowen.codestacks.wpf.Utilities
         /// <param name="endDt"></param>
         /// <param name="range"></param>
         /// <returns></returns>
-        public bool SenSing_ValidateRange(DateTime startDt, DateTime endDt, UInt16 range)
+        public bool SenSing_ValidateRange(DateTime startDt, DateTime endDt, int range)
         {
             TimeSpan tsStart = new TimeSpan(startDt.Ticks);
             TimeSpan tsEnd = new TimeSpan(endDt.Ticks);
@@ -56,7 +56,7 @@ namespace xiaowen.codestacks.wpf.Utilities
         /// <param name="endDt"></param>
         /// <param name="range"></param>
         /// <returns></returns>
-        public bool SenSing_ValidateRange(string startDt, string endDt, UInt16 range)
+        public bool SenSing_ValidateRange(string startDt, string endDt, int range)
         {
             bool res = false;
             DateTime startDate, endDate;
@@ -84,7 +84,7 @@ namespace xiaowen.codestacks.wpf.Utilities
         /// <param name="endDt"></param>
         /// <param name="range"></param>
         /// <returns></returns>
-        public bool SenSing_ValidateRange(long startDt, long endDt, UInt16 range)
+        public bool SenSing_ValidateRange(long startDt, long endDt, int range)
         {
             bool res = false;
             DateTime startDate, endDate;
