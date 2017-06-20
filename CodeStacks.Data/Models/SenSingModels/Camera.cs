@@ -9,12 +9,27 @@
         public decimal SnapPeopleCount { get; set; }
         public int TypeKey { get; set; }
         public string TypeValue { get; set; }
+        /// <summary>
+        /// 摄像头所在具体位置
+        /// </summary>
         public string Location { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
+        /// <summary>
+        /// 摄像头品牌、生产厂商
+        /// </summary>
         public string Brand { get; set; }
+        /// <summary>
+        /// 是否已打开视频流，进行是视频预览
+        /// </summary>
         public bool IsOpen { get; set; }
+        /// <summary>
+        /// 通道开关状态
+        /// </summary>
+        public long CameraSwitchState { get; set; }
 
+        public object Content1 { get; set; }
+        public object Content2 { get; set; }
 
         #region redundancy
         public string Host { get; set; }
