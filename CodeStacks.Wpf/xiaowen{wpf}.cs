@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace xiaowen.codestacks.wpf
+namespace Xiaowen.CodeStacks.Wpf
 {
     public class xiaowen_wpf_
     {

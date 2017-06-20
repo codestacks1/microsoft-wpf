@@ -5,7 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace xiaowen.codestacks.wpf.Utilities
+namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
     public class DataStorage
     {

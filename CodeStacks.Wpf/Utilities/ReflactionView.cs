@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace xiaowen.codestacks.wpf.Utilities
+namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
     /// <summary>
     /// 反射跳转至其他标签或页面

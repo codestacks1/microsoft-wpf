@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace xiaowen.codestacks.wpf.Utilities
+namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
     public class ValidateArgument
     {

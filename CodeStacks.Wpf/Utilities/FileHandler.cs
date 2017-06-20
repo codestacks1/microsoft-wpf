@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace xiaowen.codestacks.wpf.Utilities
+namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
     public class FileHandler
     {
