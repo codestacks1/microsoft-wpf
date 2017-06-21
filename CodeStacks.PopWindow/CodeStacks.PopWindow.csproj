@@ -106,6 +106,7 @@
     <Compile Include="Utilities\AutoCloseWindow.cs" />
     <Compile Include="ViewModels\CodeStacksAlarmWindowViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksComparePopInfoViewModel.cs" />
+    <Compile Include="ViewModels\CodeStacksMainWindowFirstViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksMessageBoxViewModel.cs" />
     <Compile Include="Views\CodeStacksAlarmWindow.xaml.cs">
       <DependentUpon>CodeStacksAlarmWindow.xaml</DependentUpon>
@@ -116,11 +117,20 @@
     <Compile Include="Views\CodeStacksHintControlView.xaml.cs">
       <DependentUpon>CodeStacksHintControlView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksMainWindowFirst.xaml.cs">
+      <DependentUpon>CodeStacksMainWindowFirst.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CodeStacksMessageBox.xaml.cs">
       <DependentUpon>CodeStacksMessageBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksSensingControlView.xaml.cs">
+      <DependentUpon>CodeStacksSensingControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CodeStacksSigninWindow.xaml.cs">
       <DependentUpon>CodeStacksSigninWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeStacksTestWindow.xaml.cs">
+      <DependentUpon>CodeStacksTestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="xiaowen{popwindow}.cs" />
     <Page Include="App.xaml">
@@ -143,11 +153,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CodeStacksMainWindowFirst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CodeStacksMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CodeStacksSensingControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CodeStacksSigninWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -225,6 +247,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gallery\user\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\microdragen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\Marker\left.align.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\Marker\right.align.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -11,21 +11,9 @@
         AllowsTransparency="True" 
         WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Title="发现可疑人员" Height="1000px" Width="1200px"
-        d:DataContext="{d:DesignInstance viewmodels:CodeStacksAlarmWindowViewModel,IsDesignTimeCreatable=True}"
-        prism:ViewModelLocator.AutoWireViewModel="True">
+        Title="发现可疑人员" Height="1000px" Width="1200px">
 
-    <!--<Application>
-        <Application.Resources>
-            <ResourceDictionary Source="../Resource/Style/GlobaleStyleDictionary.xaml" />
-        </Application.Resources>
-    </Application>-->
     <Window.Resources>
-        <!--<ResourceDictionary x:Key="rdstyle">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Resource/Style/GlobaleStyleDictionary.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>-->
         <ImageBrush x:Key="bgwindow" ImageSource="{Binding RootBackground,Mode=TwoWay}" Stretch="Fill" />
         <ImageBrush x:Key="bgphoto" ImageSource="..\Gallery\bg.photo.png" Stretch="Fill" />
 

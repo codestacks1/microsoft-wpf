@@ -29,7 +29,7 @@ using System.Windows.Markup;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-[assembly: XmlnsDefinition("http://www.codestacks.com/xiaowen/wpf/gmap", "xiaowen.codestacks.wpf.Views")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf/map", "xiaowen.codestacks.wpf.Views")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

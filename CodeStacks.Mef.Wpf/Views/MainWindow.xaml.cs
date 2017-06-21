@@ -112,9 +112,15 @@ namespace CodeStacks.Mef.Wpf.Views
             //CodeStacksComparePopInfo modle = new CodeStacksComparePopInfo();
             //modle.ShowDialog();
 
-            CodeStacksSigninWindow signin = new CodeStacksSigninWindow();
-            signin.ShowDialog();
+            //CodeStacksSigninWindow signin = new CodeStacksSigninWindow();
+            //signin.ShowDialog();
 
+            CodeStacksMainWindowFirst first = new CodeStacksMainWindowFirst();
+            first.ShowDialog();
+
+
+            //CodeStacksTestWindow test = new CodeStacksTestWindow();
+            //test.ShowDialog();
         }
     }
 }

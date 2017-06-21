@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:codectacks.plugin.menufirst.Views"
         xmlns:viewmodel="clr-namespace:codectacks.plugin.menufirst.ViewModels"
         xmlns:prism="http://www.codeplex.com/prism"
-        xmlns:gmap="http://www.codestacks.com/xiaowen/wpf/gmap"
+        xmlns:gmap="http://xiaowen.codestacks.wpf/map"
         mc:Ignorable="d"
         Height="768" Width="1366" Closed="Window_Closed"
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"

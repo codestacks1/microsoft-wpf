@@ -8,12 +8,12 @@ namespace xiaowen.codestacks.uielements
 #if NETFX_CORE
 using Windows.UI.Xaml;
 #endif
-    public class ListBoxWithCommand : ListBox, ICommandSource
+    public class ListBoxCommand : ListBox, ICommandSource
     {
         /// <summary>
         /// 
         /// </summary>
-        public ListBoxWithCommand() : base()
+        public ListBoxCommand() : base()
         {
 
         }
@@ -26,20 +26,20 @@ using Windows.UI.Xaml;
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
                 "Command",
                 typeof(ICommand),
-                typeof(ListBoxWithCommand),
+                typeof(ListBoxCommand),
                 new PropertyMetadata((ICommand)null, new PropertyChangedCallback(CommandChanged)));
 
         public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
             "CommandTarget",
             typeof(IInputElement),
-            typeof(ListBoxWithCommand),
+            typeof(ListBoxCommand),
             new PropertyMetadata((IInputElement)null)
             );
 
         public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
             "CommandParameter",
             typeof(object),
-            typeof(ListBoxWithCommand),
+            typeof(ListBoxCommand),
             new PropertyMetadata((object)null)
             );
 
@@ -77,7 +77,7 @@ using Windows.UI.Xaml;
         /// <param name="e"></param>
         private static void CommandChanged(DependencyObject dObject, DependencyPropertyChangedEventArgs e)
         {
-            ListBoxWithCommand listbox = (ListBoxWithCommand)dObject;
+            ListBoxCommand listbox = (ListBoxCommand)dObject;
             listbox.HookUpCommand((ICommand)e.OldValue, (ICommand)e.NewValue);
         }
 
@@ -145,8 +145,7 @@ using Windows.UI.Xaml;
             EventHandler handler = CanExecuteChanged;
             oldCommand.CanExecuteChanged -= handler;
         }
-
-
+        
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
             base.OnSelectionChanged(e);

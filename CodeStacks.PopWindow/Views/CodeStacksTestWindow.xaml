@@ -1,0 +1,21 @@
+﻿<Window x:Class="xiaowen.codestacks.popwindow.Views.CodeStacksTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        mc:Ignorable="d"
+        Title="CodeStacksTestWindow" Height="768" Width="1366">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column ="1" Background="Blue" Width="5"
+                HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+        <Grid Background="#3333"></Grid>
+        <Grid Background="#232" Grid.Column="2"></Grid>
+    </Grid>
+</Window>

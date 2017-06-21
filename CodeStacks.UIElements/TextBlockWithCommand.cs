@@ -11,7 +11,7 @@ namespace xiaowen.codestacks.uielements
     /// from:xiaowen.codestacks.wpf
     /// used:command property to TextBlock
     /// </summary>
-    public class TextBlockWithCommand : TextBlock, ICommandSource
+    internal class TextBlockWithCommand : TextBlock, ICommandSource
     {
         public TextBlockWithCommand() : base() { }
         private static EventHandler _canExecuteClickHander;
