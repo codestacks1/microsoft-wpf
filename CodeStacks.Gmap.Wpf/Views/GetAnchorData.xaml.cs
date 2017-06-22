@@ -1,9 +1,9 @@
 ﻿using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System.Windows.Controls;
-using xiaowen.codestacks.wpf.ViewModels;
+using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
 
-namespace xiaowen.codestacks.wpf.Views
+namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 {
     /// <summary>
     /// Interaction logic for GetAnchorData.xaml

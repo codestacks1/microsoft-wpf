@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace xiaowen.codestacks.data.Models
+namespace Xiaowen.CodeStacks.Data.Models
 {
     public class ButtonCmdModel
     {

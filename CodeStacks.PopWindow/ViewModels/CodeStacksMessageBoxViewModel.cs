@@ -1,10 +1,10 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows;
-using xiaowen.codestacks.data.Models;
+using Xiaowen.CodeStacks.Data.Models;
 using System;
 
-namespace xiaowen.codestacks.popwindow.ViewModels
+namespace Xiaowen.CodeStacks.PopWindow.ViewModels
 {
     public class CodeStacksMessageBoxViewModel : BindableBase
     {

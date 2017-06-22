@@ -2,12 +2,12 @@
 using Prism.Mvvm;
 using System.Windows;
 using System.Windows.Media;
-using xiaowen.codestacks.data;
-using xiaowen.codestacks.data.Models;
-using xiaowen.codestacks.data.SenSingModels;
-using xiaowen.codestacks.popwindow.Views;
+using Xiaowen.CodeStacks.Data;
+using Xiaowen.CodeStacks.Data.Models;
+using Xiaowen.CodeStacks.Data.SenSingModels;
+using Xiaowen.CodeStacks.PopWindow.Views;
 
-namespace xiaowen.codestacks.popwindow.ViewModels
+namespace Xiaowen.CodeStacks.PopWindow.ViewModels
 {
     public class CodeStacksAlarmWindowViewModel : BindableBase
     {

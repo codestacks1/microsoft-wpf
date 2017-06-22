@@ -7,7 +7,7 @@
     <ProjectGuid>{463854B2-9EBA-4229-B701-3F08F559080E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xiaowen.codestacks.data</RootNamespace>
+    <RootNamespace>Xiaowen.CodeStacks.Data</RootNamespace>
     <AssemblyName>CodeStacks.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\CodeStacksVersion.cs" />
+    <Compile Include="CodeStacks.cs" />
     <Compile Include="CodeStacksDataHandler.cs" />
     <Compile Include="DataHandler\DateTimeData.cs" />
     <Compile Include="DataHandler\ImageData.cs" />
@@ -92,6 +93,9 @@
     <Compile Include="Models\CloseWindowModel.cs" />
     <Compile Include="Models\Enumerate\ErrorNumber.cs" />
     <Compile Include="Models\Excel\TemplatePersonInfo.cs" />
+    <Compile Include="Models\GMap\Cmd.cs" />
+    <Compile Include="Models\GMap\Geo.cs" />
+    <Compile Include="Models\GMap\GeoTitle.cs" />
     <Compile Include="Models\SenSingModels\Camera.cs" />
     <Compile Include="Models\SenSingModels\ModuleChannelModel.cs" />
     <Compile Include="Models\SenSingModels\Compare.cs" />
@@ -107,13 +111,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Map\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Data" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Data" 
-copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Data"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Data" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Data" 
+copy "$(TargetPath)" "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Data"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

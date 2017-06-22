@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="xiaowen.codestacks.gmap.wpf.MyMarker.CameraAnchor"
+﻿<UserControl x:Class="Xiaowen.CodeStacks.Wpf.Gmap.MyMarker.CameraAnchor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:xiaowen.codestacks.gmap.wpf.MyMarker"
+             xmlns:local="clr-namespace:Xiaowen.CodeStacks.Wpf.Gmap.MyMarker"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="50" Height="60" Width="50" Opacity="10">
     <Image Name="icon" Source="{Binding Photo,Mode=TwoWay}" 

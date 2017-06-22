@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using xiaowen.codestacks.data.SenSingModels;
+using Xiaowen.CodeStacks.Data.SenSingModels;
 
-namespace xiaowen.codestacks.data.Models.SenSingModels
+namespace Xiaowen.CodeStacks.Data.Models.SenSingModels
 {
     public class ModuleChannelModel
     {

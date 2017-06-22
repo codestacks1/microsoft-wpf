@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using xiaowen.codestacks.data.Interfaces;
+using Xiaowen.CodeStacks.Data.Interfaces;
 
 namespace codectacks.plugin.menusecond.Views
 {

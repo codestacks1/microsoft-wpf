@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using Prism.Unity;
 using System;
-using xiaowen.codestacks.wpf.Views;
+using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
-namespace xiaowen.codestacks.wpf
+namespace Xiaowen.CodeStacks.Wpf.Gmap
 {
     class Bootstrapper : UnityBootstrapper
     {

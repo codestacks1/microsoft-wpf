@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace xiaowen.codestacks.popwindow.Utilities
+namespace Xiaowen.CodeStacks.PopWindow.Utilities
 {
     public class AutoCloseWindow
     {

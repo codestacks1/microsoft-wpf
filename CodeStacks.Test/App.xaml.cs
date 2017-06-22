@@ -1,14 +1,6 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using System.Windows;
-using xiaowen.codestacks.popwindow;
-using xiaowen.codestacks.popwindow.Views;
+using Xiaowen.CodeStacks.PopWindow;
 
 namespace CodeStacks.Test
 {

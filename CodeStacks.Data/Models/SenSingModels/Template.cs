@@ -1,4 +1,4 @@
-﻿namespace xiaowen.codestacks.data.SenSingModels
+﻿namespace Xiaowen.CodeStacks.Data.SenSingModels
 {
     /// <summary>
     /// 模板数据结构

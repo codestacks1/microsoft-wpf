@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 
-namespace xiaowen.codestacks.data.Utilities
+namespace Xiaowen.CodeStacks.Data.Utilities
 {
     /// <summary>
     /// 网络连接相关接口

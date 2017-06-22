@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace xiaowen.codestacks.wpf.Properties {
+namespace Xiaowen.CodeStacks.Wpf.Gmap.Gmap.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

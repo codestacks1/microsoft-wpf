@@ -55,6 +55,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -91,6 +94,8 @@
     <Compile Include="Utilities\ConcurrencyHandler.cs" />
     <Compile Include="Utilities\DataStorage.cs" />
     <Compile Include="Utilities\FileHandler.cs" />
+    <Compile Include="Utilities\ImageHandler.cs" />
+    <Compile Include="Utilities\LogHandler.cs" />
     <Compile Include="Utilities\ReflactionView.cs" />
     <Compile Include="Utilities\ResoueceHandler.cs" />
     <Compile Include="Utilities\ThriftServices.cs" />
@@ -100,6 +105,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -109,6 +115,10 @@
     <None Include="readme.codestacks" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeStacks.Data\CodeStacks.Data.csproj">
+      <Project>{463854b2-9eba-4229-b701-3f08f559080e}</Project>
+      <Name>CodeStacks.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeStacks.UIElements\CodeStacks.UIElements.csproj">
       <Project>{d3bc4af0-d33c-4fd3-a50b-c555df6c014f}</Project>
       <Name>CodeStacks.UIElements</Name>
@@ -120,8 +130,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf" 
-copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.Wpf"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Wpf" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Wpf" 
+copy "$(TargetPath)" "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.Wpf"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

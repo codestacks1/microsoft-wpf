@@ -4,9 +4,9 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Input;
-using xiaowen.codestacks.wpf.Views;
+using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
-namespace xiaowen.codestacks.wpf.MyMarker
+namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 {
     /// <summary>
     /// Interaction logic for MyMarkerRouteAnchor.xaml

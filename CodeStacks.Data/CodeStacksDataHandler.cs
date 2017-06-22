@@ -1,9 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Threading;
 using System;
-using xiaowen.codestacks.data.DataHandler;
-using xiaowen.codestacks.data.UIHelper;
+using Xiaowen.CodeStacks.Data.DataHandler;
+using Xiaowen.CodeStacks.Data.UIHelper;
 
-namespace xiaowen.codestacks.data
+namespace Xiaowen.CodeStacks.Data
 {
     public class CodeStacksDataHandler
     {

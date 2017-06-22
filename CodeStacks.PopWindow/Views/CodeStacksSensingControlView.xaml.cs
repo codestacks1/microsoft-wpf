@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace xiaowen.codestacks.popwindow.Views
+namespace Xiaowen.CodeStacks.PopWindow.Views
 {
     /// <summary>
     /// Interaction logic for CodeStacksSensingControlView.xaml

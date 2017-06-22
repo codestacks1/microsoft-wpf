@@ -62,7 +62,7 @@ namespace Org.Mentalis.Network.ProxySocket
         /// <param name="protocolType">One of the ProtocolType values.</param>
         /// <exception cref="SocketException">The combination of addressFamily, socketType, and protocolType results in an invalid socket.</exception>
         public ProxySocket(AddressFamily addressFamily, SocketType socketType, ProtocolType protocolType) : this(addressFamily, socketType, protocolType, "") { }
-        
+
         /// <summary>
         /// Initializes a new instance of the ProxySocket class.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Org.Mentalis.Network.ProxySocket
         /// <exception cref="SocketException">The combination of addressFamily, socketType, and protocolType results in an invalid socket.</exception>
         /// <exception cref="ArgumentNullException"><c>proxyUsername</c> is null.</exception>
         public ProxySocket(AddressFamily addressFamily, SocketType socketType, ProtocolType protocolType, string proxyUsername) : this(addressFamily, socketType, protocolType, proxyUsername, "") { }
-        
+
         /// <summary>
         /// Initializes a new instance of the ProxySocket class.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Org.Mentalis.Network.ProxySocket
             ProxyPass = proxyPassword;
             ToThrow = new InvalidOperationException();
         }
-       
+
         /// <summary>
         /// Establishes a connection to a remote device.
         /// </summary>
@@ -115,7 +115,7 @@ namespace Org.Mentalis.Network.ProxySocket
                     (new Socks5Handler(this, ProxyUser, ProxyPass)).Negotiate((IPEndPoint)remoteEP);
             }
         }
-        
+
         /// <summary>
         /// Establishes a connection to a remote device.
         /// </summary>
@@ -127,7 +127,7 @@ namespace Org.Mentalis.Network.ProxySocket
         /// <exception cref="ObjectDisposedException">The Socket has been closed.</exception>
         /// <exception cref="ProxyException">An error occured while talking to the proxy server.</exception>
         /// <remarks>If you use this method with a SOCKS4 server, it will let the server resolve the hostname. Not all SOCKS4 servers support this 'remote DNS' though.</remarks>
-        public void Connect(string host, int port)
+        public new void Connect(string host, int port)
         {
             if (host == null)
                 throw new ArgumentNullException("<host> cannot be null.");
@@ -144,7 +144,7 @@ namespace Org.Mentalis.Network.ProxySocket
                     (new Socks5Handler(this, ProxyUser, ProxyPass)).Negotiate(host, port);
             }
         }
-      
+
         /// <summary>
         /// Begins an asynchronous request for a connection to a network device.
         /// </summary>
@@ -179,7 +179,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 return null;
             }
         }
-      
+
         /// <summary>
         /// Begins an asynchronous request for a connection to a network device.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Org.Mentalis.Network.ProxySocket
         /// <exception cref="ArgumentException">The port parameter is invalid.</exception>
         /// <exception cref="SocketException">An operating system error occurs while creating the Socket.</exception>
         /// <exception cref="ObjectDisposedException">The Socket has been closed.</exception>
-        public IAsyncResult BeginConnect(string host, int port, AsyncCallback callback, object state)
+        public new IAsyncResult BeginConnect(string host, int port, AsyncCallback callback, object state)
         {
             if (host == null || callback == null)
                 throw new ArgumentNullException();
@@ -220,7 +220,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 return null;
             }
         }
-       
+
         /// <summary>
         /// Ends a pending asynchronous connection request.
         /// </summary>
@@ -241,7 +241,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 throw ToThrow;
             return;
         }
-       
+
         /// <summary>
         /// Begins an asynchronous request to resolve a DNS host name or IP address in dotted-quad notation to an IPAddress instance.
         /// </summary>
@@ -261,7 +261,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 throw new SocketException();
             }
         }
-        
+
         /// <summary>
         /// Called when the specified hostname has been resolved.
         /// </summary>
@@ -278,7 +278,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 OnHandShakeComplete(e);
             }
         }
-       
+
         /// <summary>
         /// Called when the Socket is connected to the remote host.
         /// </summary>
@@ -295,7 +295,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 OnHandShakeComplete(e);
             }
         }
-       
+
         /// <summary>
         /// Called when the Socket has finished talking to the proxy server and is ready to relay data.
         /// </summary>
@@ -309,7 +309,7 @@ namespace Org.Mentalis.Network.ProxySocket
             if (CallBack != null)
                 CallBack(AsyncResult);
         }
-       
+
         /// <summary>
         /// Gets or sets the EndPoint of the proxy server.
         /// </summary>
@@ -325,7 +325,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_ProxyEndPoint = value;
             }
         }
-       
+
         /// <summary>
         /// Gets or sets the type of proxy server to use.
         /// </summary>
@@ -341,7 +341,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_ProxyType = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets a user-defined object.
         /// </summary>
@@ -357,7 +357,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_State = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the username to use when authenticating with the proxy.
         /// </summary>
@@ -376,7 +376,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_ProxyUser = value;
             }
         }
-      
+
         /// <summary>
         /// Gets or sets the password to use when authenticating with the proxy.
         /// </summary>
@@ -395,7 +395,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_ProxyPass = value;
             }
         }
-       
+
         /// <summary>
         /// Gets or sets the asynchronous result object.
         /// </summary>
@@ -411,7 +411,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_AsyncResult = value;
             }
         }
-       
+
         /// <summary>
         /// Gets or sets the exception to throw when the EndConnect method is called.
         /// </summary>
@@ -427,7 +427,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_ToThrow = value;
             }
         }
-       
+
         /// <summary>
         /// Gets or sets the remote port the user wants to connect to.
         /// </summary>
@@ -443,7 +443,7 @@ namespace Org.Mentalis.Network.ProxySocket
                 m_RemotePort = value;
             }
         }
-       
+
         // private variables
         /// <summary>Holds the value of the State property.</summary>
         private object m_State;

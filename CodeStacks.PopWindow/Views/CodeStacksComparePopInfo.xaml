@@ -1,9 +1,9 @@
-﻿<Window x:Class="xiaowen.codestacks.popwindow.Views.CodeStacksComparePopInfo"
+﻿<Window x:Class="Xiaowen.CodeStacks.PopWindow.Views.CodeStacksComparePopInfo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:xiaowen.codestacks.popwindow.Views"
+        xmlns:local="clr-namespace:Xiaowen.CodeStacks.PopWindow.Views"
         mc:Ignorable="d" 
         WindowStyle="None" Background="Transparent" 
         AllowsTransparency="True" 
@@ -14,6 +14,9 @@
         <ImageBrush x:Key="bgwindow" ImageSource="{Binding RootBackground,Mode=TwoWay}" Stretch="UniformToFill" />
         <ContextMenu x:Key="mouserightmenu">
             <MenuItem Header="复制" Command="{Binding CopyCommand}" CommandParameter="{Binding Person.Name,Mode=TwoWay}" />
+        </ContextMenu>
+        <ContextMenu x:Key="menuCopyLocation">
+            <MenuItem Header="复制" Command="{Binding CopyCommand}" CommandParameter="{Binding Camera.Location,Mode=TwoWay}" />
         </ContextMenu>
 
         <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
@@ -107,7 +110,8 @@
                             <TextBlock Text="发现时间：" />
                             <TextBlock TextWrapping="Wrap" x:Name="label_CapTime" Text=""></TextBlock>
                             <TextBlock Text="发现地点：" />
-                            <TextBlock TextWrapping="Wrap" x:Name="label_CapChannel" Text=""></TextBlock>
+                            <TextBlock TextWrapping="Wrap" x:Name="label_CapChannel" Text="{Binding Camera.Location,Mode=TwoWay}"
+                                       ContextMenu="{StaticResource menuCopyLocation}"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </StackPanel>

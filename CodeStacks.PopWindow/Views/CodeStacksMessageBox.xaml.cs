@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using xiaowen.codestacks.popwindow.Utilities;
+using Xiaowen.CodeStacks.PopWindow.Utilities;
 
-namespace xiaowen.codestacks.popwindow.Views
+namespace Xiaowen.CodeStacks.PopWindow.Views
 {
     /// <summary>
     /// Interaction logic for CodeStacksMessageBox.xaml

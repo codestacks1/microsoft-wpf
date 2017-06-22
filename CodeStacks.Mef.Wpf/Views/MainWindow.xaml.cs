@@ -5,8 +5,8 @@ using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using xiaowen.codestacks.data;
-using xiaowen.codestacks.data.Interfaces;
+using Xiaowen.CodeStacks.Data;
+using Xiaowen.CodeStacks.Data.Interfaces;
 using xiaowen.codestacks.popwindow.ViewModels;
 using xiaowen.codestacks.popwindow.Views;
 
@@ -115,12 +115,12 @@ namespace CodeStacks.Mef.Wpf.Views
             //CodeStacksSigninWindow signin = new CodeStacksSigninWindow();
             //signin.ShowDialog();
 
-            CodeStacksMainWindowFirst first = new CodeStacksMainWindowFirst();
-            first.ShowDialog();
+            //CodeStacksMainWindowFirst first = new CodeStacksMainWindowFirst();
+            //first.ShowDialog();
 
 
-            //CodeStacksTestWindow test = new CodeStacksTestWindow();
-            //test.ShowDialog();
+            CodeStacksTestWindow test = new CodeStacksTestWindow();
+            test.ShowDialog();
         }
     }
 }

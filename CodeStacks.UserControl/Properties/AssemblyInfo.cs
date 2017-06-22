@@ -31,7 +31,7 @@ using System.Windows.Markup;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.usercontrol.Views")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf/usercontrol", "Xiaowen.CodeStacks.UserControls.Views")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace xiaowen.codestacks.usercontrol.Properties {
+namespace Xiaowen.CodeStacks.UserControls.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace xiaowen.codestacks.usercontrol.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("xiaowen.codestacks.usercontrol.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Xiaowen.CodeStacks.UserControls.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

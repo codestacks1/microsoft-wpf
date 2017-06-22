@@ -7,13 +7,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
-using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.gmap.wpf.MyMarker;
-using xiaowen.codestacks.popwindow;
-using xiaowen.codestacks.wpf.MyMarker;
-using xiaowen.codestacks.wpf.Views;
+using Xiaowen.CodeStacks.Data.Models.GMap;
+using Xiaowen.CodeStacks.PopWindow;
+using Xiaowen.CodeStacks.Wpf.Gmap.MyMarker;
+using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
-namespace xiaowen.codestacks.wpf.ViewModels
+namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
 {
     public partial class MainWindowViewModel : BindableBase
     {

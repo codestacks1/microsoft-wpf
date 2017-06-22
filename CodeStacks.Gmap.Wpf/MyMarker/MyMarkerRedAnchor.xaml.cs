@@ -1,13 +1,13 @@
 ﻿using GMap.NET.WindowsPresentation;
-using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using xiaowen.codestacks.wpf.ViewModels;
-using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.wpf.Views;
+using System.Windows.Input;
+using Xiaowen.CodeStacks.Data.Models.GMap;
+using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
+using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
-namespace xiaowen.codestacks.wpf.MyMarker
+namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 {
     /// <summary>
     /// Interaction logic for MyMarkerRedAnchor.xaml

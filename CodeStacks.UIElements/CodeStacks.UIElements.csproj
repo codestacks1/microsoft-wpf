@@ -7,7 +7,7 @@
     <ProjectGuid>{D3BC4AF0-D33C-4FD3-A50B-C555DF6C014F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xiaowen.codestacks.uielements</RootNamespace>
+    <RootNamespace>Xiaowen.CodeStacks.UIElements</RootNamespace>
     <AssemblyName>CodeStacks.UIElements</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -52,6 +52,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,15 +68,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StackPanelCommand.cs" />
     <Compile Include="TextBlockWithCommand.cs" />
+    <Compile Include="Views\CodeStacksDatePicker.xaml.cs">
+      <DependentUpon>CodeStacksDatePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xiaowen{uielement}.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Page Include="Views\CodeStacksDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.UIElemnts" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.UIElemnts" 
-copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.UIElemnts"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.UIElemnts" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.UIElemnts" 
+copy "$(TargetPath)" "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.UIElemnts"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

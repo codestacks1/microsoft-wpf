@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace xiaowen.codestacks.data.Models.SenSingModels
+namespace Xiaowen.CodeStacks.Data.Models.SenSingModels
 {
     public class DatabaseSettings
     {

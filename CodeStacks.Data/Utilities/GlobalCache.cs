@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace xiaowen.codestacks.data.Utilities
+namespace Xiaowen.CodeStacks.Data.Utilities
 {
     /// <summary>
     /// 全局变量类

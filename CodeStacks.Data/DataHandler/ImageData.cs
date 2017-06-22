@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace xiaowen.codestacks.data.DataHandler
+namespace Xiaowen.CodeStacks.Data.DataHandler
 {
     /// <summary>
     /// 

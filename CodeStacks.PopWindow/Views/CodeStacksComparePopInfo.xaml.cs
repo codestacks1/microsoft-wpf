@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using xiaowen.codestacks.data.SenSingModels;
-using xiaowen.codestacks.popwindow.ViewModels;
+using Xiaowen.CodeStacks.Data.SenSingModels;
+using Xiaowen.CodeStacks.PopWindow.ViewModels;
 
-namespace xiaowen.codestacks.popwindow.Views
+namespace Xiaowen.CodeStacks.PopWindow.Views
 {
     /// <summary>
     /// Interaction logic for CodeStacksComparePopInfo.xaml
@@ -23,6 +22,7 @@ namespace xiaowen.codestacks.popwindow.Views
             this.MouseLeftButtonDown += CompInfo_MouseLeftButtonDown;
             vModel = new CodeStacksComparePopInfoViewModel();
             vModel.Person = new Person();
+            vModel.Camera = new Camera();
             this.DataContext = vModel;
         }
 
@@ -58,7 +58,7 @@ namespace xiaowen.codestacks.popwindow.Views
                 label_TemplateName.Text = vModel.Person.Name = compare.Template.PersonInfo.Name;
                 label_TemplateType.Text = compare.Template.TypeValue;
                 label_CapTime.Text = compare.Snap.DateTime;
-                label_CapChannel.Text = compare.Camera.Location;
+                label_CapChannel.Text =vModel.Camera.Location = compare.Camera.Location;
                 image_SenceImg.Source = compare.Snap.EnvironmentPhoto;
             }
             catch (Exception ex)
@@ -68,16 +68,16 @@ namespace xiaowen.codestacks.popwindow.Views
 
         }
 
-        //Popup popup = new Popup();
+        Popup popup = new Popup();
         private void label_TemplateName_MouseEnter(object sender, MouseEventArgs e)
         {
-            //popup.Child = new CodeStacksHintControlView(popup, vModel.Person.Name);
-            //popup.IsOpen = true;
+            popup.Child = new CodeStacksHintControlView(popup, vModel.Person.Name);
+            popup.IsOpen = true;
         }
 
         private void label_TemplateName_MouseLeave(object sender, MouseEventArgs e)
         {
-            //popup.IsOpen = false;
+            popup.IsOpen = false;
         }
     }
 }

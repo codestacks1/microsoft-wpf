@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Markup;
 
@@ -24,7 +23,9 @@ using System.Windows.Markup;
 [assembly: Guid("d3bc4af0-d33c-4fd3-a50b-c555df6c014f")]
 
 
-[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf", "xiaowen.codestacks.uielements")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf/usercontrol", "Xiaowen.CodeStacks.UIElements")]
+[assembly: XmlnsDefinition("http://xiaowen.codestacks.wpf/usercontrol", "Xiaowen.CodeStacks.UIElements.Views")]
+
 
 // Version information for an assembly consists of the following four values:
 //

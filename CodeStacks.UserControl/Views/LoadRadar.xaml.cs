@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace xiaowen.codestacks.usercontrol.Views
+namespace Xiaowen.CodeStacks.UserControls.Views
 {
     /// <summary>
     /// Interaction logic for LoadRadar.xaml

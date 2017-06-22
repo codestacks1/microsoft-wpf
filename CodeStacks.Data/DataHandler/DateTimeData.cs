@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xiaowen.codestacks.data.DataHandler
+namespace Xiaowen.CodeStacks.Data.DataHandler
 {
     public class DateTimeData
     {

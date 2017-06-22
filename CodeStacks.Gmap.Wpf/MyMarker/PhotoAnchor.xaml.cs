@@ -4,12 +4,11 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.wpf.MyMarker;
-using xiaowen.codestacks.wpf.ViewModels;
-using xiaowen.codestacks.wpf.Views;
+using Xiaowen.CodeStacks.Data.Models.GMap;
+using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
+using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
-namespace xiaowen.codestacks.gmap.wpf.MyMarker
+namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 {
     /// <summary>
     /// Interaction logic for PhotoAnchor.xaml

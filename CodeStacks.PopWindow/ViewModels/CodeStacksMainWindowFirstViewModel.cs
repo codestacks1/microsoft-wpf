@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace xiaowen.codestacks.popwindow.ViewModels
+namespace Xiaowen.CodeStacks.PopWindow.ViewModels
 {
     public class CodeStacksMainWindowFirstViewModel
     {

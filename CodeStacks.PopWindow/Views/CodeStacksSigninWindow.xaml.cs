@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace xiaowen.codestacks.popwindow.Views
+namespace Xiaowen.CodeStacks.PopWindow.Views
 {
     /// <summary>
     /// Interaction logic for CodeStacksSigninWindow.xaml

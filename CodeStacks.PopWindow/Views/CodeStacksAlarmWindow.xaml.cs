@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using xiaowen.codestacks.data.SenSingModels;
-using xiaowen.codestacks.popwindow.ViewModels;
+using Xiaowen.CodeStacks.Data.SenSingModels;
+using Xiaowen.CodeStacks.PopWindow.ViewModels;
 
-namespace xiaowen.codestacks.popwindow.Views
+namespace Xiaowen.CodeStacks.PopWindow.Views
 {
     /// <summary>
     /// Interaction logic for CodeStacksAlarmWindow.xaml

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using xiaowen.codestacks.data;
-using xiaowen.codestacks.popwindow.Views;
+using Xiaowen.CodeStacks.Data;
+using Xiaowen.CodeStacks.PopWindow.Views;
 
-namespace xiaowen.codestacks.popwindow
+namespace Xiaowen.CodeStacks.PopWindow
 {
     public class CodeStacksWindow
     {

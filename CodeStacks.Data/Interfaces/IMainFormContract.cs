@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace xiaowen.codestacks.data.Interfaces
+namespace Xiaowen.CodeStacks.Data.Interfaces
 {
     public interface IMainWindowContract
     {

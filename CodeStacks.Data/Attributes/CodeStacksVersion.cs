@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace xiaowen.codestacks.data.Attributes
+namespace Xiaowen.CodeStacks.Data.Attributes
 {
     public class CodeStacksVersionAttribute : Attribute
     {

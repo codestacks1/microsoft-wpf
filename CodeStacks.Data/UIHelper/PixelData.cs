@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace xiaowen.codestacks.data.UIHelper
+namespace Xiaowen.CodeStacks.Data.UIHelper
 {
     /// <summary>
     /// pixel handler

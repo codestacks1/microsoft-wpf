@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace xiaowen.codestacks.data.Models.Enumerate
+namespace Xiaowen.CodeStacks.Data.Models.Enumerate
 {
     public enum ErrorNumber
     {

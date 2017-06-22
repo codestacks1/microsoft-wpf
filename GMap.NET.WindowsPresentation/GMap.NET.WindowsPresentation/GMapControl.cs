@@ -1,31 +1,30 @@
 ﻿
 namespace GMap.NET.WindowsPresentation
 {
-   using System;
-   using System.Collections.Generic;
-   using System.Collections.ObjectModel;
-   using System.ComponentModel;
-   using System.Globalization;
-   using System.Linq;
-   using System.Windows;
-   using System.Windows.Controls;
-   using System.Windows.Data;
-   using System.Windows.Input;
-   using System.Windows.Media;
-   using System.Windows.Media.Effects;
-   using System.Windows.Media.Imaging;
-   using System.Windows.Shapes;
-   using System.Windows.Threading;
-   using Internals;
-   using System.Diagnostics;
-   using MapProviders;
-   using System.Windows.Media.Animation;
-   using Projections;
+    using Internals;
+    using MapProviders;
+    using Projections;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Effects;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Shapes;
+    using System.Windows.Threading;
 
-   /// <summary>
-   /// GMap.NET control for Windows Presentation
-   /// </summary>
-   public partial class GMapControl : ItemsControl, Interface, IDisposable
+    /// <summary>
+    /// GMap.NET control for Windows Presentation
+    /// </summary>
+    public partial class GMapControl : ItemsControl, Interface, IDisposable
    {
       #region DependencyProperties and related stuff
 

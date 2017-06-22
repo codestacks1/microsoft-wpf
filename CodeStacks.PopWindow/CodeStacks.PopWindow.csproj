@@ -7,7 +7,7 @@
     <ProjectGuid>{91A0B815-475A-4608-BBE4-796970CEB93C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xiaowen.codestacks.popwindow</RootNamespace>
+    <RootNamespace>Xiaowen.CodeStacks.PopWindow</RootNamespace>
     <AssemblyName>CodeStacks.PopWindow</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -259,8 +259,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.PopWindow" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.PopWindow" 
-copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.PopWindow"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.PopWindow" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.PopWindow" 
+copy "$(TargetPath)" "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.PopWindow"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

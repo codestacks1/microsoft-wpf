@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace xiaowen.codestacks.uielements
+namespace Xiaowen.CodeStacks.UIElements
 {
 #if NETFX_CORE
 using Windows.UI.Xaml;

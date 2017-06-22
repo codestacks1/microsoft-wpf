@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace xiaowen.codestacks.data.SenSingModels
+namespace Xiaowen.CodeStacks.Data.SenSingModels
 {
     public class Person
     {

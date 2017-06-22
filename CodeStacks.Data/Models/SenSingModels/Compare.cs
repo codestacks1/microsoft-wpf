@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xiaowen.codestacks.data.SenSingModels
+namespace Xiaowen.CodeStacks.Data.SenSingModels
 {
     /// <summary>
     /// 比对结果

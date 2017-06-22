@@ -1,7 +1,7 @@
 ﻿using Prism.Mvvm;
-using xiaowen.codestacks.gmap.demo.Models;
+using Xiaowen.CodeStacks.Data.Models.GMap;
 
-namespace xiaowen.codestacks.wpf.ViewModels
+namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
 {
     public partial class MainWindowViewModel : BindableBase
     {

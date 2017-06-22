@@ -7,13 +7,11 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using xiaowen.codestacks.gmap.demo;
-using xiaowen.codestacks.gmap.demo.Models;
-using xiaowen.codestacks.gmap.wpf.MyMarker;
-using xiaowen.codestacks.wpf.MyMarker;
-using xiaowen.codestacks.wpf.ViewModels;
+using Xiaowen.CodeStacks.Data.Models.GMap;
+using Xiaowen.CodeStacks.Wpf.Gmap.MyMarker;
+using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
 
-namespace xiaowen.codestacks.wpf.Views
+namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 {
     public class Route
     {

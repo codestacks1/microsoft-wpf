@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace xiaowen.codestacks.data.Models
+namespace Xiaowen.CodeStacks.Data.Models
 {
     public class CloseWindowModel
     {

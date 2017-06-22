@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
-using xiaowen.codestacks.gmap.demo.Models;
+using Xiaowen.CodeStacks.Data.Models.GMap;
 
-namespace xiaowen.codestacks.wpf.MyMarker
+namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 {
     /// <summary>
     /// Interaction logic for MyMarkerRedAnchorDepict.xaml

@@ -2,9 +2,9 @@
 using Prism.Mvvm;
 using System.Windows;
 using System.Windows.Input;
-using xiaowen.codestacks.data.SenSingModels;
+using Xiaowen.CodeStacks.Data.SenSingModels;
 
-namespace xiaowen.codestacks.popwindow.ViewModels
+namespace Xiaowen.CodeStacks.PopWindow.ViewModels
 {
     public class CodeStacksComparePopInfoViewModel : BindableBase
     {
@@ -17,8 +17,15 @@ namespace xiaowen.codestacks.popwindow.ViewModels
             set { SetProperty(ref _person, value); }
         }
 
+        Camera _camera;
+        public Camera Camera
+        {
+            get { return _camera; }
+            set { SetProperty(ref _camera, value); }
+        }
+
         #endregion
-        
+
         #region Command
 
         public ICommand CopyCommand { get; set; }

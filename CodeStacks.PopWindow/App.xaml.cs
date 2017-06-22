@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace xiaowen.codestacks.popwindow
+namespace Xiaowen.CodeStacks.PopWindow
 {
     /// <summary>
     /// Interaction logic for App.xaml

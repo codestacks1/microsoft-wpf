@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Windows;
-using xiaowen.codestacks.data.Interfaces;
+using Xiaowen.CodeStacks.Data.Interfaces;
 using xiaowen.codestacks.gmap.demo.Models;
 
 namespace codectacks.plugin.menufirst.Views
