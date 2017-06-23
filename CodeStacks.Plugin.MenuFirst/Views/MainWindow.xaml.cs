@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using Xiaowen.CodeStacks.Data.Interfaces;
-using xiaowen.codestacks.gmap.demo.Models;
+using Xiaowen.CodeStacks.Data.Models.GMap;
 
 namespace codectacks.plugin.menufirst.Views
 {

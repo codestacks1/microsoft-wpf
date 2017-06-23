@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public long Id64 { get; set; }
         public string Guid { get; set; }
+        public int ParentId { get; set; }
         public string Name { get; set; }
         public decimal SnapPeopleCount { get; set; }
         public int TypeKey { get; set; }

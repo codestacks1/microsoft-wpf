@@ -98,8 +98,8 @@ namespace Xiaowen.CodeStacks.UIElements
             set { SetValue(CommandProperty, value); }
         }
 
-        public object CommandParameter => throw new NotImplementedException();
+        public object CommandParameter { get; set; }
 
-        public IInputElement CommandTarget => throw new NotImplementedException();
+        public IInputElement CommandTarget { get; set; }
     }
 }

@@ -161,10 +161,6 @@
       <Project>{91a0b815-475a-4608-bbe4-796970ceb93c}</Project>
       <Name>CodeStacks.PopWindow</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeStacks.UserControl\CodeStacks.UserControls.csproj">
-      <Project>{337e0541-1066-4327-ab64-2f47907f5e60}</Project>
-      <Name>CodeStacks.UserControls</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

@@ -9,7 +9,7 @@ namespace Xiaowen.CodeStacks.Data.Utilities
     /// <summary>
     /// 网络连接相关接口
     /// </summary>
-    public class NetWork
+    public class CodeStacksNetWork
     {
         /// <summary>
         /// 

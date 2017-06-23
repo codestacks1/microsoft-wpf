@@ -110,10 +110,6 @@
       <Project>{463854B2-9EBA-4229-B701-3F08F559080E}</Project>
       <Name>CodeStacks.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeStacks.UserControl\CodeStacks.UserControls.csproj">
-      <Project>{337E0541-1066-4327-AB64-2F47907F5E60}</Project>
-      <Name>CodeStacks.UserControls</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

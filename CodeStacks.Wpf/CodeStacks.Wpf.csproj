@@ -96,6 +96,7 @@
     <Compile Include="Utilities\FileHandler.cs" />
     <Compile Include="Utilities\ImageHandler.cs" />
     <Compile Include="Utilities\LogHandler.cs" />
+    <Compile Include="Utilities\CodeStacksNetWork.cs" />
     <Compile Include="Utilities\ReflactionView.cs" />
     <Compile Include="Utilities\ResoueceHandler.cs" />
     <Compile Include="Utilities\ThriftServices.cs" />
@@ -105,7 +106,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

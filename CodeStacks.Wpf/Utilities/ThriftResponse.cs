@@ -7,12 +7,12 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     /// <summary>
     /// Thrift 请求结果类
     /// </summary>
-    public class ThriftResponse
+    public partial class ThriftResponse
     {
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <param name="transport">socket</param>
         /// <param name="thriftOpt">thriftservice interface</param>
         /// <returns></returns>
@@ -39,14 +39,12 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value 
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1>(TTransport transport, Func<T1, TResult> thriftOpt, params object[] param)
@@ -72,15 +70,13 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2>(TTransport transport, Func<T1, T2, TResult> thriftOpt, params object[] param)
@@ -108,16 +104,15 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
         /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3>(TTransport transport, Func<T1, T2, T3, TResult> thriftOpt, params object[] param)
@@ -146,17 +141,15 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
         /// <typeparam name="T4"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3, T4>(TTransport transport, Func<T1, T2, T3, T4, TResult> thriftOpt, params object[] param)
@@ -186,10 +179,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -197,7 +189,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T5"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3, T4, T5>(TTransport transport, Func<T1, T2, T3, T4, T5, TResult> thriftOpt, params object[] param)
@@ -228,10 +219,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -240,7 +230,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T6"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3, T4, T5, T6>(TTransport transport, Func<T1, T2, T3, T4, T5, T6, TResult> thriftOpt, params object[] param)
@@ -272,10 +261,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -285,7 +273,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T7"></typeparam>
         /// <param name="transport"></param>
         /// <param name="thriftOpt"></param>
-        /// <param name="methodName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3, T4, T5, T6, T7>(TTransport transport, Func<T1, T2, T3, T4, T5, T6, T7, TResult> thriftOpt, params object[] param)
@@ -318,10 +305,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -331,7 +317,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T7"></typeparam>
         /// <typeparam name="T8"></typeparam>
         /// <param name="transport"></param>
-        /// <param name="methodName"></param>
         /// <param name="thriftOpt"></param>
         /// <param name="param"></param>
         /// <returns></returns>
@@ -366,10 +351,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -380,7 +364,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T8"></typeparam>
         /// <typeparam name="T9"></typeparam>
         /// <param name="transport"></param>
-        /// <param name="methodName"></param>
         /// <param name="thriftOpt"></param>
         /// <param name="param"></param>
         /// <returns></returns>
@@ -415,6 +398,24 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             return t;
         }
 
+        /// <summary>
+        /// Get TSocket Return Value
+        /// </summary>
+        /// <typeparam name="TResult">return object type</typeparam>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T3"></typeparam>
+        /// <typeparam name="T4"></typeparam>
+        /// <typeparam name="T5"></typeparam>
+        /// <typeparam name="T6"></typeparam>
+        /// <typeparam name="T7"></typeparam>
+        /// <typeparam name="T8"></typeparam>
+        /// <typeparam name="T9"></typeparam>
+        /// <typeparam name="T10"></typeparam>
+        /// <param name="transport"></param>
+        /// <param name="thriftOpt"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public static TResult GetResult<TResult, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(TTransport transport, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult> thriftOpt, params object[] param)
           where TResult : new()
         {
@@ -444,10 +445,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// Get TSocket Return Value
         /// </summary>
-        /// <typeparam name="ErrObj"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">return object type</typeparam>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
@@ -460,7 +460,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <typeparam name="T10"></typeparam>
         /// <typeparam name="T11"></typeparam>
         /// <param name="transport"></param>
-        /// <param name="methodName"></param>
         /// <param name="thriftOpt"></param>
         /// <param name="param"></param>
         /// <returns></returns>

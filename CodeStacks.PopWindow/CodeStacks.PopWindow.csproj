@@ -226,6 +226,10 @@
       <Project>{d3bc4af0-d33c-4fd3-a50b-c555df6c014f}</Project>
       <Name>CodeStacks.UIElements</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.UserControl\CodeStacks.UserControls.csproj">
+      <Project>{337e0541-1066-4327-ab64-2f47907f5e60}</Project>
+      <Name>CodeStacks.UserControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gallery\bg.tip.window.png" />

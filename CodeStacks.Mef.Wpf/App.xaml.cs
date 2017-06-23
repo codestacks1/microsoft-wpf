@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
-using xiaowen.codestacks.popwindow;
+using Xiaowen.CodeStacks.PopWindow;
 
 namespace CodeStacks.Mef.Wpf
 {

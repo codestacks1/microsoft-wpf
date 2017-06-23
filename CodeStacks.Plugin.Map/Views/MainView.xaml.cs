@@ -2,8 +2,8 @@
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
 using Xiaowen.CodeStacks.Data.Interfaces;
-using xiaowen.codestacks.gmap.demo.Models;
 using System.Windows;
+using Xiaowen.CodeStacks.Data.Models.GMap;
 
 namespace CodeStacks.Plugin.Map.Views
 {

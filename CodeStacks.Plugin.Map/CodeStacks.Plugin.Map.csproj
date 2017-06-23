@@ -94,9 +94,9 @@
       <Project>{463854B2-9EBA-4229-B701-3F08F559080E}</Project>
       <Name>CodeStacks.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeStacks.Gmap.Wpf\CodeStacks.Gmap.Wpf.csproj">
+    <ProjectReference Include="..\CodeStacks.Gmap.Wpf\CodeStacks.Wpf.Gmap.csproj">
       <Project>{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}</Project>
-      <Name>CodeStacks.Gmap.Wpf</Name>
+      <Name>CodeStacks.Wpf.Gmap</Name>
     </ProjectReference>
     <ProjectReference Include="..\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>

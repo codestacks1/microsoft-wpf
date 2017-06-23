@@ -5,10 +5,8 @@ using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using Xiaowen.CodeStacks.Data;
 using Xiaowen.CodeStacks.Data.Interfaces;
-using xiaowen.codestacks.popwindow.ViewModels;
-using xiaowen.codestacks.popwindow.Views;
+using Xiaowen.CodeStacks.PopWindow.Views;
 
 namespace CodeStacks.Mef.Wpf.Views
 {
@@ -118,9 +116,10 @@ namespace CodeStacks.Mef.Wpf.Views
             //CodeStacksMainWindowFirst first = new CodeStacksMainWindowFirst();
             //first.ShowDialog();
 
-
             CodeStacksTestWindow test = new CodeStacksTestWindow();
             test.ShowDialog();
+
+
         }
     }
 }
