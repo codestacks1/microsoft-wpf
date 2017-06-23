@@ -6,7 +6,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     /// <summary>
     /// 并发处理
     /// </summary>
-    public class ConcurrencyHandler
+    public class CodeStacksConcurrency
     {
         /// <summary>
         /// 执行单线程函数

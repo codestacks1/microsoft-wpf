@@ -13,7 +13,7 @@ namespace Xiaowen.CodeStacks.PopWindow.ViewModels
     {
         public CodeStacksAlarmWindowViewModel()
         {
-            CloseWindow = new CloseWindowModel();
+            CloseWindow = new CodeStacksCloseWindow();
             CloseWindow.CmdClose = new DelegateCommand<object>(CloseWindowFunc);
         }
 
@@ -39,8 +39,8 @@ namespace Xiaowen.CodeStacks.PopWindow.ViewModels
             }
         }
 
-        CloseWindowModel _closeWindow;
-        public CloseWindowModel CloseWindow
+        CodeStacksCloseWindow _closeWindow;
+        public CodeStacksCloseWindow CloseWindow
         {
             get { return _closeWindow; }
             set { SetProperty(ref _closeWindow, value); }

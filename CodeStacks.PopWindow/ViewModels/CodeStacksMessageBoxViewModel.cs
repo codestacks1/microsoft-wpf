@@ -10,8 +10,8 @@ namespace Xiaowen.CodeStacks.PopWindow.ViewModels
     {
         public CodeStacksMessageBoxViewModel()
         {
-            CloseWindow = new CloseWindowModel();
-            ButtonCmdModel = new ButtonCmdModel();
+            CloseWindow = new CodeStacksCloseWindow();
+            ButtonCmdModel = new CodeStacksButtonCmd();
             CloseWindow.CmdClose = new DelegateCommand<Window>(CloseWindowFunc);
             ButtonCmdModel.CmdConfirm = new DelegateCommand<Window>(ConfirmFunc);
             ButtonCmdModel.CmdCancel = new DelegateCommand<Window>(CancelFunc);
@@ -35,15 +35,15 @@ namespace Xiaowen.CodeStacks.PopWindow.ViewModels
             window.Close();
         }
 
-        CloseWindowModel _closeWindow;
-        public CloseWindowModel CloseWindow
+        CodeStacksCloseWindow _closeWindow;
+        public CodeStacksCloseWindow CloseWindow
         {
             get { return _closeWindow; }
             set { SetProperty(ref _closeWindow, value); }
         }
 
-        public ButtonCmdModel _buttonCmdModel;
-        public ButtonCmdModel ButtonCmdModel
+        public CodeStacksButtonCmd _buttonCmdModel;
+        public CodeStacksButtonCmd ButtonCmdModel
         {
             get { return _buttonCmdModel; }
             set { SetProperty(ref _buttonCmdModel, value); }

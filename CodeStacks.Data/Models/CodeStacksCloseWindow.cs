@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Xiaowen.CodeStacks.Data.Models
 {
-    public class CloseWindowModel
+    public class CodeStacksCloseWindow
     {
         public ICommand CmdClose { get; set; }
 

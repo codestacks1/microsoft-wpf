@@ -2,18 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Xiaowen.CodeStacks.Data.Utilities
+namespace Xiaowen.CodeStacks.Data.Models
 {
     /// <summary>
     /// 全局变量类
     /// </summary>
-    public class GlobalVariable : IDisposable
+    public class CodeStacksGlobal : IDisposable
     {
         public static int SocketTimeout { get; set; }
-
         public static string Host { get; set; }
         public static int Port { get; set; }
-
         /// <summary>
         /// 
         /// </summary>
@@ -72,22 +70,18 @@ namespace Xiaowen.CodeStacks.Data.Utilities
         /// 自动登录
         /// </summary>
         public static bool Func_AutoSignin { get; set; }
-
         /// <summary>
         /// 
         /// </summary>
         public static string NetworkMode { get; set; }
-
         /// <summary>
         /// 告警数据显示上限
         /// </summary>
         public static int AppearLimited { get; set; }
-
         /// <summary>
         /// 区域配置列表
         /// </summary>
         public static IEnumerable AreaInfoCollection { get; set; }
-
         /// <summary>
         /// 
         /// </summary>
@@ -96,11 +90,8 @@ namespace Xiaowen.CodeStacks.Data.Utilities
         /// 
         /// </summary>
         public static double Latitude { get; set; }
-
         public static string AudioName { get; set; }
-
         public static int TSocketTimeout { get; set; }
-
         /// <summary>
         /// 工作人员离开电脑时长
         /// </summary>
@@ -141,7 +132,6 @@ namespace Xiaowen.CodeStacks.Data.Utilities
 
         public void Dispose()
         {
-
         }
     }
 }

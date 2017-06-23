@@ -2,7 +2,7 @@
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
-    public class LogHandler
+    public class CodeStacksLog4Net
     {
         private static log4net.ILog fileLogger = null;
         private static log4net.ILog TransferLogger = null;

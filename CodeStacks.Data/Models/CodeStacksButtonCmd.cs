@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Xiaowen.CodeStacks.Data.Models
 {
-    public class ButtonCmdModel
+    public class CodeStacksButtonCmd
     {
-        public ButtonCmdModel()
+        public CodeStacksButtonCmd()
         {
 
         }

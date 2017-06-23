@@ -1,0 +1,9 @@
+﻿namespace System.Runtime.Caching;
+ include:
+	FileChangeMonitor
+	HostFileChangeMonitor
+	SqlChangeMonitor
+	OnChangedCallbak
+
+猜想，通过程序集提供的类，追踪程序中使用的文件编程状态
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Xiaowen.CodeStacks.PopWindow;
+using Xiaowen.CodeStacks.Wpf.Utilities;
 
 namespace CodeStacks.Mef.Wpf
 {
@@ -16,7 +17,7 @@ namespace CodeStacks.Mef.Wpf
         /// <param name="e"></param>
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-
+            CodeStacksCache.SetCache("appconfig");
         }
 
         /// <summary>

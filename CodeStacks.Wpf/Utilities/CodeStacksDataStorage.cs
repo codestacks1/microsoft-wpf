@@ -7,10 +7,13 @@ using System.Windows.Media.Imaging;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
-    public class DataStorage
+    /// <summary>
+    /// 数据存储
+    /// </summary>
+    public class CodeStacksDataStorage
     {
         /// <summary>
-        /// 
+        /// 图片另存为
         /// </summary>
         /// <param name="bitmap"></param>
         public static void ImageSaveAs(BitmapImage bitmap)

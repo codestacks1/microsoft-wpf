@@ -89,8 +89,8 @@
     <Compile Include="DataHandler\DateTimeData.cs" />
     <Compile Include="DataHandler\ImageData.cs" />
     <Compile Include="Interfaces\IMainFormContract.cs" />
-    <Compile Include="Models\ButtonCmdModel.cs" />
-    <Compile Include="Models\CloseWindowModel.cs" />
+    <Compile Include="Models\CodeStacksButtonCmd.cs" />
+    <Compile Include="Models\CodeStacksCloseWindow.cs" />
     <Compile Include="Models\Enumerate\ErrorNumber.cs" />
     <Compile Include="Models\Excel\TemplatePersonInfo.cs" />
     <Compile Include="Models\GMap\Cmd.cs" />
@@ -105,7 +105,7 @@
     <Compile Include="Models\SenSingModels\Template.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIHelper\PixelData.cs" />
-    <Compile Include="Utilities\GlobalCache.cs" />
+    <Compile Include="Models\CodeStacksGlobal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
