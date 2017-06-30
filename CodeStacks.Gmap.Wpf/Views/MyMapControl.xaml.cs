@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Xiaowen.CodeStacks.Data.Models.GMap;
 using Xiaowen.CodeStacks.Wpf.Gmap.MyMarker;
+using Xiaowen.CodeStacks.Wpf.Gmap.Source;
 using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
 
 namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
@@ -104,19 +105,16 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
                 MainMap.Markers.Clear();
                 MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
-                MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                //#if DEBUG
-                //                MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                //                // set cache mode only if no internet avaible
-                //                if (!Stuff.PingNetwork("ditu.amap.com"))
-                //                {
-                //                    MainMap.Manager.Mode = AccessMode.CacheOnly;
-                //                }
-                //#else
 
-                //            MainMap.Manager.Mode = AccessMode.CacheOnly;
-
-                //#endif
+                // set cache mode only if no internet avaible
+                if (!Stuff.PingNetwork("ditu.amap.com"))
+                {
+                    MainMap.Manager.Mode = AccessMode.CacheOnly;
+                }
+                else
+                {
+                    MainMap.Manager.Mode = AccessMode.ServerAndCache;
+                }
 
                 MainMap.DragButton = MouseButton.Left;
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;
@@ -127,7 +125,10 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 {
                     viewModel.Points = Points;
                     viewModel.Route = Route;
-                    viewModel.RouteAsync();
+                    if (!Stuff.PingNetwork("ditu.amap.com"))
+                        CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
+                    else
+                        CodeStacksGMapRoute.SetRouteOnline(Points, this, Route.Delay);
                 }
                 else
                 {

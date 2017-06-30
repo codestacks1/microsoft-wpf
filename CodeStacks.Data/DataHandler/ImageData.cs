@@ -203,7 +203,7 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
             long capacity = this.GetBufferLength(buffer);
             try
             {
-                if (capacity > 0 && capacity > 100)// compress to 0 - 100 KByte
+                if (capacity > 0 && capacity > 500)// compress to 0 - 100 KByte
                 {
                     Stream stream = new MemoryStream(buffer);
 
@@ -263,7 +263,7 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
             long capacity = this.GetBufferLength(buffer);
             try
             {
-                if (capacity > 0 && capacity > 100)// compress to 0 - 100 KByte
+                if (capacity > 0 && capacity > 500)// compress to 0 - 100 KByte
                 {
                     Stream stream = new MemoryStream(buffer);
                     using (Image img = Image.FromStream(stream))
@@ -358,7 +358,7 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
                             bitp.Save(ms, ImageFormat.Jpeg);
                             result = ms.ToArray();
 
-                            if (result.Length / 1024 > 100)
+                            if (result.Length / 1024 > 500)
                             {
                                 result = ImageCompress(ms);
                             }

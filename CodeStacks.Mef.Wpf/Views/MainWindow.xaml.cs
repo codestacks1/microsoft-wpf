@@ -82,25 +82,32 @@ namespace CodeStacks.Mef.Wpf.Views
                 string title = export.Metadata["Title"] as string;
                 if (string.IsNullOrEmpty(menuItem)) return;
 
-                if (menuItem == item)
+                try
                 {
-                    if (export.Value is UserControl)
+                    if (menuItem == item)
                     {
-                        //TypeInfo objectType = export.Value.GetType() as TypeInfo;
-                        //ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
-                        //var main = obj.Invoke(null) as UserControl;
-                        UserControl ctrl = export.Value as UserControl;
-                        Docker.Children.Clear();
-                        Docker.Children.Add(ctrl);
+                        if (export.Value is UserControl)
+                        {
+                            //TypeInfo objectType = export.Value.GetType() as TypeInfo;
+                            //ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
+                            //var main = obj.Invoke(null) as UserControl;
+                            UserControl ctrl = export.Value as UserControl;
+                            Docker.Children.Clear();
+                            Docker.Children.Add(ctrl);
+                        }
+                        else
+                        {
+                            TypeInfo objectType = export.Value.GetType() as TypeInfo;
+                            ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
+                            Window window = obj.Invoke(null) as Window;
+                            window.Show();
+                        }
+                        break;
                     }
-                    else
-                    {
-                        TypeInfo objectType = export.Value.GetType() as TypeInfo;
-                        ConstructorInfo obj = objectType.GetConstructor(new Type[] { });
-                        Window window = obj.Invoke(null) as Window;
-                        window.Show();
-                    }
-                    break;
+                }
+                catch (Exception ex)
+                {
+                    string msg = ex.Message;
                 }
             }
         }

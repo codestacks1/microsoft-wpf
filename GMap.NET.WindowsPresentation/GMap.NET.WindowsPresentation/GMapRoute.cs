@@ -20,8 +20,27 @@ namespace GMap.NET.WindowsPresentation
             {
                 Position = Points[0];
                 RegenerateShape(null);
+
             }
         }
+
+        /// <summary>
+        /// +CodeStacks
+        /// 
+        /// </summary>
+        /// <param name="points"></param>
+        /// <param name="map"></param>
+        public GMapRoute(IEnumerable<PointLatLng> points, GMapControl map)
+        {
+            Points.AddRange(points);
+            if (Points.Count > 0)
+            {
+                Position = Points[0];
+                RegenerateShape(map);
+
+            }
+        }
+
 
         /// <summary>
         /// regenerates shape of route

@@ -1,4 +1,5 @@
-﻿using DevExpress.Xpf.Grid;
+﻿
+using DevExpress.Xpf.Grid;
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;

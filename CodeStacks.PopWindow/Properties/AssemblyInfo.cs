@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Markup;
@@ -10,12 +8,7 @@ using System.Windows.Markup;
 // associated with an assembly.
 [assembly: AssemblyTitle("CodeStacks.PopWindow")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("P R C")]
 [assembly: AssemblyProduct("CodeStacks.PopWindow")]
-[assembly: AssemblyCopyright("Copyright © P R C 2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -52,6 +45,3 @@ using System.Windows.Markup;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.17.06")]
-[assembly: AssemblyFileVersion("1.17.06")]

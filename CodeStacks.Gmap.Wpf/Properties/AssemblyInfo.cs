@@ -8,12 +8,7 @@ using System.Windows.Markup;
 // associated with an assembly.
 [assembly: AssemblyTitle("Xiaowen.CodeStacks.Wpf.Gmap")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("P R C")]
 [assembly: AssemblyProduct("Xiaowen.CodeStacks.Wpf.Gmap")]
-[assembly: AssemblyCopyright("Copyright © P R C 2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -51,7 +46,5 @@ using System.Windows.Markup;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.17.06")]
-[assembly: AssemblyFileVersion("1.17.06")]
 [assembly: Guid("E1F160E7-DF40-43CF-AA8C-3950999B6219")]
 

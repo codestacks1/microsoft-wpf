@@ -97,6 +97,28 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MONO_disabled; MySQL_disabled; PostgreSQL_disabled; SQLite</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;MONO_disabled; MySQL_disabled; PostgreSQL_disabled; SQLite</DefineConstants>
+    <DocumentationFile>bin\x86\Release\GMap.NET.Core.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
@@ -225,6 +247,7 @@
     <Compile Include="GMap.NET\DirectionsProvider.cs" />
     <Compile Include="GMap.NET\GeocodingProvider.cs" />
     <Compile Include="GMap.NET\RoutingProvider.cs" />
+    <Compile Include="Properties\CodeStacksVersionInfo.cs" />
     <Compile Include="Properties\VersionInfo.cs" />
     <Compile Include="GMap.NET.CacheProviders\MsSQLCePureImageCache.cs" />
     <Compile Include="GMap.NET.CacheProviders\PostgreSQLPureImageCache.cs" />
@@ -255,7 +278,9 @@
     <Compile Include="GMap.NET\AccessMode.cs" />
     <Compile Include="GMap.NET\Delegates.cs" />
     <Compile Include="GMap.NET\MapRoute.cs" />
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="GMap.NET.MapProviders\AMap\README.codestacks" />
     <None Include="GMap.NET\MapType.cs" />
     <Compile Include="GMap.NET.CacheProviders\MsSQLPureImageCache.cs" />
@@ -292,7 +317,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\System.Data.SQLite.x64.NET2.dll.gz" />
     <None Include="Resources\System.Data.SQLite.x64.NET4.dll.gz" />
     <None Include="Resources\System.Data.SQLite.x86.NET2.dll.gz" />

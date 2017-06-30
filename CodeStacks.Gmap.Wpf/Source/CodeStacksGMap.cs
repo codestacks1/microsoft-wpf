@@ -81,7 +81,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
 
             using (Ping p = new Ping())
             {
-                byte[] buffer = Encoding.ASCII.GetBytes("");
+                byte[] buffer = Encoding.ASCII.GetBytes("aaa");
                 int timeout = 100;
 
                 try
