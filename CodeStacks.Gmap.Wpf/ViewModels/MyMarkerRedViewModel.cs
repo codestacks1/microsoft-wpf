@@ -78,8 +78,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             Clipboard.SetDataObject(obj);
         }
 
-
-
         private void AddMarkerCommandFunc(object obj)
         {
             PointLatLng start = new PointLatLng(36.7564903295052, 119.20166015625);
@@ -98,7 +96,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             }
 
             GMapMarker m1 = new GMapMarker(start);
-            m1.Shape = new MyMarkerRouteAnchor(MyMapControl, m1, "起点: " + start.ToString());            
+            m1.Shape = new MyMarkerRouteAnchor(MyMapControl, m1, "起点: " + start.ToString());
             GMapMarker m11 = new GMapMarker(start1);
             m11.Shape = new MyMarkerRouteAnchor(MyMapControl, m11, "中心: " + start.ToString());
 
@@ -118,7 +116,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             MyMapControl.MainMap.Zoom = 8;
             MyMapControl.MainMap.ZoomAndCenterMarkers(null);
 
-            #region -codestacks
+            #region -- -codestacks online--
             //MapRoute route = rp.GetRoute(start, start1, false, false, (int)MyMapControl.MainMap.Zoom);
             //MapRoute route1 = rp.GetRoute(start1, end, false, false, (int)MyMapControl.MainMap.Zoom);
             //if (route != null)
@@ -166,7 +164,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             {
             }
         }
-              
+
 
         /// <summary>
         /// 播放活动线路
@@ -174,11 +172,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
         /// <param name="obj"></param>
         private void PlayActiveRouteFunc(object obj)
         {
-            if (Route != null)
+            if (MyMapControl.Route != null)
             {
                 MyMapControl.MainMap.Markers.Clear();
-                Route.Delay = 2;
-                CodeStacksGMapRoute.SetRouteOnline(Points, MyMapControl, Route.Delay);
+                MyMapControl.Route.Delay = 2;
+                CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route.Delay);
             }
         }
 

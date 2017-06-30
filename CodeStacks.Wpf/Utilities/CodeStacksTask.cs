@@ -4,9 +4,9 @@ using System.Threading;
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
     /// <summary>
-    /// 并发处理
+    /// 并行编程模块
     /// </summary>
-    public class CodeStacksConcurrency
+    public class CodeStacksTask
     {
         /// <summary>
         /// 执行单线程函数

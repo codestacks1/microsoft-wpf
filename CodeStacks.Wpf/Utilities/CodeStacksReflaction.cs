@@ -11,9 +11,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     /// <summary>
     /// 反射跳转至其他标签或页面
     /// </summary>
-    public class ReflactionView
+    public class CodeStacksReflaction
     {
-        ReflactionView() { }
+        CodeStacksReflaction() { }
 
         /// <summary>
         /// 跳转至某一标签

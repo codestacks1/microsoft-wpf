@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Xiaowen.CodeStacks.Data.SenSingModels;
 using Xiaowen.CodeStacks.PopWindow.ViewModels;
+using Xiaowen.CodeStacks.Wpf.Utilities;
 
 namespace Xiaowen.CodeStacks.PopWindow.Views
 {
@@ -51,6 +52,8 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                         ImageSource = new BitmapImage(new Uri(compare.Template.TypePhotoPath))
                     };
                 }));
+
+                //vModel.Compare = compare;
                 Captype.Content = compare.Captype;
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
@@ -58,7 +61,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                 label_TemplateName.Text = vModel.Person.Name = compare.Template.PersonInfo.Name;
                 label_TemplateType.Text = compare.Template.TypeValue;
                 label_CapTime.Text = compare.Snap.DateTime;
-                label_CapChannel.Text =vModel.Camera.Location = compare.Camera.Location;
+                label_CapChannel.Text = vModel.Camera.Location = compare.Camera.Location;
                 image_SenceImg.Source = compare.Snap.EnvironmentPhoto;
             }
             catch (Exception ex)
@@ -78,6 +81,16 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         private void label_TemplateName_MouseLeave(object sender, MouseEventArgs e)
         {
             popup.IsOpen = false;
+        }
+        
+        private void SaveAs1_Click(object sender, RoutedEventArgs e)
+        {
+            CodeStacksDataStorage.ImageSaveAs((BitmapImage)image_capImage.Source);
+        }
+
+        private void SaveAs2_Click(object sender, RoutedEventArgs e)
+        {
+            CodeStacksDataStorage.ImageSaveAs((BitmapImage)image_cmpImage.Source);
         }
     }
 }

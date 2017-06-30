@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
-    public class ValidateArgument
+    public class CodeStacksValidate
     {
         #region 正则匹配验证
         /// <summary>

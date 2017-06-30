@@ -112,16 +112,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Utilities\CodeStacksCache.cs" />
-    <Compile Include="Utilities\CodeStacksConcurrency.cs" />
+    <Compile Include="Utilities\CodeStacksTask.cs" />
     <Compile Include="Utilities\CodeStacksDataStorage.cs" />
     <Compile Include="Utilities\CodeStacksFile.cs" />
-    <Compile Include="Utilities\ImageHandler.cs" />
+    <Compile Include="Utilities\CodeStacksImage.cs" />
     <Compile Include="Utilities\CodeStacksLog4Net.cs" />
     <Compile Include="Utilities\CodeStacksNetWork.cs" />
-    <Compile Include="Utilities\ReflactionView.cs" />
+    <Compile Include="Utilities\CodeStacksReflaction.cs" />
     <Compile Include="Utilities\ResoueceHandler.cs" />
     <Compile Include="Utilities\ThriftResponse.cs" />
-    <Compile Include="Utilities\ValidateArgument.cs" />
+    <Compile Include="Utilities\CodeStacksValidate.cs" />
     <Compile Include="xiaowen{wpf}.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -49,7 +49,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
             for (int i = 1; i < points.Count; i++)
             {
                 _start = points[i - 1];
-                AsyncSetSpeedUp(_start, points[i], delay, map, points);
+                AsyncSetSpeedUp(_start, points[i], delay, map);
             }
         }
 
@@ -61,9 +61,13 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
         /// <param name="delay"></param>
         /// <param name="map"></param>
         /// <param name="points"></param>
-        private async static void AsyncSetSpeedUp(PointLatLng _start, PointLatLng _end, int delay, MyMapControl map, ObservableCollection<PointLatLng> points)
+        private async static void AsyncSetSpeedUp(PointLatLng _start, PointLatLng _end, int delay, MyMapControl map)
         {
             await Task.Delay(TimeSpan.FromSeconds(delay));
+
+            ObservableCollection<PointLatLng> points = new ObservableCollection<PointLatLng>();
+            points.Add(_start);
+            points.Add(_end);
 
             RoutingProvider rp = map.MainMap.MapProvider as RoutingProvider;
             if (rp == null)

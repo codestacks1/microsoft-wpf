@@ -24,6 +24,13 @@ namespace Xiaowen.CodeStacks.PopWindow.ViewModels
             set { SetProperty(ref _camera, value); }
         }
 
+        Compare _compare;
+        public Compare Compare
+        {
+            get { return _compare; }
+            set { SetProperty(ref _compare, value); }
+        }
+
         #endregion
 
         #region Command

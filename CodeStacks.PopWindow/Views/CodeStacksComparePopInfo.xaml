@@ -19,6 +19,13 @@
             <MenuItem Header="复制" Command="{Binding CopyCommand}" CommandParameter="{Binding Camera.Location,Mode=TwoWay}" />
         </ContextMenu>
 
+        <ContextMenu x:Key="SaveAs1">
+            <MenuItem Header="另存为" Click="SaveAs1_Click"/>
+        </ContextMenu>
+        <ContextMenu x:Key="SaveAs2">
+            <MenuItem Header="另存为" Click="SaveAs2_Click"/>
+        </ContextMenu>
+
         <Style x:Key="btnCloseStyle" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -81,7 +88,7 @@
                     <!--模版照片-->
                     <Label>模版照片:</Label>
                     <Grid>
-                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" Margin="10"></Image>
+                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" Margin="10" ContextMenu="{StaticResource SaveAs2}"></Image>
                         <Image Source="..\Gallery\bg.photo.png"></Image>
                     </Grid>
                 </StackPanel>
@@ -120,7 +127,7 @@
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
                     <Grid>
-                        <Image Stretch="Fill" x:Name="image_capImage" Margin="10"></Image>
+                        <Image Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" x:Name="image_capImage" Margin="10" ContextMenu="{StaticResource SaveAs1}"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>

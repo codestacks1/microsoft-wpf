@@ -73,6 +73,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxReadFileActiveXControlLib">
+      <HintPath>..\packages\VideoActiveX\AxReadFileActiveXControlLib.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +102,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -115,6 +119,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -129,6 +134,9 @@
     <Compile Include="ViewModels\CodeStacksMessageBoxViewModel.cs" />
     <Compile Include="Views\CodeStacksAlarmWindow.xaml.cs">
       <DependentUpon>CodeStacksAlarmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeStacksCapAndVideoWindow.xaml.cs">
+      <DependentUpon>CodeStacksCapAndVideoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CodeStacksComparePopInfo.xaml.cs">
       <DependentUpon>CodeStacksComparePopInfo.xaml</DependentUpon>
@@ -163,6 +171,10 @@
     <Page Include="Views\CodeStacksAlarmWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksCapAndVideoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CodeStacksComparePopInfo.xaml">
       <SubType>Designer</SubType>
@@ -249,6 +261,10 @@
       <Project>{337e0541-1066-4327-ab64-2f47907f5e60}</Project>
       <Name>CodeStacks.UserControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.Wpf\CodeStacks.Wpf.csproj">
+      <Project>{8C084147-89D8-40B4-B324-EDD49F29FB4D}</Project>
+      <Name>CodeStacks.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gallery\bg.tip.window.png" />
@@ -279,6 +295,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gallery\Marker\right.align.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\pause.png" />
+    <Resource Include="Gallery\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

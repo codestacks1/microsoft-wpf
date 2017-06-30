@@ -12,8 +12,13 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     /// <summary>
     /// 
     /// </summary>
-    public class ImageHandler
+    public class CodeStacksImage
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
         public static BitmapImage GetDefault(byte[] buffer)
         {
             BitmapImage result = new BitmapImage();
@@ -25,6 +30,11 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
         public static BitmapImage GetDefault(string uri)
         {
             BitmapImage result = new BitmapImage();

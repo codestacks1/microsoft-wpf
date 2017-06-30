@@ -105,16 +105,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
                 MainMap.Markers.Clear();
                 MainMap.CacheLocation = Path.Combine(Environment.CurrentDirectory, "GMap.NET");
-
-                // set cache mode only if no internet avaible
-                if (!Stuff.PingNetwork("ditu.amap.com"))
-                {
-                    MainMap.Manager.Mode = AccessMode.CacheOnly;
-                }
-                else
-                {
-                    MainMap.Manager.Mode = AccessMode.ServerAndCache;
-                }
+                MainMap.Manager.Mode = AccessMode.CacheOnly;
 
                 MainMap.DragButton = MouseButton.Left;
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;
@@ -125,16 +116,15 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 {
                     viewModel.Points = Points;
                     viewModel.Route = Route;
-                    if (!Stuff.PingNetwork("ditu.amap.com"))
-                        CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
-                    else
-                        CodeStacksGMapRoute.SetRouteOnline(Points, this, Route.Delay);
+                    CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
                 }
                 else
                 {
                     //"pack://application:,,,/Images/test1.png" resource path
                     //"pack://siteoforigin:,,,/Images/test1.png" site path
                     if (Points != null)
+                    {
+                        viewModel.Points = Points;
                         foreach (var point in Points)
                         {
                             MainMap.Position = point;
@@ -144,6 +134,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                             currentMarker.ZIndex = int.MaxValue;
                             MainMap.Markers.Add(currentMarker);
                         }
+                    }
                 }
             }
             catch (System.Exception ex)
