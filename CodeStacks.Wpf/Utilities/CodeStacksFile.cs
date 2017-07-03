@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Xiaowen.CodeStacks.Data.Models.Enumerate;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
+    [CLSCompliant(false)]
     public class CodeStacksFile
     {
         CodeStacksFile() { }
@@ -24,7 +26,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// create folder
         /// </summary>
         /// <param name="folderName">folder name</param>
-        private static void CreateFolder(string folderName)
+        public static void CreateFolder(string folderName)
         {
             string appFolder = Environment.CurrentDirectory;
             Directory.CreateDirectory(appFolder);
@@ -37,7 +39,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         /// <param name="fileName">file name,必须包含扩展名</param>
         /// <param name="content">file content</param>
         /// <param name="defaultContent">defaultContent</param>
-        private static bool CreateFile(string path, string fileName, string content, string defaultContent)
+        public static bool CreateFile(string path, string fileName, string content, string defaultContent)
         {
             bool result = false;
             bool isPath = Directory.Exists(path);
@@ -75,10 +77,59 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
         public static void CreateDirectory(string path)
         {
 
         }
 
+        #region File Size
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="units"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static double GetFileSize(string filePath, SizeUnitsEnum units, ref string msg)
+        {
+            FileInfo fileInfo = new FileInfo(filePath);
+            double fileSize = 0;
+            switch (units)
+            {
+                case SizeUnitsEnum.bit:
+                    break;
+                case SizeUnitsEnum.Byte:
+                    fileSize = fileInfo.Length;
+                    msg = fileSize + "B";
+                    break;
+                case SizeUnitsEnum.KByte:
+                    fileSize = fileInfo.Length / 1024;
+                    msg = fileSize + "KB";
+                    break;
+                case SizeUnitsEnum.MByte:
+                    fileSize = fileInfo.Length / 1024 / 1024;
+                    msg = fileSize + "MB";
+                    break;
+                case SizeUnitsEnum.GByte:
+                    fileSize = fileInfo.Length / 1024 / 1024 / 1024;
+                    msg = fileSize + "GB";
+                    break;
+                case SizeUnitsEnum.TByte:
+                    fileSize = fileInfo.Length / 1024 / 1024 / 1024 / 1024;
+                    msg = fileSize + "TB";
+                    break;
+                default:
+                    break;
+            }
+            return fileSize;
+        }
+
+        #endregion
+        
     }
 }

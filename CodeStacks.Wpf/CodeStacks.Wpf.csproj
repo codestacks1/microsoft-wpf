@@ -112,6 +112,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Utilities\CodeStacksCache.cs" />
+    <Compile Include="Utilities\CodeStacksErrorHandler.cs" />
+    <Compile Include="Utilities\CodeStacksLogger.cs" />
     <Compile Include="Utilities\CodeStacksTask.cs" />
     <Compile Include="Utilities\CodeStacksDataStorage.cs" />
     <Compile Include="Utilities\CodeStacksFile.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Utilities\CodeStacksLog4Net.cs" />
     <Compile Include="Utilities\CodeStacksNetWork.cs" />
     <Compile Include="Utilities\CodeStacksReflaction.cs" />
+    <Compile Include="Utilities\CodeStacksWiew.cs" />
     <Compile Include="Utilities\ResoueceHandler.cs" />
     <Compile Include="Utilities\ThriftResponse.cs" />
     <Compile Include="Utilities\CodeStacksValidate.cs" />

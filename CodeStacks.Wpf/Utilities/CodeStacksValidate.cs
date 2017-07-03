@@ -18,7 +18,6 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             return match.Length > 0 ? true : false;
         }
 
-
         /// <summary>
         /// 验证非负整数
         /// </summary>

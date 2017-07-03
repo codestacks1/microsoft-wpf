@@ -11,6 +11,7 @@
         Height="900" Width="960" ResizeMode="NoResize" Title="比对详细信息">
 
     <Window.Resources>
+        <ImageBrush x:Key="clickbtn_notlight" ImageSource="../Gallery/btn.mousedown.png" />
         <ImageBrush x:Key="bgwindow" ImageSource="{Binding RootBackground,Mode=TwoWay}" Stretch="UniformToFill" />
         <ContextMenu x:Key="mouserightmenu">
             <MenuItem Header="复制" Command="{Binding CopyCommand}" CommandParameter="{Binding Person.Name,Mode=TwoWay}" />
@@ -51,6 +52,33 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+
+        <!--无边框按钮-->
+        <Style x:Key="noborderbtn" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <ContentPresenter.Effect>
+                                    <DropShadowEffect  Color="#686868" ShadowDepth="0"></DropShadowEffect>
+                                </ContentPresenter.Effect>
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger  Property="IsMouseOver"  Value="true">
+                                <!--<Setter Property="Effect" Value="{StaticResource MouseOverEffect}"></Setter>-->
+                            </Trigger>
+                            <Trigger  Property="IsPressed"  Value="true">
+                                <Setter Property="Effect" Value="{x:Null}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="GridAll" Background="{StaticResource ResourceKey=bgwindow}" Margin="0,0,0,0">
@@ -63,6 +91,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="88"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -73,6 +102,7 @@
 
         <!--比对照片和相关信息-->
         <StackPanel  Grid.Row="1" Grid.Column="0" Margin="0,0,0,0">
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -87,8 +117,8 @@
                 <StackPanel Grid.Row="0" Grid.Column="2" Margin="5">
                     <!--模版照片-->
                     <Label>模版照片:</Label>
-                    <Grid>
-                        <Image x:Name="image_cmpImage" Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" Margin="10" ContextMenu="{StaticResource SaveAs2}"></Image>
+                    <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs2}">
+                        <Image x:Name="image_cmpImage" Margin="10"></Image>
                         <Image Source="..\Gallery\bg.photo.png"></Image>
                     </Grid>
                 </StackPanel>
@@ -111,7 +141,11 @@
                             </StackPanel>
                             <TextBlock Text="姓名："/>
                             <TextBlock TextWrapping="Wrap" x:Name="label_TemplateName" Text="{Binding Person.Name,Mode=TwoWay}"
-                                       Cursor="Hand" ContextMenu="{StaticResource mouserightmenu}" MouseEnter="label_TemplateName_MouseEnter" MouseLeave="label_TemplateName_MouseLeave"></TextBlock>
+                                       Cursor="Hand" 
+                                       ContextMenu="{StaticResource mouserightmenu}" 
+                                       MouseEnter="label_TemplateName_MouseEnter" 
+                                       MouseLeave="label_TemplateName_MouseLeave">   
+                            </TextBlock>
                             <TextBlock Text="来源库：" />
                             <TextBlock TextWrapping="Wrap" x:Name="label_TemplateType" Text=""></TextBlock>
                             <TextBlock Text="发现时间：" />
@@ -126,8 +160,8 @@
                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
-                    <Grid>
-                        <Image Width="{Binding ActualWidth}" Height="{Binding ActualHeight}" x:Name="image_capImage" Margin="10" ContextMenu="{StaticResource SaveAs1}"></Image>
+                    <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs2}" >
+                        <Image Stretch="Fill" x:Name="image_capImage" Margin="10,30,10,30"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
@@ -153,5 +187,9 @@
             </Grid>
         </StackPanel>
 
+        <Button Grid.Row="2" Content="抓拍记录" x:Name="btnCap" Click="btnCap_Click"
+                Background="{StaticResource ResourceKey=clickbtn_notlight}" Foreground="White" Style="{StaticResource noborderbtn}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Button Grid.Row="2" Content="视频预览" x:Name="btnVideo" Click="btnVideo_Click"
+                Background="{StaticResource ResourceKey=clickbtn_notlight}" Foreground="White" Style="{StaticResource noborderbtn}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" />
     </Grid>
 </Window>

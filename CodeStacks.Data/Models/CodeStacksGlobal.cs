@@ -7,8 +7,9 @@ namespace Xiaowen.CodeStacks.Data.Models
     /// <summary>
     /// 全局变量类
     /// </summary>
-    public class CodeStacksGlobal : IDisposable
+    public class CodeStacksGlobalCache : IDisposable
     {
+        public static string Company { get; set; }
         public static int SocketTimeout { get; set; }
         public static string Host { get; set; }
         public static int Port { get; set; }
@@ -100,7 +101,7 @@ namespace Xiaowen.CodeStacks.Data.Models
         /// 20170608 PK功能
         /// </summary>
         public static string AppFunction { get; set; }
-        
+
         #region 临时解决方案
 
         //处理告警后摄像头能够长期变红

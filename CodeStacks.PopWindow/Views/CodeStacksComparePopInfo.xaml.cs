@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -16,7 +18,9 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
     public partial class CodeStacksComparePopInfo : Window
     {
         public CodeStacksComparePopInfoViewModel vModel;
+        System.Collections.Generic.List<string> listVideo = new System.Collections.Generic.List<string>(); // 视频地址列表
 
+        System.Collections.Generic.List<byte[]> listCap = new System.Collections.Generic.List<byte[]>(); //抓拍照片列表
         public CodeStacksComparePopInfo()
         {
             InitializeComponent();
@@ -52,8 +56,6 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                         ImageSource = new BitmapImage(new Uri(compare.Template.TypePhotoPath))
                     };
                 }));
-
-                //vModel.Compare = compare;
                 Captype.Content = compare.Captype;
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
@@ -63,6 +65,8 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                 label_CapTime.Text = compare.Snap.DateTime;
                 label_CapChannel.Text = vModel.Camera.Location = compare.Camera.Location;
                 image_SenceImg.Source = compare.Snap.EnvironmentPhoto;
+                listCap = (System.Collections.Generic.List<byte[]>)compare.Content1;
+                listVideo = (System.Collections.Generic.List<string>)compare.Content2;
             }
             catch (Exception ex)
             {
@@ -82,7 +86,44 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         {
             popup.IsOpen = false;
         }
-        
+
+        private void btnCap_Click(object sender, RoutedEventArgs e)
+        {
+            List<Window> windows = new List<Window>();
+            foreach (Window window in Application.Current.Windows)
+            {
+                windows.Add(window);
+            }
+
+            if (windows.FirstOrDefault(x => x.Name == "抓拍记录") == null)
+            {
+                CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("抓拍记录", listCap, listVideo);
+                CapVideo.Show();
+            }
+            else
+            {
+                windows.FirstOrDefault(x => x.Name == "抓拍记录").Activate();
+            }
+        }
+
+        private void btnVideo_Click(object sender, RoutedEventArgs e)
+        {
+            List<Window> windows = new List<Window>();
+            foreach (Window window in Application.Current.Windows)
+            {
+                windows.Add(window);
+            }
+
+            if (windows.FirstOrDefault(x => x.Name == "视频预览") == null)
+            {
+                CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("视频预览", listCap, listVideo);
+                CapVideo.Show();
+            }
+            else
+            {
+                windows.FirstOrDefault(x => x.Name == "视频预览").Activate();
+            }
+        }
         private void SaveAs1_Click(object sender, RoutedEventArgs e)
         {
             CodeStacksDataStorage.ImageSaveAs((BitmapImage)image_capImage.Source);
