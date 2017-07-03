@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Windows;
 using Xiaowen.CodeStacks.PopWindow;
+using Xiaowen.CodeStacks.Wpf.Utilities;
 
 namespace CodeStacks.Test
 {
@@ -11,6 +12,16 @@ namespace CodeStacks.Test
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            CodeStacksDynamic cd = new CodeStacksDynamic();
+            cd.TestMethod(1);
+            dynamic dynamic_cd = new CodeStacksDynamic();
+            string str = dynamic_cd.TestMethod(3);
+            dynamic_cd.TestMethod(3, 2, 1);
+
+
+
+
+
             Thread.Sleep(1000);
             //CodeStacksMessageBox mb = new CodeStacksMessageBox(true);
             //mb.Show();

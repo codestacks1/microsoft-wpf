@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
 {
-    public class ResoueceHandler
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CodeStacksResouece
     {
-        private ResoueceHandler() { }
+        private CodeStacksResouece() { }
 
         
     }

@@ -181,6 +181,10 @@
       <Project>{91a0b815-475a-4608-bbe4-796970ceb93c}</Project>
       <Name>CodeStacks.PopWindow</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.Wpf\CodeStacks.Wpf.csproj">
+      <Project>{8c084147-89d8-40b4-b324-edd49f29fb4d}</Project>
+      <Name>CodeStacks.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
