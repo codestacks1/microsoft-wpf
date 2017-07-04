@@ -23,6 +23,7 @@ namespace Xiaowen.CodeStacks.UserControls.Views
         public CodeStacksBrush()
         {
             InitializeComponent();
+            btn1.Background = new SolidColorBrush(Color.FromRgb(224, 37, 37));
         }
     }
 }

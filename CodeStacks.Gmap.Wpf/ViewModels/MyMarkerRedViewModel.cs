@@ -176,7 +176,8 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             {
                 MyMapControl.MainMap.Markers.Clear();
                 MyMapControl.Route.Delay = 2;
-                CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route.Delay);
+                if (Points != null && Points.Count > 0)
+                    CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route.Delay);
             }
         }
 

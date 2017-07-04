@@ -152,9 +152,10 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
             //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
+
+            MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
             MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
 
             //if (MainMap.Markers.Count > 1)

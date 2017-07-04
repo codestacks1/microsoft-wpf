@@ -12,22 +12,23 @@ namespace CodeStacks.Test
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            CodeStacksDynamic cd = new CodeStacksDynamic();
-            cd.TestMethod(1);
-            dynamic dynamic_cd = new CodeStacksDynamic();
-            string str = dynamic_cd.TestMethod(3);
-            dynamic_cd.TestMethod(3, 2, 1);
+            //CodeStacksDynamic cd = new CodeStacksDynamic();
+            //cd.TestMethod(1);
+            //dynamic dynamic_cd = new CodeStacksDynamic();
+            //string str = dynamic_cd.TestMethod(3);
+            //dynamic_cd.TestMethod(3, 2, 1);
 
 
 
 
 
-            Thread.Sleep(1000);
+
+            //Thread.Sleep(1000);
             //CodeStacksMessageBox mb = new CodeStacksMessageBox(true);
             //mb.Show();
 
-            var screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height.ToString();
-            var screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width.ToString();
+            //var screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height.ToString();
+            //var screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width.ToString();
 
             // CodeStacksDataHandler.ImageData.ConvertToBitmapImage;
         }

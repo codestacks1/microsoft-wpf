@@ -38,19 +38,12 @@ namespace CodeStacks.Test.Views
 
             //var s = CodeStacksWindow.MessageBox.Invoke(true, false, 2, "Welcome to codestacks!");
 
-            CodeStacksAlarmWindow alarm = new CodeStacksAlarmWindow();
-            alarm.ShowDialog();
+            //CodeStacksAlarmWindow alarm = new CodeStacksAlarmWindow();
+            //alarm.ShowDialog();
 
-            CodeStacksWindow.MessageBoxSta.Invoke(false, false, 2, "9090".ToString());
+            //CodeStacksWindow.MessageBoxSta.Invoke(false, false, 2, "9090".ToString());
 
-            string s1 = string.Empty;
-
-            //CodeStacksDataHandler.UIThread.Invoke(() =>
-            //{
-            //    var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
-
-            //    var sh1 = sh;
-            //});
+            //string s1 = string.Empty;
 
             //CodeStacksDataHandler.UIThread.Invoke(() =>
             //{
@@ -59,20 +52,29 @@ namespace CodeStacks.Test.Views
             //    var sh1 = sh;
             //});
 
-            log.Info("Entering application");
-            log.Error("ddddd");
-            log.Debug("debug");
+            //CodeStacksDataHandler.UIThread.Invoke(() =>
+            //{
+            //    var sh = new CodeStacksMessageBox(isConfirm: true, err: "Welcome to codestacks!").ShowWindow();
 
-            try
-            {
+            //    var sh1 = sh;
+            //});
 
-            }
-            catch (System.Exception)
-            {
+            //log.Info("Entering application");
+            //log.Error("ddddd");
+            //log.Debug("debug");
 
-                throw;
-            }
+            //try
+            //{
 
+            //}
+            //catch (System.Exception)
+            //{
+
+            //    throw;
+            //}
+            
+            CodeStacksTestWindow s = new CodeStacksTestWindow();
+            s.Show();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

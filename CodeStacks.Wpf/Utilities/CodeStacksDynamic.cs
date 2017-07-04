@@ -12,7 +12,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     public class CodeStacksDynamic
     {
         #region Properties
-
+        /// <summary>
+        /// dynamic 主要用于应用程序互操作
+        /// </summary>
         public dynamic MyFirstDynamicFiled { get; set; }
 
 

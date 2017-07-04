@@ -14,6 +14,7 @@
             <TextBlock Background="#24EAFB" Text="按钮字体前景色" FontSize="14"></TextBlock>
             <TextBlock Background="#2b3135" Text="123" Foreground="White" FontSize="14"></TextBlock>
             <TextBlock Background="#a09ef7" Text="123" FontSize="14"></TextBlock>
+            <TextBlock x:Name="btn1" Text="123" FontSize="14"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

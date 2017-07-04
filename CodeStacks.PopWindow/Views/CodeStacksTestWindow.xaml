@@ -26,6 +26,8 @@
 
             </codestacks:CodeStacksTreeView>
         </Grid>
-        <Grid Background="#232" Grid.Column="2"></Grid>
+        <Grid Background="#232" Grid.Column="2">
+            <codestacks:CodeStacksBrush/>
+        </Grid>
     </Grid>
 </Window>
