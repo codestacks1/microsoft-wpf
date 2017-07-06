@@ -47,15 +47,16 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
                         string safename = Path.GetFileName(path);
                         string _safename = Path.GetFileNameWithoutExtension(path);
                         string directory = Path.GetDirectoryName(path);
-
+                        
                         File.Copy(path, Path.Combine(directory, _safename + ".copy" + extension));
                         File.Delete(path);
+
                         using (Image image = Image.FromStream(bitmap.StreamSource))
                         {
                             MemoryStream stream = new MemoryStream();
                             image.Save(stream, ImageFormat.Jpeg);
                             image.Dispose();
-                            File.WriteAllBytes(Path.Combine(directory, _safename + ".copy" + extension), stream.GetBuffer());
+                            File.WriteAllBytes(Path.Combine(directory, safename), stream.GetBuffer());
                         }
                     }
                 }

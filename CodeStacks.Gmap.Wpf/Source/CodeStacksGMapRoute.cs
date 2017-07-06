@@ -37,19 +37,21 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
         public static void SetRouteOffline(ObservableCollection<PointLatLng> points, MyMapControl map, int delay)
         {
             if (points.Count == 0) return;
-            PointLatLng _start = points[0];//起点
-            GMapMarker m1 = new GMapMarker(_start);
-            PhotoAnchor pa = new PhotoAnchor(map, m1, _start.Photo, (GeoTitle)_start.GeoTitle, "Xiaowen");
-            pa.Margin = new Thickness(-30, -30, 0, -30);
-            m1.Shape = pa;
+            else if (points.Count == 1)
+            {
+                PointLatLng _start = points[0];//起点
+                GMapMarker m1 = new GMapMarker(_start);
+                PhotoAnchor pa = new PhotoAnchor(map, m1, _start.Photo, (GeoTitle)_start.GeoTitle, "Xiaowen");
+                pa.Margin = new Thickness(-30, -30, 0, -30);
+                m1.Shape = pa;
 
-            map.MainMap.Markers.Add(m1);
-            map.MainMap.ZoomAndCenterMarkers(null);
+                map.MainMap.Markers.Add(m1);
+                map.MainMap.ZoomAndCenterMarkers(null);
+            }
 
             for (int i = 1; i < points.Count; i++)
             {
-                _start = points[i - 1];
-                AsyncSetSpeedUp(_start, points[i], delay, map);
+                AsyncSetSpeedUp(points[i - 1], points[i], delay, map);
             }
         }
 

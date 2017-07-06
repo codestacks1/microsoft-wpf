@@ -47,8 +47,8 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                 {
                     gridCap.Visibility = Visibility.Collapsed;
                     gridVideo.Visibility = Visibility.Visible;
-                    this.Height = 440;
-                    this.Width = 660;
+                    this.Height = 500;
+                    this.Width = 700;
 
                     string pluginPath = System.Environment.CurrentDirectory + "\\vlc\\plugins\\";
                     vlc_player_ = new VlcVideoPlayer(pluginPath);

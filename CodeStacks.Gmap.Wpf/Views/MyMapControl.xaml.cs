@@ -156,10 +156,10 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
+            //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
             MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
-            MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
+            //MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
 
             //if (MainMap.Markers.Count > 1)
             //{
@@ -172,11 +172,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (IsMouseCaptured)
-            {
-                Mouse.Capture(null);
-                MainMap.CanDragMap = true;
-            }
+
         }
 
         private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -209,7 +205,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_MouseEnter(object sender, MouseEventArgs e)
         {
-         
+
         }
 
         private void MainMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
