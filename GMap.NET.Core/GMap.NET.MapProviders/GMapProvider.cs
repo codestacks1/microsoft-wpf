@@ -339,7 +339,7 @@ namespace GMap.NET.MapProviders
         /// </summary>
         public bool InvertedAxisY = false;
 
-        static string languageStr = "en";
+        static string languageStr;
         public static string LanguageStr
         {
             get

@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GMap.NET</RootNamespace>
-    <AssemblyName>GMap.NET.Core</AssemblyName>
+    <AssemblyName>CodeStacks.GMap.NET.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -110,7 +110,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE;MONO_disabled; MySQL_disabled; PostgreSQL_disabled; SQLite</DefineConstants>
-    <DocumentationFile>bin\x86\Release\GMap.NET.Core.XML</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\CodeStacks.GMap.NET.Core.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <PlatformTarget>x86</PlatformTarget>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -343,8 +343,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.GMap" mkdir "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.GMap" 
-copy "$(TargetPath)" "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.GMap"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)packages\xiaowen.codestacks.wpf\CodeStacks.GMap" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.GMap" 
+copy "$(TargetPath)" "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.GMap"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net45\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

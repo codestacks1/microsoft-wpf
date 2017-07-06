@@ -85,6 +85,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -107,6 +108,7 @@
     <Compile Include="DataHandler\DateTimeData.cs" />
     <Compile Include="DataHandler\ImageData.cs" />
     <Compile Include="Interfaces\IMainFormContract.cs" />
+    <Compile Include="Models\CodeStacksAppSettings.cs" />
     <Compile Include="Models\CodeStacksButtonCmd.cs" />
     <Compile Include="Models\CodeStacksCloseWindow.cs" />
     <Compile Include="Models\CodeStacksVersionAttribute.cs" />

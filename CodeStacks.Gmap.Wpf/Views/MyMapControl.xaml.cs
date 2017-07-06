@@ -96,6 +96,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             viewModel.MyMapControl = this;
             viewModel.IsMapCtrlVisible = this.IsMapCtrlVisibale;
             GMapProvider.LanguageStr = LanguageStr;
+
+            MainMap.MaxZoom = 17;
+            MainMap.Zoom = 8;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -117,6 +120,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                     viewModel.Points = Points;
                     viewModel.Route = Route;
                     CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
+                    MainMap.Zoom = 8;
                 }
                 else
                 {
@@ -152,9 +156,8 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
+            MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
-
             MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
             MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
 
@@ -169,13 +172,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PointLatLng point = new PointLatLng(
-                MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude, MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude);
-            GMapMarker redMarker = new GMapMarker(point);
-            redMarker.Shape = new MyMarkerRedAnchor(this, redMarker, new GeoTitle(), "Xiaowen");
-            redMarker.Offset = new System.Windows.Point(-15, -15);
-            redMarker.ZIndex = int.MaxValue;
-            this.MainMap.Markers.Add(redMarker);
+            if (IsMouseCaptured)
+            {
+                Mouse.Capture(null);
+                MainMap.CanDragMap = true;
+            }
         }
 
         private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -208,18 +209,21 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_MouseEnter(object sender, MouseEventArgs e)
         {
+         
         }
 
         private void MainMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
         }
 
         private void MainMap_MouseMove(object sender, MouseEventArgs e)
         {
-            Point p = e.GetPosition(this.MainMap);
-            PointLatLng point = this.MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Langitude = point.Lat;
-            MainWindowViewModel.SMainwindowViewModel.GeoData.Latitude = point.Lng;
+            Point p = e.GetPosition(MainMap);
+            PointLatLng point = MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
+            viewModel.GeoData.Latitude = point.Lat;
+            viewModel.GeoData.Langitude = point.Lng;
+            viewModel.RefreshGeoData();
         }
 
         private void MainMap_OnMapTypeChanged(GMapProvider type)
@@ -246,7 +250,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             else if ("Camera".Equals(point.AnchorType))
             {
                 currentMarker.Shape =
-                    new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen", point.Guid);
                 currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
             }
             else if ("Photo".Equals(point.AnchorType))

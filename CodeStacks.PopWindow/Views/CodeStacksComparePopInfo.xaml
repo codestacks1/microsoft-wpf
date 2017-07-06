@@ -79,6 +79,30 @@
             </Setter>
         </Style>
 
+        <!--普通的点击按钮-->
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Background" Value="#1f6e77"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="GridAll" Background="{StaticResource ResourceKey=bgwindow}" Margin="0,0,0,0">
@@ -141,11 +165,7 @@
                             </StackPanel>
                             <TextBlock Text="姓名："/>
                             <TextBlock TextWrapping="Wrap" x:Name="label_TemplateName" Text="{Binding Person.Name,Mode=TwoWay}"
-                                       Cursor="Hand" 
-                                       ContextMenu="{StaticResource mouserightmenu}" 
-                                       MouseEnter="label_TemplateName_MouseEnter" 
-                                       MouseLeave="label_TemplateName_MouseLeave">   
-                            </TextBlock>
+                                       Cursor="Hand" ContextMenu="{StaticResource mouserightmenu}" MouseEnter="label_TemplateName_MouseEnter" MouseLeave="label_TemplateName_MouseLeave"></TextBlock>
                             <TextBlock Text="来源库：" />
                             <TextBlock TextWrapping="Wrap" x:Name="label_TemplateType" Text=""></TextBlock>
                             <TextBlock Text="发现时间：" />
@@ -160,7 +180,7 @@
                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
-                    <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs2}" >
+                    <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs1}" >
                         <Image Stretch="Fill" x:Name="image_capImage" Margin="10,30,10,30"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
@@ -188,8 +208,8 @@
         </StackPanel>
 
         <Button Grid.Row="2" Content="抓拍记录" x:Name="btnCap" Click="btnCap_Click"
-                Background="{StaticResource ResourceKey=clickbtn_notlight}" Foreground="White" Style="{StaticResource noborderbtn}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                Style="{StaticResource ResourceKey=btnStyle}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Button Grid.Row="2" Content="视频预览" x:Name="btnVideo" Click="btnVideo_Click"
-                Background="{StaticResource ResourceKey=clickbtn_notlight}" Foreground="White" Style="{StaticResource noborderbtn}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                Style="{StaticResource ResourceKey=btnStyle}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" />
     </Grid>
 </Window>

@@ -21,11 +21,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
         public MyMarkerRedAnchor(MyMapControl window, GMapMarker marker, GeoTitle geTitle, string title, params object[] viewModels)
         {
             InitializeComponent();
-
-            this.MainWindow = window;
-            this.Marker = marker;
-
-            Popup = new Popup();
+            
             //Label = new Label();
 
             this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);
@@ -34,6 +30,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
             this.MouseLeave += new MouseEventHandler(MarkerControl_MouseLeave);
             this.MouseEnter += new MouseEventHandler(MarkerControl_MouseEnter);
 
+            this.MainWindow = window;
+            this.Marker = marker;
+            Popup = new Popup();
             Popup.Placement = PlacementMode.Mouse;
             //{
             //    Label.Background = Brushes.Blue;
@@ -45,7 +44,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
             //    Label.Content = title;
             //}
             Popup.Child = new MyMarkerRedAnchorDepict(geTitle);// Label;
-
         }
 
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
@@ -85,6 +83,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
         {
             if (IsMouseCaptured)
             {
+                MainWindow.Latitude = Marker.Position.Lat;
+                MainWindow.Longtitude = Marker.Position.Lng;
+
                 Mouse.Capture(null);
                 MainWindow.MainMap.CanDragMap = true;
             }

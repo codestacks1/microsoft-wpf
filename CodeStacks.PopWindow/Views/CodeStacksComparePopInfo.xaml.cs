@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Xiaowen.CodeStacks.Data.SenSingModels;
+using Xiaowen.CodeStacks.PopWindow.Utilities;
 using Xiaowen.CodeStacks.PopWindow.ViewModels;
 using Xiaowen.CodeStacks.Wpf.Utilities;
 
@@ -49,13 +50,42 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         {
             try
             {
+                SolidColorBrush colorBrush = new SolidColorBrush();
+                switch (compare.Template.TypeKey)
+                {
+                    case 0:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));//蓝
+                        break;
+                    case 1:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        break;
+                    case 2:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(122, 16, 59));//红
+                        break;
+                    case 3:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(214, 121, 10));//橙
+                        break;
+                    case 4:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(194, 184, 15));//黄
+                        break;
+                    default:
+                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        break;
+                }
+
+
                 GridAll.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    GridAll.Background = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri(compare.Template.TypePhotoPath))
-                    };
+                    //GridAll.Background = new ImageBrush
+                    //{
+                    //    ImageSource = new BitmapImage(new Uri(compare.Template.TypePhotoPath))
+                    //};
+                    GridAll.Background = colorBrush;
+
                 }));
+
+
+
                 Captype.Content = compare.Captype;
                 image_capImage.Source = compare.Snap.Photo;
                 image_cmpImage.Source = compare.Template.PersonInfo.Photo;
@@ -89,6 +119,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
 
         private void btnCap_Click(object sender, RoutedEventArgs e)
         {
+            this.Cursor = Cursors.Wait;
             List<Window> windows = new List<Window>();
             foreach (Window window in Application.Current.Windows)
             {
@@ -98,16 +129,19 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             if (windows.FirstOrDefault(x => x.Name == "抓拍记录") == null)
             {
                 CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("抓拍记录", listCap, listVideo);
-                CapVideo.Show();
+                CapVideo.ShowDialog();
             }
             else
             {
                 windows.FirstOrDefault(x => x.Name == "抓拍记录").Activate();
             }
+
+            this.Cursor = Cursors.Arrow;
         }
 
         private void btnVideo_Click(object sender, RoutedEventArgs e)
         {
+            this.Cursor = Cursors.Wait;
             List<Window> windows = new List<Window>();
             foreach (Window window in Application.Current.Windows)
             {
@@ -117,12 +151,13 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             if (windows.FirstOrDefault(x => x.Name == "视频预览") == null)
             {
                 CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("视频预览", listCap, listVideo);
-                CapVideo.Show();
+                CapVideo.ShowDialog();
             }
             else
             {
                 windows.FirstOrDefault(x => x.Name == "视频预览").Activate();
             }
+            this.Cursor = Cursors.Arrow;
         }
         private void SaveAs1_Click(object sender, RoutedEventArgs e)
         {

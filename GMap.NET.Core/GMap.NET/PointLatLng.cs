@@ -17,6 +17,7 @@ namespace GMap.NET
         private BitmapImage photo;
         private object geoTitle;
         private string anchorType;
+        private string guid;
 
         bool NotEmpty;
 
@@ -27,16 +28,22 @@ namespace GMap.NET
             this.photo = null;
             this.geoTitle = null;
             this.anchorType = null;
+            this.guid = null;
             NotEmpty = true;
         }
 
-        public PointLatLng(double lat, double lng, string cameraOrPhoto, BitmapImage photo, object geoTitle)
+        public PointLatLng(double lat, double lng, string cameraOrPhoto, BitmapImage photo, object geoTitle, params string[] guid)
         {
             this.lat = lat;
             this.lng = lng;
             this.photo = photo;
             this.geoTitle = geoTitle;
             this.anchorType = cameraOrPhoto;
+            if (guid != null && guid.Length > 0)
+                this.guid = guid[0];
+            else
+                this.guid = string.Empty;
+
             NotEmpty = true;
         }
 
@@ -103,6 +110,16 @@ namespace GMap.NET
             set
             {
                 this.anchorType = value;
+                NotEmpty = true;
+            }
+        }
+
+        public string Guid
+        {
+            get { return this.guid; }
+            set
+            {
+                this.guid = value;
                 NotEmpty = true;
             }
         }

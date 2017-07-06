@@ -15,6 +15,12 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
     /// </summary>
     public partial class CameraAnchor : UserControl
     {
+        public int Id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Guid { get; set; }
+
         public ImageSource Photo { get; set; }
 
         Popup Popup;
@@ -26,8 +32,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
             this.DataContext = this;
         }
 
-        public CameraAnchor(MyMapControl window, GMapMarker marker, ImageSource photo, GeoTitle geoTitle, string title, params object[] viewModels) : this()
+        public CameraAnchor(MyMapControl window, GMapMarker marker, ImageSource photo, GeoTitle geoTitle, string title, params object[] param) : this()
         {
+            this.Guid = param == null && param.Length > 0 ? null : param[0].ToString();
             this.Photo = photo;
             this.MainWindow = window;
             this.Marker = marker;
@@ -61,7 +68,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         private void CustomMarkerDemo_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-           
+
         }
     }
 }

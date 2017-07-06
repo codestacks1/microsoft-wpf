@@ -22,7 +22,7 @@ namespace codectacks.plugin.menufirst.Views
 
             MyMap.Points = new ObservableCollection<GMap.NET.PointLatLng>();
 
-            MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }));
+            MyMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
 
             //for (int i = 0; i < 10; i++)
             //{

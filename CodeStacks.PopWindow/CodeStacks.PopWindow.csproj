@@ -128,6 +128,7 @@
     <Compile Include="CodeStacksWindow.cs" />
     <Compile Include="Properties\CodeStacksVersionInfo.cs" />
     <Compile Include="Utilities\AutoCloseWindow.cs" />
+    <Compile Include="Utilities\VlcVideoPlayer.cs" />
     <Compile Include="ViewModels\CodeStacksAlarmWindowViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksComparePopInfoViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksMainWindowFirstViewModel.cs" />

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using Xiaowen.CodeStacks.Data;
 using Xiaowen.CodeStacks.Data.SenSingModels;
+using Xiaowen.CodeStacks.PopWindow.Utilities;
 
 namespace Xiaowen.CodeStacks.PopWindow.Views
 {
@@ -18,30 +17,19 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
     {
         List<string> listVideo = new List<string>();
         List<byte[]> listCap = new List<byte[]>();
-        BitmapImage imgPlay = CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1("pack://application:,,,/Gallery/play.png");
-        BitmapImage imgPause = CodeStacksDataHandler.ImageData.ConvertToImageSourceDelegate1("pack://application:,,,/Gallery/pause.png");
 
         public CodeStacksCapAndVideoWindow()
         {
             InitializeComponent();
+
         }
-        public CodeStacksCapAndVideoWindow(string strTitle,List<byte[]> listcap,List<string> listvideo)
+        public CodeStacksCapAndVideoWindow(string strTitle, List<byte[]> listcap, List<string> listvideo)
         {
             InitializeComponent();
+            this.Name = strTitle;
             this.Title = strTitle;
             this.listCap = listcap;
             this.listVideo = listvideo;
-            try
-            {
-                imgPlay = new BitmapImage(new Uri(System.Windows.Forms.Application.StartupPath+ @"/Images/play.png"));
-                imgPause = new BitmapImage(new Uri(System.Windows.Forms.Application.StartupPath + @"/Images/pause.png"));
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
 
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -53,14 +41,22 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                     gridCap.Visibility = Visibility.Visible;
                     gridVideo.Visibility = Visibility.Collapsed;
                     ShowCapImg(listCap);
+                    this.Cursor = Cursors.Arrow;
                 }
                 else
                 {
                     gridCap.Visibility = Visibility.Collapsed;
                     gridVideo.Visibility = Visibility.Visible;
-                    this.Height = 420;
-                    this.Width = 600;
+                    this.Height = 440;
+                    this.Width = 660;
+
+                    string pluginPath = System.Environment.CurrentDirectory + "\\vlc\\plugins\\";
+                    vlc_player_ = new VlcVideoPlayer(pluginPath);
+                    IntPtr render_wnd = this.wfh.Child.Handle;
+                    vlc_player_.SetRenderWindow((int)render_wnd);
+
                     VideoPlay(listVideo);
+                    this.Cursor = Cursors.Arrow;
                 }
             }
             catch (Exception ex)
@@ -85,13 +81,15 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         #endregion
 
         #region 视频播放
+        private VlcVideoPlayer vlc_player_;
+
         void VideoPlay(List<string> list)
         {
             if (list.Count > 0)
             {
                 List<string> listNewVideo = new List<string>();
                 List<string> listName = new List<string>();
-                string strPath = System.Windows.Forms.Application.StartupPath+"\\Video";
+                string strPath = System.Windows.Forms.Application.StartupPath + "\\Video";
 
                 if (!Directory.Exists(strPath))
                 {
@@ -110,6 +108,10 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                         }
                         else
                         {
+                            while (IsFileInUse(i.FullName))
+                            {
+
+                            }
                             File.Delete(i.FullName);      //删除指定文件
                         }
                     }
@@ -124,10 +126,10 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
 
                 listPlays.ItemsSource = listName;
                 strPath = listNewVideo[0];
-                mediaElement.Close();
-                mediaElement.LoadedBehavior = MediaState.Manual;
-                mediaElement.Source = new Uri(strPath, UriKind.Absolute);
-                mediaElement.Play();
+
+                vlc_player_.PlayFile(strPath);
+                playBtn.Content = "Stop";
+                playBtn.IsEnabled = true;
             }
         }
 
@@ -159,51 +161,53 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         //开始播放
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
-            mediaElement.Play();
-            mediaElement.ToolTip = "开始播放";
-        }
-        //停止播放
-        private void stopBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Pause();
-            mediaElement.ToolTip = "停止播放";
-        }
-        //后退
-        private void backBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Position = mediaElement.Position - TimeSpan.FromSeconds(10);
-        }
-        //前进
-        private void forwardBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Position = mediaElement.Position + TimeSpan.FromSeconds(10);
+            vlc_player_.Pause();
+            if (playBtn.Content.ToString() == "Stop")
+                playBtn.Content = "Play";
+            else
+                playBtn.Content = "Stop";
         }
 
         private void listPlays_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             string strPath = System.Windows.Forms.Application.StartupPath + "\\Video\\" + listPlays.SelectedItem.ToString();
-            mediaElement.Dispatcher.Invoke(()=>
+            vlc_player_.PlayFile(strPath);
+            playBtn.Content = "Stop";
+            playBtn.IsEnabled = true;
+        }
+        /// <summary>
+        /// 判断文件是否被占用
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool IsFileInUse(string fileName)
+        {
+            bool inUse = true;
+
+            FileStream fs = null;
+            try
             {
-                mediaElement.Close();
-                mediaElement.LoadedBehavior = MediaState.Manual;
-                mediaElement.Source = new Uri(strPath, UriKind.Absolute);
-                mediaElement.Play();
-            } );
+
+                fs = new FileStream(fileName, FileMode.Open, FileAccess.Read,
+
+                FileShare.None);
+
+                inUse = false;
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (fs != null)
+
+                    fs.Close();
+            }
+            return inUse;//true表示正在使用,false没有使用  
         }
 
         #endregion
-
-        //private void media_MediaEnded(object sender, RoutedEventArgs e)
-        //{
-        //    if (listVideo != null && listVideo.Count > 0)
-        //    {
-        //        for (int i = 1; i < listVideo.Count; i++)
-        //        {
-        //            string strPath = listVideo[i];
-        //            media.Source = new Uri(strPath, UriKind.Absolute);
-        //        }
-        //    }
-        //}
 
     }
 }
