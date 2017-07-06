@@ -158,14 +158,13 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
         {
             try
             {
-                Route.Delay = Route.Delay == 0 ? 0 : Route.Delay - 1;
+                Route.Delay = Route.Delay <= 0 ? 0 : Route.Delay - 2;
             }
             catch (Exception)
             {
             }
         }
-
-
+        
         /// <summary>
         /// 播放活动线路
         /// </summary>
@@ -175,7 +174,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             if (MyMapControl.Route != null)
             {
                 MyMapControl.MainMap.Markers.Clear();
-                MyMapControl.Route.Delay = 2;
+                MyMapControl.Route.Delay = 4;
                 if (Points != null && Points.Count > 0)
                     CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route.Delay);
             }

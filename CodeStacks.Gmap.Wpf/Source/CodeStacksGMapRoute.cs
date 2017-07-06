@@ -65,7 +65,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
         /// <param name="points"></param>
         private async static void AsyncSetSpeedUp(PointLatLng _start, PointLatLng _end, int delay, MyMapControl map)
         {
-            await Task.Delay(TimeSpan.FromSeconds(delay));
+            await Task.Delay(TimeSpan.FromSeconds(delay)).ConfigureAwait(false);
 
             ObservableCollection<PointLatLng> points = new ObservableCollection<PointLatLng>();
             points.Add(_start);

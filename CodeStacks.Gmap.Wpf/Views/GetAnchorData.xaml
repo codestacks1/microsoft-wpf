@@ -100,12 +100,12 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                 <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
-                <TextBlock Text="轨迹测试" TextAlignment="Center" VerticalAlignment="Center" 
+                <!--<TextBlock Text="轨迹测试" TextAlignment="Center" VerticalAlignment="Center" 
                            Cursor="Hand" Margin="10">
                     <TextBlock.InputBindings>
                         <MouseBinding Command="{Binding Cmd.AddMarkerCommand}" MouseAction="LeftClick" />
                     </TextBlock.InputBindings>
-                </TextBlock>
+                </TextBlock>-->
             </StackPanel>
 
         </Grid>

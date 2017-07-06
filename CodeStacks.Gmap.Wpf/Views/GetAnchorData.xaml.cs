@@ -17,7 +17,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void TextBlock_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            MainWindowViewModel.SMainwindowViewModel.MyMapControl.ReSet();
+            MainWindowViewModel.SMainwindowViewModel.MyMapControl.ReSet(new PointLatLng());
         }
 
         private void MenuItem_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -120,7 +120,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                     viewModel.Points = Points;
                     viewModel.Route = Route;
                     CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
-                    MainMap.Zoom = 8;
                 }
                 else
                 {
@@ -198,9 +197,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             }
         }
 
-        public void ReSet()
+        public void ReSet(PointLatLng point)
         {
-            UserControl_Loaded(null, null);
+            RoutedEventArgs e = new RoutedEventArgs();
+            e.Source = point;
+            UserControl_Loaded(null, e);
         }
 
         private void MainMap_MouseEnter(object sender, MouseEventArgs e)
