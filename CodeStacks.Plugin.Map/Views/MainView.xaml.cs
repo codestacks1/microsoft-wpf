@@ -34,10 +34,19 @@ namespace CodeStacks.Plugin.Map.Views
             //};
 
             MainMap.Points = new ObservableCollection<GMap.NET.PointLatLng>();
-            //MainMap.Route.IsRoute = true;
-            //MainMap.Route.Delay = 0;
+            MainMap.Route.IsRoute = true;
 
             //MainMap.Points.Add(new GMap.NET.PointLatLng(39.9719321233495, 116.337801218033, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
+
+            MainMap.Points.Add(new GMap.NET.PointLatLng(36.7564903295052, 119.20166015625, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
+
+            MainMap.Points.Add(new GMap.NET.PointLatLng(36.6564903295052, 118.90166015625, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
+
+            MainMap.Points.Add(new GMap.NET.PointLatLng(35.6332079113796, 116.873046875, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
+
+            MainMap.Points.Add(new GMap.NET.PointLatLng(36.6332079113796, 116.873046875, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
+
+            MainMap.Points.Add(new GMap.NET.PointLatLng(35.63079113796, 119.8734566875, "Red", null, new GeoTitle() { IsVisible = Visibility.Collapsed, Content1 = "content1", Content1Visible = Visibility.Visible }, null));
         }
 
         /// <summary>

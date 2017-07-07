@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Xiaowen.CodeStacks.Data;
@@ -41,14 +42,13 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                     gridCap.Visibility = Visibility.Visible;
                     gridVideo.Visibility = Visibility.Collapsed;
                     ShowCapImg(listCap);
-                    this.Cursor = Cursors.Arrow;
                 }
                 else
                 {
                     gridCap.Visibility = Visibility.Collapsed;
                     gridVideo.Visibility = Visibility.Visible;
-                    this.Height = 500;
-                    this.Width = 700;
+                    this.Height = 440;
+                    this.Width = 660;
 
                     string pluginPath = System.Environment.CurrentDirectory + "\\vlc\\plugins\\";
                     vlc_player_ = new VlcVideoPlayer(pluginPath);
@@ -56,7 +56,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                     vlc_player_.SetRenderWindow((int)render_wnd);
 
                     VideoPlay(listVideo);
-                    this.Cursor = Cursors.Arrow;
+
                 }
             }
             catch (Exception ex)
@@ -83,54 +83,61 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         #region 视频播放
         private VlcVideoPlayer vlc_player_;
 
-        void VideoPlay(List<string> list)
+        async void VideoPlay(List<string> list)
         {
-            if (list.Count > 0)
+            await Task.Run(() =>
             {
-                List<string> listNewVideo = new List<string>();
-                List<string> listName = new List<string>();
-                string strPath = System.Windows.Forms.Application.StartupPath + "\\Video";
-
-                if (!Directory.Exists(strPath))
+                CodeStacksDataHandler.UIThread.Invoke(() =>
                 {
-                    Directory.CreateDirectory(strPath);
-                }
-                else
-                {
-                    DirectoryInfo dir = new DirectoryInfo(strPath);
-                    FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //返回目录中所有文件和子目录
-                    foreach (FileSystemInfo i in fileinfo)
+                    if (list.Count > 0)
                     {
-                        if (i is DirectoryInfo)            //判断是否文件夹
+                        List<string> listNewVideo = new List<string>();
+                        List<string> listName = new List<string>();
+                        string strPath = System.Windows.Forms.Application.StartupPath + "\\Video";
+
+                        if (!Directory.Exists(strPath))
                         {
-                            DirectoryInfo subdir = new DirectoryInfo(i.FullName);
-                            subdir.Delete(true);          //删除子目录和文件
+                            Directory.CreateDirectory(strPath);
                         }
                         else
                         {
-                            while (IsFileInUse(i.FullName))
+                            DirectoryInfo dir = new DirectoryInfo(strPath);
+                            FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //返回目录中所有文件和子目录
+                            foreach (FileSystemInfo i in fileinfo)
                             {
+                                if (i is DirectoryInfo)            //判断是否文件夹
+                                {
+                                    DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                                    subdir.Delete(true);          //删除子目录和文件
+                                }
+                                else
+                                {
+                                    while (IsFileInUse(i.FullName))
+                                    {
 
+                                    }
+                                    File.Delete(i.FullName);      //删除指定文件
+                                }
                             }
-                            File.Delete(i.FullName);      //删除指定文件
                         }
+
+                        foreach (string strname in list)
+                        {
+                            listName.Add(System.IO.Path.GetFileName(strname));
+                            string strNew = HttpDownloadFile(strname, strPath + "\\" + System.IO.Path.GetFileName(strname));
+                            listNewVideo.Add(strNew);
+                        }
+
+                        listPlays.ItemsSource = listName;
+                        strPath = listNewVideo[0];
+
+                        vlc_player_.PlayFile(strPath);
+                        playBtn.Content = "Stop";
+                        playBtn.IsEnabled = true;
                     }
-                }
 
-                foreach (string strname in list)
-                {
-                    listName.Add(System.IO.Path.GetFileName(strname));
-                    string strNew = HttpDownloadFile(strname, strPath + "\\" + System.IO.Path.GetFileName(strname));
-                    listNewVideo.Add(strNew);
-                }
-
-                listPlays.ItemsSource = listName;
-                strPath = listNewVideo[0];
-
-                vlc_player_.PlayFile(strPath);
-                playBtn.Content = "Stop";
-                playBtn.IsEnabled = true;
-            }
+                });
+            });
         }
 
         /// <summary>
@@ -187,12 +194,18 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             FileStream fs = null;
             try
             {
+                if (File.Exists(fileName))
+                {
+                    fs = new FileStream(fileName, FileMode.Open, FileAccess.Read,
 
-                fs = new FileStream(fileName, FileMode.Open, FileAccess.Read,
+                    FileShare.None);
 
-                FileShare.None);
-
-                inUse = false;
+                    inUse = false;
+                }
+                else
+                {
+                    inUse = false;
+                }
             }
             catch
             {
@@ -201,7 +214,6 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             finally
             {
                 if (fs != null)
-
                     fs.Close();
             }
             return inUse;//true表示正在使用,false没有使用  
@@ -209,5 +221,15 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
 
         #endregion
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            listVideo = null;
+            listCap = null;
+            if (wfh.Tag != null)
+            {
+                wfh.Child.Dispose();
+            }
+            vlc_player_.Stop();
+        }
     }
 }

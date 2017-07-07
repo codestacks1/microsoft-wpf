@@ -5,6 +5,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows;
 using Xiaowen.CodeStacks.Data.Models.GMap;
 using Xiaowen.CodeStacks.PopWindow;
@@ -41,7 +42,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             RaisePropertyChanged("GeoTitle");
         }
 
-        public Route Route { private get; set; }
+        public Route Route { get; set; }
 
         public ObservableCollection<PointLatLng> Points { get; set; }
 
@@ -57,10 +58,21 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             Cmd.AddMarkerCommand = new DelegateCommand<object>(AddMarkerCommandFunc);
             Cmd.ClearAllCommand = new DelegateCommand<object>(ClearAllCommandFunc);
             Cmd.PlayActiveRouteCommand = new DelegateCommand<object>(PlayActiveRouteFunc);
+            Cmd.StopActiveRouteCommand = new DelegateCommand<object>(StopActiveRouteCommandFunc);
             Cmd.SpeedUpCommand = new DelegateCommand<object>(SpeedUpCommandFunc);
             Cmd.CopyLngCmd = new DelegateCommand<object>(CopyLngCmdFunc);
             Cmd.CopyLatCmd = new DelegateCommand<object>(CopyLatCmdFunc);
             Cmd.TakeAnchorCommand = new DelegateCommand<object>(TakeAnchorCommandFunc);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        private void StopActiveRouteCommandFunc(object obj)
+        {
+            CodeStacksGMapRoute.StopRouteTask(MyMapControl);
+            CancellationTokenSource cts = new CancellationTokenSource();
         }
 
         private void TakeAnchorCommandFunc(object obj)
@@ -158,13 +170,14 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
         {
             try
             {
-                Route.Delay = Route.Delay <= 0 ? 0 : Route.Delay - 2;
+                Route.Delay = Route.Delay <= 0 ? 0 : Route.Delay - 1;
             }
             catch (Exception)
             {
+                throw new Exception();
             }
         }
-        
+
         /// <summary>
         /// 播放活动线路
         /// </summary>
@@ -174,7 +187,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             if (MyMapControl.Route != null)
             {
                 MyMapControl.MainMap.Markers.Clear();
-                MyMapControl.Route.Delay = 4;
+                MyMapControl.Route.Delay = 2;
                 if (Points != null && Points.Count > 0)
                     CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route.Delay);
             }
@@ -185,7 +198,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             if (CodeStacksWindow.MessageBox.Invoke(true, false, -1, "您确定要清理地图图层？"))
             {
                 MyMapControl.MainMap.Markers.Clear();
-                MyMapControl.MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);
+                //MyMapControl.MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);
             }
         }
 

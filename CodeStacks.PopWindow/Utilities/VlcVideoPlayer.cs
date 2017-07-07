@@ -61,6 +61,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Utilities
             if (libvlc_media_player_ != IntPtr.Zero)
             {
                 LibVlcAPI.libvlc_media_player_stop(libvlc_media_player_);
+                LibVlcAPI.libvlc_media_player_release(libvlc_media_player_);
             }
         }
 

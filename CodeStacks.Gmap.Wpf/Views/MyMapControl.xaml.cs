@@ -117,12 +117,14 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
                 if (Route.IsRoute)
                 {
+                    viewModel.IsVisibility = Visibility.Visible;
                     viewModel.Points = Points;
                     viewModel.Route = Route;
-                    CodeStacksGMapRoute.SetRouteOffline(Points, this, Route.Delay);
+                    CodeStacksGMapRoute.SetRouteOffline(Points, this, viewModel.Route.Delay);
                 }
                 else
                 {
+                    viewModel.IsVisibility = Visibility.Collapsed;
                     //"pack://application:,,,/Images/test1.png" resource path
                     //"pack://siteoforigin:,,,/Images/test1.png" site path
                     if (Points != null)
@@ -164,8 +166,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //{
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
-
-            MainMap.LayoutUpdated += MainMap_LayoutUpdated;
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
         }
 
@@ -180,28 +180,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             MouseLeftBtnUp.Invoke(sender, e);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainMap_LayoutUpdated(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message, ex);
-            }
-        }
-
         public void ReSet(PointLatLng point)
         {
-            RoutedEventArgs e = new RoutedEventArgs();
-            e.Source = point;
-            UserControl_Loaded(null, e);
+            UserControl_Loaded(null, null);
         }
 
         private void MainMap_MouseEnter(object sender, MouseEventArgs e)
@@ -225,20 +206,23 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_OnMapTypeChanged(GMapProvider type)
         {
+
         }
 
         private void MainMap_OnTileLoadStart()
         {
+
         }
 
         private void MainMap_OnTileLoadComplete(long ElapsedMilliseconds)
         {
+
         }
 
         private void MainMap_OnCurrentPositionChanged(PointLatLng point)
         {
-        }
 
+        }
 
         public void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
         {

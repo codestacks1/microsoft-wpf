@@ -12,11 +12,11 @@
             <Setter Property="Foreground" Value="White" />
         </Style>
         <ContextMenu x:Key="MouseRightMenuLng">
-            <MenuItem Header="复制" Command="{Binding Cmd.CopyLngCmd}" CommandParameter="{Binding GeoData.Langitude}" />
+            <MenuItem Header="复制" Command="{Binding Cmd.CopyLngCmd}" CommandParameter="{Binding GeoData.Langitude,Mode=TwoWay}" />
         </ContextMenu>
 
         <ContextMenu x:Key="MouseRightMenuLat">
-            <MenuItem Header="复制" Command="{Binding Cmd.CopyLatCmd}" CommandParameter="{Binding GeoData.Latitude}" />
+            <MenuItem Header="复制" Command="{Binding Cmd.CopyLatCmd}" CommandParameter="{Binding GeoData.Latitude,Mode=TwoWay}" />
         </ContextMenu>
     </UserControl.Resources>
 
@@ -26,7 +26,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="0,0,0,3" Visibility="{Binding IsMapCtrlVisible,Mode=TwoWay}">
+        <Grid Grid.Row="0" Margin="0,0,0,3" Visibility="{Binding IsMapCtrlVisible,Mode=TwoWay}" Opacity="0" IsEnabled="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -50,7 +50,16 @@
                         </TextBlock.InputBindings>
                     </TextBlock>
                 </Border>
-                <Border CornerRadius="20" Grid.Column="1" BorderBrush="Black" BorderThickness="15" Width="50" Margin="20,0">
+                <!--<Border CornerRadius="20" Grid.Column="1" BorderBrush="Black" BorderThickness="15" Width="50" Margin="20,0">
+                    <TextBlock Text="停止" Margin="-10"
+                               VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="{Binding Cmd.StopActiveRouteCommand}" MouseAction="LeftClick" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+                </Border>-->
+                <!--<Border CornerRadius="20" Grid.Column="1" BorderBrush="Black" BorderThickness="15" Width="50" Margin="20,0">
                     <TextBlock Text="加速x2" Margin="-10"
                                VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
                                Cursor="Hand">
@@ -58,7 +67,7 @@
                             <MouseBinding Command="{Binding Cmd.SpeedUpCommand}" MouseAction="LeftClick" />
                         </TextBlock.InputBindings>
                     </TextBlock>
-                </Border>
+                </Border>-->
                 <Border CornerRadius="20" Grid.Column="2" BorderBrush="Black" BorderThickness="15" Width="50" Margin="20,0">
                     <TextBlock Text="清理" Margin="-10"
                                VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
@@ -99,7 +108,39 @@
 
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
-                <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+                <TextBlock Text="播放轨迹" Margin="10" Visibility="{Binding IsVisibility,Mode=TwoWay}"
+                        VerticalAlignment="Center" TextAlignment="Center"
+                        Background="Black" 
+                           MouseEnter="TextBlock_MouseEnter_1"
+                           MouseLeave="TextBlock_MouseLeave_1"
+                        Cursor="Hand">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding Cmd.PlayActiveRouteCommand}" CommandParameter="{Binding}" MouseAction="LeftClick" />
+                    </TextBlock.InputBindings>
+                </TextBlock>
+
+                <TextBlock Text="清理" Margin="10"
+                               VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding Cmd.ClearAllCommand}" CommandParameter="{Binding}" MouseAction="LeftClick" />
+                    </TextBlock.InputBindings>
+                </TextBlock>
+
+                <TextBlock Text="标点" Margin="10"
+                               VerticalAlignment="Center" TextAlignment="Center" Background="Black" 
+                               Cursor="Hand">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding Cmd.TakeAnchorCommand}" CommandParameter="{Binding}" MouseAction="LeftClick" />
+                    </TextBlock.InputBindings>
+                </TextBlock>
+
+                <TextBlock Text="重置" TextAlignment="Center" VerticalAlignment="Center" Padding="13"
+                           Margin="5,0,0,0" 
+                           MouseEnter="TextBlock_MouseEnter"
+                           MouseLeave="TextBlock_MouseLeave"
+                           MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+
                 <!--<TextBlock Text="轨迹测试" TextAlignment="Center" VerticalAlignment="Center" 
                            Cursor="Hand" Margin="10">
                     <TextBlock.InputBindings>

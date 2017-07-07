@@ -10,6 +10,8 @@ namespace Xiaowen.CodeStacks.Data.Models.GMap
         public ICommand AddMarkerCommand { get; set; }
         public ICommand ClearAllCommand { get; set; }
         public ICommand PlayActiveRouteCommand { get; set; }
+        public ICommand StopActiveRouteCommand { get; set; }
+
         public ICommand SpeedUpCommand { get; set; }
         public ICommand TakeAnchorCommand { get; set; }
 

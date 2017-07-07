@@ -8,7 +8,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
     public partial class MainWindowViewModel : BindableBase
     {
         public static MainWindowViewModel SMainwindowViewModel { get; set; }
-        
+
         MyMapControl _myMapControl;
         public MyMapControl MyMapControl
         {
@@ -34,6 +34,13 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
         {
             GeoData = new Geo();
             GeoTitle = new GeoTitle();
+        }
+
+        private Visibility _isVisibility;
+        public Visibility IsVisibility
+        {
+            get { return _isVisibility; }
+            set { SetProperty(ref _isVisibility, value); }
         }
     }
 }

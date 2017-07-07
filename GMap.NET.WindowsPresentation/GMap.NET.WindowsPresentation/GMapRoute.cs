@@ -80,5 +80,45 @@ namespace GMap.NET.WindowsPresentation
                 }
             }
         }
+
+
+        /// <summary>
+        /// regenerates shape of route
+        /// </summary>
+        //public virtual void RegenerateShape(GMapControl map)
+        //{
+        //    if (map != null)
+        //    {
+        //        Map = map;
+
+        //        if (Points.Count > 1)
+        //        {
+        //            Position = Points[0];
+
+        //            var localPath = new List<System.Windows.Point>();
+        //            var offset = Map.FromLatLngToLocal(Points[0]);
+        //            foreach (var i in Points)
+        //            {
+        //                var p = Map.FromLatLngToLocal(new PointLatLng(i.Lat, i.Lng));
+        //                localPath.Add(new System.Windows.Point(p.X - offset.X, p.Y - offset.Y));
+        //            }
+
+        //            var shape = map.CreateRoutePath(localPath);
+
+        //            if (this.Shape != null && this.Shape is Path)
+        //            {
+        //                (this.Shape as Path).Data = shape.Data;
+        //            }
+        //            else
+        //            {
+        //                this.Shape = shape;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            this.Shape = null;
+        //        }
+        //    }
+        //}
     }
 }

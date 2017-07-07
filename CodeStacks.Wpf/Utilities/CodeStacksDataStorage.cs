@@ -21,7 +21,11 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             try
             {
                 SaveFileDialog sfd = new SaveFileDialog();
+                
                 bool? result = sfd.ShowDialog();
+
+                bool b = sfd.OverwritePrompt;
+
                 if (result == true)
                 {
                     string path = sfd.FileName;
@@ -46,7 +50,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
                         string safename = Path.GetFileName(path);
                         string _safename = Path.GetFileNameWithoutExtension(path);
                         string directory = Path.GetDirectoryName(path);
-                        
+
                         File.Copy(path, Path.Combine(directory, _safename + ".copy" + extension));
                         File.Delete(path);
 

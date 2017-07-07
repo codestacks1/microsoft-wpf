@@ -11,7 +11,7 @@ using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
 namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
 {
-    public class CodeStacksGMapRoute
+    public class CodeStacksGMapRoute : IDisposable
     {
         /// <summary>
         /// 
@@ -28,13 +28,30 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
 
 
         #region -- Offline --
+
+
+        public static Task RouteTask { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void StopRouteTask(MyMapControl map)
+        {
+            TaskStatus tStatus = RouteTask.Status;
+            tStatus = TaskStatus.RanToCompletion;
+
+            GC.SuppressFinalize(RouteTask);
+            //RouteTask.Dispose();
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="points"></param>
         /// <param name="map"></param>
         /// <param name="delay"></param>
-        public static void SetRouteOffline(ObservableCollection<PointLatLng> points, MyMapControl map, int delay)
+        public static async void SetRouteOffline(ObservableCollection<PointLatLng> points, MyMapControl map, int delay)
         {
             if (points.Count == 0) return;
             else if (points.Count == 1)
@@ -47,13 +64,12 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
 
                 map.MainMap.Markers.Add(m1);
                 map.MainMap.ZoomAndCenterMarkers(null);
-            }
-
-            for (int i = 1; i < points.Count; i++)
-            {
-                AsyncSetSpeedUp(points[i - 1], points[i], delay, map);
-            }
+                return;
+            };
+            RouteTask = AsyncSetSpeedUpNew(points, delay, map);
+            await RouteTask;
         }
+
 
         /// <summary>
         /// 
@@ -63,34 +79,60 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
         /// <param name="delay"></param>
         /// <param name="map"></param>
         /// <param name="points"></param>
-        private async static void AsyncSetSpeedUp(PointLatLng _start, PointLatLng _end, int delay, MyMapControl map)
+        private static async Task AsyncSetSpeedUp(ObservableCollection<PointLatLng> points, PointLatLng _start, PointLatLng _end, int delay, MyMapControl map)
         {
-            await Task.Delay(TimeSpan.FromSeconds(delay)).ConfigureAwait(false);
+            if (delay != 0)
+                await Task.Delay(TimeSpan.FromSeconds(delay));
 
-            ObservableCollection<PointLatLng> points = new ObservableCollection<PointLatLng>();
-            points.Add(_start);
-            points.Add(_end);
-
-            RoutingProvider rp = map.MainMap.MapProvider as RoutingProvider;
-            if (rp == null)
-            {
-                rp = GMapProviders.AMapHybridMap;// use OpenStreetMap if provider does not implement routing
-            }
+            ObservableCollection<PointLatLng> doublePoint = new ObservableCollection<PointLatLng>();
+            doublePoint.Add(_start);
+            doublePoint.Add(_end);
 
             GMapMarker m2 = new GMapMarker(_end);
             m2.Shape = new PhotoAnchor(map, m2, _end.Photo, (GeoTitle)_end.GeoTitle, "Xiaowen");
 
-            GMapRoute mRoute = new GMapRoute(points, map.MainMap);
+            GMapRoute mRoute = new GMapRoute(doublePoint, map.MainMap);
             {
                 mRoute.ZIndex = -1;
             }
 
             map.MainMap.Markers.Add(m2);
             map.MainMap.Markers.Add(mRoute);
-
             map.MainMap.ZoomAndCenterMarkers(null);
             map.MainMap.Position = _end;
         }
+
+
+        private static async Task AsyncSetSpeedUpNew(ObservableCollection<PointLatLng> points, int delay, MyMapControl map)
+        {
+            PointLatLng _start = points[0];
+            PointLatLng _end = points[0];
+
+            for (int i = 1; i < points.Count; i++)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(delay));
+                _start = points[i - 1];
+                _end = points[i];
+                ObservableCollection<PointLatLng> doublePoint = new ObservableCollection<PointLatLng>();
+                doublePoint.Add(_start);
+                doublePoint.Add(_end);
+
+                GMapMarker m2 = new GMapMarker(_end);
+                m2.Shape = new PhotoAnchor(map, m2, _end.Photo, (GeoTitle)_end.GeoTitle, "Xiaowen");
+
+                GMapRoute mRoute = new GMapRoute(doublePoint, map.MainMap);
+                {
+                    mRoute.ZIndex = -1;
+                }
+
+                map.MainMap.Markers.Add(m2);
+                map.MainMap.Markers.Add(mRoute);
+                map.MainMap.ZoomAndCenterMarkers(null);
+                map.MainMap.Position = _end;
+            }
+
+        }
+
         #endregion
 
         #region -- Online --
@@ -107,11 +149,12 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
             map.MainMap.Markers.Add(m1);
             map.MainMap.ZoomAndCenterMarkers(null);
 
-            for (int i = 1; i < points.Count; i++)
-            {
-                _start = points[i - 1];
-                SpeedUpRouteAsync(_start, points[i], delay, map, points);
-            }
+            //   for (int i = 1; i < points.Count; i++)
+            //{
+            //    _start = points[i - 1];
+            //   SpeedUpRouteAsync(_start, points[i], delay, map, points);
+            // }
+            SpeedUpRouteAsyncNew(delay, map, points);
         }
 
         private async static void SpeedUpRouteAsync(PointLatLng _start, PointLatLng _end, int delay, MyMapControl map, ObservableCollection<PointLatLng> points)
@@ -142,7 +185,45 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
                 map.MainMap.Position = _end;
             }
         }
+        private async static void SpeedUpRouteAsyncNew(int delay, MyMapControl map, ObservableCollection<PointLatLng> points)
+        {
+            PointLatLng _start = points[0];//起点
+            PointLatLng _end = points[0];//起点
+            for (int i = 1; i < points.Count; i++)
+            {
+                _start = points[i - 1];
+                _end = points[i];
+                await Task.Delay(TimeSpan.FromSeconds(delay));
+                RoutingProvider rp = map.MainMap.MapProvider as RoutingProvider;
+                if (rp == null)
+                {
+                    rp = GMapProviders.AMapHybridMap;// use OpenStreetMap if provider does not implement routing
+                }
 
+                MapRoute route = rp.GetRoute(_start, _end, false, false, (int)map.MainMap.Zoom);
+                if (route != null)
+                {
+                    GMapMarker m2 = new GMapMarker(_end);
+                    m2.Shape = new PhotoAnchor(map, m2, _end.Photo, (GeoTitle)_end.GeoTitle, "Xiaowen");
+
+                    GMapRoute mRoute = new GMapRoute(route.Points);
+                    {
+                        mRoute.ZIndex = -1;
+                    }
+
+                    map.MainMap.Markers.Add(m2);
+                    map.MainMap.Markers.Add(mRoute);
+
+                    map.MainMap.ZoomAndCenterMarkers(null);
+                    map.MainMap.Position = _end;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+
+        }
         #endregion
     }
 }
