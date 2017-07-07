@@ -42,7 +42,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
         }
 
         /// <summary>
-        /// 
+        /// 压缩图片显示
         /// </summary>
         /// <param name="photoBuffer"></param>
         /// <returns></returns>

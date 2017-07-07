@@ -140,6 +140,9 @@
     <Compile Include="Views\CodeStacksButton.xaml.cs">
       <DependentUpon>CodeStacksButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksListView.xaml.cs">
+      <DependentUpon>CodeStacksListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CodeStacksSignin.xaml.cs">
       <DependentUpon>CodeStacksSignin.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodeStacksButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
