@@ -181,7 +181,7 @@
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
                     <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs1}" >
-                        <Image Stretch="Fill" x:Name="image_capImage" Margin="10,30,10,30"></Image>
+                        <Image Stretch="Fill" x:Name="image_capImage" Margin="15,30,15,30"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
@@ -192,7 +192,7 @@
 
                 <StackPanel Grid.Row="1" Grid.Column="2" Margin="5">
 
-                    <GroupBox BorderBrush="#16E8FA" Header="场景" FontSize="20" Foreground="White" Height="160">
+                    <GroupBox BorderBrush="#16E8FA" Header="场景" FontSize="20" Foreground="White" Height="160" MouseDoubleClick="GroupBox_MouseDoubleClick" >
                         <Grid  Margin="20,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -209,7 +209,7 @@
 
         <Button Grid.Row="2" Content="抓拍记录" x:Name="btnCap" Click="btnCap_Click"
                 Style="{StaticResource ResourceKey=btnStyle}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button Grid.Row="2" Content="视频预览" x:Name="btnVideo" Click="btnVideo_Click"
+        <Button Grid.Row="2" Content="视频回放" x:Name="btnVideo" Click="btnVideo_Click"
                 Style="{StaticResource ResourceKey=btnStyle}" Height="40" Width="160" FontSize="16" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" />
     </Grid>
 </Window>

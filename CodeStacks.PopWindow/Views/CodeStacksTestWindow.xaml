@@ -10,7 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <GridSplitter Grid.Column ="1" Background="Blue" Width="5"
@@ -27,7 +27,9 @@
             </codestacks:CodeStacksTreeView>
         </Grid>
         <Grid Background="#232" Grid.Column="2">
-            <codestacks:CodeStacksBrush/>
+            <!--软件-->
+            <!--<codestacks:CodeStacksBrush/>-->
+            
         </Grid>
     </Grid>
 </Window>

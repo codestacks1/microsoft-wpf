@@ -7,8 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListView ItemsSource="{Binding}">
+        <ListView ItemsSource="{Binding DemoDataItems}"
+                  SelectedItem="{Binding DemoDataItem}">
+            <ListView.Resources>
 
+            </ListView.Resources>
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="序号">
+
+                    </GridViewColumn>
+                    <GridViewColumn Header="Demo Data">
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </UserControl>

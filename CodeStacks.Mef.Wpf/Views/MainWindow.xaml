@@ -36,7 +36,7 @@
 
                 </ComboBox>
             </Border>
-            <Button Grid.Column="1" Content="copy" Click="Button_Click" />
+            <Button Grid.Column="1" Content="TEST" Click="Button_Click" />
 
         </Grid>
         <Grid x:Name="Docker" Grid.Row="1" Margin="1,5">

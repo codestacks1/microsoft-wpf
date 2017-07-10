@@ -1,0 +1,12 @@
+﻿<Window x:Class="Xiaowen.CodeStacks.PopWindow.Views.CodeStacksSceneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Xiaowen.CodeStacks.PopWindow.Views"
+        mc:Ignorable="d" 
+        Title="场  景" Height="500" Width="660" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Topmost="True">
+    <Grid Background="#296580">
+        <Image x:Name="img" Width="{ Binding ActualWidth}" Height="{Binding ActualHeight}"/>
+    </Grid>
+</Window>

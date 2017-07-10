@@ -73,7 +73,6 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                         break;
                 }
 
-
                 GridAll.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     //GridAll.Background = new ImageBrush
@@ -83,8 +82,6 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                     GridAll.Background = colorBrush;
 
                 }));
-
-
 
                 Captype.Content = compare.Captype;
                 image_capImage.Source = compare.Snap.Photo;
@@ -119,7 +116,6 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
 
         private void btnCap_Click(object sender, RoutedEventArgs e)
         {
-            this.Cursor = Cursors.Wait;
             List<Window> windows = new List<Window>();
             foreach (Window window in Application.Current.Windows)
             {
@@ -135,29 +131,25 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             {
                 windows.FirstOrDefault(x => x.Name == "抓拍记录").Activate();
             }
-
-            this.Cursor = Cursors.Arrow;
         }
 
         private void btnVideo_Click(object sender, RoutedEventArgs e)
         {
-            this.Cursor = Cursors.Wait;
             List<Window> windows = new List<Window>();
             foreach (Window window in Application.Current.Windows)
             {
                 windows.Add(window);
             }
 
-            if (windows.FirstOrDefault(x => x.Name == "视频预览") == null)
+            if (windows.FirstOrDefault(x => x.Name == "视频回放") == null)
             {
-                CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("视频预览", listCap, listVideo);
+                CodeStacksCapAndVideoWindow CapVideo = new CodeStacksCapAndVideoWindow("视频回放", listCap, listVideo);
                 CapVideo.ShowDialog();
             }
             else
             {
-                windows.FirstOrDefault(x => x.Name == "视频预览").Activate();
+                windows.FirstOrDefault(x => x.Name == "视频回放").Activate();
             }
-            this.Cursor = Cursors.Arrow;
         }
         private void SaveAs1_Click(object sender, RoutedEventArgs e)
         {
@@ -167,6 +159,27 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         private void SaveAs2_Click(object sender, RoutedEventArgs e)
         {
             CodeStacksDataStorage.ImageSaveAs((BitmapImage)image_cmpImage.Source);
+        }
+
+        private void GroupBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            List<Window> windows = new List<Window>();
+            foreach (Window window in Application.Current.Windows)
+            {
+                windows.Add(window);
+            }
+
+            if (windows.FirstOrDefault(x => x.Name == "Scene") == null)
+            {
+                CodeStacksSceneWindow sceneWin = new CodeStacksSceneWindow();
+                sceneWin.Source = image_SenceImg.Source;
+                sceneWin.Show();
+                sceneWin.Activate();
+            }
+            else
+            {
+                windows.FirstOrDefault(x => x.Name == "Scene").Activate();
+            }
         }
     }
 }

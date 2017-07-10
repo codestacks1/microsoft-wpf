@@ -151,6 +151,9 @@
     <Compile Include="Views\CodeStacksMessageBox.xaml.cs">
       <DependentUpon>CodeStacksMessageBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodeStacksSceneWindow.xaml.cs">
+      <DependentUpon>CodeStacksSceneWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CodeStacksSensingControlView.xaml.cs">
       <DependentUpon>CodeStacksSensingControlView.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,10 @@
     <Page Include="Views\CodeStacksMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeStacksSceneWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CodeStacksSensingControlView.xaml">
       <SubType>Designer</SubType>

@@ -133,6 +133,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\CodeStacksListViewModel.cs" />
     <Compile Include="ViewModels\CodeStacksTreeViewModel.cs" />
     <Compile Include="Views\CodeStacksBrush.xaml.cs">
       <DependentUpon>CodeStacksBrush.xaml</DependentUpon>
