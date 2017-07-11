@@ -36,11 +36,38 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
             GeoTitle = new GeoTitle();
         }
 
-        private Visibility _isVisibility;
-        public Visibility IsVisibility
+        private Visibility _isPalyVisibility;
+        public Visibility IsPlayVisibility
         {
-            get { return _isVisibility; }
-            set { SetProperty(ref _isVisibility, value); }
+            get { return _isPalyVisibility; }
+            set { SetProperty(ref _isPalyVisibility, value); }
+        }
+
+        private Visibility _isStopVisibility;
+        public Visibility IsStopVisibility
+        {
+            get { return _isStopVisibility; }
+            set { SetProperty(ref _isStopVisibility, value); }
+        }
+
+        internal void RefreshPlayBtn()
+        {
+            RaisePropertyChanged("IsPlayVisibility");
+            RaisePropertyChanged("IsStopVisibility");
+        }
+
+        private Visibility _isMarkVisibility;
+        public Visibility IsMarkVisibility
+        {
+            get { return _isMarkVisibility; }
+            set { SetProperty(ref _isMarkVisibility, value); }
+        }
+
+        private Visibility _isCancelMarkVisibility = Visibility.Collapsed;
+        public Visibility IsCancelMarkVisibility
+        {
+            get { return _isCancelMarkVisibility; }
+            set { SetProperty(ref _isCancelMarkVisibility, value); }
         }
     }
 }

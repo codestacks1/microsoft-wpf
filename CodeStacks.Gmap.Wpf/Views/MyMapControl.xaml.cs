@@ -7,10 +7,12 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using Xiaowen.CodeStacks.Data.Models.GMap;
 using Xiaowen.CodeStacks.Wpf.Gmap.MyMarker;
 using Xiaowen.CodeStacks.Wpf.Gmap.Source;
 using Xiaowen.CodeStacks.Wpf.Gmap.ViewModels;
+using Xiaowen.CodeStacks.Wpf.Utilities;
 
 namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 {
@@ -86,9 +88,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
         public double Latitude { get; internal set; }
         public double Longtitude { get; internal set; }
 
+        public bool IsMakeAnchor { get; set; }
+
         #endregion
 
-        private MainWindowViewModel viewModel = null;
+        internal MainWindowViewModel viewModel = null;
         public MyMapControl()
         {
             InitializeComponent();
@@ -112,19 +116,21 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
                 MainMap.DragButton = MouseButton.Left;
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;
-                MainMap.Zoom = 12;
+                MainMap.Zoom = 10;
                 MainMap.ScaleMode = ScaleModes.Dynamic;
 
                 if (Route.IsRoute)
                 {
-                    viewModel.IsVisibility = Visibility.Visible;
+                    viewModel.IsPlayVisibility = Visibility.Visible;
+                    viewModel.IsStopVisibility = Visibility.Collapsed;
                     viewModel.Points = Points;
                     viewModel.Route = Route;
-                    CodeStacksGMapRoute.SetRouteOffline(Points, this, viewModel.Route.Delay);
+                    CodeStacksGMapRoute.SetRouteOffline(Points, this, viewModel.Route, Visibility.Visible, Visibility.Collapsed);
                 }
                 else
                 {
-                    viewModel.IsVisibility = Visibility.Collapsed;
+                    viewModel.IsPlayVisibility = Visibility.Collapsed;
+                    viewModel.IsStopVisibility = Visibility.Collapsed;
                     //"pack://application:,,,/Images/test1.png" resource path
                     //"pack://siteoforigin:,,,/Images/test1.png" site path
                     if (Points != null)
@@ -157,16 +163,40 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
+            //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
             MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
-            //MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
+            MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp; ;
 
             //if (MainMap.Markers.Count > 1)
             //{
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
+        }
+
+        private void MainMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (IsMakeAnchor)
+            {
+                for (int i = MainMap.Markers.Count - 1; i >= 0; i--)
+                {
+                    if (MainMap.Markers[i].Shape is MyMarkerRedAnchor)
+                        MainMap.Markers.Remove(MainMap.Markers[i]);
+
+                    Point p = e.GetPosition(MainMap);
+                    PointLatLng point = MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
+                    viewModel.GeoData.Latitude = Latitude = point.Lat;
+                    viewModel.GeoData.Langitude = Longtitude = point.Lng;
+
+                    GMapMarker redMarker = new GMapMarker(point);
+                    redMarker.Shape = new MyMarkerRedAnchor(this, redMarker, new GeoTitle(), null);
+                    redMarker.Offset = new Point(-15, -30);
+                    MainMap.Markers.Add(redMarker);
+
+                    viewModel.RefreshGeoData();
+                }
+            }
         }
 
         private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -182,20 +212,14 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
 
         private void MainMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MainMap.Markers.Clear();
-            Point p = e.GetPosition(MainMap);
-            PointLatLng point = MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
-            viewModel.GeoData.Latitude = point.Lat;
-            viewModel.GeoData.Langitude = point.Lng;
 
-            GMapMarker redMarker = new GMapMarker(point);
-            redMarker.Shape = new MyMarkerRedAnchor(this, redMarker, new GeoTitle(), null);
-            redMarker.Offset = new Point(-15, -30);
-            MainMap.Markers.Add(redMarker);
-
-            viewModel.RefreshGeoData();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainMap_MouseMove(object sender, MouseEventArgs e)
         {
             Point p = e.GetPosition(MainMap);
@@ -205,19 +229,28 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             viewModel.RefreshGeoData();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentMarker"></param>
+        /// <param name="point"></param>
         private void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
         {
             if (string.IsNullOrEmpty(point.AnchorType))
                 currentMarker.Shape = null;
             else if ("Camera".Equals(point.AnchorType))
             {
+                BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 10);
                 currentMarker.Shape =
-                    new CameraAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen", point.Guid);
+                    new CameraAnchor(this, currentMarker, photo, (GeoTitle)point.GeoTitle, "Xiaowen", point.Guid);
                 currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
             }
             else if ("Photo".Equals(point.AnchorType))
+            {
+                BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 10);
                 currentMarker.Shape =
-                    new PhotoAnchor(this, currentMarker, point.Photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+                    new PhotoAnchor(this, currentMarker, photo, (GeoTitle)point.GeoTitle, "Xiaowen");
+            }
             else if ("Red".Equals(point.AnchorType))
                 currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
         }

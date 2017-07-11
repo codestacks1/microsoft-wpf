@@ -39,20 +39,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
         private void TextBlock_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             popup.IsOpen = false;
-        }
-
-        private void TextBlock_MouseEnter_1(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (!popup.IsOpen)
-            {
-                popup.Child = new CodeStacksHintControlView(popup, "播放暂不支持暂停功能");
-                popup.IsOpen = true;
-            }
-        }
-
-        private void TextBlock_MouseLeave_1(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            popup.IsOpen = false;
-        }
+        }        
     }
 }

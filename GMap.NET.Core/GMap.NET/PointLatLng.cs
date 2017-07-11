@@ -14,7 +14,7 @@ namespace GMap.NET
         public static readonly PointLatLng Empty = new PointLatLng();
         private double lat;
         private double lng;
-        private BitmapImage photo;
+        private byte[] photoBuffer;
         private object geoTitle;
         private string anchorType;
         private string guid;
@@ -25,18 +25,18 @@ namespace GMap.NET
         {
             this.lat = lat;
             this.lng = lng;
-            this.photo = null;
+            this.photoBuffer = null;
             this.geoTitle = null;
             this.anchorType = null;
             this.guid = null;
             NotEmpty = true;
         }
 
-        public PointLatLng(double lat, double lng, string cameraOrPhoto, BitmapImage photo, object geoTitle, params string[] guid)
+        public PointLatLng(double lat, double lng, string cameraOrPhoto, byte[] photo, object geoTitle, params string[] guid)
         {
             this.lat = lat;
             this.lng = lng;
-            this.photo = photo;
+            this.photoBuffer = photo;
             this.geoTitle = geoTitle;
             this.anchorType = cameraOrPhoto;
             if (guid != null && guid.Length > 0)
@@ -84,12 +84,12 @@ namespace GMap.NET
             }
         }
 
-        public BitmapImage Photo
+        public byte[] PhotoBuffer
         {
-            get { return this.photo; }
+            get { return this.photoBuffer; }
             set
             {
-                this.photo = value;
+                this.photoBuffer = value;
                 NotEmpty = true;
             }
         }

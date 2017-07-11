@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
@@ -86,6 +87,47 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 将路径下的图片转换为buffer
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static byte[] GetBuffer(params string[] uri)
+        {
+            byte[] result = { };
+            if (!string.IsNullOrEmpty(uri[0]))
+            {
+                try
+                {
+                    BitmapImage myBitmapImage = new BitmapImage();
+                    myBitmapImage.BeginInit();
+                    myBitmapImage.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                    myBitmapImage.UriSource = new Uri(uri[0]);
+                    myBitmapImage.EndInit();
+
+                    PngBitmapEncoder png = new PngBitmapEncoder();
+                    png.Frames.Add(BitmapFrame.Create(myBitmapImage));
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        png.Save(ms);
+                        result = ms.ToArray();
+                    }
+
+                    //using (FileStream fs = new FileStream(uri, FileMode.Open, FileAccess.Read))
+                    //{
+                    //    byte[] buffer = new byte[fs.Length];
+                    //    fs.Read(buffer, 0, buffer.Length);
+                    //    result = buffer;
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex);
+                }
             }
             return result;
         }

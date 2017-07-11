@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.RabbitMq", "Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq.Server", "RabbitMq.Server\RabbitMq.Server.csproj", "{3376FA2D-9795-46B7-B915-CFB88D287DD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStacks.Gallery", "CodeStacks.Gallery\CodeStacks.Gallery.csproj", "{17C1B685-8364-4D51-B70D-061F6C28E67A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -244,6 +246,18 @@ Global
 		{3376FA2D-9795-46B7-B915-CFB88D287DD0}.Release|x64.Build.0 = Release|Any CPU
 		{3376FA2D-9795-46B7-B915-CFB88D287DD0}.Release|x86.ActiveCfg = Release|Any CPU
 		{3376FA2D-9795-46B7-B915-CFB88D287DD0}.Release|x86.Build.0 = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|x64.Build.0 = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Debug|x86.Build.0 = Debug|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|x64.ActiveCfg = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|x64.Build.0 = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|x86.ActiveCfg = Release|Any CPU
+		{17C1B685-8364-4D51-B70D-061F6C28E67A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

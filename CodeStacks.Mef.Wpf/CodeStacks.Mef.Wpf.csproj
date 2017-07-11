@@ -171,6 +171,10 @@
       <Project>{463854B2-9EBA-4229-B701-3F08F559080E}</Project>
       <Name>CodeStacks.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.Gallery\CodeStacks.Gallery.csproj">
+      <Project>{17C1B685-8364-4D51-B70D-061F6C28E67A}</Project>
+      <Name>CodeStacks.Gallery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeStacks.Gmap.Wpf\CodeStacks.Wpf.Gmap.csproj">
       <Project>{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}</Project>
       <Name>CodeStacks.Wpf.Gmap</Name>

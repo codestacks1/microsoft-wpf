@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Xiaowen.CodeStacks.Gallery;
 using Xiaowen.CodeStacks.PopWindow;
 using Xiaowen.CodeStacks.Wpf.Utilities;
 
@@ -18,6 +19,11 @@ namespace CodeStacks.Mef.Wpf
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             CodeStacksCache.SetCache("appconfig");
+            
+
+            CodeStacksImage.GetBuffer(PngCamera.BlueCamera);
+
+
         }
 
         /// <summary>
