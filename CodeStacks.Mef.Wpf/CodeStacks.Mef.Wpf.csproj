@@ -173,7 +173,7 @@
     </ProjectReference>
     <ProjectReference Include="..\CodeStacks.Gmap.Wpf\CodeStacks.Wpf.Gmap.csproj">
       <Project>{77c29b1e-14aa-4d42-a44c-ed2f1ed74daf}</Project>
-      <Name>CodeStacks.Gmap.Wpf</Name>
+      <Name>CodeStacks.Wpf.Gmap</Name>
     </ProjectReference>
     <ProjectReference Include="..\CodeStacks.PopWindow\CodeStacks.PopWindow.csproj">
       <Project>{91A0B815-475A-4608-BBE4-796970CEB93C}</Project>

@@ -157,7 +157,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
             //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
             //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            //MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
+            MainMap.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(MainMap_MouseLeftButtonDown);
             //MainMap.MouseEnter += new MouseEventHandler(MainMap_MouseEnter);
             MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);
             //MainMap.MouseLeftButtonUp += MainMap_MouseLeftButtonUp;
@@ -167,11 +167,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             //    MainMap.ZoomAndCenterMarkers(null);
             //}
             MainWindowViewModel.SMainwindowViewModel.MyMapControl = this;
-        }
-
-        private void MainMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void CameraAnchorShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -185,14 +180,20 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             UserControl_Loaded(null, null);
         }
 
-        private void MainMap_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void MainMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            MainMap.Markers.Clear();
+            Point p = e.GetPosition(MainMap);
+            PointLatLng point = MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);
+            viewModel.GeoData.Latitude = point.Lat;
+            viewModel.GeoData.Langitude = point.Lng;
 
+            GMapMarker redMarker = new GMapMarker(point);
+            redMarker.Shape = new MyMarkerRedAnchor(this, redMarker, new GeoTitle(), null);
+            redMarker.Offset = new Point(-15, -30);
+            MainMap.Markers.Add(redMarker);
+
+            viewModel.RefreshGeoData();
         }
 
         private void MainMap_MouseMove(object sender, MouseEventArgs e)
@@ -204,27 +205,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             viewModel.RefreshGeoData();
         }
 
-        private void MainMap_OnMapTypeChanged(GMapProvider type)
-        {
-
-        }
-
-        private void MainMap_OnTileLoadStart()
-        {
-
-        }
-
-        private void MainMap_OnTileLoadComplete(long ElapsedMilliseconds)
-        {
-
-        }
-
-        private void MainMap_OnCurrentPositionChanged(PointLatLng point)
-        {
-
-        }
-
-        public void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
+        private void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
         {
             if (string.IsNullOrEmpty(point.AnchorType))
                 currentMarker.Shape = null;
