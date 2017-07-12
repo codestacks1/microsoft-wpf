@@ -1,4 +1,5 @@
 ﻿using GMap.NET.WindowsPresentation;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -34,10 +35,12 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         public CameraAnchor(MyMapControl window, GMapMarker marker, ImageSource photo, GeoTitle geoTitle, string title, params object[] param) : this()
         {
+            Random r = new Random();
             this.Guid = param == null && param.Length > 0 ? null : param[0].ToString();
             this.Photo = photo;
             this.MainWindow = window;
             this.Marker = marker;
+            this.Marker.ZIndex += r.Next(1, 999);
             Popup = new Popup();
 
             this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);
@@ -50,7 +53,8 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
         {
-            Marker.ZIndex += 10000;
+            Random r = new Random();
+            Marker.ZIndex += r.Next(0, 999);
             Popup.IsOpen = true;
 
             Point p = e.GetPosition(MainWindow.MainMap);
@@ -62,7 +66,8 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         private void MarkerControl_MouseLeave(object sender, MouseEventArgs e)
         {
-            Marker.ZIndex -= 10000;
+            Random r = new Random();
+            Marker.ZIndex -= r.Next(0, 999);
             Popup.IsOpen = false;
         }
 

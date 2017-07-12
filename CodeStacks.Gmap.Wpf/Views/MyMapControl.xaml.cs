@@ -240,7 +240,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 currentMarker.Shape = null;
             else if ("Camera".Equals(point.AnchorType))
             {
-                BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 10);
+                BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 50);
                 currentMarker.Shape =
                     new CameraAnchor(this, currentMarker, photo, (GeoTitle)point.GeoTitle, "Xiaowen", point.Guid);
                 currentMarker.Shape.MouseLeftButtonUp += CameraAnchorShape_MouseLeftButtonUp;
