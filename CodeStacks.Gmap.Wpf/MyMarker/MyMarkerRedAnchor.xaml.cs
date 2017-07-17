@@ -14,7 +14,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
     /// </summary>
     public partial class MyMarkerRedAnchor : UserControl
     {
-        Popup Popup;
+        //Popup Popup;
         //Label Label;
         GMapMarker Marker;
         MyMapControl MainWindow;
@@ -50,13 +50,13 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
         {
             Marker.ZIndex += 10000;
-            Popup.IsOpen = true;
+            //Popup.IsOpen = true;
         }
 
         private void MarkerControl_MouseLeave(object sender, MouseEventArgs e)
         {
             Marker.ZIndex -= 10000;
-            Popup.IsOpen = false;
+            //Popup.IsOpen = false;
         }
 
         private void CustomMarkerDemo_MouseMove(object sender, MouseEventArgs e)

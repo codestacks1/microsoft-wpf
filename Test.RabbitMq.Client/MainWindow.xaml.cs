@@ -1,21 +1,24 @@
 ﻿using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 using System.Text;
 using System.Windows;
 
-namespace RabbitMq.Server
+namespace Test.RabbitMq.Client
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
         ConnectionFactory factory;
         public MainWindow()
         {
             InitializeComponent();
-
             factory = new ConnectionFactory() { HostName = "localhost" };
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
@@ -28,19 +31,18 @@ namespace RabbitMq.Server
                         arguments: null
                         );
 
-                    var consumer = new EventingBasicConsumer(channel);
-                    consumer.Received += (model, ea) =>
-                    {
-                        var body = ea.Body;
-                        var message = Encoding.UTF8.GetString(body);
-                        TxtReceived.AppendText(message + "\r\n");
-                    };
+                    string message = Txt.Text;
+                    var body = Encoding.UTF8.GetBytes(message);
 
-                    channel.BasicConsume(
-                        queue: "Siri",
-                        noAck: true,
-                        consumer: consumer
+                    channel.BasicPublish(
+                        exchange: "",
+                        routingKey: "Siri",
+                        basicProperties: null,
+                        body: body
                         );
+
+                    TxtSend.AppendText("\r\n" + message);
+                    Txt.Text = string.Empty;
                 }
             }
         }

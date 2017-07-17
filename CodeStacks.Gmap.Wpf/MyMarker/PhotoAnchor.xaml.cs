@@ -19,7 +19,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         Popup Popup;
         //Label Label;
-        GMapMarker Marker;
+        //GMapMarker Marker;
         MyMapControl MainWindow;
         public PhotoAnchor()
         {

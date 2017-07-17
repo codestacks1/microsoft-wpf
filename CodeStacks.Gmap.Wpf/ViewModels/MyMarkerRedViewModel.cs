@@ -1,6 +1,4 @@
 ﻿using GMap.NET;
-using GMap.NET.MapProviders;
-using GMap.NET.WindowsPresentation;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -8,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using Xiaowen.CodeStacks.Data.Models.GMap;
 using Xiaowen.CodeStacks.PopWindow;
-using Xiaowen.CodeStacks.Wpf.Gmap.MyMarker;
 using Xiaowen.CodeStacks.Wpf.Gmap.Source;
 using Xiaowen.CodeStacks.Wpf.Gmap.Views;
 
@@ -130,8 +127,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
         {
             Clipboard.SetDataObject(obj);
         }
-
-
+        
         private void SpeedUpCommandFunc(object obj)
         {
             try
