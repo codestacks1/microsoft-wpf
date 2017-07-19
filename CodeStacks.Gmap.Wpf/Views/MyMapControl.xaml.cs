@@ -119,8 +119,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 MainMap.Zoom = 10;
                 MainMap.ScaleMode = ScaleModes.Dynamic;
 
+                
                 if (Route.IsRoute)
                 {
+                    CodeStacksGMapRoute.StopRouteTask();
+
                     viewModel.IsPlayVisibility = Visibility.Visible;
                     viewModel.IsStopVisibility = Visibility.Collapsed;
                     viewModel.Points = Points;

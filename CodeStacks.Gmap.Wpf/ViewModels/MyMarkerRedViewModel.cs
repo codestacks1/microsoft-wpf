@@ -77,7 +77,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.ViewModels
                 IsStopVisibility = Visibility.Visible;
 
                 MyMapControl.MainMap.Markers.Clear();
-                MyMapControl.Route.Delay = 5;
+                MyMapControl.Route.Delay = 2;
                 if (Points != null && Points.Count > 0)
                     CodeStacksGMapRoute.SetRouteOffline(Points, MyMapControl, MyMapControl.Route, IsPlayVisibility, IsStopVisibility);
             }
