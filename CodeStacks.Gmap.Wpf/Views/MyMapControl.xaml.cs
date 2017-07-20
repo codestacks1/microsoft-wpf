@@ -118,16 +118,15 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;
                 MainMap.Zoom = 10;
                 MainMap.ScaleMode = ScaleModes.Dynamic;
-
-                
+                                
                 if (Route.IsRoute)
                 {
                     CodeStacksGMapRoute.StopRouteTask();
-
                     viewModel.IsPlayVisibility = Visibility.Visible;
                     viewModel.IsStopVisibility = Visibility.Collapsed;
                     viewModel.Points = Points;
                     viewModel.Route = Route;
+                    viewModel.Route.Delay = 0;
                     CodeStacksGMapRoute.SetRouteOffline(Points, this, viewModel.Route, Visibility.Visible, Visibility.Collapsed);
                 }
                 else

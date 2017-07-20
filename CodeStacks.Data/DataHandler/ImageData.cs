@@ -120,17 +120,13 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
             {
                 try
                 {
-                    Uri uri = new Uri(path, UriKind.Absolute);
-                    string s = Uri.UriSchemeFile;
+                    //UTF8Encoding utf8 = new UTF8Encoding();
+                    //byte[] encodedBytes = utf8.GetBytes(path);
+                    //string decodedString = utf8.GetString(encodedBytes);
+
                     CodeStacksDataHandler.UIThread.Invoke(() =>
                     {
-                        FileStyleUriParser f = new FileStyleUriParser();
-                        UriParser up = f;
-
-                        
-                        
-
-                        using (FileStream fs = new FileStream(uri.PathAndQuery, FileMode.Open, FileAccess.Read))
+                        using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
                         {
                             byte[] buffer = new byte[fs.Length];
                             fs.Read(buffer, 0, buffer.Length);
