@@ -4,7 +4,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="抓拍记录" Height="788" Width="850.5" Loaded="Window_Loaded" ResizeMode="CanMinimize" >
+        Title="抓拍记录" Height="788" Width="850.5" Loaded="Window_Loaded" 
+        Closed="Window_Closed"
+        ResizeMode="CanMinimize" >
     <Window.Resources>
         <Style x:Key="btnStyle" TargetType="Button">
             <Setter Property="Background">
