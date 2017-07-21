@@ -2,6 +2,7 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -29,6 +30,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
     /// </summary>
     public partial class MyMapControl : UserControl
     {
+        public Action<int> GetItems
+        {
+            get; set;
+        }
+
         #region Map Public Property
         /// <summary>
         /// 标记锚点的坐标集合
@@ -118,7 +124,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 MainMap.MapProvider = GMapProviders.AMapHybridMap;
                 MainMap.Zoom = 10;
                 MainMap.ScaleMode = ScaleModes.Dynamic;
-                                
+
                 if (Route.IsRoute)
                 {
                     CodeStacksGMapRoute.StopRouteTask();
@@ -256,5 +262,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             else if ("Red".Equals(point.AnchorType))
                 currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
         }
+
     }
 }

@@ -84,7 +84,9 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
                 map.MainMap.Markers.Add(m1);
                 map.MainMap.ZoomAndCenterMarkers(null);
 
+                map.GetItems.Invoke(route.Delay);
                 await AsyncSetSpeedUpNew(points, photo, route.Delay, map, token);
+                
                 map.viewModel.IsPlayVisibility = Visibility.Visible;
                 map.viewModel.IsStopVisibility = Visibility.Collapsed;
                 map.viewModel.RefreshPlayBtn();
@@ -213,7 +215,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Source
             for (int i = 1; i < points.Count; i++)
             {
                 await Task.Delay(TimeSpan.FromSeconds(delay), token);
-
+                
                 token.ThrowIfCancellationRequested();
 
                 _start = points[i - 1];
