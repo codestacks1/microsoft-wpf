@@ -245,7 +245,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
         private void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
         {
             if (string.IsNullOrEmpty(point.AnchorType))
-                currentMarker.Shape = null;
+                currentMarker.Shape = new UIElement();
             else if ("Camera".Equals(point.AnchorType))
             {
                 BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 50);
