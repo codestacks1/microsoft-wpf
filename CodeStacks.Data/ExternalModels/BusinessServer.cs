@@ -1,0 +1,6 @@
+﻿public partial class BusinessServer
+{
+}
+
+
+
