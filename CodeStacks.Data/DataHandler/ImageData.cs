@@ -120,9 +120,17 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
             {
                 try
                 {
+                    Uri uri = new Uri(path, UriKind.Absolute);
+                    string s = Uri.UriSchemeFile;
                     CodeStacksDataHandler.UIThread.Invoke(() =>
                     {
-                        using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                        FileStyleUriParser f = new FileStyleUriParser();
+                        UriParser up = f;
+
+                        
+                        
+
+                        using (FileStream fs = new FileStream(uri.PathAndQuery, FileMode.Open, FileAccess.Read))
                         {
                             byte[] buffer = new byte[fs.Length];
                             fs.Read(buffer, 0, buffer.Length);
@@ -148,11 +156,10 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
             ImageSource result = null;
             try
             {
-                ImageSourceConverter imgConvert = new ImageSourceConverter();
                 BitmapImage myBitmapImage = new BitmapImage();
                 myBitmapImage.BeginInit();
                 myBitmapImage.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
-                myBitmapImage.UriSource = new Uri(path);
+                myBitmapImage.UriSource = new Uri(path, UriKind.Absolute);
                 myBitmapImage.EndInit();
                 result = myBitmapImage;
             }
@@ -180,9 +187,9 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
                 myBitmapImage.EndInit();
                 result = myBitmapImage;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                throw new Exception(ex.Message, ex);
             }
             return result;
         }

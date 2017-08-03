@@ -21,9 +21,9 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
             try
             {
                 SaveFileDialog sfd = new SaveFileDialog();
-                
-                bool? result = sfd.ShowDialog();
+                sfd.Filter = "(*.png)|*.png";
 
+                bool? result = sfd.ShowDialog();
                 bool b = sfd.OverwritePrompt;
 
                 if (result == true)
@@ -31,21 +31,35 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
                     string path = sfd.FileName;
                     if (!File.Exists(path))
                     {
-                        string extension = Path.GetExtension(path);
+                        #region old
+                        //string extension = Path.GetExtension(path);
+                        //string safename = Path.GetFileName(path);
+                        ////string _safename = Path.GetFileNameWithoutExtension(path);
+                        //string directory = Path.GetDirectoryName(path);
+
+                        //using (Image image = Image.FromStream(bitmap.StreamSource))
+                        //{
+                        //    MemoryStream stream = new MemoryStream();
+                        //    image.Save(stream, ImageFormat.Jpeg);
+                        //    image.Dispose();
+                        //    File.WriteAllBytes(Path.Combine(directory, safename), stream.GetBuffer());
+                        //} 
+                        #endregion
+
                         string safename = Path.GetFileName(path);
-                        //string _safename = Path.GetFileNameWithoutExtension(path);
                         string directory = Path.GetDirectoryName(path);
 
                         using (Image image = Image.FromStream(bitmap.StreamSource))
                         {
                             MemoryStream stream = new MemoryStream();
-                            image.Save(stream, ImageFormat.Jpeg);
+                            image.Save(stream, ImageFormat.Png);
                             image.Dispose();
                             File.WriteAllBytes(Path.Combine(directory, safename), stream.GetBuffer());
                         }
                     }
                     else
                     {
+                        #region old 手动录入扩展名
                         string extension = Path.GetExtension(path);
                         string safename = Path.GetFileName(path);
                         string _safename = Path.GetFileNameWithoutExtension(path);
@@ -61,6 +75,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
                             image.Dispose();
                             File.WriteAllBytes(Path.Combine(directory, safename), stream.GetBuffer());
                         }
+                        #endregion
                     }
                 }
             }

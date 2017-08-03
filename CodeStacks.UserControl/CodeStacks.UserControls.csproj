@@ -179,6 +179,34 @@
     <Resource Include="Images\bg.radar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\ButtonDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBoxDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\GalleryDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\LableDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextBlockDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextBoxDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CodeStacksBrush.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +248,10 @@
     <ProjectReference Include="..\CodeStacks.Data\CodeStacks.Data.csproj">
       <Project>{463854B2-9EBA-4229-B701-3F08F559080E}</Project>
       <Name>CodeStacks.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodeStacks.UIElements\CodeStacks.UIElements.csproj">
+      <Project>{d3bc4af0-d33c-4fd3-a50b-c555df6c014f}</Project>
+      <Name>CodeStacks.UIElements</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

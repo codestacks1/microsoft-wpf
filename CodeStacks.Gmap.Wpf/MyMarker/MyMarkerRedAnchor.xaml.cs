@@ -14,26 +14,26 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
     /// </summary>
     public partial class MyMarkerRedAnchor : UserControl
     {
-        Popup Popup;
+        //Popup Popup;
         //Label Label;
         GMapMarker Marker;
         MyMapControl MainWindow;
         public MyMarkerRedAnchor(MyMapControl window, GMapMarker marker, GeoTitle geTitle, string title, params object[] viewModels)
         {
             InitializeComponent();
-            
-            //Label = new Label();
-
-            this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);
-            this.MouseLeftButtonDown += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonDown);
-            this.MouseMove += new MouseEventHandler(CustomMarkerDemo_MouseMove);
-            this.MouseLeave += new MouseEventHandler(MarkerControl_MouseLeave);
-            this.MouseEnter += new MouseEventHandler(MarkerControl_MouseEnter);
-
             this.MainWindow = window;
             this.Marker = marker;
-            Popup = new Popup();
-            Popup.Placement = PlacementMode.Mouse;
+
+            //this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);
+            //this.MouseLeftButtonDown += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonDown);
+            //this.MouseMove += new MouseEventHandler(CustomMarkerDemo_MouseMove);
+            //this.MouseLeave += new MouseEventHandler(MarkerControl_MouseLeave);
+            //this.MouseEnter += new MouseEventHandler(MarkerControl_MouseEnter);
+
+            //Popup = new Popup();
+            //Popup.Placement = PlacementMode.Mouse;
+
+            //Label = new Label();
             //{
             //    Label.Background = Brushes.Blue;
             //    Label.Foreground = Brushes.White;
@@ -43,19 +43,20 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
             //    Label.FontSize = 16;
             //    Label.Content = title;
             //}
-            Popup.Child = new MyMarkerRedAnchorDepict(geTitle);// Label;
+
+            //Popup.Child = new MyMarkerRedAnchorDepict(geTitle);// Label;
         }
 
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
         {
             Marker.ZIndex += 10000;
-            Popup.IsOpen = true;
+            //Popup.IsOpen = true;
         }
 
         private void MarkerControl_MouseLeave(object sender, MouseEventArgs e)
         {
             Marker.ZIndex -= 10000;
-            Popup.IsOpen = false;
+            //Popup.IsOpen = false;
         }
 
         private void CustomMarkerDemo_MouseMove(object sender, MouseEventArgs e)

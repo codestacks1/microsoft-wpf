@@ -19,7 +19,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         Popup Popup;
         //Label Label;
-        GMapMarker Marker;
+        //GMapMarker Marker;
         MyMapControl MainWindow;
         public PhotoAnchor()
         {
@@ -32,8 +32,8 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
             Photo = photo;
 
             this.MainWindow = window;
-            this.Marker = marker;
-            this.Marker.ZIndex = 11000;
+            //this.Marker = marker;
+            //this.Marker.ZIndex = 11000;
 
             Popup = new Popup();
             //Label = new Label();
@@ -77,14 +77,13 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.MyMarker
 
         private void MarkerControl_MouseLeave(object sender, MouseEventArgs e)
         {
-
-            Marker.ZIndex -= 11000;
+            //Marker.ZIndex -= 11000;
             Popup.IsOpen = false;
         }
 
         private void MarkerControl_MouseEnter(object sender, MouseEventArgs e)
         {
-            Marker.ZIndex += 11000;
+            //Marker.ZIndex += 11000;
             Popup.IsOpen = true;
 
             Point p = e.GetPosition(MainWindow.MainMap);
