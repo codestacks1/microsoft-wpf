@@ -116,6 +116,7 @@
     <Compile Include="Utilities\CodeStacksDynamic.cs" />
     <Compile Include="Utilities\CodeStacksErrorHandler.cs" />
     <Compile Include="Utilities\CodeStacksLogger.cs" />
+    <Compile Include="Utilities\CodeStacksSecurity.cs" />
     <Compile Include="Utilities\CodeStacksTask.cs" />
     <Compile Include="Utilities\CodeStacksDataStorage.cs" />
     <Compile Include="Utilities\CodeStacksFile.cs" />

@@ -2,6 +2,7 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -29,6 +30,11 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
     /// </summary>
     public partial class MyMapControl : UserControl
     {
+        public Action<int> GetItems
+        {
+            get; set;
+        }
+
         #region Map Public Property
         /// <summary>
         /// 标记锚点的坐标集合
@@ -119,15 +125,14 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
                 MainMap.Zoom = 10;
                 MainMap.ScaleMode = ScaleModes.Dynamic;
 
-                
                 if (Route.IsRoute)
                 {
                     CodeStacksGMapRoute.StopRouteTask();
-
                     viewModel.IsPlayVisibility = Visibility.Visible;
                     viewModel.IsStopVisibility = Visibility.Collapsed;
                     viewModel.Points = Points;
                     viewModel.Route = Route;
+                    viewModel.Route.Delay = 0;
                     CodeStacksGMapRoute.SetRouteOffline(Points, this, viewModel.Route, Visibility.Visible, Visibility.Collapsed);
                 }
                 else
@@ -240,7 +245,7 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
         private void GMapMarkerShape(GMapMarker currentMarker, PointLatLng point)
         {
             if (string.IsNullOrEmpty(point.AnchorType))
-                currentMarker.Shape = null;
+                currentMarker.Shape = new UIElement();
             else if ("Camera".Equals(point.AnchorType))
             {
                 BitmapImage photo = CodeStacksImage.ZipImage(point.PhotoBuffer, 50);
@@ -257,5 +262,6 @@ namespace Xiaowen.CodeStacks.Wpf.Gmap.Views
             else if ("Red".Equals(point.AnchorType))
                 currentMarker.Shape = new MyMarkerRedAnchor(this, currentMarker, (GeoTitle)point.GeoTitle, "Xiaowen");
         }
+
     }
 }

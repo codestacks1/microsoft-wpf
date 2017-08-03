@@ -31,6 +31,9 @@ namespace CodeStacks.Test
             //var screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width.ToString();
 
             // CodeStacksDataHandler.ImageData.ConvertToBitmapImage;
+
+
+            CodeStacksSecurity.VerifyMd5Hash("074626fc97e5388f84e1c651ae657be4", "074626fc97e5388f84e1c651ae657be4");
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

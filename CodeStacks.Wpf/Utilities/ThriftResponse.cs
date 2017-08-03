@@ -1,4 +1,5 @@
 ﻿using System;
+using Thrift.Protocol;
 using Thrift.Transport;
 
 namespace Xiaowen.CodeStacks.Wpf.Utilities
@@ -9,6 +10,33 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
     /// </summary>
     public partial class ThriftResponse
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="port"></param>
+        /// <param name="timeout"></param>
+        /// <param name="configTimeout"></param>
+        /// <param name="protocol"></param>
+        /// <returns></returns>
+        public static TTransport Init(string host, int port, int timeout, int configTimeout, ref TProtocol protocol)
+        {
+            TTransport transport = null;
+            try
+            {
+                if (timeout > 0)
+                    transport = new TSocket(host, port, timeout);
+                else
+                    transport = new TSocket(host, port, configTimeout * 1000);
+                protocol = new TBinaryProtocol(transport);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return transport;
+        }
+
         /// <summary>
         /// Get TSocket Return Value
         /// </summary>

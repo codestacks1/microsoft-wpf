@@ -6,7 +6,7 @@
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyCompany("CodeStacks")]
 [assembly: AssemblyCopyright("Copyright © CodeStacks 2017")]
-[assembly: AssemblyTrademark("email@radioman.lt")]
+[assembly: AssemblyTrademark("z.xiaowen@foxmail.com")]
 
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
@@ -24,9 +24,9 @@
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.17.06")]
-[assembly: AssemblyInformationalVersion("1.17.06")]
+[assembly: AssemblyVersion("3.6.1707.19")]
+[assembly: AssemblyInformationalVersion("3.6.1707.19")]
 
 #if !PocketPC
-[assembly: AssemblyFileVersion("1.17.06")]
+[assembly: AssemblyFileVersion("3.6.1707.19")]
 #endif
