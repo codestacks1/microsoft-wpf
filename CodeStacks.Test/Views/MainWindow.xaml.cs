@@ -72,9 +72,12 @@ namespace CodeStacks.Test.Views
 
             //    throw;
             //}
-            
-            CodeStacksTestWindow s = new CodeStacksTestWindow();
-            s.Show();
+
+            //CodeStacksTestWindow s = new CodeStacksTestWindow();
+            //s.Show();
+
+            CodeStacksComparePopInfo pop = new CodeStacksComparePopInfo();
+            pop.Show();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

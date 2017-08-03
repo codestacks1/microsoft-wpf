@@ -308,6 +308,9 @@
     <Resource Include="Gallery\pause.png" />
     <Resource Include="Gallery\play.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gallery\page.background\window.bg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.PopWindow" mkdir "$(SolutionDir)packages\Xiaowen.CodeStacks.Wpf\CodeStacks.PopWindow" 

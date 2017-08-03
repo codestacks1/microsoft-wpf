@@ -34,7 +34,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
 
         private void CompInfo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            //this.DragMove();
         }
 
         private void btnClose_Click_1(object sender, RoutedEventArgs e)
@@ -54,22 +54,22 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                 switch (compare.Template.TypeKey)
                 {
                     case 0:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));//蓝
+                        colorBrush = new SolidColorBrush(Color.FromRgb(19,72,113));//蓝
                         break;
                     case 1:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        colorBrush = new SolidColorBrush(Color.FromRgb(19, 72, 113));
                         break;
                     case 2:
                         colorBrush = new SolidColorBrush(Color.FromRgb(122, 16, 59));//红
                         break;
                     case 3:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(214, 121, 10));//橙
+                        colorBrush = new SolidColorBrush(Color.FromRgb(169,129,107));//橙
                         break;
                     case 4:
                         colorBrush = new SolidColorBrush(Color.FromRgb(194, 184, 15));//黄
                         break;
                     default:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        colorBrush = new SolidColorBrush(Color.FromRgb(19, 72, 113));
                         break;
                 }
 
