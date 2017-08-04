@@ -36,7 +36,7 @@ namespace Xiaowen.CodeStacks.Wpf.Utilities
                         if (viewName.Equals(objType.Name))
                         {
                             Grid grid = window.Content as Grid;
-                            grid = grid.Children[3] as Grid;
+                            grid = grid.Children[2] as Grid;
                             grid = grid.Children[1] as Grid;
                             StackPanel stackPanel = grid.Children[0] as StackPanel;
                             ToggleButton tBtn = stackPanel.Children[index] as ToggleButton;
