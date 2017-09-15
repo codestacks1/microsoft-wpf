@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows;
 using Xiaowen.CodeStacks.PopWindow;
 using Xiaowen.CodeStacks.Wpf.Utilities;
@@ -33,7 +34,12 @@ namespace CodeStacks.Test
             // CodeStacksDataHandler.ImageData.ConvertToBitmapImage;
 
 
-            CodeStacksSecurity.VerifyMd5Hash("074626fc97e5388f84e1c651ae657be4", "074626fc97e5388f84e1c651ae657be4");
+            //CodeStacksSecurity.VerifyMd5Hash("074626fc97e5388f84e1c651ae657be4", "074626fc97e5388f84e1c651ae657be4");
+
+            string curTime = DateTime.Now.ToShortDateString();
+            
+
+
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

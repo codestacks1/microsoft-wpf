@@ -29,7 +29,7 @@
         </Style>
     </Window.Resources>
     <Grid >
-        <Grid x:Name="gridCap" Visibility="Collapsed" Background="#296580" >
+        <Grid x:Name="gridCap" Visibility="Collapsed" Background="#02101A" >
             <ListView x:Name="CapList" Margin="1" 
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                     >
@@ -76,13 +76,13 @@
                 </ListBox.ItemContainerStyle>
             </ListView>
         </Grid>
-        <Grid x:Name="gridVideo" Visibility="Visible" Background="#296580" >
+        <Grid x:Name="gridVideo" Visibility="Visible" Background="#02101A" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <ListBox x:Name="listPlays" MinHeight="390" FontSize="22" Background="#296580" Foreground="White" MouseDoubleClick="listPlays_MouseDoubleClick">
+                <ListBox x:Name="listPlays" MinHeight="390" FontSize="22" Background="#02101A" Foreground="White" MouseDoubleClick="listPlays_MouseDoubleClick">
 
                 </ListBox>
             </StackPanel>

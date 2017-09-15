@@ -54,10 +54,10 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                 switch (compare.Template.TypeKey)
                 {
                     case 0:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));//蓝
+                        colorBrush = new SolidColorBrush(Color.FromRgb(2, 16, 25));//蓝
                         break;
                     case 1:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        colorBrush = new SolidColorBrush(Color.FromRgb(2, 16, 25));
                         break;
                     case 2:
                         colorBrush = new SolidColorBrush(Color.FromRgb(122, 16, 59));//红
@@ -69,7 +69,7 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
                         colorBrush = new SolidColorBrush(Color.FromRgb(194, 184, 15));//黄
                         break;
                     default:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(0, 109, 132));
+                        colorBrush = new SolidColorBrush(Color.FromRgb(2, 16, 25));
                         break;
                 }
 

@@ -113,6 +113,7 @@
     <Compile Include="Models\CodeStacksButtonCmd.cs" />
     <Compile Include="Models\CodeStacksCloseWindow.cs" />
     <Compile Include="Models\CodeStacksVersionAttribute.cs" />
+    <Compile Include="Models\CodeStacks\CareMe.cs" />
     <Compile Include="Models\Enumerate\ErrorNumber.cs" />
     <Compile Include="Models\Enumerate\SizeUnitsEnum.cs" />
     <Compile Include="Models\Excel\TemplatePersonInfo.cs" />
