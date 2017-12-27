@@ -160,9 +160,6 @@
     <Compile Include="Views\CodeStacksSigninWindow.xaml.cs">
       <DependentUpon>CodeStacksSigninWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CodeStacksTestWindow.xaml.cs">
-      <DependentUpon>CodeStacksTestWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="xiaowen{popwindow}.cs" />
     <Page Include="App.xaml">
       <SubType>Designer</SubType>
@@ -205,10 +202,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodeStacksSigninWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CodeStacksTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

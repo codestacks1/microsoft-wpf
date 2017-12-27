@@ -271,7 +271,8 @@ namespace Xiaowen.CodeStacks.Data.DataHandler
                     Stream stream = new MemoryStream(buffer);
                     using (Image img = Image.FromStream(stream))
                     {
-                        compressBuffer = ImageCompress(stream);
+                        compressBuffer = buffer;
+                        //compressBuffer = ImageCompress(stream);
                         result.BeginInit();
                         result.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
                         result.StreamSource = new MemoryStream(compressBuffer);

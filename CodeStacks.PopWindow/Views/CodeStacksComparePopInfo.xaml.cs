@@ -42,6 +42,8 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
             this.Close();
         }
 
+
+        private string TemplateInfo { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -50,22 +52,24 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         {
             try
             {
+                if (param.Count() > 0)
+                    TemplateInfo = param[0].ToString();
+                else
+                    TemplateInfo = "没有查询到模板信息";
+
                 SolidColorBrush colorBrush = new SolidColorBrush();
-                switch (compare.Template.TypeKey)
+                switch (compare.Template.BackgroundColor.ToString())
                 {
-                    case 0:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(2, 16, 25));//蓝
+                    case "蓝":
+                        colorBrush = new SolidColorBrush(Color.FromRgb(19, 72, 113));//蓝
                         break;
-                    case 1:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(2, 16, 25));
-                        break;
-                    case 2:
+                    case "红":
                         colorBrush = new SolidColorBrush(Color.FromRgb(122, 16, 59));//红
                         break;
-                    case 3:
-                        colorBrush = new SolidColorBrush(Color.FromRgb(214, 121, 10));//橙
+                    case "橙":
+                        colorBrush = new SolidColorBrush(Color.FromRgb(169, 129, 107));//橙
                         break;
-                    case 4:
+                    case "黄":
                         colorBrush = new SolidColorBrush(Color.FromRgb(194, 184, 15));//黄
                         break;
                     default:
@@ -112,6 +116,19 @@ namespace Xiaowen.CodeStacks.PopWindow.Views
         private void label_TemplateName_MouseLeave(object sender, MouseEventArgs e)
         {
             popup.IsOpen = false;
+        }
+
+
+        Popup popup1 = new Popup();
+        private void label_TemplateInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            popup1.Child = new CodeStacksHintControlView(popup1, TemplateInfo);
+            popup1.IsOpen = true;
+        }
+
+        private void label_TemplateInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            popup1.IsOpen = false;
         }
 
         private void btnCap_Click(object sender, RoutedEventArgs e)

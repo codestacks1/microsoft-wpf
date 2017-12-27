@@ -73,8 +73,6 @@ namespace CodeStacks.Test.Views
             //    throw;
             //}
             
-            CodeStacksTestWindow s = new CodeStacksTestWindow();
-            s.Show();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

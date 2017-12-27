@@ -142,8 +142,9 @@
                     <!--模版照片-->
                     <Label>模版照片:</Label>
                     <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs2}">
-                        <Image x:Name="image_cmpImage" Margin="10"></Image>
-                        <Image Source="..\Gallery\bg.photo.png"></Image>
+                        <Image x:Name="image_cmpImage" Margin="15,30,15,30"
+                               Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"></Image>
+                        <Image Source="..\Gallery\bg.photo.png" MouseEnter="label_TemplateInfo_MouseEnter" MouseLeave="label_TemplateInfo_MouseLeave" Margin="1"></Image>
                     </Grid>
                 </StackPanel>
 
@@ -181,7 +182,8 @@
                     <!--抓拍照片-->
                     <Label>抓拍照片:</Label>
                     <Grid Height="530" Width="330" ContextMenu="{StaticResource SaveAs1}" >
-                        <Image Stretch="Fill" x:Name="image_capImage" Margin="15,30,15,30"></Image>
+                        <Image x:Name="image_capImage" Margin="15,30,15,30"
+                               Width="{Binding ActualWidth}" Height="{Binding ActualHeight}"></Image>
                         <Image Source="..\Gallery\bg.photo.png" Margin="1"></Image>
                     </Grid>
                 </StackPanel>

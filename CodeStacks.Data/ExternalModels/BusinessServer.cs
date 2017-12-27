@@ -1,6 +1,6 @@
-﻿public partial class BusinessServer
-{
-}
+﻿//public partial class BusinessServer
+//{
+//}
 
 
 

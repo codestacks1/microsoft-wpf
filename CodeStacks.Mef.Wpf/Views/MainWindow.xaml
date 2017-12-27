@@ -12,7 +12,6 @@
         d:DataContext="{d:DesignInstance viewmodel:MainWindowViewModel,IsDesignTimeCreatable=True}"
         prism:ViewModelLocator.AutoWireViewModel="True" Icon="/Startup;component/logo.ico">
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

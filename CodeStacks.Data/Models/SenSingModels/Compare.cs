@@ -35,5 +35,7 @@ namespace Xiaowen.CodeStacks.Data.SenSingModels
         /// 冗余字段2
         /// </summary>
         public object Content2 { get; set; }
+
+        public object Content3 { get; set; }
     }
 }

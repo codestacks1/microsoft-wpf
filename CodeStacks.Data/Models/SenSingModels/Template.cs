@@ -47,5 +47,9 @@
         /// </summary>
         public object Content2 { get; set; }
 
+        /// <summary>
+        /// 背景色
+        /// </summary>
+        public object BackgroundColor { get; set; }
     }
 }
